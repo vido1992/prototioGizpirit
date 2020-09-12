@@ -43,7 +43,7 @@ public class StockConsultar extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Modelo ", "Precio Impot", "Precio Público", "Descripción", "Cantidad"
+                "Código", "Modelo ", "Precio Público", "Cantidad"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
