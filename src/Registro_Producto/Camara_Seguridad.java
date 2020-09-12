@@ -71,7 +71,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel31.setText("Código del producto:");
+        jLabel31.setText("Código:");
 
         jLabel32.setText("Modelo:");
 
@@ -99,7 +99,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
         jLabel38.setText("Tipo:");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("PRODUCTO CÁMARA DE SEGURIDAD");
+        jLabel7.setText("REGISTRO CÁMARA DE SEGURIDAD");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
