@@ -13,7 +13,7 @@ import Empleado.ActualizarEmpleado;
 import Empleado.ConsultarEmpleado;
 import Empleado.RegistroEmpleado;
 import Inventario.StockActualizar;
-import Inventario.StockConsultar;
+import Inventario.ProductoConsultar;
 import Ventas.AgregarProducto;
 
 import Registro_Producto.Audifonos;
@@ -39,7 +39,7 @@ public class Menu extends javax.swing.JFrame {
 ConsultaCliente CC=new ConsultaCliente();
 AgregarProducto IC1=new AgregarProducto();
 StockActualizar SA =new StockActualizar();
-StockConsultar SC=new StockConsultar();
+ProductoConsultar SC=new ProductoConsultar();
 VentaRegistro VR1= new VentaRegistro();
 VentaConsulta VC1= new VentaConsulta();
 Registro_Cliente RC1=new Registro_Cliente();
@@ -116,6 +116,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem28 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem25 = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -344,6 +345,10 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenu12.add(jMenuItem14);
 
         jMenu8.add(jMenu12);
+
+        jMenuItem28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jMenuItem28.setText("Actualizar Producto");
+        jMenu8.add(jMenuItem28);
 
         jMenuItem13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem13.setText("Consultar Stock");
@@ -794,6 +799,7 @@ escritorio.add(SA);
     private javax.swing.JMenuItem jMenuItem25;
     private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem27;
+    private javax.swing.JMenuItem jMenuItem28;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;

@@ -95,6 +95,8 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
 
         jLabel39.setText("Fecha de venta:");
 
+        jTextField1.setEnabled(false);
+
         jLabel2.setText("Número Factura:");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
