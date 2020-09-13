@@ -5,7 +5,7 @@
  */
 package Inventario;
 
-import ConsultarProducto.ProductoConsultar;
+import Producto.ProductoConsultar;
 import Inicio.Menu;
 
 /**

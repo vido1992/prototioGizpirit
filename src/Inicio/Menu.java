@@ -13,7 +13,7 @@ import Empleado.ActualizarEmpleado;
 import Empleado.ConsultarEmpleado;
 import Empleado.RegistroEmpleado;
 import Inventario.StockActualizar;
-import ConsultarProducto.ProductoConsultar;
+import Producto.ProductoConsultar;
 import Ventas.AgregarProducto;
 import Actualizar_Producto.*;
 
