@@ -9,12 +9,12 @@ package Producto;
  *
  * @author David
  */
-public class ProductoActualizar extends javax.swing.JInternalFrame {
+public class ProductoEliminar extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ProductoActualizar
      */
-    public ProductoActualizar() {
+    public ProductoEliminar() {
         initComponents();
     }
 
