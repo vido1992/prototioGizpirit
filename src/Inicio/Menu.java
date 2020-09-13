@@ -409,7 +409,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
 
         jMenu15.setText("Domotica");
 
-        jMenuItem36.setText("Interruptor");
+        jMenuItem36.setText("Tomacorriente");
         jMenuItem36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem36ActionPerformed(evt);
@@ -417,7 +417,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         });
         jMenu15.add(jMenuItem36);
 
-        jMenuItem35.setText("Tomacorriente");
+        jMenuItem35.setText("Interruptor");
         jMenuItem35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem35ActionPerformed(evt);
