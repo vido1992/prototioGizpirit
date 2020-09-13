@@ -57,6 +57,8 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
         setClosable(true);
 
+        jTextField29.setEnabled(false);
+
         jBotonRegistrarInv1.setText("Registrar");
 
         jButtonRegresar3.setText("Regresar");
