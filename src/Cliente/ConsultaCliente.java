@@ -53,7 +53,7 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
         jLabelConsultaCli.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelConsultaCli.setText("Seleccione el elemento de búsqueda");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cédula de Identidad", "Apellido" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cédula de Identidad" }));
 
         jButtonRegresar.setText("Regresar");
         jButtonRegresar.addActionListener(new java.awt.event.ActionListener() {

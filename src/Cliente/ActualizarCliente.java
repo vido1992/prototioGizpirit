@@ -108,7 +108,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("ACTUALIZAR CLIENTE");
+        jLabel2.setText("ACTUALIZACIÓN CLIENTE");
 
         jLabel16.setText("Teléfono convencional");
 

@@ -63,7 +63,7 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
 
         jLabelConsultaCli.setText("Seleccione el elemento de búsqueda");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cédula de Identidad", "Apellido", "Nombre" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cédula de Identidad", "Estádo", "Rol", "Sueldo" }));
 
         jButton2.setText("Cancelar");
         jButton2.setMinimumSize(new java.awt.Dimension(100, 40));
