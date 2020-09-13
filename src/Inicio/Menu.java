@@ -447,7 +447,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenu10.add(jMenuItem21);
 
         jMenuItem22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem22.setText("Auditoria");
+        jMenuItem22.setText("Auditoría");
         jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem22ActionPerformed(evt);

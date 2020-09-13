@@ -265,12 +265,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
+            <Property name="text" type="java.lang.String" value="Direcci&#xf3;n de domicilio"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xfa;mero de tel&#xe9;fono celular"/>
+            <Property name="text" type="java.lang.String" value="Tel&#xe9;fono celular"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -299,7 +299,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xfa;mero de tel&#xe9;fono convencional"/>
+            <Property name="text" type="java.lang.String" value="Tel&#xe9;fono convencional"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">

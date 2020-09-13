@@ -19,7 +19,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
 
  Validar validar= new Validar();
  Base base=new Base();
- public String CC,Nombre,Apellido,Direccion,Correo, Placa,TelefonoCelular,Cantidad,TipoCliente;
+ public String CI,Nombre,Apellido,Direccion,Correo,TelefonoCelular,TelefonoConvencional;
  
     public Registro_Cliente() {
         initComponents();
@@ -240,7 +240,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
         } */
         if(this.CCCRegistro.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CC VACIO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);
         }else if( NombreClienteRegistro.getText().equals("") ){
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO NOMBRES VACIO", JOptionPane.WARNING_MESSAGE);
         }else if(this.ApellidosClienteRegistro.getText().equals(""))
@@ -256,11 +256,11 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
         }else
         {
             //System.out.println(this.CCCRegistro.getText().toString());
-            if (validar.validarCC(this.CCCRegistro.getText().toString()))
+            if (validar.validarCI(this.CCCRegistro.getText().toString()))
             {
                 //{}
                 i++;
-                this.CC=this.CCCRegistro.getText().toString();
+                this.CI=this.CCCRegistro.getText().toString();
                 //System.out.println("cc: "+this.CCCRegistro.getText().toString() );
             }
             if(validar.validarTex(this.NombreClienteRegistro.getText().toString()))

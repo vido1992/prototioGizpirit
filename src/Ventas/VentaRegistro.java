@@ -123,7 +123,7 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("FACTURA");
 
-        jLabel42.setText("Codigo de vendedor");
+        jLabel42.setText("Código de vendedor");
 
         jLabel43.setText("Sub-Total:");
 

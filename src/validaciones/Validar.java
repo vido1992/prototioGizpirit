@@ -69,8 +69,8 @@ public class Validar {
 
         if (!cedulaCorrecta) {
 
-        System.out.println("Número de ciudadanía incorrecto");
-        JOptionPane.showMessageDialog(null,  "Número de cédula de ciudadanía incorrecto","CAMPO CC INCORRECTO", JOptionPane.WARNING_MESSAGE);  
+        System.out.println("Número de CÉDULA DE IDENTIDAD incorrecto");
+        JOptionPane.showMessageDialog(null,  "Número de cédula de identidad incorrecto","CAMPO CÉDULA DE IDENTIDAD INCORRECTO", JOptionPane.WARNING_MESSAGE);  
 
         }
         return cedulaCorrecta;
@@ -80,7 +80,7 @@ public class Validar {
      
      
      
-    public boolean validarCC (String cedula)
+    public boolean validarCI (String cedula)
     {
         int cantidad=cedula.length();
         if(cantidad==10)
@@ -89,7 +89,7 @@ public class Validar {
             {
 
                
-                System.out.println( "Cédula Correcta");  
+                System.out.println( "Cédula de Identidad Correcta");  
                 return true;
             }
         }  
@@ -127,7 +127,7 @@ public class Validar {
             return true;
         } else {
 
-            JOptionPane.showMessageDialog(null,  "Solo se aceptan letras, tildes y espacios, con un límite de 50 caracteres además de ser en mayúsculas"
+            JOptionPane.showMessageDialog(null,  "Para Nombre o Apellidos Solo se aceptan letras, tildes y espacios, con un límite de 50 caracteres además de ser en mayúsculas"
             ,"CAMPO INCORRECTO", JOptionPane.WARNING_MESSAGE);  
             }
         }else {
@@ -205,23 +205,24 @@ public class Validar {
         
     }
     
-        public boolean validarPlaca(String placa)
-        {
-            System.out.println("PLACA INGRESADA?.");
-            Pattern pattern = Pattern.compile("^[A-Z]{3}\\-[0-9]{4}$");
-            Matcher mather = pattern.matcher(placa);
-
-            if (mather.find() == true) {
-                System.out.println("La placa es válida.");
-                return true;
-            } else {
-                System.out.println("La placa es inválida.");
-                JOptionPane.showMessageDialog(null,  "placa incorrecta, no cumple con el reglamento de la ANT"); 
-                return false;
-            }
-            
+        
+     public boolean validarTelefonoConvencional(String telefono)
+    {
+ 
+        System.out.println("El teléfono ingresado?.");
+        Pattern pattern = Pattern.compile("^(02)[5-9]{1}[0-9]{7}$");
+        Matcher mather = pattern.matcher(telefono);
+ 
+        if (mather.find() == true) {
+            System.out.println("El teléfono ingresado es válido.");
+            return true;
+        } else {
+            System.out.println("El teléfono ingresado es inválido.");
+            JOptionPane.showMessageDialog(null,  "Se admite solo números y un total de 10 dígitos "); 
+            return false;
         }
-    
+        
+    }
 
     
     

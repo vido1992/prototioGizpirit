@@ -151,7 +151,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jBotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonIniciarSesionActionPerformed
         // TODO add your handling code here:
-        validar.validarCC(this.jCCField.getText().toString());
+        validar.validarCI(this.jCCField.getText().toString());
 
         String res = validarIngreso(jComboUsuario.getSelectedIndex(), jCCField.getText(), jContraseñaField.getText());
     }//GEN-LAST:event_jBotonIniciarSesionActionPerformed

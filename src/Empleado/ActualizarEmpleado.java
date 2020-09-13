@@ -87,9 +87,9 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
         txtApe.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txtApe.setPreferredSize(new java.awt.Dimension(250, 28));
 
-        jLabel9.setText("Dirección");
+        jLabel9.setText("Dirección de domicilio");
 
-        jLabel6.setText("Número de teléfono celular");
+        jLabel6.setText("Teléfono celular");
 
         jLabel7.setText("Correo electrónico");
 
@@ -108,7 +108,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel8.setText("Número de teléfono convencional");
+        jLabel8.setText("Teléfono convencional");
 
         jLabel10.setText("Rol");
 

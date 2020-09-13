@@ -310,7 +310,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel42">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Codigo de vendedor"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo de vendedor"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel43">

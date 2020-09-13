@@ -102,7 +102,7 @@ public class Sensor extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Tipo:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magnetico Wi-Fi", "Movimiento Wi-Fi" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Magnético Wi-Fi", "Movimiento Wi-Fi" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
