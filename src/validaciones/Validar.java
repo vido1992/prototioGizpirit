@@ -127,7 +127,7 @@ public class Validar {
             return true;
         } else {
 
-            JOptionPane.showMessageDialog(null,  "Para Nombre o Apellidos Solo se aceptan letras, tildes y espacios, con un límite de 50 caracteres además de ser en mayúsculas"
+            JOptionPane.showMessageDialog(null,  "Para Nombre o Apellidos Solo se aceptan un máximo de 40 caracteres además de ser en mayúsculas"
             ,"CAMPO INCORRECTO", JOptionPane.WARNING_MESSAGE);  
             }
         }else {
@@ -152,7 +152,7 @@ public class Validar {
          
         } else {
             System.out.println("Se admite solo MAYÚSCULAS");
-            JOptionPane.showMessageDialog(null,  "Dirección no cumple con lo permitido, Solo se aceptan letras, tildes, espacios y en mayúsculas");  
+            JOptionPane.showMessageDialog(null,  "Dirección no cumple con lo permitido, Solo se aceptan caracteres alfanuméricos y carácter especial '-', de longitud máxima de 60 todo en mayúsculas ");  
             return false;
         }
        
@@ -179,7 +179,7 @@ public class Validar {
             return true;
         } else {
             System.out.println("Dirección de correo no cumple con el estándar RFC 822.");
-            JOptionPane.showMessageDialog(null,  "Se admite solo minúsculas"); 
+            JOptionPane.showMessageDialog(null,  "Dirección de correo no cumple con el estándar RFC 822."); 
             return false;
         }
         
@@ -218,7 +218,7 @@ public class Validar {
             return true;
         } else {
             System.out.println("El teléfono ingresado es inválido.");
-            JOptionPane.showMessageDialog(null,  "Se admite solo números y un total de 10 dígitos "); 
+            JOptionPane.showMessageDialog(null,  "Se admite solo números y un total de 9 dígitos "); 
             return false;
         }
         
