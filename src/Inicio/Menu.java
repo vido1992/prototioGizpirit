@@ -862,10 +862,10 @@ escritorio.add(SA);
 
     private void jMenuItem35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem35ActionPerformed
         // TODO add your handling code here:
-        escritorio.add(AT);
-        AT.show();
+        escritorio.add(AI);
+        AI.show();
         try {
-            AT.setMaximum(true);
+            AI.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
