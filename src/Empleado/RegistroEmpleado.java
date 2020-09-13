@@ -48,7 +48,6 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
         DireccionClienteRegistro = new javax.swing.JTextField();
         ApellidosClienteRegistro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        CorreoElectronico1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
@@ -56,6 +55,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
         CorreoElectronico2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         CorreoElectronico3 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
 
         setClosable(true);
 
@@ -115,6 +115,8 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
 
         jLabel11.setText("Correo electrónico");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Vendedor", "Administrador", "Bodeguero" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -152,13 +154,13 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                                             .addComponent(CorreoElectronico2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(TelefonoClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(CorreoElectronico1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(DireccionClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(ApellidosClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(NombreClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(CCCRegistro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(CorreoElectronico3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(CorreoElectronico3, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(75, 75, 75)
                                         .addComponent(jButtonRegresar)))))))
@@ -198,7 +200,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(CorreoElectronico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -226,7 +228,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(0, 30, Short.MAX_VALUE))
         );
 
         pack();
@@ -309,7 +311,6 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField ApellidosClienteRegistro;
     private javax.swing.JTextField CCCRegistro;
     private javax.swing.JTextField CorreoElectronico;
-    private javax.swing.JTextField CorreoElectronico1;
     private javax.swing.JTextField CorreoElectronico2;
     private javax.swing.JTextField CorreoElectronico3;
     private javax.swing.JTextField DireccionClienteRegistro;
@@ -317,6 +318,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField TelefonoClienteRegistro;
     private javax.swing.JButton jBotonRegistrar;
     private javax.swing.JButton jButtonRegresar;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;

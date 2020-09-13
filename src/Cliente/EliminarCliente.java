@@ -62,7 +62,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("ELIMINARCIÓN CLIENTE");
+        jLabel2.setText("ELIMINARCIÓN  DE CLIENTE");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 

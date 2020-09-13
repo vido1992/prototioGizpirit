@@ -178,8 +178,8 @@ public class Validar {
             System.out.println("El email ingresado es válido.");
             return true;
         } else {
-            System.out.println("Dirección de correo no cumple con el estándar RFC 822.");
-            JOptionPane.showMessageDialog(null,  "Dirección de correo no cumple con el estándar RFC 822."); 
+            System.out.println("Dirección de correo no cumple con el estándar RFC 733.");
+            JOptionPane.showMessageDialog(null,  "Dirección de correo no cumple con el estándar RFC 733."); 
             return false;
         }
         
