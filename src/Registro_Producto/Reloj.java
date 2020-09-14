@@ -16,40 +16,36 @@ import validaciones.Validar;
  */
 public class Reloj extends javax.swing.JInternalFrame {
 
-    String codigo,modelo,marca,gama,sumerguibleSi,sumerguibleNo,sistemaSi,sistemaNo;
-    float precioImportacion,precioPublico;
+    String codigo, modelo, marca, gama, sumerguibleSi, sumerguibleNo, sistemaSi, sistemaNo;
+    float precioImportacion, precioPublico;
     /**
      * Creates new form Reloj
      */
-    
-   // C_Reloj RE = new C_Reloj();
-   ArrayList relojArray= new ArrayList<C_Reloj>();
-   Validar val =new Validar();
-    
+
+    // C_Reloj RE = new C_Reloj();
+    ArrayList relojArray = new ArrayList<C_Reloj>();
+    Validar val = new Validar();
+
     public Reloj() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-RELOJ"); 
+        this.setTitle("SiGIn-GIZPIRIT-RELOJ");
         //obtenerDatos();
     }
-    
-    
-    public void obtenerDatos(){
-    
-    //this.codigo=jTextFielCodigo.getText().toString();
-    this.modelo=jTextFieldModelo.getText().toString();
-    this.marca=jTextFieldMarca.getText().toString();
-    this.gama=jComboBoxGama.getSelectedItem().toString();
-    this.sumerguibleSi = jRadioButtonSiSumer.getText().toString();
-    this.sumerguibleNo = jRadioButtonNoSumer.getText().toString();
-    this.sistemaSi=jRadioButtonSiSis.getText().toString();
-    this.sistemaNo=jRadioButtonNoSis.getText().toString();
-    this.precioImportacion=Float.parseFloat( jTextFieldPrecioImpo.getText().toString());
-    this.precioPublico=Float.parseFloat( jTextFieldPrecioPubl.getText().toString());
-    
-    
- 
+
+    public void obtenerDatos() {
+
+        //this.codigo=jTextFielCodigo.getText().toString();
+        this.modelo = jTextFieldModelo.getText().toString();
+        this.marca = jTextFieldMarca.getText().toString();
+        this.gama = jComboBoxGama.getSelectedItem().toString();
+        this.sumerguibleSi = jRadioButtonSiSumer.getText().toString();
+        this.sumerguibleNo = jRadioButtonNoSumer.getText().toString();
+        this.sistemaSi = jRadioButtonSiSis.getText().toString();
+        this.sistemaNo = jRadioButtonNoSis.getText().toString();
+        this.precioImportacion = Float.parseFloat(jTextFieldPrecioImpo.getText().toString());
+        this.precioPublico = Float.parseFloat(jTextFieldPrecioPubl.getText().toString());
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,6 +56,9 @@ public class Reloj extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jTextFieldMarca = new javax.swing.JTextField();
         jBotonRegistrarInv1 = new javax.swing.JButton();
@@ -113,14 +112,18 @@ public class Reloj extends javax.swing.JInternalFrame {
 
         jLabel38.setText("Gama: ");
 
+        buttonGroup1.add(jRadioButtonSiSumer);
         jRadioButtonSiSumer.setText("SI");
 
+        buttonGroup1.add(jRadioButtonNoSumer);
         jRadioButtonNoSumer.setText("NO");
 
         jLabel39.setText("Sistema Android: ");
 
+        buttonGroup2.add(jRadioButtonSiSis);
         jRadioButtonSiSis.setText("SI");
 
+        buttonGroup2.add(jRadioButtonNoSis);
         jRadioButtonNoSis.setText("NO");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -281,28 +284,34 @@ public class Reloj extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        
-       /*obtenerDatos();
-        System.out.println(jTextFielCodigo.getText());
-        if(jTextFielCodigo.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACIO", JOptionPane.WARNING_MESSAGE);
-        }else{val.ValidarTextoCodigo(jTextFielCodigo);
-        
+
+        if (jTextFieldModelo1.getText().isEmpty() || jTextFieldModelo.getText().isEmpty() || jTextFieldMarca.getText().isEmpty() || jTextFieldPrecioImpo.getText().isEmpty() || jTextFieldPrecioPubl.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "ingrese todos los campos", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
+        } else {
+            val.ValidarTextoCodigo(jTextFieldModelo1);
+            val.ValidarTextoModelo(jTextFieldModelo);
+            val.ValidarTextoMarca(jTextFieldMarca);
+            val.ValidarJcombobox(jComboBoxGama);
+
+            val.ValidarRadioButomsis(jRadioButtonSiSis);
+            val.ValidarRadioButomsis(jRadioButtonNoSis);
+
+            val.ValidarRadioButomSum(jRadioButtonSiSumer);
+            val.ValidarRadioButomSum(jRadioButtonNoSumer);
+
+            val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
+            val.ValidarPrecioPublico(jTextFieldPrecioPubl);
+
         }
-            
-        
-        */
-        
-        
-        
-        
-        
+
         JOptionPane.showMessageDialog(null, "Producto Reloj Registrado\n Correctamente");
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButtonRegresar3;
     private javax.swing.JComboBox jComboBoxGama;
