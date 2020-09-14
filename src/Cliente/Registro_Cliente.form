@@ -50,7 +50,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,15 +81,15 @@
                   </Group>
                   <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="TelefonoClienteRegistro" min="-2" pref="138" max="-2" attributes="0"/>
-                      <Component id="CorreoElectronico" min="-2" pref="138" max="-2" attributes="0"/>
-                      <Component id="CorreoElectronico1" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Component id="CCCRegistro" alignment="0" pref="352" max="32767" attributes="0"/>
                           <Component id="NombreClienteRegistro" alignment="0" max="32767" attributes="0"/>
                           <Component id="ApellidosClienteRegistro" alignment="0" max="32767" attributes="0"/>
                           <Component id="DireccionClienteRegistro" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="TelefonoClienteRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                      <Component id="CorreoElectronico" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                      <Component id="telefonoConvencional" min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -142,14 +142,14 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CorreoElectronico" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefonoConvencional" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="CorreoElectronico1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CorreoElectronico" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jBotonRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -268,7 +268,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="CorreoElectronico">
         </Component>
-        <Component class="javax.swing.JTextField" name="CorreoElectronico1">
+        <Component class="javax.swing.JTextField" name="telefonoConvencional">
         </Component>
         <Component class="javax.swing.JTextField" name="DireccionClienteRegistro">
         </Component>

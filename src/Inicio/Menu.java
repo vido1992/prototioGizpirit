@@ -146,6 +146,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem32 = new javax.swing.JMenuItem();
         jMenuItem30 = new javax.swing.JMenuItem();
+        jMenuItem38 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem13 = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -492,6 +493,15 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenu14.add(jMenuItem30);
 
         jMenu13.add(jMenu14);
+
+        jMenuItem38.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jMenuItem38.setText("Eliminar Producto");
+        jMenuItem38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem38ActionPerformed(evt);
+            }
+        });
+        jMenu13.add(jMenuItem38);
 
         jMenuBar2.add(jMenu13);
 
@@ -948,6 +958,10 @@ escritorio.add(SA);
         }
     }//GEN-LAST:event_jMenuItem30ActionPerformed
 
+    private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem38ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem38ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1037,6 +1051,7 @@ escritorio.add(SA);
     private javax.swing.JMenuItem jMenuItem35;
     private javax.swing.JMenuItem jMenuItem36;
     private javax.swing.JMenuItem jMenuItem37;
+    private javax.swing.JMenuItem jMenuItem38;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

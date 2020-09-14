@@ -35,7 +35,7 @@ public class Reloj extends javax.swing.JInternalFrame {
     
     public void obtenerDatos(){
     
-    this.codigo=jTextFielCodigo.getText().toString();
+    //this.codigo=jTextFielCodigo.getText().toString();
     this.modelo=jTextFieldModelo.getText().toString();
     this.marca=jTextFieldMarca.getText().toString();
     this.gama=jComboBoxGama.getSelectedItem().toString();
@@ -282,7 +282,7 @@ public class Reloj extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
         
-       obtenerDatos();
+       /*obtenerDatos();
         System.out.println(jTextFielCodigo.getText());
         if(jTextFielCodigo.getText().isEmpty())
         {
@@ -292,7 +292,7 @@ public class Reloj extends javax.swing.JInternalFrame {
         }
             
         
-        
+        */
         
         
         

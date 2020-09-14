@@ -9,6 +9,7 @@ package Cliente;
 import javax.swing.JOptionPane;
 import Inicio.Base;
 import Inicio.Menu;
+import java.util.ArrayList;
 import validaciones.Validar;
 
 /**
@@ -20,6 +21,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
  Validar validar= new Validar();
  Base base=new Base();
  public String CI,Nombre,Apellido,Direccion,Correo,TelefonoCelular,TelefonoConvencional;
+ public ArrayList clienteArray= new ArrayList<String>();
  
     public Registro_Cliente() {
         initComponents();
@@ -55,7 +57,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
         ApellidosClienteRegistro = new javax.swing.JTextField();
         TelefonoClienteRegistro = new javax.swing.JTextField();
         CorreoElectronico = new javax.swing.JTextField();
-        CorreoElectronico1 = new javax.swing.JTextField();
+        telefonoConvencional = new javax.swing.JTextField();
         DireccionClienteRegistro = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -144,14 +146,14 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9))
                 .addGap(57, 57, 57)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TelefonoClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CorreoElectronico1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(CCCRegistro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
                         .addComponent(NombreClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(ApellidosClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(DireccionClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(DireccionClienteRegistro, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(TelefonoClienteRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefonoConvencional, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(167, 167, 167)
@@ -194,12 +196,12 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefonoConvencional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CorreoElectronico1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(CorreoElectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonRegistrar)
                     .addComponent(jButtonRegresar))
@@ -219,7 +221,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGap(0, 16, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,9 +253,12 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO DIRECCION VACIO", JOptionPane.WARNING_MESSAGE);
         } else if( this.TelefonoClienteRegistro.getText().equals(""))
         {
-
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO PLACA DEL VEHICULO VACIO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELEFONO CELULAR VACIO", JOptionPane.WARNING_MESSAGE);
+        }else if( this.telefonoConvencional.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELEFONO CONVENCIONAL VACIO", JOptionPane.WARNING_MESSAGE);
         }else
+            
         {
             //System.out.println(this.CCCRegistro.getText().toString());
             if (validar.validarCI(this.CCCRegistro.getText().toString()))
@@ -292,9 +297,23 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
             if(validar.validarTelefonoC(this.TelefonoClienteRegistro.getText()))
             {i++;
                 this.TelefonoCelular=this.TelefonoClienteRegistro.getText();
+                this.TelefonoConvencional=this.telefonoConvencional.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }
 
+        }
+        
+        if (i==6)
+        {
+            JOptionPane.showMessageDialog(null,  "Cliente Registrado");
+            this.clienteArray.add(this.CI);
+            this.clienteArray.add(this.Nombre);
+            this.clienteArray.add(this.Apellido);
+            this.clienteArray.add(this.Direccion);
+            this.clienteArray.add(this.Correo);
+            this.clienteArray.add(this.TelefonoCelular);
+            this.clienteArray.add(this.TelefonoConvencional);
+            
         }
     }//GEN-LAST:event_jBotonRegistrarActionPerformed
 
@@ -303,7 +322,6 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField ApellidosClienteRegistro;
     private javax.swing.JTextField CCCRegistro;
     private javax.swing.JTextField CorreoElectronico;
-    private javax.swing.JTextField CorreoElectronico1;
     private javax.swing.JTextField DireccionClienteRegistro;
     private javax.swing.JTextField NombreClienteRegistro;
     private javax.swing.JTextField TelefonoClienteRegistro;
@@ -321,5 +339,6 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField telefonoConvencional;
     // End of variables declaration//GEN-END:variables
 }
