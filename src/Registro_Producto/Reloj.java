@@ -62,7 +62,6 @@ public class Reloj extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jTextFieldMarca = new javax.swing.JTextField();
-        jTextFielCodigo = new javax.swing.JTextField();
         jBotonRegistrarInv1 = new javax.swing.JButton();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
@@ -84,14 +83,9 @@ public class Reloj extends javax.swing.JInternalFrame {
         jTextFieldPrecioImpo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldPrecioPubl = new javax.swing.JTextField();
+        jTextFieldModelo1 = new javax.swing.JTextField();
 
         setClosable(true);
-
-        jTextFielCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFielCodigoActionPerformed(evt);
-            }
-        });
 
         jBotonRegistrarInv1.setText("Registrar");
         jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
@@ -190,11 +184,11 @@ public class Reloj extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel34)
                                     .addComponent(jLabel38))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jComboBoxGama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldModelo)
-                                    .addComponent(jTextFielCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,10 +216,11 @@ public class Reloj extends javax.swing.JInternalFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel31)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel31)
+                        .addComponent(jTextFieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFielCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32))
@@ -306,10 +301,6 @@ public class Reloj extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "Producto Reloj Registrado\n Correctamente");
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
-    private void jTextFielCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFielCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFielCodigoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonRegistrarInv1;
@@ -331,9 +322,9 @@ public class Reloj extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButtonNoSumer;
     private javax.swing.JRadioButton jRadioButtonSiSis;
     private javax.swing.JRadioButton jRadioButtonSiSumer;
-    private javax.swing.JTextField jTextFielCodigo;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldModelo;
+    private javax.swing.JTextField jTextFieldModelo1;
     private javax.swing.JTextField jTextFieldPrecioImpo;
     private javax.swing.JTextField jTextFieldPrecioPubl;
     // End of variables declaration//GEN-END:variables
