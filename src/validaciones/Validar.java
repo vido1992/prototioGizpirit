@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -223,6 +224,30 @@ public class Validar {
         }
         
     }
+     
+     public  void ValidarTextoCodigo(JTextField texto){
+          
+         
+         Pattern pattern = Pattern.compile("[0-9]{3}$");
+            Matcher mather = pattern.matcher((texto.getText().substring(2,5)));
+         
+         
+         if(texto.getText().length()>5) {
+             JOptionPane.showMessageDialog(null,  "Longitud de código excedido "); 
+         }else if(!texto.getText().substring(0,2).equals("RJ")){
+          JOptionPane.showMessageDialog(null,  "Código Inválido, se debe comenzar con RJ"); 
+         }else if (mather.find()==false){
+           JOptionPane.showMessageDialog(null,  "Los tres últimos caracteres deben ser numéricos"); 
+         }else if (texto.getText().equals(" ")){
+             JOptionPane.showMessageDialog(null,  "Longitud de código excedido"); 
+         }
+         
+      
+    }
+             
+     
+  
+     
 
     
     

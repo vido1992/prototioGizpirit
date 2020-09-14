@@ -244,7 +244,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
         } */
         if(this.CCCRegistro.getText().equals(""))
         {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CC VACIO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACIO", JOptionPane.WARNING_MESSAGE);
         }else if( NombreClienteRegistro.getText().equals("") ){
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO NOMBRES VACIO", JOptionPane.WARNING_MESSAGE);
         }else if(this.ApellidosClienteRegistro.getText().equals(""))
