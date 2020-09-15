@@ -188,6 +188,53 @@ public class Validar {
         }
 
     }
+     public boolean validarCodigoTodos(String texto,String inicial) {
+
+        Pattern pattern = Pattern.compile("[0-9]{3}$");
+        Matcher mather = pattern.matcher((texto.substring(2, 5)));
+
+        if (texto.length() > 5) {
+            JOptionPane.showMessageDialog(null, "Longitud de código excedido ");
+            return false;
+            
+        } else if (!texto.substring(0, 2).equals(inicial)) {
+            JOptionPane.showMessageDialog(null, "Código Inválido, se debe comenzar con"+inicial);
+             return false;
+        } else if (mather.find() == false) {
+            JOptionPane.showMessageDialog(null, "Los tres últimos caracteres deben ser numéricos");
+            return false;
+        } else
+        {
+        return true;
+                }
+
+    }
+     
+     
+     public boolean validarModelosTodos(String texto) {
+
+        if (texto.length() > 5 || texto.matches("^[A-Z0-9]")) {
+
+            JOptionPane.showMessageDialog(null, "Modelo incorrecto mayor a 5 caracteres o no está en mayúsculas");
+             return false;
+        }else {
+        return true;
+        }
+
+    }
+
+    public boolean validarMarcaTodos(String texto) {
+
+        if (texto.length() > 10 || texto.matches("^[A-Z0-9]")) {
+
+            JOptionPane.showMessageDialog(null, "Marca invalida mayor a 10 caracteres o no está en mayúsculas");
+            return false;
+        }else {
+        return true;
+        }
+
+    }
+     
 
     public boolean validarTelefonoConvencional(String telefono) {
 
