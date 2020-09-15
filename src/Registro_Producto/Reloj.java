@@ -5,7 +5,7 @@
  */
 package Registro_Producto;
 
-import Producto.C_Reloj;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
@@ -23,7 +23,7 @@ public class Reloj extends javax.swing.JInternalFrame {
      */
 
     // C_Reloj RE = new C_Reloj();
-    ArrayList relojArray = new ArrayList<C_Reloj>();
+
     Validar val = new Validar();
 
     public Reloj() {

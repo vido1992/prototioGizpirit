@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="Software1PU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>Entidades.Factura</class>
+    <class>Entidades.Cargador</class>
+    <class>Entidades.Audifonos</class>
+    <class>Entidades.Interruptor</class>
+    <class>Entidades.Cliente</class>
+    <class>Entidades.Reloj</class>
+    <class>Entidades.Cable</class>
+    <class>Entidades.Tomacorriente</class>
+    <class>Entidades.Controladorvoz</class>
+    <class>Entidades.Sensor</class>
+    <class>Entidades.Empleado</class>
+    <class>Entidades.Camara</class>
+    <class>Entidades.Llaveautomatica</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/baseSof"/>
+      <property name="javax.persistence.jdbc.user" value="postgres"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="Aezakmi"/>
+    </properties>
+  </persistence-unit>
+</persistence>
