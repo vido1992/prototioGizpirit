@@ -5,7 +5,11 @@
  */
 package Cliente;
 
+import Controladores.ClienteJpaController;
+import Entidades.Cliente;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,6 +20,8 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form EliminarCliente
      */
+    
+    ClienteJpaController Ccliente = new ClienteJpaController();
     public EliminarCliente() {
         initComponents();
     }
@@ -191,7 +197,35 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
            if(this.txtCIEliminarCliente.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        }
+        }else{
+               
+                //Sección 1 
+        DefaultTableModel modelo=(DefaultTableModel) jTable3.getModel(); 
+ 
+        //Sección 2
+        Object [] fila=new Object[6]; 
+ 
+        //Sección 3
+      
+              List<Cliente> listC = Ccliente.findClienteEntities();
+        for (int i = 0; i < listC.size(); i++) {
+            if (txtCIEliminarCliente.getText().equals(listC.get(i).getCedula())) {
+                
+               
+            
+            
+       
+            }
+            
+        } 
+         //Sección 4
+         modelo.addRow(fila); 
+  
+        //Sección 5
+        jTable3.setModel(modelo); 
+           
+        
+           }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

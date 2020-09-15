@@ -30,7 +30,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Cliente.findByDireciondomicilio", query = "SELECT c FROM Cliente c WHERE c.direciondomicilio = :direciondomicilio")
     , @NamedQuery(name = "Cliente.findByTelefonocelular", query = "SELECT c FROM Cliente c WHERE c.telefonocelular = :telefonocelular")
     , @NamedQuery(name = "Cliente.findByTelefonoconvencional", query = "SELECT c FROM Cliente c WHERE c.telefonoconvencional = :telefonoconvencional")
-    , @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email")})
+    , @NamedQuery(name = "Cliente.findByEmail", query = "SELECT c FROM Cliente c WHERE c.email = :email")
+    , @NamedQuery(name = "Cliente.findByEstado", query = "SELECT c FROM Cliente c WHERE c.estado = :estado")})
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +51,8 @@ public class Cliente implements Serializable {
     private String telefonoconvencional;
     @Column(name = "email")
     private String email;
+    @Column(name = "estado")
+    private String estado;
 
     public Cliente() {
     }
@@ -112,6 +115,14 @@ public class Cliente implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

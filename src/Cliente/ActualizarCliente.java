@@ -5,6 +5,8 @@
  */
 package Cliente;
 
+import Controladores.ClienteJpaController;
+import Entidades.Cliente;
 import Inicio.Base;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -14,6 +16,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,15 +32,17 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form ActualizarCliente
      */
-        Validar validar = new Validar();
+    Validar validar = new Validar();
     String datos[] = new String[9];
     LinkedList<String[]> clientes = new LinkedList<>();
     String nuevo[] = new String[9];
     Base base = new Base();
+    ClienteJpaController Ccliente = new ClienteJpaController();
+    Cliente cAct = new Cliente();
     
     public ActualizarCliente() {
         initComponents();
-         this.setTitle("Actualizo Cliente");
+        this.setTitle("Actualizo Cliente");
     }
 
     /**
@@ -49,6 +54,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanelActualizarCli = new javax.swing.JPanel();
         txtactualizarClienteCi = new javax.swing.JTextField();
         txtCorreoActualizarCliente = new javax.swing.JTextField();
@@ -134,7 +140,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -147,6 +153,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Estado Cliente");
 
+        buttonGroup1.add(txtActualizarClienteActivo);
         txtActualizarClienteActivo.setText("Activo");
         txtActualizarClienteActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,6 +161,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(txtActualizarClienteInactivo);
         txtActualizarClienteInactivo.setText("Inactivo");
 
         jLabel3.setText("Nombres");
@@ -227,7 +235,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                             .addComponent(jButton5)))
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                         .addGap(123, 123, 123)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelActualizarCliLayout.setVerticalGroup(
@@ -321,16 +329,17 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         }
         return null;
     }
-  public void removeLineFromFile(String lineToRemove) throws FileNotFoundException, IOException {
-
+    
+    public void removeLineFromFile(String lineToRemove) throws FileNotFoundException, IOException {
+        
         File inputFile = new File("Clientes.txt");
         File tempFile = new File("myTempFile.txt");
-
+        
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));
         BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
+        
         String currentLine;
-
+        
         while ((currentLine = reader.readLine()) != null) {
             // trim newline when comparing with lineToRemove
             String trimmedLine = currentLine.trim();
@@ -343,13 +352,13 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         }
         writer.close();
         reader.close();
-
+        
         inputFile = new File("myTempFile.txt");
         tempFile = new File("Clientes.txt");
-
+        
         reader = new BufferedReader(new FileReader(inputFile));
         writer = new BufferedWriter(new FileWriter(tempFile));
-
+        
         while ((currentLine = reader.readLine()) != null) {
             // trim newline when comparing with lineToRemove
             String trimmedLine = currentLine.trim();
@@ -357,9 +366,9 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         }
         writer.close();
         reader.close();
-
+        
     }
-
+    
     private String[] generarVector(String contenido) {
         int contador = 0;
         String[] datos = new String[10];
@@ -377,63 +386,90 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int i = 0;
-           if(this.txtactualizarClienteCi.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else
-        if (txtCorreoActualizarCliente.getText().equals("")) {
+        if (this.txtactualizarClienteCi.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtCorreoActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO", JOptionPane.WARNING_MESSAGE);
-        } else if (txtDireccionDomicilioActualizarCliente.getText().equals(""))
-                {
-                JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCIÓN", JOptionPane.WARNING_MESSAGE);
-            } else if (txtTelefonoCeluActualizarCliente.getText().equals("")) 
-                    {
-                    JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO", JOptionPane.WARNING_MESSAGE);
-                } else if (this.txtTelefonoConvencionalActualizarCliente.getText().equals(""))
-                    {
-                    JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL", JOptionPane.WARNING_MESSAGE);
-                } else 
-                {
-                    if (validar.validarCorreo(txtCorreoActualizarCliente.getText())) {
-                        i++;
+        } else if (txtDireccionDomicilioActualizarCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCIÓN", JOptionPane.WARNING_MESSAGE);
+        } else if (txtTelefonoCeluActualizarCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtTelefonoConvencionalActualizarCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (validar.validarCorreo(txtCorreoActualizarCliente.getText())) {
+                i++;
+            }
+            if (validar.validarDireccion(txtDireccionDomicilioActualizarCliente.getText())) {
+                i++;
+            }
+            if (validar.validarTelefonoC(txtTelefonoCeluActualizarCliente.getText())) {
+                i++;
+            }
+            if (validar.validarTelefonoConvencional(this.txtTelefonoConvencionalActualizarCliente.getText())) {
+                i++;
+            }
+            if (this.txtActualizarClienteActivo.isSelected() == true) {
+                i++;
+            } else if (this.txtActualizarClienteInactivo.isSelected() == true) {
+                i++;
+            } else {
+                JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO ESTADO CLIENTE ", JOptionPane.WARNING_MESSAGE);
+            }
+            if (i == 5) {
+                try {
+                    cAct.setCedula(CIActualizarCliente.getText());
+                    cAct.setNombres(nombreActualizarCliente.getText());
+                    cAct.setApellidos(ApellidosActualizarCliente.getText());
+                    cAct.setEmail(txtCorreoActualizarCliente.getText());
+                    cAct.setDireciondomicilio(txtDireccionDomicilioActualizarCliente.getText());
+                    cAct.setTelefonocelular(txtTelefonoCeluActualizarCliente.getText());
+                    cAct.setTelefonoconvencional(txtTelefonoConvencionalActualizarCliente.getText());
+                    if (txtActualizarClienteActivo.isSelected()) {
+                        cAct.setEstado(txtActualizarClienteActivo.getText());
+                    } else if (txtActualizarClienteInactivo.isSelected()) {
+                        cAct.setEstado(txtActualizarClienteInactivo.getText());
                     }
-                    if (validar.validarDireccion(txtDireccionDomicilioActualizarCliente.getText())) {
-                        i++;
-                    }
-                    if (validar.validarTelefonoC(txtTelefonoCeluActualizarCliente.getText())) {
-                        i++;
-                    }
-                    if (validar.validarTelefonoConvencional(this.txtTelefonoConvencionalActualizarCliente.getText())) {
-                        i++;
-                    }
-                    if (this.txtActualizarClienteActivo.isSelected()== true) {
-                        i++;
-                    }else
-                    if (this.txtActualizarClienteActivo.isSelected()== true) {
-                        i++;
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO ESTADO CLIENTE ", JOptionPane.WARNING_MESSAGE);
-                    }
-                    if (i==5)
-                    {
-                        JOptionPane.showMessageDialog(null,  "Empleado Registrado");
-                    }
-                    
-                    
+                    Ccliente.edit(cAct);
+                    JOptionPane.showMessageDialog(null, "Empleado Actualizado");
+                } catch (Exception ex) {
+                    Logger.getLogger(ActualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
-      
+            }
+            
+        }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       
+        List<Cliente> listC = Ccliente.findClienteEntities();
+        for (int i = 0; i < listC.size(); i++) {
+            if (txtactualizarClienteCi.getText().equals(listC.get(i).getCedula())) {
+                CIActualizarCliente.setText(listC.get(i).getCedula());
+                nombreActualizarCliente.setText(listC.get(i).getNombres());
+                ApellidosActualizarCliente.setText(listC.get(i).getApellidos());
+                txtCorreoActualizarCliente.setText(listC.get(i).getEmail());
+                txtDireccionDomicilioActualizarCliente.setText(listC.get(i).getDireciondomicilio());
+                txtTelefonoCeluActualizarCliente.setText(listC.get(i).getTelefonocelular());
+                txtTelefonoConvencionalActualizarCliente.setText(listC.get(i).getTelefonoconvencional());
+                if(listC.get(i).getEstado().equals(null)){
+                    txtActualizarClienteActivo.setSelected(false);
+                    txtActualizarClienteInactivo.setSelected(false);
+                }else if (listC.get(i).getEstado().equals("Activo")) {
+                    txtActualizarClienteActivo.setSelected(true);
+                } else if (listC.get(i).getEstado().equals("Inactivo")) {
+                    txtActualizarClienteInactivo.setSelected(true);
+                }
+                
+            }
+            
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
-   dispose();
+        dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void txtActualizarClienteActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActualizarClienteActivoActionPerformed
@@ -448,6 +484,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidosActualizarCliente;
     private javax.swing.JTextField CIActualizarCliente;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonRegresar;

@@ -344,6 +344,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                 cl.setTelefonocelular(this.TelefonoCelular);
                 cl.setTelefonoconvencional(this.TelefonoConvencional);
                 cl.setEmail(this.Correo);
+                cl.setEstado("Activo");
                 Ccliente.create(cl);
                 JOptionPane.showMessageDialog(null, "Cliente Registrado");
             } catch (Exception ex) {

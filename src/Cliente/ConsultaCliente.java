@@ -5,6 +5,9 @@
  */
 package Cliente;
 
+import Controladores.ClienteJpaController;
+import Entidades.Cliente;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +19,8 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form Consulta_Cliente
      */
+    
+    ClienteJpaController Ccliente = new ClienteJpaController();
     public ConsultaCliente() {
         initComponents();
         this.setTitle("Consulto Cliente"); 
@@ -271,7 +276,25 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
            if(this.txtCIConsultaCliente.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        }else{
+           
+           List<Cliente> listC = Ccliente.findClienteEntities();
+        for (int i = 0; i < listC.size(); i++) {
+            if (txtCIConsultaCliente.getText().equals(listC.get(i).getCedula())) {
+   
+                txtNombreConsultaCliente.setText(listC.get(i).getNombres());
+                txtApellidoConsultaCliente.setText(listC.get(i).getApellidos());
+                txtCorreoEleConsultaCliente.setText(listC.get(i).getEmail());
+                txtDirecDomiConsultaCliente.setText(listC.get(i).getDireciondomicilio());
+                txtTeleCeluConsultaCliente.setText(listC.get(i).getTelefonocelular());
+                txtTeleConveConsultaCliente.setText(listC.get(i).getTelefonoconvencional());
+            
+       
+            }
+            
         }
+           
+           }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtTeleCeluConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeleCeluConsultaClienteActionPerformed
