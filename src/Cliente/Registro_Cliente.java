@@ -5,11 +5,14 @@
  */
 package Cliente;
 
-
+import Controladores.ClienteJpaController;
+import Entidades.Cliente;
 import javax.swing.JOptionPane;
 import Inicio.Base;
 import Inicio.Menu;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import validaciones.Validar;
 
 /**
@@ -18,15 +21,16 @@ import validaciones.Validar;
  */
 public class Registro_Cliente extends javax.swing.JInternalFrame {
 
- Validar validar= new Validar();
- Base base=new Base();
- public String CI,Nombre,Apellido,Direccion,Correo,TelefonoCelular,TelefonoConvencional;
- public ArrayList clienteArray= new ArrayList<String>();
- 
+    Validar validar = new Validar();
+    Base base = new Base();
+    ClienteJpaController Ccliente = new ClienteJpaController();
+    public String CI, Nombre, Apellido, Direccion, Correo, TelefonoCelular, TelefonoConvencional;
+    public ArrayList clienteArray = new ArrayList<String>();
+
     public Registro_Cliente() {
         initComponents();
-        
-        this.setTitle("Registro Cliente"); 
+
+        this.setTitle("Registro Cliente");
     }
 
     /**
@@ -264,88 +268,88 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
-        int i=0;
+        int i = 0;
         //{}
         /* if(this.CCCRegistro.getText().equals("") || NombreClienteRegistro.getText().equals("") || this.ApellidosClienteRegistro.getText().equals("") ||
             this.DireccionClienteRegistro.getText().equals("") ||  this.CorreoElectronico.getText().equals("") || this.TelefonoClienteRegistro.equals("")
             || this.PlacaClienteRegistro.getText().equals("") ){
             JOptionPane.showMessageDialog(null,  "No se permite campos vacios","CAMPOS VACIO", JOptionPane.WARNING_MESSAGE);
         } */
-        if(this.CCCRegistro.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);
-        }else if( NombreClienteRegistro.getText().equals("") ){
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO NOMBRES VACIO", JOptionPane.WARNING_MESSAGE);
-        }else if(this.ApellidosClienteRegistro.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO APELLIDOS VACIO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.DireccionClienteRegistro.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO DIRECCION VACIO", JOptionPane.WARNING_MESSAGE);
-        } else if( this.TelefonoClienteRegistro.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELEFONO CELULAR VACIO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.telefonoConvencional.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELEFONO CONVENCIONAL VACIO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.CorreoElectronico.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CORREO ELECTRÓNICO VACIO", JOptionPane.WARNING_MESSAGE);
-        }else
-            
-        {
-            
-            if (validar.validarCI(this.CCCRegistro.getText().toString()))
-            {
+        if (this.CCCRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (NombreClienteRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO NOMBRES VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.ApellidosClienteRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO APELLIDOS VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.DireccionClienteRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.TelefonoClienteRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELEFONO CELULAR VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.telefonoConvencional.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELEFONO CONVENCIONAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.CorreoElectronico.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+
+            if (validar.validarCI(this.CCCRegistro.getText().toString())) {
                 //{}
                 i++;
-                this.CI=this.CCCRegistro.getText().toString();
-                
+                this.CI = this.CCCRegistro.getText().toString();
+
             }
-            if(validar.validarTex(this.NombreClienteRegistro.getText().toString()))
-            {
+            if (validar.validarTex(this.NombreClienteRegistro.getText().toString())) {
                 i++;
-                this.Nombre= this.NombreClienteRegistro.getText().toString();
+                this.Nombre = this.NombreClienteRegistro.getText().toString();
                 //System.out.println(this.NombreClienteRegistro.getText().toString());
 
             }
 
-            if(validar.validarTex(this.ApellidosClienteRegistro.getText().toString()))
-            {
+            if (validar.validarTex(this.ApellidosClienteRegistro.getText().toString())) {
                 i++;
-                this.Apellido=this.ApellidosClienteRegistro.getText().toString();
+                this.Apellido = this.ApellidosClienteRegistro.getText().toString();
                 //System.out.println(this.ApellidosClienteRegistro.getText().toString());
             }
 
-            if(validar.validarDireccion(this.DireccionClienteRegistro.getText().toString()))
-            {
+            if (validar.validarDireccion(this.DireccionClienteRegistro.getText().toString())) {
                 i++;
-                this.Direccion=this.DireccionClienteRegistro.getText().toString();
+                this.Direccion = this.DireccionClienteRegistro.getText().toString();
                 // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
             }
-            if(validar.validarCorreo(this.CorreoElectronico.getText().toString()))
-            {i++;
-                this.Correo=this.CorreoElectronico.getText().toString();
+            if (validar.validarCorreo(this.CorreoElectronico.getText().toString())) {
+                i++;
+                this.Correo = this.CorreoElectronico.getText().toString();
                 //System.out.println(this.CorreoElectronico.getText().toString());
             }
-            if(validar.validarTelefonoC(this.TelefonoClienteRegistro.getText()))
-            {i++;
-                this.TelefonoCelular=this.TelefonoClienteRegistro.getText();
-                 
+            if (validar.validarTelefonoC(this.TelefonoClienteRegistro.getText())) {
+                i++;
+                this.TelefonoCelular = this.TelefonoClienteRegistro.getText();
+
             }
-            if(validar.validarTelefonoConvencional(this.telefonoConvencional.getText()))
-            {i++;
-                
-                this.TelefonoConvencional=this.telefonoConvencional.getText();  
+            if (validar.validarTelefonoConvencional(this.telefonoConvencional.getText())) {
+                i++;
+
+                this.TelefonoConvencional = this.telefonoConvencional.getText();
             }
-         
+
         }
-        
-        if (i==7)
-        {
-            JOptionPane.showMessageDialog(null,  "Cliente Registrado");
-           
-            
+
+        if (i == 7) {
+            try {
+                Cliente cl = new Cliente();
+                
+                cl.setCedula(this.CI);
+                cl.setNombres(this.Nombre);
+                cl.setApellidos(this.Apellido);
+                cl.setDireciondomicilio(this.Direccion);
+                cl.setTelefonocelular(this.TelefonoCelular);
+                cl.setTelefonoconvencional(this.TelefonoConvencional);
+                cl.setEmail(this.Correo);
+                Ccliente.create(cl);
+                JOptionPane.showMessageDialog(null, "Cliente Registrado");
+            } catch (Exception ex) {
+                Logger.getLogger(Registro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }//GEN-LAST:event_jBotonRegistrarActionPerformed
 

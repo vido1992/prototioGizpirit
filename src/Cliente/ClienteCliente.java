@@ -9,7 +9,7 @@ package Cliente;
  *
  * @author Santiago
  */
-public class Cliente {
+public class ClienteCliente {
     private String cedula;
     private String nombres;
     private String apellidos;
@@ -19,10 +19,10 @@ public class Cliente {
     private String telefonoConv;
 
 
-    public Cliente() {
+    public ClienteCliente() {
     }
 
-    public Cliente(String cedula, String nombres, String apellidos, String direccion, String telefono, String email, String telefonoConv) {
+    public ClienteCliente(String cedula, String nombres, String apellidos, String direccion, String telefono, String email, String telefonoConv) {
         this.cedula = cedula;
         this.nombres = nombres;
         this.apellidos = apellidos;
