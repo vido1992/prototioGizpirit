@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
@@ -23,8 +24,8 @@ import javax.persistence.criteria.Root;
  */
 public class CargadorJpaController implements Serializable {
 
-    public CargadorJpaController(EntityManagerFactory emf) {
-        this.emf = emf;
+    public CargadorJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("Software1PU");
     }
     private EntityManagerFactory emf = null;
 
