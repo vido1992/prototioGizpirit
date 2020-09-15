@@ -95,7 +95,7 @@ public class Validar {
             System.out.println( "Cantidad incorrecta se debe ingresar un número real con dos dígitos");
             return false;
         }else{
-            System.out.println( "Cantidad de sueldo correcto");
+            System.out.println( "Cantidad correcta");
             return true;
         }
 

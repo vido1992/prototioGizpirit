@@ -5,15 +5,18 @@
  */
 package Registro_Producto;
 
+import javax.swing.JOptionPane;
+import validaciones.Validar;
+
 /**
  *
  * @author David
  */
 public class Audifonos extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Audifonos
-     */
+   Validar validar = new Validar();
+    public String codigo, modelo, marca, tipo, pInicial, pPublico;
+    
     public Audifonos() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-AUDIFONOS"); 
@@ -30,19 +33,19 @@ public class Audifonos extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
+        txtMarcaRegistro = new javax.swing.JTextField();
+        txtPrecioInicialRegistro = new javax.swing.JTextField();
+        txtCodigoRegistro = new javax.swing.JTextField();
         jBotonRegistrarInv1 = new javax.swing.JButton();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        txtPrecioPublicoRegistro = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
+        txtModeloRegistro = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        boxTipoRegistro = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
@@ -52,6 +55,11 @@ public class Audifonos extends javax.swing.JInternalFrame {
         jLabel29.setText("Precio inicial (USD):");
 
         jBotonRegistrarInv1.setText("Registrar");
+        jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonRegistrarInv1ActionPerformed(evt);
+            }
+        });
 
         jButtonRegresar3.setText("Regresar");
         jButtonRegresar3.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +78,7 @@ public class Audifonos extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Tipo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inalambrico", "Alambrico" }));
+        boxTipoRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Inalambrico", "Alambrico" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("PRODUCTO AUDIFONOS");
@@ -108,7 +116,7 @@ public class Audifonos extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addGap(62, 62, 62)
-                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtPrecioInicialRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jBotonRegistrarInv1)
@@ -117,7 +125,7 @@ public class Audifonos extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel33)
                                     .addGap(40, 40, 40)
-                                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioPublicoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(50, 50, 50)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,10 +135,10 @@ public class Audifonos extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel31))
                                 .addGap(130, 130, 130)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(boxTipoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMarcaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModeloRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,23 +162,23 @@ public class Audifonos extends javax.swing.JInternalFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jLabel34))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodigoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtModeloRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtMarcaRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxTipoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioInicialRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel29))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioPublicoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegresar3)
@@ -200,11 +208,76 @@ public class Audifonos extends javax.swing.JInternalFrame {
 dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
+    private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
+  int i=0;
+            if (this.txtCodigoRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELEFONO CONVENCIONAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+
+            if (validar.validarCodigoTodos(this.txtCodigoRegistro.getText().toString(),"AU")) {
+                //{}
+                i++;
+                this.codigo = this.txtCodigoRegistro.getText().toString();
+
+            }
+            if (validar.validarModelosTodos(this.txtModeloRegistro.getText().toString())) {
+                i++;
+                this.modelo = this.txtModeloRegistro.getText().toString();
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaRegistro.getText().toString())) {
+                i++;
+                this.marca = this.txtMarcaRegistro.getText().toString();
+                //System.out.println(this.ApellidosClienteRegistro.getText().toString());
+            }
+
+            if (validar.validarSueldo(this.txtPrecioInicialRegistro.getText().toString())) {
+                i++;
+                this.pInicial = this.txtPrecioInicialRegistro.getText().toString();
+                // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicoRegistro.getText().toString())) {
+                i++;
+                this.pPublico = this.txtPrecioPublicoRegistro.getText().toString();
+                //System.out.println(this.CorreoElectronico.getText().toString());
+            }
+            if(this.boxTipoRegistro.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso");     
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==6)
+            {
+                JOptionPane.showMessageDialog(null,  "Audifonos Registrados");
+            }
+            
+            
+            
+                        
+
+        }
+
+
+
+    }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox boxTipoRegistro;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButtonRegresar3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -215,10 +288,10 @@ dispose();
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField txtCodigoRegistro;
+    private javax.swing.JTextField txtMarcaRegistro;
+    private javax.swing.JTextField txtModeloRegistro;
+    private javax.swing.JTextField txtPrecioInicialRegistro;
+    private javax.swing.JTextField txtPrecioPublicoRegistro;
     // End of variables declaration//GEN-END:variables
 }

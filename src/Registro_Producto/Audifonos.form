@@ -51,7 +51,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                                  <Component id="jTextField28" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Component id="txtPrecioInicialRegistro" min="-2" pref="122" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
@@ -62,7 +62,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                      <Component id="jTextField30" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioPublicoRegistro" min="-2" pref="80" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -75,10 +75,10 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField27" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jTextField29" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="jTextField31" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="boxTipoRegistro" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtMarcaRegistro" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoRegistro" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                      <Component id="txtModeloRegistro" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -112,27 +112,27 @@
                           <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Component id="jTextField29" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodigoRegistro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField31" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtModeloRegistro" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="jTextField27" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtMarcaRegistro" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxTipoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField28" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioInicialRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField30" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioPublicoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -150,16 +150,19 @@
             <Property name="text" type="java.lang.String" value="Precio inicial (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField27">
+        <Component class="javax.swing.JTextField" name="txtMarcaRegistro">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField28">
+        <Component class="javax.swing.JTextField" name="txtPrecioInicialRegistro">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField29">
+        <Component class="javax.swing.JTextField" name="txtCodigoRegistro">
         </Component>
         <Component class="javax.swing.JButton" name="jBotonRegistrarInv1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonRegistrarInv1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegresar3">
           <Properties>
@@ -184,26 +187,27 @@
             <Property name="text" type="java.lang.String" value="Precio al p&#xfa;blico (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField30">
+        <Component class="javax.swing.JTextField" name="txtPrecioPublicoRegistro">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel34">
           <Properties>
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField31">
+        <Component class="javax.swing.JTextField" name="txtModeloRegistro">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="boxTipoRegistro">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Inalambrico"/>
-                <StringItem index="1" value="Alambrico"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Selecci&#xf3;n"/>
+                <StringItem index="1" value="Inalambrico"/>
+                <StringItem index="2" value="Alambrico"/>
               </StringArray>
             </Property>
           </Properties>
