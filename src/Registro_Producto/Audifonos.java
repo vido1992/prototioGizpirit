@@ -250,7 +250,8 @@ dispose();
             }
             if(this.boxTipoRegistro.getSelectedItem().toString()!="Selección")
             {i++;
-            System.out.println( "buen ingreso");     
+            System.out.println( "buen ingreso");  
+            this.tipo = this.boxTipoRegistro.getSelectedItem().toString();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }else{
             JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
