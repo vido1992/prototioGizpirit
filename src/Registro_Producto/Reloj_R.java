@@ -6,7 +6,11 @@
 package Registro_Producto;
 
 
+import Controladores.RelojJpaController;
+import Entidades.Reloj;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -14,10 +18,12 @@ import validaciones.Validar;
  *
  * @author David
  */
-public class Reloj extends javax.swing.JInternalFrame {
+public class Reloj_R extends javax.swing.JInternalFrame {
 
     String codigo, modelo, marca, gama, sumerguibleSi, sumerguibleNo, sistemaSi, sistemaNo;
     float precioImportacion, precioPublico;
+    RelojJpaController Creloj = new RelojJpaController();
+    Reloj r = new Reloj();
     /**
      * Creates new form Reloj
      */
@@ -26,7 +32,7 @@ public class Reloj extends javax.swing.JInternalFrame {
 
     Validar val = new Validar();
 
-    public Reloj() {
+    public Reloj_R() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-RELOJ");
         //obtenerDatos();
@@ -286,26 +292,48 @@ public class Reloj extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-        if (jTextFieldModelo1.getText().isEmpty() || jTextFieldModelo.getText().isEmpty() || jTextFieldMarca.getText().isEmpty() || jTextFieldPrecioImpo.getText().isEmpty() || jTextFieldPrecioPubl.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "ingrese todos los campos", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
-        } else {
-            val.ValidarTextoCodigo(jTextFieldModelo1);
-            val.ValidarTextoModelo(jTextFieldModelo);
-            val.ValidarTextoMarca(jTextFieldMarca);
-            val.ValidarJcombobox(jComboBoxGama);
-
-            val.ValidarRadioButomsis(jRadioButtonSiSis);
-            val.ValidarRadioButomsis(jRadioButtonNoSis);
-
-            val.ValidarRadioButomSum(jRadioButtonSiSumer);
-            val.ValidarRadioButomSum(jRadioButtonNoSumer);
-
-            val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
-            val.ValidarPrecioPublico(jTextFieldPrecioPubl);
-
+        try {
+            if (jTextFieldModelo1.getText().isEmpty() || jTextFieldModelo.getText().isEmpty() || jTextFieldMarca.getText().isEmpty() || jTextFieldPrecioImpo.getText().isEmpty() || jTextFieldPrecioPubl.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "ingrese todos los campos", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
+            } else {
+                val.ValidarTextoCodigo(jTextFieldModelo1);
+                val.ValidarTextoModelo(jTextFieldModelo);
+                val.ValidarTextoMarca(jTextFieldMarca);
+                val.ValidarJcombobox(jComboBoxGama);
+                
+                /*val.ValidarRadioButomsis(jRadioButtonSiSis);
+                val.ValidarRadioButomsis(jRadioButtonNoSis);
+                
+                val.ValidarRadioButomSum(jRadioButtonSiSumer);
+                val.ValidarRadioButomSum(jRadioButtonNoSumer);*/
+                
+                val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
+                val.ValidarPrecioPublico(jTextFieldPrecioPubl);
+                
+            }
+            r.setCodigo(jTextFieldModelo1.getText());
+            r.setModelo(jTextFieldModelo.getText());
+            r.setMarca(jTextFieldMarca.getText());
+            r.setGama((String) jComboBoxGama.getSelectedItem());
+            if(jRadioButtonSiSumer.isSelected()){
+                r.setSumergible(jRadioButtonSiSumer.getText().toString());
+            }else{
+                r.setSumergible(jRadioButtonNoSumer.getText().toString());
+            }
+            if(jRadioButtonSiSis.isSelected()){
+                r.setSistemaandroid(jRadioButtonSiSis.getText().toString());
+            }else{
+                r.setSistemaandroid(jRadioButtonNoSis.getText().toString());
+            }
+            r.setPrecioimportacion(jTextFieldPrecioImpo.getText().toString());
+            r.setPreciopublico(jTextFieldPrecioPubl.getText().toString());
+            
+            Creloj.create(r);
+            
+            JOptionPane.showMessageDialog(null, "Producto Reloj Registrado\n Correctamente");
+        } catch (Exception ex) {
+            Logger.getLogger(Reloj_R.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        JOptionPane.showMessageDialog(null, "Producto Reloj Registrado\n Correctamente");
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
 

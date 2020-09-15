@@ -26,7 +26,7 @@ import Registro_Producto.Cargador;
 import Registro_Producto.Controlador_Voz;
 import Registro_Producto.Interruptor;
 import Registro_Producto.Llave_Automatica;
-import Registro_Producto.Reloj;
+import Registro_Producto.Reloj_R;
 import Registro_Producto.Sensor;
 import Registro_Producto.Tomacorriente;
 import Ventas.VentaConsulta;
@@ -66,7 +66,7 @@ Cargador CG = new Cargador();
 Controlador_Voz CV = new Controlador_Voz();
 Interruptor I = new Interruptor();
 Llave_Automatica LA = new Llave_Automatica();
-Reloj R = new Reloj();
+Reloj_R R = new Reloj_R();
 Sensor S= new Sensor();
 Tomacorriente TC = new Tomacorriente();
 

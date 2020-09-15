@@ -6,7 +6,6 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,7 +32,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Empleado.findByTelefonoconvencional", query = "SELECT e FROM Empleado e WHERE e.telefonoconvencional = :telefonoconvencional")
     , @NamedQuery(name = "Empleado.findByRolempleado", query = "SELECT e FROM Empleado e WHERE e.rolempleado = :rolempleado")
     , @NamedQuery(name = "Empleado.findBySueldo", query = "SELECT e FROM Empleado e WHERE e.sueldo = :sueldo")
-    , @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")})
+    , @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")
+    , @NamedQuery(name = "Empleado.findByEstado", query = "SELECT e FROM Empleado e WHERE e.estado = :estado")})
 public class Empleado implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,11 +53,12 @@ public class Empleado implements Serializable {
     private String telefonoconvencional;
     @Column(name = "rolempleado")
     private String rolempleado;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "sueldo")
-    private BigDecimal sueldo;
+    private String sueldo;
     @Column(name = "email")
     private String email;
+    @Column(name = "estado")
+    private String estado;
 
     public Empleado() {
     }
@@ -122,11 +123,11 @@ public class Empleado implements Serializable {
         this.rolempleado = rolempleado;
     }
 
-    public BigDecimal getSueldo() {
+    public String getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(BigDecimal sueldo) {
+    public void setSueldo(String sueldo) {
         this.sueldo = sueldo;
     }
 
@@ -136,6 +137,14 @@ public class Empleado implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

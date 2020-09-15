@@ -5,7 +5,12 @@
  */
 package Empleado;
 
+import Controladores.EmpleadoJpaController;
+import Entidades.Empleado;
 import Inicio.Base;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -15,12 +20,14 @@ import validaciones.Validar;
  */
 public class ActualizarEmpleado extends javax.swing.JInternalFrame {
 
-    Validar validar= new Validar();
- Base base=new Base();
- public String CC,Nombre,Apellido,Direccion,Correo, sueldo,TelefonoCelular,telefonoConvencional;
+    EmpleadoJpaController Cemp = new EmpleadoJpaController();
+    Validar validar = new Validar();
+    Base base = new Base();
+    public String CC, Nombre, Apellido, Direccion, Correo, sueldo, TelefonoCelular, telefonoConvencional;
+
     public ActualizarEmpleado() {
         initComponents();
-        this.setTitle("Actualizo Empleado"); 
+        this.setTitle("Actualizo Empleado");
     }
 
     /**
@@ -273,42 +280,69 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        List<Empleado> listemp = Cemp.findEmpleadoEntities();
+        for (int i = 0; i < listemp.size(); i++) {
+            if (txtCIActualizarEmpleado.getText().equals(listemp.get(i).getCedula())) {
 
+                txtNombreActualizarEmpleado.setText(listemp.get(i).getNombres());
+                txtApellidoActualizarEmpleado.setText(listemp.get(i).getApellidos());
+                txtCorreoActualizarEmpleado.setText(listemp.get(i).getEmail());
+                txtDicDomicActualizarEmpleado.setText(listemp.get(i).getDireciondomicilio());
+                txtTelCelActualizarEmpleado.setText(listemp.get(i).getTelefonocelular());
+                txtTelConvenActualizarEmpleado.setText(listemp.get(i).getTelefonoconvencional());
+                txtRolActualizarEmpleado.setText(listemp.get(i).getRolempleado());
+                txtSueldoActualizarEmpleado.setText(listemp.get(i).getSueldo());
+                if(listemp.get(i).getEstado().equals("Activo")){
+                txtEstadoActualizarEmpleado.setSelectedIndex(0);
+                }else{
+                txtEstadoActualizarEmpleado.setSelectedIndex(1);
+                }
+                
+
+            }
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
-dispose();
+        dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-int i=0;
-        
-        if (this.txtDicDomicActualizarEmpleado.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if( this.txtTelCelActualizarEmpleado.getText().equals(""))
-        {
+        int i = 0;
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.txtTelConvenActualizarEmpleado.getText().equals(""))
-        {
+        if (this.txtDicDomicActualizarEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtTelCelActualizarEmpleado.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.txtSueldoActualizarEmpleado.getText().equals(""))
-        {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtTelConvenActualizarEmpleado.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.txtCorreoActualizarEmpleado.getText().equals(""))
-        {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtSueldoActualizarEmpleado.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else  
-        {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtCorreoActualizarEmpleado.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else {
             
-             
-           
-         
-            
+            try {
+                Empleado emp = new Empleado();
+                emp.setCedula(txtCIActualizarEmpleado.getText());
+                emp.setNombres(txtNombreActualizarEmpleado.getText());
+                emp.setApellidos(txtApellidoActualizarEmpleado.getText());
+                emp.setDireciondomicilio(txtDicDomicActualizarEmpleado.getText());
+                emp.setTelefonocelular(txtTelCelActualizarEmpleado.getText());
+                emp.setTelefonoconvencional(txtTelConvenActualizarEmpleado.getText());
+                emp.setRolempleado(txtRolActualizarEmpleado.getText());
+                emp.setSueldo(txtSueldoActualizarEmpleado.getText());
+                emp.setEmail(txtCorreoActualizarEmpleado.getText());
+                emp.setEstado((String) txtEstadoActualizarEmpleado.getSelectedItem());
+                Cemp.edit(emp);
+                JOptionPane.showMessageDialog(null, "Empleado Actualizado");
+            } catch (Exception ex) {
+                Logger.getLogger(ActualizarEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         }
     }//GEN-LAST:event_jButton4ActionPerformed

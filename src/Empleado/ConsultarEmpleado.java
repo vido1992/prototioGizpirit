@@ -5,6 +5,9 @@
  */
 package Empleado;
 
+import Controladores.EmpleadoJpaController;
+import Entidades.Empleado;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +19,7 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
     /**
      * Creates new form ConsultarEmpleado
      */
+    EmpleadoJpaController Cemp = new EmpleadoJpaController();
     public ConsultarEmpleado() {
         initComponents();
         this.setTitle("Consulto Empleado"); 
@@ -331,7 +335,26 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         if(this.txtCIConsultarEmpleado.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        }else{
+           
+           List<Empleado> listemp = Cemp.findEmpleadoEntities();
+        for (int i = 0; i < listemp.size(); i++) {
+            if (txtCIConsultarEmpleado.getText().equals(listemp.get(i).getCedula())) {
+   
+                txtNombreConsultarEmpleado.setText(listemp.get(i).getNombres());
+                txtApellidoConsultarEmpleado.setText(listemp.get(i).getApellidos());
+                txtCorreoElConsultarEmpleado.setText(listemp.get(i).getEmail());
+                txtDireccionConsultarEmpleado.setText(listemp.get(i).getDireciondomicilio());
+                txtTelefonoCelularConsultarEmpleado.setText(listemp.get(i).getTelefonocelular());
+                txtTelefonoConvConsultarEmpleado.setText(listemp.get(i).getTelefonoconvencional());
+                txtRolConsultarEmpleado.setText(listemp.get(i).getRolempleado());
+                txtSueldoConsultarEmpleado.setText(listemp.get(i).getSueldo());
+       
+            }
+            
         }
+           
+           }
         
         
     }//GEN-LAST:event_jButton3ActionPerformed

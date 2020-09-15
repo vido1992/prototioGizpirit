@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboUsuario = new javax.swing.JComboBox<String>();
+        jComboUsuario = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jCCField = new javax.swing.JTextField();
@@ -82,7 +82,8 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("PARA LA EMPRESA “GIZPIRIT”");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
-        jComboUsuario.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Administrador", "Vendedor", "Bodeguero" }));
+        jComboUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Administrador", "Vendedor", "Bodeguero" }));
+        jComboUsuario.setSelectedIndex(2);
         getContentPane().add(jComboUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 139, -1));
 
         jLabel2.setText("Seleccione tipo de usuario");
@@ -91,6 +92,13 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/user.png"))); // NOI18N
         jLabel3.setText("Cédula de Ciudadanía");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
+
+        jCCField.setText("1501042855");
+        jCCField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCCFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(jCCField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 139, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/candado-white.png"))); // NOI18N
@@ -127,6 +135,7 @@ public class Login extends javax.swing.JFrame {
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/GZlogohor3-01_200x.png"))); // NOI18N
         getContentPane().add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 190, 60));
 
+        jContraseñaField.setText("123");
         jContraseñaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jContraseñaFieldActionPerformed(evt);
@@ -169,6 +178,10 @@ public class Login extends javax.swing.JFrame {
     private void jContraseñaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jContraseñaFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jContraseñaFieldActionPerformed
+
+    private void jCCFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCCFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCCFieldActionPerformed
 
     public void validarPass(int index, String CI, String pass) {
 

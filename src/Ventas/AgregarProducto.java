@@ -5,7 +5,12 @@
  */
 package Ventas;
 
+import Controladores.RelojJpaController;
+import Entidades.Reloj;
 import Inicio.Menu;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,9 +21,12 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     /**
      * Creates new form InventarioConsulta
      */
+    RelojJpaController Creloj = new RelojJpaController();
+    Reloj r = new Reloj();
+
     public AgregarProducto() {
         initComponents();
-         this.setTitle("SiGIn-GIZPIRIT");  
+        this.setTitle("SiGIn-GIZPIRIT");
     }
 
     /**
@@ -34,7 +42,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         jButtonRegresar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jTextField15 = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox<String>();
+        jComboBox5 = new javax.swing.JComboBox<>();
         jLabelBusqInv = new javax.swing.JLabel();
         jLabelBusqInv1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -46,7 +54,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         setMaximizable(true);
         setRequestFocusEnabled(false);
 
-        jButtonRegresar.setText("Regresar");
+        jButtonRegresar.setText("Añadir");
         jButtonRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegresarActionPerformed(evt);
@@ -54,8 +62,13 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         });
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Audifonos", "Relojes", "Domotica", "Cámara", "Código de producto", "Nombre del producto" }));
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audifonos", "Relojes", "Domotica", "Cámara", "Código de producto", "Nombre del producto" }));
 
         jLabelBusqInv.setText("Seleccione el elemento de búsqueda");
 
@@ -71,7 +84,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -98,7 +111,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -161,12 +174,67 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
-      
-        /*this.setVisible(false);
-       Menu m=new Menu();
-        m.setEnabled(true);*/
-         dispose(); 
+
+       String Codigo = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 0);
+       String Tipo = null;
+       String Modelo = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 1);
+       String PrecioU = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 2);
+       String Cantidad = jTextField15.getText();
+       String PrecioTotal = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 4);
+     
+            //Sección 1 
+            DefaultTableModel modelo = (DefaultTableModel) VentaRegistro.jTable4.getModel();
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+
+             
+                    Columna[0] = Codigo;
+                    Columna[1] = Tipo;
+                    Columna[2] = Modelo;
+                    Columna[3] = PrecioU;
+                    Columna[4] = Cantidad;
+                    Columna[5]=PrecioTotal;
+                    modelo.addRow(Columna);
+
+                
+                VentaRegistro.jTable4.setModel(modelo);
+            
+         
+        
+        dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        List<Reloj> listR = Creloj.findRelojEntities();
+        boolean esta = true;
+        if (this.jComboBox5.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.jComboBox5.getSelectedItem().equals("Relojes")) {
+            //Sección 1 
+            DefaultTableModel modelo = (DefaultTableModel) jTable4.getModel();
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+
+            for (int i = 0; i < listR.size(); i++) {
+                if (!listR.isEmpty()) {
+                    Columna[0] = listR.get(i).getCodigo();
+                    Columna[1] = listR.get(i).getModelo();
+                    Columna[2] = listR.get(i).getPrecioimportacion();
+                    Columna[3] = listR.get(i).getPreciopublico();
+                    Columna[4] = listR.get(i).getPreciopublico();
+                    modelo.addRow(Columna);
+                    esta = false;
+                }
+                jTable4.setModel(modelo);
+            }
+            if (esta) {
+                JOptionPane.showMessageDialog(null, "No existe Relojes", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

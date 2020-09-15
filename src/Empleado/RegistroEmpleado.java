@@ -5,7 +5,12 @@
  */
 package Empleado;
 
+import Controladores.EmpleadoJpaController;
+import Entidades.Empleado;
 import Inicio.Base;
+import java.math.BigDecimal;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -17,6 +22,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
 
     Validar validar= new Validar();
  Base base=new Base();
+    EmpleadoJpaController Cemp = new EmpleadoJpaController();
  public String CC,Nombre,Apellido,Direccion,Correo, sueldo,TelefonoCelular,telefonoConvencional;
     public RegistroEmpleado() {
         initComponents();
@@ -109,7 +115,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -158,18 +164,19 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jBotonRegistrar)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel8)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel11)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel11)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jBotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(57, 57, 57)
@@ -198,7 +205,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(115, 115, 115)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel7)))))
@@ -358,7 +365,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
             }
              if(validar.validarSueldo(this.sueldoRegistroEmpleado.getText().toString()))
             {i++;
-                this.sueldo=this.telefonoConvencionaEmpleadoRegistro.getText();
+                this.sueldo=this.sueldoRegistroEmpleado.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }
              if(this.cbRolEmpleadoRegistro.getSelectedItem().toString()!="Selección")
@@ -373,7 +380,27 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
             
             if (i==9)
             {
-                JOptionPane.showMessageDialog(null,  "Empleado Registrado");
+                
+                 
+                try {
+                    Empleado emp = new Empleado();
+                    
+                    emp.setCedula(CC);
+                    emp.setNombres(Nombre);
+                    emp.setApellidos(Apellido);
+                    emp.setDireciondomicilio(Direccion);
+                    emp.setTelefonocelular(TelefonoCelular);
+                    emp.setTelefonoconvencional(telefonoConvencional);
+                    emp.setRolempleado((String) cbRolEmpleadoRegistro.getSelectedItem());
+                    emp.setSueldo(sueldo);
+                    emp.setEmail(Correo);
+                    emp.setEstado("Activo");
+                    Cemp.create(emp);
+                    JOptionPane.showMessageDialog(null, "Empleado Registrado");
+                } catch (Exception ex) {
+                    Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+           
             }
             
             

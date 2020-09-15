@@ -350,10 +350,10 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
     
     
     private void jBotonAñadirProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAñadirProducto1ActionPerformed
-        
-        Menu.escritorio.add(CCL);
-        CCL.setVisible(true);
-        CCL.toFront();
+        ConsultaClienteVenta CCV = new ConsultaClienteVenta();
+        Menu.escritorio.add(CCV);
+        CCV.setVisible(true);
+        CCV.toFront();
         
         
         
@@ -384,8 +384,8 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
+    public static javax.swing.JTable jTable4;
+    public static javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private java.awt.TextField txtNom;

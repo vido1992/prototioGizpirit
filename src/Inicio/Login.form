@@ -80,6 +80,7 @@
             <StringItem index="3" value="Bodeguero"/>
           </StringArray>
         </Property>
+        <Property name="selectedIndex" type="int" value="2"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -114,6 +115,12 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="jCCField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1501042855"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCCFieldActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="220" y="480" width="139" height="-1"/>
@@ -201,6 +208,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JPasswordField" name="jContrase&#xf1;aField">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="123"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jContrase&#xf1;aFieldActionPerformed"/>
       </Events>

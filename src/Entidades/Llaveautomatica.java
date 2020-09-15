@@ -6,7 +6,6 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,11 +40,10 @@ public class Llaveautomatica implements Serializable {
     private String modelo;
     @Column(name = "marca")
     private String marca;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "precioimportacion")
-    private BigDecimal precioimportacion;
+    private String precioimportacion;
     @Column(name = "preciopublico")
-    private BigDecimal preciopublico;
+    private String preciopublico;
 
     public Llaveautomatica() {
     }
@@ -78,19 +76,19 @@ public class Llaveautomatica implements Serializable {
         this.marca = marca;
     }
 
-    public BigDecimal getPrecioimportacion() {
+    public String getPrecioimportacion() {
         return precioimportacion;
     }
 
-    public void setPrecioimportacion(BigDecimal precioimportacion) {
+    public void setPrecioimportacion(String precioimportacion) {
         this.precioimportacion = precioimportacion;
     }
 
-    public BigDecimal getPreciopublico() {
+    public String getPreciopublico() {
         return preciopublico;
     }
 
-    public void setPreciopublico(BigDecimal preciopublico) {
+    public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
     }
 

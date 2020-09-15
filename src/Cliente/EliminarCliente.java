@@ -6,8 +6,11 @@
 package Cliente;
 
 import Controladores.ClienteJpaController;
+import Controladores.exceptions.NonexistentEntityException;
 import Entidades.Cliente;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,8 +23,8 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     /**
      * Creates new form EliminarCliente
      */
-    
     ClienteJpaController Ccliente = new ClienteJpaController();
+
     public EliminarCliente() {
         initComponents();
     }
@@ -193,43 +196,47 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        List<Cliente> listC = Ccliente.findClienteEntities();
+        boolean esta=true;
+        if (this.txtCIEliminarCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //Sección 1 
+            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
 
-           if(this.txtCIEliminarCliente.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else{
-               
-                //Sección 1 
-        DefaultTableModel modelo=(DefaultTableModel) jTable3.getModel(); 
- 
-        //Sección 2
-        Object [] fila=new Object[6]; 
- 
-        //Sección 3
-      
-              List<Cliente> listC = Ccliente.findClienteEntities();
-        for (int i = 0; i < listC.size(); i++) {
-            if (txtCIEliminarCliente.getText().equals(listC.get(i).getCedula())) {
-                
-               
-            
-            
-       
+            for (int i = 0; i < listC.size(); i++) {
+                if (txtCIEliminarCliente.getText().equals(listC.get(i).getCedula())) {
+                    Columna[0] = listC.get(i).getNombres();
+                    Columna[1] = listC.get(i).getApellidos();
+                    Columna[2] = listC.get(i).getCedula();
+                    Columna[3] = listC.get(i).getEstado();
+                    modelo.addRow(Columna);
+                    esta=false;
+                }
             }
-            
-        } 
-         //Sección 4
-         modelo.addRow(fila); 
-  
-        //Sección 5
-        jTable3.setModel(modelo); 
-           
-        
-           }
+            jTable3.setModel(modelo);
+        }
+        if(esta){
+        JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            String c = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 2);
+            System.out.println(jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+            Ccliente.destroy(c);
+            JOptionPane.showMessageDialog(null, "Cliente Eliminado");
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(EliminarCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
