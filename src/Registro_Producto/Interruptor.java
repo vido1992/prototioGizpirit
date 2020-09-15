@@ -197,15 +197,14 @@ public class Interruptor extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 17, Short.MAX_VALUE))
         );
 
         pack();
@@ -257,7 +256,7 @@ public class Interruptor extends javax.swing.JInternalFrame {
             this.NumeroBotones = this.boxBotonesInterruptor.getSelectedItem().toString();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en botones");
        
             }
             if(this.boxMarcaInterruptor.getSelectedItem().toString()!="Selección")
@@ -267,7 +266,7 @@ public class Interruptor extends javax.swing.JInternalFrame {
            
             
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en marca");
             }
             if(this.boxTipoInterruptor.getSelectedItem().toString()!="Selección")
             {i++;
@@ -275,7 +274,7 @@ public class Interruptor extends javax.swing.JInternalFrame {
             this.marca = this.boxTipoInterruptor.getSelectedItem().toString();
                  
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
             }
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 
@@ -285,7 +284,7 @@ public class Interruptor extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,  "Interruptor Registrados");
             }
         
-        
+        }
         
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
