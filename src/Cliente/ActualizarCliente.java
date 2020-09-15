@@ -50,31 +50,31 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanelActualizarCli = new javax.swing.JPanel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        txtactualizarClienteCi = new javax.swing.JTextField();
+        txtCorreoActualizarCliente = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        txtDireccionDomicilioActualizarCliente = new javax.swing.JTextField();
+        txtTelefonoCeluActualizarCliente = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButtonRegresar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
+        txtTelefonoConvencionalActualizarCliente = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        txtActualizarClienteActivo = new javax.swing.JRadioButton();
+        txtActualizarClienteInactivo = new javax.swing.JRadioButton();
 
         setClosable(true);
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        txtactualizarClienteCi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                txtactualizarClienteCiActionPerformed(evt);
             }
         });
 
@@ -112,6 +112,12 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
         jLabel16.setText("Teléfono convencional");
 
+        txtTelefonoConvencionalActualizarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefonoConvencionalActualizarClienteActionPerformed(evt);
+            }
+        });
+
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabelLogo.setBackground(new java.awt.Color(204, 204, 204));
@@ -135,14 +141,14 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Estado Cliente");
 
-        jRadioButton1.setText("Activo");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        txtActualizarClienteActivo.setText("Activo");
+        txtActualizarClienteActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                txtActualizarClienteActivoActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Inactico");
+        txtActualizarClienteInactivo.setText("Inactivo");
 
         javax.swing.GroupLayout jPanelActualizarCliLayout = new javax.swing.GroupLayout(jPanelActualizarCli);
         jPanelActualizarCli.setLayout(jPanelActualizarCliLayout);
@@ -150,7 +156,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                 .addGap(245, 245, 245)
-                .addComponent(jTextField9)
+                .addComponent(txtactualizarClienteCi)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,14 +189,14 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                 .addGap(93, 93, 93)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(txtActualizarClienteActivo)
                         .addGap(26, 26, 26)
-                        .addComponent(jRadioButton2))
+                        .addComponent(txtActualizarClienteInactivo))
                     .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField10)
-                        .addComponent(jTextField12)
-                        .addComponent(jTextField13)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtCorreoActualizarCliente)
+                        .addComponent(txtDireccionDomicilioActualizarCliente)
+                        .addComponent(txtTelefonoCeluActualizarCliente)
+                        .addComponent(txtTelefonoConvencionalActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(51, 51, 51))
         );
         jPanelActualizarCliLayout.setVerticalGroup(
@@ -203,30 +209,30 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtactualizarClienteCi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionDomicilioActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonoCeluActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonoConvencionalActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(txtActualizarClienteActivo)
+                    .addComponent(txtActualizarClienteInactivo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -320,35 +326,35 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         }
         return datos;
     }
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txtactualizarClienteCiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtactualizarClienteCiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_txtactualizarClienteCiActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int i = 0;
 
-        if (jTextField10.getText().equals("")) {
+        if (txtCorreoActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO", JOptionPane.WARNING_MESSAGE);
         } else {
-            if (jTextField12.getText().equals("")) {
+            if (txtDireccionDomicilioActualizarCliente.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCIÓN", JOptionPane.WARNING_MESSAGE);
             } else {
-                if (jTextField13.getText().equals("")) {
+                if (txtTelefonoCeluActualizarCliente.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    if (validar.validarCorreo(jTextField10.getText())) {
+                    if (validar.validarCorreo(txtCorreoActualizarCliente.getText())) {
                         i++;
                     }
-                    if (validar.validarDireccion(jTextField12.getText())) {
+                    if (validar.validarDireccion(txtDireccionDomicilioActualizarCliente.getText())) {
                         i++;
                     }
-                    if (validar.validarTelefonoC(jTextField13.getText())) {
+                    if (validar.validarTelefonoC(txtTelefonoCeluActualizarCliente.getText())) {
                         i++;
                     }
                     if (i == 3) {
                         if (nuevo[1].equals("Estándar") || nuevo[1].equals("Pospago")) {
                             JOptionPane.showMessageDialog(null, "EL DATO INGRESADO HA SIDO ACTUALIZADO");
-                            this.base.crearArchivo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], jTextField12.getText(), jTextField10.getText(), jTextField13.getText(), nuevo[7]);
+                            this.base.crearArchivo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], txtDireccionDomicilioActualizarCliente.getText(), txtCorreoActualizarCliente.getText(), txtTelefonoCeluActualizarCliente.getText(), nuevo[7]);
                             try {
                                 removeLineFromFile(nuevo[0] + "++" + nuevo[1] + "++" + nuevo[2] + "++" + nuevo[3] + "++" + nuevo[4] + "++" + nuevo[5] + "++" + nuevo[6] + "++" + nuevo[7] + "++{}");
 
@@ -357,7 +363,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                             }
                         } else {
                             JOptionPane.showMessageDialog(null, "EL DATO INGRESADO HA SIDO ACTUALIZADO");
-                            this.base.prepagoArchivo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], jTextField12.getText(), jTextField10.getText(), jTextField13.getText(), nuevo[7], nuevo[8]);
+                            this.base.prepagoArchivo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], txtDireccionDomicilioActualizarCliente.getText(), txtCorreoActualizarCliente.getText(), txtTelefonoCeluActualizarCliente.getText(), nuevo[7], nuevo[8]);
                             try {
                                 removeLineFromFile(nuevo[0] + "++" + nuevo[1] + "++" + nuevo[2] + "++" + nuevo[3] + "++" + nuevo[4] + "++" + nuevo[5] + "++" + nuevo[6] + "++" + nuevo[7] + "++" + nuevo[8] + "++{}");
                             } catch (IOException ex) {
@@ -382,9 +388,13 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
    dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void txtActualizarClienteActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActualizarClienteActivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_txtActualizarClienteActivoActionPerformed
+
+    private void txtTelefonoConvencionalActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoConvencionalActualizarClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefonoConvencionalActualizarClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -401,12 +411,12 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelActualizarCli;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JRadioButton txtActualizarClienteActivo;
+    private javax.swing.JRadioButton txtActualizarClienteInactivo;
+    private javax.swing.JTextField txtCorreoActualizarCliente;
+    private javax.swing.JTextField txtDireccionDomicilioActualizarCliente;
+    private javax.swing.JTextField txtTelefonoCeluActualizarCliente;
+    private javax.swing.JTextField txtTelefonoConvencionalActualizarCliente;
+    private javax.swing.JTextField txtactualizarClienteCi;
     // End of variables declaration//GEN-END:variables
 }

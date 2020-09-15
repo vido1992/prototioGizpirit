@@ -32,26 +32,26 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelConsultaCli = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<String>();
-        jText = new javax.swing.JTextField();
+        txtCIConsultarEmpleado = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtNom = new java.awt.TextField();
+        txtNombreConsultarEmpleado = new java.awt.TextField();
         jLabel5 = new javax.swing.JLabel();
-        txtApe = new java.awt.TextField();
+        txtApellidoConsultarEmpleado = new java.awt.TextField();
         jLabel9 = new javax.swing.JLabel();
-        txtDir = new java.awt.TextField();
+        txtDireccionConsultarEmpleado = new java.awt.TextField();
         jLabel6 = new javax.swing.JLabel();
-        txtTel = new java.awt.TextField();
+        txtTelefonoCelularConsultarEmpleado = new java.awt.TextField();
         jLabel7 = new javax.swing.JLabel();
-        txtCor = new java.awt.TextField();
+        txtCorreoElConsultarEmpleado = new java.awt.TextField();
         jButton3 = new javax.swing.JButton();
         jButtonRegresar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        txtConv = new java.awt.TextField();
+        txtTelefonoConvConsultarEmpleado = new java.awt.TextField();
         jLabel10 = new javax.swing.JLabel();
-        txtCor1 = new java.awt.TextField();
+        txtRolConsultarEmpleado = new java.awt.TextField();
         jLabel11 = new javax.swing.JLabel();
-        txtCor2 = new java.awt.TextField();
+        txtSueldoConsultarEmpleado = new java.awt.TextField();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -76,33 +76,33 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Nombres");
 
-        txtNom.setEditable(false);
-        txtNom.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtNom.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtNombreConsultarEmpleado.setEditable(false);
+        txtNombreConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtNombreConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel5.setText("Apellido");
 
-        txtApe.setEditable(false);
-        txtApe.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtApe.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtApellidoConsultarEmpleado.setEditable(false);
+        txtApellidoConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtApellidoConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel9.setText("Dirección");
 
-        txtDir.setEditable(false);
-        txtDir.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtDir.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtDireccionConsultarEmpleado.setEditable(false);
+        txtDireccionConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtDireccionConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel6.setText("Número de teléfono celular");
 
-        txtTel.setEditable(false);
-        txtTel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtTel.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtTelefonoCelularConsultarEmpleado.setEditable(false);
+        txtTelefonoCelularConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTelefonoCelularConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel7.setText("Correo electrónico");
 
-        txtCor.setEditable(false);
-        txtCor.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtCor.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtCorreoElConsultarEmpleado.setEditable(false);
+        txtCorreoElConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtCorreoElConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jButton3.setText("Buscar");
         jButton3.setPreferredSize(new java.awt.Dimension(100, 40));
@@ -121,24 +121,24 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Número de teléfono convencional");
 
-        txtConv.setEditable(false);
-        txtConv.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtConv.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtTelefonoConvConsultarEmpleado.setEditable(false);
+        txtTelefonoConvConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtTelefonoConvConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel10.setText("Rol Empleado");
 
-        txtCor1.setEditable(false);
-        txtCor1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtCor1.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtRolConsultarEmpleado.setEditable(false);
+        txtRolConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtRolConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel11.setText("Sueldo");
 
-        txtCor2.setEditable(false);
-        txtCor2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtCor2.setPreferredSize(new java.awt.Dimension(250, 28));
-        txtCor2.addActionListener(new java.awt.event.ActionListener() {
+        txtSueldoConsultarEmpleado.setEditable(false);
+        txtSueldoConsultarEmpleado.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txtSueldoConsultarEmpleado.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtSueldoConsultarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCor2ActionPerformed(evt);
+                txtSueldoConsultarEmpleadoActionPerformed(evt);
             }
         });
 
@@ -193,15 +193,15 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtDir, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCor, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCor1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCor2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtConv, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtApe, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtDireccionConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCorreoElConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRolConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSueldoConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefonoConvConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefonoCelularConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidoConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(338, 338, 338))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +218,7 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(47, 47, 47)
-                        .addComponent(jText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCIConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(204, 204, 204)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,7 +239,7 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelConsultaCli)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCIConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,22 +247,22 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
                     .addComponent(jButtonRegresar))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtApe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidoConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
-                    .addComponent(txtDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTelefonoCelularConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtConv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTelefonoConvConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(jLabel6)
@@ -271,11 +271,11 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(txtCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCorreoElConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(txtCor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRolConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(txtCor2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSueldoConsultarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel7)
@@ -332,9 +332,9 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
-    private void txtCor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCor2ActionPerformed
+    private void txtSueldoConsultarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSueldoConsultarEmpleadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCor2ActionPerformed
+    }//GEN-LAST:event_txtSueldoConsultarEmpleadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -356,14 +356,14 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jText;
-    private java.awt.TextField txtApe;
-    private java.awt.TextField txtConv;
-    private java.awt.TextField txtCor;
-    private java.awt.TextField txtCor1;
-    private java.awt.TextField txtCor2;
-    private java.awt.TextField txtDir;
-    private java.awt.TextField txtNom;
-    private java.awt.TextField txtTel;
+    private java.awt.TextField txtApellidoConsultarEmpleado;
+    private javax.swing.JTextField txtCIConsultarEmpleado;
+    private java.awt.TextField txtCorreoElConsultarEmpleado;
+    private java.awt.TextField txtDireccionConsultarEmpleado;
+    private java.awt.TextField txtNombreConsultarEmpleado;
+    private java.awt.TextField txtRolConsultarEmpleado;
+    private java.awt.TextField txtSueldoConsultarEmpleado;
+    private java.awt.TextField txtTelefonoCelularConsultarEmpleado;
+    private java.awt.TextField txtTelefonoConvConsultarEmpleado;
     // End of variables declaration//GEN-END:variables
 }

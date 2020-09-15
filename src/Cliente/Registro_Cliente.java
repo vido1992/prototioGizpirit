@@ -306,13 +306,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
         if (i==6)
         {
             JOptionPane.showMessageDialog(null,  "Cliente Registrado");
-            this.clienteArray.add(this.CI);
-            this.clienteArray.add(this.Nombre);
-            this.clienteArray.add(this.Apellido);
-            this.clienteArray.add(this.Direccion);
-            this.clienteArray.add(this.Correo);
-            this.clienteArray.add(this.TelefonoCelular);
-            this.clienteArray.add(this.TelefonoConvencional);
+           
             
         }
     }//GEN-LAST:event_jBotonRegistrarActionPerformed

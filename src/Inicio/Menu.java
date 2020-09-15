@@ -112,6 +112,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem39 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
@@ -205,11 +206,11 @@ RegistroEmpleado RE= new RegistroEmpleado();
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 853, Short.MAX_VALUE)
+            .addGap(0, 863, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGap(0, 828, Short.MAX_VALUE)
         );
 
         jMenu5.setText("Cliente");
@@ -242,6 +243,10 @@ RegistroEmpleado RE= new RegistroEmpleado();
         });
         jMenu5.add(jMenuItem5);
         jMenu5.add(jSeparator1);
+
+        jMenuItem39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jMenuItem39.setText("Eliminar");
+        jMenu5.add(jMenuItem39);
 
         jMenuBar2.add(jMenu5);
 
@@ -305,7 +310,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenu13.setText("Producto");
         jMenu13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenu12.setText("Registrar Producto");
+        jMenu12.setText("Registrar");
         jMenu12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenu11.setText("Domótica");
@@ -405,7 +410,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
 
         jMenu13.add(jMenu12);
 
-        jMenu14.setText("Actualizar Producto");
+        jMenu14.setText("Actualizar");
         jMenu14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenu15.setText("Domotica");
@@ -495,7 +500,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenu13.add(jMenu14);
 
         jMenuItem38.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem38.setText("Eliminar Producto");
+        jMenuItem38.setText("Eliminar");
         jMenuItem38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem38ActionPerformed(evt);
@@ -588,13 +593,15 @@ RegistroEmpleado RE= new RegistroEmpleado();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addComponent(escritorio)
+                .addContainerGap())
         );
 
         pack();
@@ -1052,6 +1059,7 @@ escritorio.add(SA);
     private javax.swing.JMenuItem jMenuItem36;
     private javax.swing.JMenuItem jMenuItem37;
     private javax.swing.JMenuItem jMenuItem38;
+    private javax.swing.JMenuItem jMenuItem39;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

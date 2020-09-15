@@ -89,6 +89,19 @@ public class Validar {
         return false;
     }//fin validarCC
 
+    public boolean validarSueldo(String texto) {
+        
+        if(!texto.matches("\\d+(\\.\\d{1,2})?")){
+            System.out.println( "Cantidad incorrecta se debe ingresar un número real con dos dígitos");
+            return false;
+        }else{
+            System.out.println( "Cantidad de sueldo correcto");
+            return true;
+        }
+
+          
+    }
+    
     public boolean validarTex(String caracter) {
 
         //System.out.println("Por favor ingrese solo letras");
@@ -179,15 +192,15 @@ public class Validar {
     public boolean validarTelefonoConvencional(String telefono) {
 
         System.out.println("El teléfono ingresado?.");
-        Pattern pattern = Pattern.compile("^(02)[5-9]{1}[0-9]{7}$");
+        Pattern pattern = Pattern.compile("^(0[2-7])[2-9]{1}[0-9]{6}$");
         Matcher mather = pattern.matcher(telefono);
-
+ 
         if (mather.find() == true) {
             System.out.println("El teléfono ingresado es válido.");
             return true;
         } else {
             System.out.println("El teléfono ingresado es inválido.");
-            JOptionPane.showMessageDialog(null, "Se admite solo números y un total de 9 dígitos ");
+            JOptionPane.showMessageDialog(null,  "Se admite solo números y un total de 9 dígitos "); 
             return false;
         }
 

@@ -31,7 +31,7 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabelConsultaCli = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<String>();
-        jText = new javax.swing.JTextField();
+        txtCIConsultaCliente = new javax.swing.JTextField();
         jButtonRegresar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -40,12 +40,12 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtNom = new java.awt.TextField();
-        txtApe = new java.awt.TextField();
-        txtDir = new java.awt.TextField();
-        txtTel = new java.awt.TextField();
-        txtConv = new java.awt.TextField();
-        txtCor = new java.awt.TextField();
+        txtNombreConsultaCliente = new java.awt.TextField();
+        txtApellidoConsultaCliente = new java.awt.TextField();
+        txtDirecDomiConsultaCliente = new java.awt.TextField();
+        txtTeleCeluConsultaCliente = new java.awt.TextField();
+        txtTeleConveConsultaCliente = new java.awt.TextField();
+        txtCorreoEleConsultaCliente = new java.awt.TextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
@@ -89,29 +89,34 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Correo electrónico");
 
-        txtNom.setEditable(false);
-        txtNom.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtNom.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtNombreConsultaCliente.setEditable(false);
+        txtNombreConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtNombreConsultaCliente.setPreferredSize(new java.awt.Dimension(250, 28));
 
-        txtApe.setEditable(false);
-        txtApe.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtApe.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtApellidoConsultaCliente.setEditable(false);
+        txtApellidoConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtApellidoConsultaCliente.setPreferredSize(new java.awt.Dimension(250, 28));
 
-        txtDir.setEditable(false);
-        txtDir.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtDir.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtDirecDomiConsultaCliente.setEditable(false);
+        txtDirecDomiConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtDirecDomiConsultaCliente.setPreferredSize(new java.awt.Dimension(250, 28));
 
-        txtTel.setEditable(false);
-        txtTel.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtTel.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtTeleCeluConsultaCliente.setEditable(false);
+        txtTeleCeluConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtTeleCeluConsultaCliente.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtTeleCeluConsultaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTeleCeluConsultaClienteActionPerformed(evt);
+            }
+        });
 
-        txtConv.setEditable(false);
-        txtConv.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtConv.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtTeleConveConsultaCliente.setEditable(false);
+        txtTeleConveConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtTeleConveConsultaCliente.setPreferredSize(new java.awt.Dimension(250, 28));
 
-        txtCor.setEditable(false);
-        txtCor.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        txtCor.setPreferredSize(new java.awt.Dimension(250, 28));
+        txtCorreoEleConsultaCliente.setEditable(false);
+        txtCorreoEleConsultaCliente.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        txtCorreoEleConsultaCliente.setPreferredSize(new java.awt.Dimension(250, 28));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("CONSULTA CLIENTE");
@@ -151,7 +156,7 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
-                                .addComponent(jText, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCIConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -170,15 +175,15 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
                                                         .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtApe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtDir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtNom, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtApellidoConsultaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtDirecDomiConsultaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtNombreConsultaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCorreoEleConsultaCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(344, 344, 344)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtConv, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(txtTeleConveConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtTeleCeluConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(41, 41, 41))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,7 +211,7 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelConsultaCli)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jText, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCIConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -214,27 +219,27 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(txtApe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidoConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel9)
-                    .addComponent(txtDir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDirecDomiConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
-                    .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTeleCeluConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
-                    .addComponent(txtConv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTeleConveConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
-                    .addComponent(txtCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCorreoEleConsultaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(83, 83, 83))
         );
 
@@ -262,6 +267,10 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void txtTeleCeluConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeleCeluConsultaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTeleCeluConsultaClienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton3;
@@ -278,12 +287,12 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jText;
-    private java.awt.TextField txtApe;
-    private java.awt.TextField txtConv;
-    private java.awt.TextField txtCor;
-    private java.awt.TextField txtDir;
-    private java.awt.TextField txtNom;
-    private java.awt.TextField txtTel;
+    private java.awt.TextField txtApellidoConsultaCliente;
+    private javax.swing.JTextField txtCIConsultaCliente;
+    private java.awt.TextField txtCorreoEleConsultaCliente;
+    private java.awt.TextField txtDirecDomiConsultaCliente;
+    private java.awt.TextField txtNombreConsultaCliente;
+    private java.awt.TextField txtTeleCeluConsultaCliente;
+    private java.awt.TextField txtTeleConveConsultaCliente;
     // End of variables declaration//GEN-END:variables
 }

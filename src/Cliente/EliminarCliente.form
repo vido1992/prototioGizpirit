@@ -66,7 +66,7 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                  <Component id="jText" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="txtCIEliminarCliente" min="-2" pref="200" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -76,7 +76,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane3" min="-2" pref="500" max="-2" attributes="0"/>
+                          <Component id="jScrollPane3" min="-2" pref="626" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -94,7 +94,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelConsultaCli" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jText" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txtCIEliminarCliente" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -132,7 +132,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="jText">
+        <Component class="javax.swing.JTextField" name="txtCIEliminarCliente">
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegresar">
           <Properties>

@@ -45,16 +45,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel3" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -79,17 +69,28 @@
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="CorreoElectronico2" min="-2" pref="138" max="-2" attributes="0"/>
-                                              <Component id="TelefonoClienteRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                                              <Component id="CorreoElectronico" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="DireccionClienteRegistro" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="ApellidosClienteRegistro" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="NombreClienteRegistro" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="CCCRegistro" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="DireccionClienteEmpleado" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="ApellidosEmpleadoRegistro" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="nombreRegistroEmpleado" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="CIRegistroEmpleado" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="btnAyudaNombre" min="-2" pref="19" max="-2" attributes="0"/>
+                                                      <Component id="btnAyudaApellido" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
+                                                  </Group>
                                               </Group>
-                                              <Component id="CorreoElectronico3" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                                              <Component id="jComboBox1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="sueldoRegistroEmpleado" min="-2" pref="138" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnAyudaSueldo" min="-2" pref="19" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="telefonocelularEmpleadoRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                              <Component id="telefonoConvencionaEmpleadoRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                              <Component id="cbRolEmpleadoRegistro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="CorreoElectronicoRegistroEmpleado" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -100,8 +101,18 @@
                               </Group>
                           </Group>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jPanel3" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -115,47 +126,58 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CCCRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CIRegistroEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="NombreClienteRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ApellidosClienteRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="nombreRegistroEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnAyudaNombre" min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="ApellidosEmpleadoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="btnAyudaApellido" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="DireccionClienteRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="DireccionClienteEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="TelefonoClienteRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefonocelularEmpleadoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CorreoElectronico" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="telefonoConvencionaEmpleadoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbRolEmpleadoRegistro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CorreoElectronico2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sueldoRegistroEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btnAyudaSueldo" min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="9" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CorreoElectronico3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="CorreoElectronicoRegistroEmpleado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -173,9 +195,9 @@
             <Property name="text" type="java.lang.String" value="C&#xe9;dula de Identidad"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CCCRegistro">
+        <Component class="javax.swing.JTextField" name="CIRegistroEmpleado">
         </Component>
-        <Component class="javax.swing.JTextField" name="NombreClienteRegistro">
+        <Component class="javax.swing.JTextField" name="nombreRegistroEmpleado">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -218,13 +240,16 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegresarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="CorreoElectronico">
+        <Component class="javax.swing.JTextField" name="telefonoConvencionaEmpleadoRegistro">
         </Component>
-        <Component class="javax.swing.JTextField" name="TelefonoClienteRegistro">
+        <Component class="javax.swing.JTextField" name="telefonocelularEmpleadoRegistro">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefonocelularEmpleadoRegistroActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="DireccionClienteRegistro">
+        <Component class="javax.swing.JTextField" name="DireccionClienteEmpleado">
         </Component>
-        <Component class="javax.swing.JTextField" name="ApellidosClienteRegistro">
+        <Component class="javax.swing.JTextField" name="ApellidosEmpleadoRegistro">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
@@ -283,16 +308,16 @@
             <Property name="text" type="java.lang.String" value="Sueldo inicial:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CorreoElectronico2">
+        <Component class="javax.swing.JTextField" name="sueldoRegistroEmpleado">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="text" type="java.lang.String" value="Correo electr&#xf3;nico"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="CorreoElectronico3">
+        <Component class="javax.swing.JTextField" name="CorreoElectronicoRegistroEmpleado">
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="cbRolEmpleadoRegistro">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -303,6 +328,36 @@
               </StringArray>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAyudaSueldo">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icono/2.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAyudaSueldoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAyudaNombre">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icono/2.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAyudaNombreActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAyudaApellido">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icono/2.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAyudaApellidoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
