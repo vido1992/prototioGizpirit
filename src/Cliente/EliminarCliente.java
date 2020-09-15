@@ -5,6 +5,8 @@
  */
 package Cliente;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -186,6 +188,10 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+           if(this.txtCIEliminarCliente.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

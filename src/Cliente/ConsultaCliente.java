@@ -5,6 +5,8 @@
  */
 package Cliente;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -265,6 +267,11 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+        
+           if(this.txtCIConsultaCliente.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtTeleCeluConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeleCeluConsultaClienteActionPerformed

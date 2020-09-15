@@ -16,6 +16,8 @@ import Inventario.StockActualizar;
 import Producto.ProductoConsultar;
 import Ventas.AgregarProducto;
 import Actualizar_Producto.*;
+import Cliente.EliminarCliente;
+import Producto.ProductoEliminar;
 
 import Registro_Producto.Audifonos;
 import Registro_Producto.Cable;
@@ -37,14 +39,26 @@ import javax.swing.JOptionPane;
 
 public class Menu extends javax.swing.JFrame {
 
-ConsultaCliente CC=new ConsultaCliente();
-AgregarProducto IC1=new AgregarProducto();
+
+
 StockActualizar SA =new StockActualizar();
+
+//producto
 ProductoConsultar SC=new ProductoConsultar();
+ProductoEliminar PE =new ProductoEliminar();
+
+//vendedor factura
 VentaRegistro VR1= new VentaRegistro();
 VentaConsulta VC1= new VentaConsulta();
+AgregarProducto IC1=new AgregarProducto();
+
+//clientes
 Registro_Cliente RC1=new Registro_Cliente();
 ActualizarCliente AC=new ActualizarCliente();
+ConsultaCliente CC=new ConsultaCliente();
+EliminarCliente EC=new EliminarCliente();
+
+//Productos
 Audifonos A= new Audifonos();
 Cable CA= new Cable();
 Camara_Seguridad CS = new Camara_Seguridad();
@@ -55,6 +69,9 @@ Llave_Automatica LA = new Llave_Automatica();
 Reloj R = new Reloj();
 Sensor S= new Sensor();
 Tomacorriente TC = new Tomacorriente();
+
+
+
 
 //PRODUCTO
 A_Audifonos AAU = new A_Audifonos();
@@ -246,6 +263,11 @@ RegistroEmpleado RE= new RegistroEmpleado();
 
         jMenuItem39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem39.setText("Eliminar");
+        jMenuItem39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem39ActionPerformed(evt);
+            }
+        });
         jMenu5.add(jMenuItem39);
 
         jMenuBar2.add(jMenu5);
@@ -968,6 +990,18 @@ escritorio.add(SA);
     private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem38ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem38ActionPerformed
+
+    private void jMenuItem39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem39ActionPerformed
+
+        escritorio.add(EC);
+        EC.show();
+        try {
+            EC.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jMenuItem39ActionPerformed
 
     /**
      * @param args the command line arguments

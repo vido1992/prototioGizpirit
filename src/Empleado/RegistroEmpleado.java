@@ -310,11 +310,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
         {
 
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else      
-            
-            
-            
-            
+        }else  
             
         {
             //System.out.println(this.CCCRegistro.getText().toString());
@@ -376,10 +372,9 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "contador"+i);   
             
             if (i==9)
-        {
-            JOptionPane.showMessageDialog(null,  "Empleado Registrado");
-            
-        }
+            {
+                JOptionPane.showMessageDialog(null,  "Empleado Registrado");
+            }
             
             
 

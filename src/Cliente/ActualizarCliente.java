@@ -69,6 +69,12 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         txtActualizarClienteActivo = new javax.swing.JRadioButton();
         txtActualizarClienteInactivo = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        ApellidosActualizarCliente = new javax.swing.JTextField();
+        nombreActualizarCliente = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        CIActualizarCliente = new javax.swing.JTextField();
 
         setClosable(true);
 
@@ -150,54 +156,79 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
         txtActualizarClienteInactivo.setText("Inactivo");
 
+        jLabel3.setText("Nombres");
+
+        jLabel4.setText("Apellidos");
+
+        ApellidosActualizarCliente.setEnabled(false);
+
+        nombreActualizarCliente.setEnabled(false);
+
+        jLabel5.setText("Cédula de Identidad");
+
+        CIActualizarCliente.setEnabled(false);
+
         javax.swing.GroupLayout jPanelActualizarCliLayout = new javax.swing.GroupLayout(jPanelActualizarCli);
         jPanelActualizarCli.setLayout(jPanelActualizarCliLayout);
         jPanelActualizarCliLayout.setHorizontalGroup(
             jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                .addGap(245, 245, 245)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addGap(62, 62, 62)
                 .addComponent(txtactualizarClienteCi)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
+                .addGap(136, 136, 136))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelActualizarCliLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1))
+                        .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel4))
+                        .addGap(57, 57, 57)
+                        .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(nombreActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                            .addComponent(CIActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ApellidosActualizarCliente)))
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jButton5))
-                    .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17))
+                        .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(txtActualizarClienteActivo)
+                                .addGap(26, 26, 26)
+                                .addComponent(txtActualizarClienteInactivo))
+                            .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtTelefonoCeluActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                                    .addComponent(txtDireccionDomicilioActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefonoConvencionalActualizarCliente))))))
+                .addGap(108, 108, 108))
+            .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
+                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jButton4)
                         .addGap(100, 100, 100)
-                        .addComponent(jButtonRegresar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelActualizarCliLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17))
-                .addGap(93, 93, 93)
-                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButtonRegresar))
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
-                        .addComponent(txtActualizarClienteActivo)
-                        .addGap(26, 26, 26)
-                        .addComponent(txtActualizarClienteInactivo))
-                    .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtCorreoActualizarCliente)
-                        .addComponent(txtDireccionDomicilioActualizarCliente)
-                        .addComponent(txtTelefonoCeluActualizarCliente)
-                        .addComponent(txtTelefonoConvencionalActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(51, 51, 51))
+                        .addGap(145, 145, 145)
+                        .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jButton5)))
+                    .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelActualizarCliLayout.setVerticalGroup(
             jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,10 +243,22 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                     .addComponent(txtactualizarClienteCi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(CIActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nombreActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(ApellidosActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -233,7 +276,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel17)
                     .addComponent(txtActualizarClienteActivo)
                     .addComponent(txtActualizarClienteInactivo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButtonRegresar))
@@ -246,12 +289,14 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelActualizarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelActualizarCli, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelActualizarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelActualizarCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
         );
 
         pack();
@@ -332,16 +377,23 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int i = 0;
-
+           if(this.txtactualizarClienteCi.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        }else
         if (txtCorreoActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO", JOptionPane.WARNING_MESSAGE);
-        } else {
-            if (txtDireccionDomicilioActualizarCliente.getText().equals("")) {
+        } else if (txtDireccionDomicilioActualizarCliente.getText().equals(""))
+                {
                 JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCIÓN", JOptionPane.WARNING_MESSAGE);
-            } else {
-                if (txtTelefonoCeluActualizarCliente.getText().equals("")) {
+            } else if (txtTelefonoCeluActualizarCliente.getText().equals("")) 
+                    {
                     JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO", JOptionPane.WARNING_MESSAGE);
-                } else {
+                } else if (this.txtTelefonoConvencionalActualizarCliente.getText().equals(""))
+                    {
+                    JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL", JOptionPane.WARNING_MESSAGE);
+                } else 
+                {
                     if (validar.validarCorreo(txtCorreoActualizarCliente.getText())) {
                         i++;
                     }
@@ -351,30 +403,26 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                     if (validar.validarTelefonoC(txtTelefonoCeluActualizarCliente.getText())) {
                         i++;
                     }
-                    if (i == 3) {
-                        if (nuevo[1].equals("Estándar") || nuevo[1].equals("Pospago")) {
-                            JOptionPane.showMessageDialog(null, "EL DATO INGRESADO HA SIDO ACTUALIZADO");
-                            this.base.crearArchivo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], txtDireccionDomicilioActualizarCliente.getText(), txtCorreoActualizarCliente.getText(), txtTelefonoCeluActualizarCliente.getText(), nuevo[7]);
-                            try {
-                                removeLineFromFile(nuevo[0] + "++" + nuevo[1] + "++" + nuevo[2] + "++" + nuevo[3] + "++" + nuevo[4] + "++" + nuevo[5] + "++" + nuevo[6] + "++" + nuevo[7] + "++{}");
-
-                            } catch (IOException ex) {
-                                Logger.getLogger(ActualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        } else {
-                            JOptionPane.showMessageDialog(null, "EL DATO INGRESADO HA SIDO ACTUALIZADO");
-                            this.base.prepagoArchivo(nuevo[0], nuevo[1], nuevo[2], nuevo[3], txtDireccionDomicilioActualizarCliente.getText(), txtCorreoActualizarCliente.getText(), txtTelefonoCeluActualizarCliente.getText(), nuevo[7], nuevo[8]);
-                            try {
-                                removeLineFromFile(nuevo[0] + "++" + nuevo[1] + "++" + nuevo[2] + "++" + nuevo[3] + "++" + nuevo[4] + "++" + nuevo[5] + "++" + nuevo[6] + "++" + nuevo[7] + "++" + nuevo[8] + "++{}");
-                            } catch (IOException ex) {
-                                Logger.getLogger(ActualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
+                    if (validar.validarTelefonoConvencional(this.txtTelefonoConvencionalActualizarCliente.getText())) {
+                        i++;
                     }
-
+                    if (this.txtActualizarClienteActivo.isSelected()== true) {
+                        i++;
+                    }else
+                    if (this.txtActualizarClienteActivo.isSelected()== true) {
+                        i++;
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO ESTADO CLIENTE ", JOptionPane.WARNING_MESSAGE);
+                    }
+                    if (i==5)
+                    {
+                        JOptionPane.showMessageDialog(null,  "Empleado Registrado");
+                    }
+                    
+                    
                 }
-            }
-        }
+
+      
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -398,6 +446,8 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ApellidosActualizarCliente;
+    private javax.swing.JTextField CIActualizarCliente;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonRegresar;
@@ -408,9 +458,13 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelActualizarCli;
+    private javax.swing.JTextField nombreActualizarCliente;
     private javax.swing.JRadioButton txtActualizarClienteActivo;
     private javax.swing.JRadioButton txtActualizarClienteInactivo;
     private javax.swing.JTextField txtCorreoActualizarCliente;
