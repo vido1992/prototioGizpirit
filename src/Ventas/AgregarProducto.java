@@ -7,7 +7,7 @@ package Ventas;
 
 import Controladores.RelojJpaController;
 import Entidades.Reloj;
-import Inicio.Menu;
+import Inicio.Menu1;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
