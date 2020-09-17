@@ -29,7 +29,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Sensor.findByMarca", query = "SELECT s FROM Sensor s WHERE s.marca = :marca")
     , @NamedQuery(name = "Sensor.findByTipo", query = "SELECT s FROM Sensor s WHERE s.tipo = :tipo")
     , @NamedQuery(name = "Sensor.findByPrecioimportacion", query = "SELECT s FROM Sensor s WHERE s.precioimportacion = :precioimportacion")
-    , @NamedQuery(name = "Sensor.findByPreciopublico", query = "SELECT s FROM Sensor s WHERE s.preciopublico = :preciopublico")})
+    , @NamedQuery(name = "Sensor.findByPreciopublico", query = "SELECT s FROM Sensor s WHERE s.preciopublico = :preciopublico")
+    , @NamedQuery(name = "Sensor.findByFechaimportacion", query = "SELECT s FROM Sensor s WHERE s.fechaimportacion = :fechaimportacion")
+    , @NamedQuery(name = "Sensor.findByCantidad", query = "SELECT s FROM Sensor s WHERE s.cantidad = :cantidad")
+    , @NamedQuery(name = "Sensor.findByEstado", query = "SELECT s FROM Sensor s WHERE s.estado = :estado")})
 public class Sensor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,6 +50,12 @@ public class Sensor implements Serializable {
     private String precioimportacion;
     @Column(name = "preciopublico")
     private String preciopublico;
+    @Column(name = "fechaimportacion")
+    private String fechaimportacion;
+    @Column(name = "cantidad")
+    private String cantidad;
+    @Column(name = "estado")
+    private String estado;
 
     public Sensor() {
     }
@@ -101,6 +110,30 @@ public class Sensor implements Serializable {
 
     public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
+    }
+
+    public String getFechaimportacion() {
+        return fechaimportacion;
+    }
+
+    public void setFechaimportacion(String fechaimportacion) {
+        this.fechaimportacion = fechaimportacion;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

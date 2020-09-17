@@ -30,7 +30,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Cargador.findByTipo", query = "SELECT c FROM Cargador c WHERE c.tipo = :tipo")
     , @NamedQuery(name = "Cargador.findByWattscarga", query = "SELECT c FROM Cargador c WHERE c.wattscarga = :wattscarga")
     , @NamedQuery(name = "Cargador.findByPrecioimportacion", query = "SELECT c FROM Cargador c WHERE c.precioimportacion = :precioimportacion")
-    , @NamedQuery(name = "Cargador.findByPreciopublico", query = "SELECT c FROM Cargador c WHERE c.preciopublico = :preciopublico")})
+    , @NamedQuery(name = "Cargador.findByPreciopublico", query = "SELECT c FROM Cargador c WHERE c.preciopublico = :preciopublico")
+    , @NamedQuery(name = "Cargador.findByFechaimportacion", query = "SELECT c FROM Cargador c WHERE c.fechaimportacion = :fechaimportacion")
+    , @NamedQuery(name = "Cargador.findByCantidad", query = "SELECT c FROM Cargador c WHERE c.cantidad = :cantidad")
+    , @NamedQuery(name = "Cargador.findByEstado", query = "SELECT c FROM Cargador c WHERE c.estado = :estado")})
 public class Cargador implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +53,12 @@ public class Cargador implements Serializable {
     private String precioimportacion;
     @Column(name = "preciopublico")
     private String preciopublico;
+    @Column(name = "fechaimportacion")
+    private String fechaimportacion;
+    @Column(name = "cantidad")
+    private String cantidad;
+    @Column(name = "estado")
+    private String estado;
 
     public Cargador() {
     }
@@ -112,6 +121,30 @@ public class Cargador implements Serializable {
 
     public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
+    }
+
+    public String getFechaimportacion() {
+        return fechaimportacion;
+    }
+
+    public void setFechaimportacion(String fechaimportacion) {
+        this.fechaimportacion = fechaimportacion;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override
