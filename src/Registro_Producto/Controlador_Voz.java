@@ -5,6 +5,9 @@
  */
 package Registro_Producto;
 
+import Controladores.ControladorvozJpaController;
+import Entidades.Controladorvoz;
+
 /**
  *
  * @author David
@@ -14,6 +17,8 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
     /**
      * Creates new form Controlador_Voz
      */
+    ControladorvozJpaController Ccv= new ControladorvozJpaController();
+    Controladorvoz cv = new Controladorvoz();
     public Controlador_Voz() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CONTROLADOR DE VOZ"); 

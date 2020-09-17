@@ -5,6 +5,9 @@
  */
 package Registro_Producto;
 
+import Controladores.InterruptorJpaController;
+import Entidades.Interruptor;
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -12,14 +15,16 @@ import validaciones.Validar;
  *
  * @author David
  */
-public class Interruptor extends javax.swing.JInternalFrame {
+public class Interruptor_R extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Interruptores
      */
+    InterruptorJpaController Cin = new InterruptorJpaController();
+    Interruptor in = new Interruptor();
      Validar validar = new Validar();
     public String codigo, modelo, marca, tipo, pInicial, pPublico,NumeroBotones;
-    public Interruptor() {
+    public Interruptor_R() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-INTERRUPTORES"); 
     }

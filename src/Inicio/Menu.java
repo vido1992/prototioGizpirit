@@ -18,18 +18,19 @@ import Ventas.AgregarProducto;
 import Actualizar_Producto.*;
 import Cliente.EliminarCliente;
 import Empleado.EliminarEmpleado;
+import Inventario.StockConsulta;
 import Producto.ProductoEliminar;
 
-import Registro_Producto.Audifonos;
-import Registro_Producto.Cable;
+import Registro_Producto.Audifonos_R;
+import Registro_Producto.Cable_R;
 import Registro_Producto.Camara_Seguridad;
-import Registro_Producto.Cargador;
+import Registro_Producto.Cargador_R;
 import Registro_Producto.Controlador_Voz;
-import Registro_Producto.Interruptor;
+import Registro_Producto.Interruptor_R;
 import Registro_Producto.Llave_Automatica;
 import Registro_Producto.Reloj_R;
-import Registro_Producto.Sensor;
-import Registro_Producto.Tomacorriente;
+import Registro_Producto.Sensor_R;
+import Registro_Producto.Tomacorriente_R;
 import Ventas.VentaConsulta;
 import Ventas.VentaRegistro;
 import java.awt.event.ActionEvent;
@@ -41,11 +42,12 @@ import javax.swing.JOptionPane;
 public class Menu extends javax.swing.JFrame {
 
 
-
+//Inventario
 StockActualizar SA =new StockActualizar();
+StockConsulta SC = new StockConsulta();
 
-//producto
-ProductoConsultar SC=new ProductoConsultar();
+//Producto
+ProductoConsultar PC=new ProductoConsultar();
 ProductoEliminar PE =new ProductoEliminar();
 
 //vendedor factura
@@ -59,22 +61,22 @@ ActualizarCliente AC=new ActualizarCliente();
 ConsultaCliente CC=new ConsultaCliente();
 EliminarCliente EC=new EliminarCliente();
 
-//Productos
-Audifonos A= new Audifonos();
-Cable CA= new Cable();
+//Productos registrar
+Audifonos_R A= new Audifonos_R();
+Cable_R CA= new Cable_R();
 Camara_Seguridad CS = new Camara_Seguridad();
-Cargador CG = new Cargador();
+Cargador_R CG = new Cargador_R();
 Controlador_Voz CV = new Controlador_Voz();
-Interruptor I = new Interruptor();
+Interruptor_R I = new Interruptor_R();
 Llave_Automatica LA = new Llave_Automatica();
 Reloj_R R = new Reloj_R();
-Sensor S= new Sensor();
-Tomacorriente TC = new Tomacorriente();
+Sensor_R S= new Sensor_R();
+Tomacorriente_R TC = new Tomacorriente_R();
 
 
 
 
-//PRODUCTO
+//PRODUCTO actualizar
 A_Audifonos AAU = new A_Audifonos();
 A_Cable ACA = new A_Cable();
 A_Camara_Seguridad ACS = new A_Camara_Seguridad();
@@ -125,24 +127,24 @@ EliminarEmpleado EE =new EliminarEmpleado();
         menu2 = new java.awt.Menu();
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        ModuloCliente = new javax.swing.JMenu();
+        ClienteRegistrar = new javax.swing.JMenuItem();
+        ClienteActualizar = new javax.swing.JMenuItem();
+        ClienteConsultar = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem39 = new javax.swing.JMenuItem();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem15 = new javax.swing.JMenuItem();
-        jMenuItem16 = new javax.swing.JMenuItem();
+        ClienteEliminar = new javax.swing.JMenuItem();
+        ModuloVentas = new javax.swing.JMenu();
+        VentaFactura = new javax.swing.JMenuItem();
+        VentaConsultar = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenu9 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        ModuloEmpleado = new javax.swing.JMenu();
+        EmpleadoRegistrar = new javax.swing.JMenuItem();
+        EmpleadoConsultar = new javax.swing.JMenuItem();
+        EmpleadoActualizar = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem40 = new javax.swing.JMenuItem();
-        jMenu13 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
+        EmpleadoEliminar = new javax.swing.JMenuItem();
+        ModuloProducto = new javax.swing.JMenu();
+        ProductoRegistrar = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
         jMenuItem17 = new javax.swing.JMenuItem();
         jMenuItem18 = new javax.swing.JMenuItem();
@@ -154,7 +156,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
-        jMenu14 = new javax.swing.JMenu();
+        ProductoActualizar = new javax.swing.JMenu();
         jMenu15 = new javax.swing.JMenu();
         jMenuItem36 = new javax.swing.JMenuItem();
         jMenuItem35 = new javax.swing.JMenuItem();
@@ -166,20 +168,21 @@ EliminarEmpleado EE =new EliminarEmpleado();
         jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem32 = new javax.swing.JMenuItem();
         jMenuItem30 = new javax.swing.JMenuItem();
-        jMenuItem38 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        ProductoEliminar = new javax.swing.JMenuItem();
+        ProductoConsultar = new javax.swing.JMenuItem();
+        ModuloInventario = new javax.swing.JMenu();
+        InvantarioConsultar = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem25 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
+        InvantarioActualizar = new javax.swing.JMenuItem();
+        InvantarioReporte = new javax.swing.JMenu();
         jMenuItem23 = new javax.swing.JMenuItem();
         jMenuItem24 = new javax.swing.JMenuItem();
         jMenuItem26 = new javax.swing.JMenuItem();
         jMenuItem27 = new javax.swing.JMenuItem();
-        jMenu10 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        jMenuItem21 = new javax.swing.JMenuItem();
-        jMenuItem22 = new javax.swing.JMenuItem();
+        ModuloAdministracion = new javax.swing.JMenu();
+        AdministracionUsuario = new javax.swing.JMenuItem();
+        AdministracionParameetros = new javax.swing.JMenuItem();
+        AdministracionAuditoria = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -232,119 +235,119 @@ EliminarEmpleado EE =new EliminarEmpleado();
             .addGap(0, 828, Short.MAX_VALUE)
         );
 
-        jMenu5.setText("Cliente");
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ModuloCliente.setText("Cliente");
+        ModuloCliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem1.setText("Registrar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        ClienteRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ClienteRegistrar.setText("Registrar");
+        ClienteRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ClienteRegistrarActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem1);
+        ModuloCliente.add(ClienteRegistrar);
 
-        jMenuItem8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem8.setText("Actualizar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        ClienteActualizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ClienteActualizar.setText("Actualizar");
+        ClienteActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                ClienteActualizarActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem8);
+        ModuloCliente.add(ClienteActualizar);
 
-        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem5.setText("Consultar");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        ClienteConsultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ClienteConsultar.setText("Consultar");
+        ClienteConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                ClienteConsultarActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem5);
-        jMenu5.add(jSeparator1);
+        ModuloCliente.add(ClienteConsultar);
+        ModuloCliente.add(jSeparator1);
 
-        jMenuItem39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem39.setText("Eliminar");
-        jMenuItem39.addActionListener(new java.awt.event.ActionListener() {
+        ClienteEliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ClienteEliminar.setText("Eliminar");
+        ClienteEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem39ActionPerformed(evt);
+                ClienteEliminarActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem39);
+        ModuloCliente.add(ClienteEliminar);
 
-        jMenuBar2.add(jMenu5);
+        jMenuBar2.add(ModuloCliente);
 
-        jMenu7.setText("Venta");
-        jMenu7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ModuloVentas.setText("Venta");
+        ModuloVentas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenuItem15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem15.setText("Facturar");
-        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+        VentaFactura.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        VentaFactura.setText("Facturar");
+        VentaFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem15ActionPerformed(evt);
+                VentaFacturaActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem15);
+        ModuloVentas.add(VentaFactura);
 
-        jMenuItem16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem16.setText("Consultar");
-        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
+        VentaConsultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        VentaConsultar.setText("Consultar");
+        VentaConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem16ActionPerformed(evt);
+                VentaConsultarActionPerformed(evt);
             }
         });
-        jMenu7.add(jMenuItem16);
-        jMenu7.add(jSeparator2);
+        ModuloVentas.add(VentaConsultar);
+        ModuloVentas.add(jSeparator2);
 
-        jMenuBar2.add(jMenu7);
+        jMenuBar2.add(ModuloVentas);
 
-        jMenu9.setText("Empleado");
-        jMenu9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ModuloEmpleado.setText("Empleado");
+        ModuloEmpleado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenuItem9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem9.setText("Registrar");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        EmpleadoRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EmpleadoRegistrar.setText("Registrar");
+        EmpleadoRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                EmpleadoRegistrarActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem9);
+        ModuloEmpleado.add(EmpleadoRegistrar);
 
-        jMenuItem10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem10.setText("Consultar");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        EmpleadoConsultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EmpleadoConsultar.setText("Consultar");
+        EmpleadoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                EmpleadoConsultarActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem10);
+        ModuloEmpleado.add(EmpleadoConsultar);
 
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem2.setText("Actualizar");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        EmpleadoActualizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EmpleadoActualizar.setText("Actualizar");
+        EmpleadoActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                EmpleadoActualizarActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem2);
-        jMenu9.add(jSeparator5);
+        ModuloEmpleado.add(EmpleadoActualizar);
+        ModuloEmpleado.add(jSeparator5);
 
-        jMenuItem40.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem40.setText("Eliminar");
-        jMenuItem40.addActionListener(new java.awt.event.ActionListener() {
+        EmpleadoEliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        EmpleadoEliminar.setText("Eliminar");
+        EmpleadoEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem40ActionPerformed(evt);
+                EmpleadoEliminarActionPerformed(evt);
             }
         });
-        jMenu9.add(jMenuItem40);
+        ModuloEmpleado.add(EmpleadoEliminar);
 
-        jMenuBar2.add(jMenu9);
+        jMenuBar2.add(ModuloEmpleado);
 
-        jMenu13.setText("Producto");
-        jMenu13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ModuloProducto.setText("Producto");
+        ModuloProducto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenu12.setText("Registrar");
-        jMenu12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ProductoRegistrar.setText("Registrar");
+        ProductoRegistrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenu11.setText("Domótica");
         jMenu11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -394,7 +397,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
         });
         jMenu11.add(jMenuItem20);
 
-        jMenu12.add(jMenu11);
+        ProductoRegistrar.add(jMenu11);
 
         jMenuItem4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem4.setText("Reloj");
@@ -403,7 +406,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem4);
+        ProductoRegistrar.add(jMenuItem4);
 
         jMenuItem6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem6.setText("Audífono");
@@ -412,7 +415,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem6);
+        ProductoRegistrar.add(jMenuItem6);
 
         jMenuItem7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem7.setText("Cámara de Seguridad");
@@ -421,7 +424,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem7);
+        ProductoRegistrar.add(jMenuItem7);
 
         jMenuItem11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem11.setText("Cargador");
@@ -430,7 +433,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem11ActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem11);
+        ProductoRegistrar.add(jMenuItem11);
 
         jMenuItem14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem14.setText("Cable");
@@ -439,12 +442,12 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem14ActionPerformed(evt);
             }
         });
-        jMenu12.add(jMenuItem14);
+        ProductoRegistrar.add(jMenuItem14);
 
-        jMenu13.add(jMenu12);
+        ModuloProducto.add(ProductoRegistrar);
 
-        jMenu14.setText("Actualizar");
-        jMenu14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ProductoActualizar.setText("Actualizar");
+        ProductoActualizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenu15.setText("Domotica");
 
@@ -488,7 +491,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
         });
         jMenu15.add(jMenuItem37);
 
-        jMenu14.add(jMenu15);
+        ProductoActualizar.add(jMenu15);
 
         jMenuItem28.setText("Audífonos");
         jMenuItem28.addActionListener(new java.awt.event.ActionListener() {
@@ -496,7 +499,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem28ActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem28);
+        ProductoActualizar.add(jMenuItem28);
 
         jMenuItem29.setText("Reloj");
         jMenuItem29.addActionListener(new java.awt.event.ActionListener() {
@@ -504,7 +507,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem29ActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem29);
+        ProductoActualizar.add(jMenuItem29);
 
         jMenuItem31.setText("Cable");
         jMenuItem31.addActionListener(new java.awt.event.ActionListener() {
@@ -512,7 +515,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem31ActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem31);
+        ProductoActualizar.add(jMenuItem31);
 
         jMenuItem32.setText("Cámara de Seguridad");
         jMenuItem32.addActionListener(new java.awt.event.ActionListener() {
@@ -520,7 +523,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem32ActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem32);
+        ProductoActualizar.add(jMenuItem32);
 
         jMenuItem30.setText("Cargador");
         jMenuItem30.addActionListener(new java.awt.event.ActionListener() {
@@ -528,53 +531,62 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem30ActionPerformed(evt);
             }
         });
-        jMenu14.add(jMenuItem30);
+        ProductoActualizar.add(jMenuItem30);
 
-        jMenu13.add(jMenu14);
+        ModuloProducto.add(ProductoActualizar);
 
-        jMenuItem38.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem38.setText("Eliminar");
-        jMenuItem38.addActionListener(new java.awt.event.ActionListener() {
+        ProductoEliminar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ProductoEliminar.setText("Eliminar");
+        ProductoEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem38ActionPerformed(evt);
+                ProductoEliminarActionPerformed(evt);
             }
         });
-        jMenu13.add(jMenuItem38);
+        ModuloProducto.add(ProductoEliminar);
 
-        jMenuBar2.add(jMenu13);
-
-        jMenu8.setText("Inventario");
-        jMenu8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        jMenuItem13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem13.setText("Consultar Stock");
-        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+        ProductoConsultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ProductoConsultar.setText("Consultar");
+        ProductoConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem13ActionPerformed(evt);
+                ProductoConsultarActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem13);
-        jMenu8.add(jSeparator4);
+        ModuloProducto.add(ProductoConsultar);
 
-        jMenuItem25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem25.setText("Actualizar Stock");
-        jMenuItem25.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar2.add(ModuloProducto);
+
+        ModuloInventario.setText("Inventario");
+        ModuloInventario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        InvantarioConsultar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        InvantarioConsultar.setText("Consultar Stock");
+        InvantarioConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem25ActionPerformed(evt);
+                InvantarioConsultarActionPerformed(evt);
             }
         });
-        jMenu8.add(jMenuItem25);
+        ModuloInventario.add(InvantarioConsultar);
+        ModuloInventario.add(jSeparator4);
 
-        jMenu6.setText("Reporte Producto");
-        jMenu6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        InvantarioActualizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        InvantarioActualizar.setText("Actualizar Stock");
+        InvantarioActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InvantarioActualizarActionPerformed(evt);
+            }
+        });
+        ModuloInventario.add(InvantarioActualizar);
+
+        InvantarioReporte.setText("Reporte Producto");
+        InvantarioReporte.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenuItem23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem23.setText("Reporte por Alta");
-        jMenu6.add(jMenuItem23);
+        InvantarioReporte.add(jMenuItem23);
 
         jMenuItem24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem24.setText("Reporte por Baja");
-        jMenu6.add(jMenuItem24);
+        InvantarioReporte.add(jMenuItem24);
 
         jMenuItem26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem26.setText("Reporte por Alto Stock");
@@ -583,42 +595,42 @@ EliminarEmpleado EE =new EliminarEmpleado();
                 jMenuItem26ActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem26);
+        InvantarioReporte.add(jMenuItem26);
 
         jMenuItem27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem27.setText("Reporte por Bajo Stock");
-        jMenu6.add(jMenuItem27);
+        InvantarioReporte.add(jMenuItem27);
 
-        jMenu8.add(jMenu6);
+        ModuloInventario.add(InvantarioReporte);
 
-        jMenuBar2.add(jMenu8);
+        jMenuBar2.add(ModuloInventario);
 
-        jMenu10.setText("Administración del Sistema ");
-        jMenu10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        ModuloAdministracion.setText("Administración del Sistema ");
+        ModuloAdministracion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        jMenuItem12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem12.setText("Administración de Usuario");
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+        AdministracionUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AdministracionUsuario.setText("Administración de Usuario");
+        AdministracionUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
+                AdministracionUsuarioActionPerformed(evt);
             }
         });
-        jMenu10.add(jMenuItem12);
+        ModuloAdministracion.add(AdministracionUsuario);
 
-        jMenuItem21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem21.setText("Administración de Parámetros");
-        jMenu10.add(jMenuItem21);
+        AdministracionParameetros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AdministracionParameetros.setText("Administración de Parámetros");
+        ModuloAdministracion.add(AdministracionParameetros);
 
-        jMenuItem22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem22.setText("Auditoría");
-        jMenuItem22.addActionListener(new java.awt.event.ActionListener() {
+        AdministracionAuditoria.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        AdministracionAuditoria.setText("Auditoría");
+        AdministracionAuditoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem22ActionPerformed(evt);
+                AdministracionAuditoriaActionPerformed(evt);
             }
         });
-        jMenu10.add(jMenuItem22);
+        ModuloAdministracion.add(AdministracionAuditoria);
 
-        jMenuBar2.add(jMenu10);
+        jMenuBar2.add(ModuloAdministracion);
 
         setJMenuBar(jMenuBar2);
 
@@ -644,7 +656,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void ClienteActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActualizarActionPerformed
  escritorio.add(AC);
         AC.show();
           try {
@@ -653,9 +665,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
     }
                
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_ClienteActualizarActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void ClienteConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteConsultarActionPerformed
  escritorio.add(CC);
         CC.show();  
           try {
@@ -666,9 +678,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
         
         
        
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_ClienteConsultarActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void EmpleadoRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoRegistrarActionPerformed
        
         
         escritorio.add(RE);
@@ -680,9 +692,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
     }
        
    
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_EmpleadoRegistrarActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void EmpleadoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoConsultarActionPerformed
 
         escritorio.add(CE);
         CE.show();
@@ -692,9 +704,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
     }
        
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }//GEN-LAST:event_EmpleadoConsultarActionPerformed
 
-    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+    private void InvantarioConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvantarioConsultarActionPerformed
 
         
         escritorio.add(SC);
@@ -706,9 +718,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
     }
        
  
-    }//GEN-LAST:event_jMenuItem13ActionPerformed
+    }//GEN-LAST:event_InvantarioConsultarActionPerformed
    
-    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+    private void VentaFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaFacturaActionPerformed
 
         escritorio.add(VR1);
         VR1.show();
@@ -718,9 +730,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
     }
         
-    }//GEN-LAST:event_jMenuItem15ActionPerformed
+    }//GEN-LAST:event_VentaFacturaActionPerformed
 
-    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+    private void VentaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaConsultarActionPerformed
         
         escritorio.add(VC1);
         VC1.show();
@@ -730,7 +742,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
     }
         
-    }//GEN-LAST:event_jMenuItem16ActionPerformed
+    }//GEN-LAST:event_VentaConsultarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
@@ -738,7 +750,7 @@ EliminarEmpleado EE =new EliminarEmpleado();
             System.exit(0);}
     }//GEN-LAST:event_formWindowClosing
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void EmpleadoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoActualizarActionPerformed
 
         escritorio.add(AE);
         AE.show();
@@ -748,9 +760,9 @@ EliminarEmpleado EE =new EliminarEmpleado();
         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
     }
        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_EmpleadoActualizarActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ClienteRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteRegistrarActionPerformed
         // TODO add your handling code here:
         escritorio.add(RC1);
         RC1.show();
@@ -760,17 +772,17 @@ EliminarEmpleado EE =new EliminarEmpleado();
         Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
     }
        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_ClienteRegistrarActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+    private void AdministracionUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministracionUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
+    }//GEN-LAST:event_AdministracionUsuarioActionPerformed
 
-    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+    private void AdministracionAuditoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministracionAuditoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem22ActionPerformed
+    }//GEN-LAST:event_AdministracionAuditoriaActionPerformed
 
-    private void jMenuItem25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem25ActionPerformed
+    private void InvantarioActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvantarioActualizarActionPerformed
 escritorio.add(SA);
         SA.show();
           try {
@@ -781,7 +793,7 @@ escritorio.add(SA);
         
 
 
-    }//GEN-LAST:event_jMenuItem25ActionPerformed
+    }//GEN-LAST:event_InvantarioActualizarActionPerformed
 
     private void jMenuItem26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem26ActionPerformed
         // TODO add your handling code here:
@@ -998,11 +1010,18 @@ escritorio.add(SA);
         }
     }//GEN-LAST:event_jMenuItem30ActionPerformed
 
-    private void jMenuItem38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem38ActionPerformed
+    private void ProductoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem38ActionPerformed
+          escritorio.add(PE);
+        PE.show();
+        try {
+            PE.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ProductoEliminarActionPerformed
 
-    private void jMenuItem39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem39ActionPerformed
+    private void ClienteEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteEliminarActionPerformed
 
         escritorio.add(EC);
         EC.show();
@@ -1012,9 +1031,9 @@ escritorio.add(SA);
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_jMenuItem39ActionPerformed
+    }//GEN-LAST:event_ClienteEliminarActionPerformed
 
-    private void jMenuItem40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem40ActionPerformed
+    private void EmpleadoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoEliminarActionPerformed
        escritorio.add(EE);
         EE.show();
         try {
@@ -1022,7 +1041,18 @@ escritorio.add(SA);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jMenuItem40ActionPerformed
+    }//GEN-LAST:event_EmpleadoEliminarActionPerformed
+
+    private void ProductoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoConsultarActionPerformed
+        // TODO add your handling code here:
+        escritorio.add(PC);
+        PC.show();
+        try {
+            PC.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ProductoConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1062,44 +1092,51 @@ escritorio.add(SA);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AdministracionAuditoria;
+    private javax.swing.JMenuItem AdministracionParameetros;
+    private javax.swing.JMenuItem AdministracionUsuario;
+    private javax.swing.JMenuItem ClienteActualizar;
+    private javax.swing.JMenuItem ClienteConsultar;
+    private javax.swing.JMenuItem ClienteEliminar;
+    private javax.swing.JMenuItem ClienteRegistrar;
+    private javax.swing.JMenuItem EmpleadoActualizar;
+    private javax.swing.JMenuItem EmpleadoConsultar;
+    private javax.swing.JMenuItem EmpleadoEliminar;
+    private javax.swing.JMenuItem EmpleadoRegistrar;
+    private javax.swing.JMenuItem InvantarioActualizar;
+    private javax.swing.JMenuItem InvantarioConsultar;
+    private javax.swing.JMenu InvantarioReporte;
+    private javax.swing.JMenu ModuloAdministracion;
+    private javax.swing.JMenu ModuloCliente;
+    private javax.swing.JMenu ModuloEmpleado;
+    private javax.swing.JMenu ModuloInventario;
+    private javax.swing.JMenu ModuloProducto;
+    private javax.swing.JMenu ModuloVentas;
+    private javax.swing.JMenu ProductoActualizar;
+    private javax.swing.JMenuItem ProductoConsultar;
+    private javax.swing.JMenuItem ProductoEliminar;
+    private javax.swing.JMenu ProductoRegistrar;
+    private javax.swing.JMenuItem VentaConsultar;
+    private javax.swing.JMenuItem VentaFactura;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem14;
-    private javax.swing.JMenuItem jMenuItem15;
-    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem17;
     private javax.swing.JMenuItem jMenuItem18;
     private javax.swing.JMenuItem jMenuItem19;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
-    private javax.swing.JMenuItem jMenuItem21;
-    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem23;
     private javax.swing.JMenuItem jMenuItem24;
-    private javax.swing.JMenuItem jMenuItem25;
     private javax.swing.JMenuItem jMenuItem26;
     private javax.swing.JMenuItem jMenuItem27;
     private javax.swing.JMenuItem jMenuItem28;
@@ -1113,15 +1150,9 @@ escritorio.add(SA);
     private javax.swing.JMenuItem jMenuItem35;
     private javax.swing.JMenuItem jMenuItem36;
     private javax.swing.JMenuItem jMenuItem37;
-    private javax.swing.JMenuItem jMenuItem38;
-    private javax.swing.JMenuItem jMenuItem39;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem40;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;

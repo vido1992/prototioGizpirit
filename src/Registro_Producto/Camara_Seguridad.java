@@ -5,6 +5,9 @@
  */
 package Registro_Producto;
 
+import Controladores.CamaraJpaController;
+import Entidades.Camara;
+
 /**
  *
  * @author David
@@ -14,6 +17,8 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
     /**
      * Creates new form Camara
      */
+    CamaraJpaController Cca = new CamaraJpaController();
+    Camara ca = new Camara();
     public Camara_Seguridad() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD"); 

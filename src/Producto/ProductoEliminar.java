@@ -5,6 +5,15 @@
  */
 package Producto;
 
+import Controladores.CableJpaController;
+import Controladores.exceptions.NonexistentEntityException;
+import Entidades.Cable;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author David
@@ -14,6 +23,9 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     /**
      * Creates new form ProductoActualizar
      */
+    CableJpaController Cca = new CableJpaController();
+    Cable ca = new Cable();
+
     public ProductoEliminar() {
         initComponents();
     }
@@ -34,10 +46,10 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<String>();
+        cbxProductoEliminar = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableProductoEliminar = new javax.swing.JTable();
 
         jLabel1.setText("Seleccione producto a actualizar:");
 
@@ -68,7 +80,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -79,24 +91,29 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        cbxProductoEliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
+        cbxProductoEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                cbxProductoEliminarActionPerformed(evt);
             }
         });
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProductoEliminar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Modelo ", "Marca", "Tipo", "Precio Importación", "Precio Público", "Distancia"
+                "Código", "Modelo ", "Marca", "Longitud", "Tipo", "Precio Importación", "Precio Público", "Cantidad", "Estado", "Distancia"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jTableProductoEliminar);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -106,7 +123,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addGap(312, 312, 312)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -120,7 +137,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1)
                         .addGap(68, 68, 68)
-                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(97, 97, 97)
                         .addComponent(jButton6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -138,7 +155,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -153,13 +170,17 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -170,25 +191,70 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
-
+        try {
+            String CodigoProducto = (String) jTableProductoEliminar.getValueAt(jTableProductoEliminar.getSelectedRow(), 0);
+            Cca.destroy(CodigoProducto);
+            JOptionPane.showMessageDialog(null, "Producto Eliminado");
+             CargarTabla();
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProductoEliminar.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jBotonRegistrarActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void cbxProductoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProductoEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_cbxProductoEliminarActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        CargarTabla();
+       
+    }//GEN-LAST:event_jButton6ActionPerformed
+public void CargarTabla(){
+
+ List<Cable> listC = Cca.findCableEntities();
+
+        if (this.cbxProductoEliminar.getSelectedItem().equals("Selecione un producto")) {
+            JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //Sección 1 
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0); 
+            //Sección 2
+            Object[] Columna = new Object[15];
+            //Sección 3
+            for (int i = 0; i < listC.size(); i++) {
+                Columna[0] = listC.get(i).getCodigo();
+                Columna[1] = listC.get(i).getModelo();
+                Columna[2] = listC.get(i).getMarca();
+                Columna[3] = listC.get(i).getLongitud();
+                Columna[4] = null;
+                Columna[5] = listC.get(i).getPrecioimportacion();
+                Columna[6] = listC.get(i).getPreciopublico();
+                Columna[7] = listC.get(i).getCantidad();
+                Columna[8] = listC.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listC.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbxProductoEliminar;
     private javax.swing.JButton jBotonRegistrar;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonRegresar;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTableProductoEliminar;
     // End of variables declaration//GEN-END:variables
 }

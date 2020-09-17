@@ -5,6 +5,8 @@
  */
 package Registro_Producto;
 
+import Controladores.AudifonosJpaController;
+import Entidades.Audifonos;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -12,12 +14,14 @@ import validaciones.Validar;
  *
  * @author David
  */
-public class Audifonos extends javax.swing.JInternalFrame {
+public class Audifonos_R extends javax.swing.JInternalFrame {
 
    Validar validar = new Validar();
+    AudifonosJpaController Cau = new AudifonosJpaController();
+    Audifonos au = new Audifonos();
     public String codigo, modelo, marca, tipo, pInicial, pPublico;
     
-    public Audifonos() {
+    public Audifonos_R() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-AUDIFONOS"); 
     }

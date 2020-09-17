@@ -5,16 +5,21 @@
  */
 package Registro_Producto;
 
+import Controladores.TomacorrienteJpaController;
+import Entidades.Tomacorriente;
+
 /**
  *
  * @author David
  */
-public class Tomacorriente extends javax.swing.JInternalFrame {
+public class Tomacorriente_R extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Tomacorriente
      */
-    public Tomacorriente() {
+    TomacorrienteJpaController Cto = new TomacorrienteJpaController();
+    Tomacorriente toma = new Tomacorriente();
+    public Tomacorriente_R() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-TOMACORRIENTE"); 
     }

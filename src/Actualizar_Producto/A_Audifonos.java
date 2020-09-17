@@ -110,6 +110,11 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTable3);
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jBotonRegistrarInv1.setText("Actualizar");
         jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
@@ -235,6 +240,12 @@ dispose();
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
        
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

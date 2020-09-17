@@ -29,7 +29,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Audifonos.findByMarca", query = "SELECT a FROM Audifonos a WHERE a.marca = :marca")
     , @NamedQuery(name = "Audifonos.findByTipo", query = "SELECT a FROM Audifonos a WHERE a.tipo = :tipo")
     , @NamedQuery(name = "Audifonos.findByPrecioimportacion", query = "SELECT a FROM Audifonos a WHERE a.precioimportacion = :precioimportacion")
-    , @NamedQuery(name = "Audifonos.findByPreciopublico", query = "SELECT a FROM Audifonos a WHERE a.preciopublico = :preciopublico")})
+    , @NamedQuery(name = "Audifonos.findByPreciopublico", query = "SELECT a FROM Audifonos a WHERE a.preciopublico = :preciopublico")
+    , @NamedQuery(name = "Audifonos.findByFechaimportacion", query = "SELECT a FROM Audifonos a WHERE a.fechaimportacion = :fechaimportacion")
+    , @NamedQuery(name = "Audifonos.findByCantidad", query = "SELECT a FROM Audifonos a WHERE a.cantidad = :cantidad")
+    , @NamedQuery(name = "Audifonos.findByEstado", query = "SELECT a FROM Audifonos a WHERE a.estado = :estado")})
 public class Audifonos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,6 +50,12 @@ public class Audifonos implements Serializable {
     private String precioimportacion;
     @Column(name = "preciopublico")
     private String preciopublico;
+    @Column(name = "fechaimportacion")
+    private String fechaimportacion;
+    @Column(name = "cantidad")
+    private String cantidad;
+    @Column(name = "estado")
+    private String estado;
 
     public Audifonos() {
     }
@@ -101,6 +110,30 @@ public class Audifonos implements Serializable {
 
     public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
+    }
+
+    public String getFechaimportacion() {
+        return fechaimportacion;
+    }
+
+    public void setFechaimportacion(String fechaimportacion) {
+        this.fechaimportacion = fechaimportacion;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

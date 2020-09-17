@@ -5,6 +5,9 @@
  */
 package Registro_Producto;
 
+import Controladores.LlaveautomaticaJpaController;
+import Entidades.Llaveautomatica;
+
 /**
  *
  * @author David
@@ -14,6 +17,8 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
     /**
      * Creates new form Llave_Automatica
      */
+    LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
+    Llaveautomatica lla = new Llaveautomatica();
     public Llave_Automatica() {
         initComponents();
     }

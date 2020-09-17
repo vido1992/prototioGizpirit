@@ -223,13 +223,11 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         try {
             // TODO add your handling code here:
             String c = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 2);
-            System.out.println(jTable3.getValueAt(jTable3.getSelectedRow(), 2));
             Ccliente.destroy(c);
             JOptionPane.showMessageDialog(null, "Cliente Eliminado");
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(EliminarCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(jTable3.getValueAt(jTable3.getSelectedRow(), 2));
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
