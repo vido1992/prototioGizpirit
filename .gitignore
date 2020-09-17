@@ -2,3 +2,16 @@
 /src/META-INF/
 /src/Controladores/
 /build/
+src/Entidades/Audifonos.java
+src/Entidades/Cable.java
+src/Entidades/Camara.java
+src/Entidades/Cargador.java
+src/Entidades/Cliente.java
+src/Entidades/Controladorvoz.java
+src/Entidades/Empleado.java
+src/Entidades/Factura.java
+src/Entidades/Interruptor.java
+src/Entidades/Llaveautomatica.java
+src/Entidades/Reloj.java
+src/Entidades/Sensor.java
+src/Entidades/Tomacorriente.java
