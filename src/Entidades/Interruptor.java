@@ -30,10 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Interruptor.findByNumerobotones", query = "SELECT i FROM Interruptor i WHERE i.numerobotones = :numerobotones")
     , @NamedQuery(name = "Interruptor.findByTipo", query = "SELECT i FROM Interruptor i WHERE i.tipo = :tipo")
     , @NamedQuery(name = "Interruptor.findByPrecioimportacion", query = "SELECT i FROM Interruptor i WHERE i.precioimportacion = :precioimportacion")
-    , @NamedQuery(name = "Interruptor.findByPreciopublico", query = "SELECT i FROM Interruptor i WHERE i.preciopublico = :preciopublico")
-    , @NamedQuery(name = "Interruptor.findByFechaimportacion", query = "SELECT i FROM Interruptor i WHERE i.fechaimportacion = :fechaimportacion")
-    , @NamedQuery(name = "Interruptor.findByCantidad", query = "SELECT i FROM Interruptor i WHERE i.cantidad = :cantidad")
-    , @NamedQuery(name = "Interruptor.findByEstado", query = "SELECT i FROM Interruptor i WHERE i.estado = :estado")})
+    , @NamedQuery(name = "Interruptor.findByPreciopublico", query = "SELECT i FROM Interruptor i WHERE i.preciopublico = :preciopublico")})
 public class Interruptor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,12 +50,6 @@ public class Interruptor implements Serializable {
     private String precioimportacion;
     @Column(name = "preciopublico")
     private String preciopublico;
-    @Column(name = "fechaimportacion")
-    private String fechaimportacion;
-    @Column(name = "cantidad")
-    private String cantidad;
-    @Column(name = "estado")
-    private String estado;
 
     public Interruptor() {
     }
@@ -121,30 +112,6 @@ public class Interruptor implements Serializable {
 
     public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
-    }
-
-    public String getFechaimportacion() {
-        return fechaimportacion;
-    }
-
-    public void setFechaimportacion(String fechaimportacion) {
-        this.fechaimportacion = fechaimportacion;
-    }
-
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     @Override

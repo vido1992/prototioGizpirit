@@ -29,10 +29,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Controladorvoz.findByMarca", query = "SELECT c FROM Controladorvoz c WHERE c.marca = :marca")
     , @NamedQuery(name = "Controladorvoz.findByTama\u00f1o", query = "SELECT c FROM Controladorvoz c WHERE c.tama\u00f1o = :tama\u00f1o")
     , @NamedQuery(name = "Controladorvoz.findByPrecioimportacion", query = "SELECT c FROM Controladorvoz c WHERE c.precioimportacion = :precioimportacion")
-    , @NamedQuery(name = "Controladorvoz.findByPreciopublico", query = "SELECT c FROM Controladorvoz c WHERE c.preciopublico = :preciopublico")
-    , @NamedQuery(name = "Controladorvoz.findByFechaimportacion", query = "SELECT c FROM Controladorvoz c WHERE c.fechaimportacion = :fechaimportacion")
-    , @NamedQuery(name = "Controladorvoz.findByCantidad", query = "SELECT c FROM Controladorvoz c WHERE c.cantidad = :cantidad")
-    , @NamedQuery(name = "Controladorvoz.findByEstado", query = "SELECT c FROM Controladorvoz c WHERE c.estado = :estado")})
+    , @NamedQuery(name = "Controladorvoz.findByPreciopublico", query = "SELECT c FROM Controladorvoz c WHERE c.preciopublico = :preciopublico")})
 public class Controladorvoz implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,12 +47,6 @@ public class Controladorvoz implements Serializable {
     private String precioimportacion;
     @Column(name = "preciopublico")
     private String preciopublico;
-    @Column(name = "fechaimportacion")
-    private String fechaimportacion;
-    @Column(name = "cantidad")
-    private String cantidad;
-    @Column(name = "estado")
-    private String estado;
 
     public Controladorvoz() {
     }
@@ -110,30 +101,6 @@ public class Controladorvoz implements Serializable {
 
     public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
-    }
-
-    public String getFechaimportacion() {
-        return fechaimportacion;
-    }
-
-    public void setFechaimportacion(String fechaimportacion) {
-        this.fechaimportacion = fechaimportacion;
-    }
-
-    public String getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     @Override
