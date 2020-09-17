@@ -17,6 +17,7 @@ import Producto.ProductoConsultar;
 import Ventas.AgregarProducto;
 import Actualizar_Producto.*;
 import Cliente.EliminarCliente;
+import Empleado.EliminarEmpleado;
 import Producto.ProductoEliminar;
 
 import Registro_Producto.Audifonos;
@@ -89,7 +90,7 @@ A_Sensor AS = new A_Sensor();
 ActualizarEmpleado AE= new ActualizarEmpleado();
 ConsultarEmpleado CE= new ConsultarEmpleado();
 RegistroEmpleado RE= new RegistroEmpleado();
-
+EliminarEmpleado EE =new EliminarEmpleado();
 
 /**
      * Creates new form Menú
@@ -139,6 +140,7 @@ RegistroEmpleado RE= new RegistroEmpleado();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem40 = new javax.swing.JMenuItem();
         jMenu13 = new javax.swing.JMenu();
         jMenu12 = new javax.swing.JMenu();
         jMenu11 = new javax.swing.JMenu();
@@ -326,6 +328,15 @@ RegistroEmpleado RE= new RegistroEmpleado();
         });
         jMenu9.add(jMenuItem2);
         jMenu9.add(jSeparator5);
+
+        jMenuItem40.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jMenuItem40.setText("Eliminar");
+        jMenuItem40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem40ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem40);
 
         jMenuBar2.add(jMenu9);
 
@@ -1003,6 +1014,16 @@ escritorio.add(SA);
         
     }//GEN-LAST:event_jMenuItem39ActionPerformed
 
+    private void jMenuItem40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem40ActionPerformed
+       escritorio.add(EE);
+        EE.show();
+        try {
+            EE.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jMenuItem40ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1095,6 +1116,7 @@ escritorio.add(SA);
     private javax.swing.JMenuItem jMenuItem38;
     private javax.swing.JMenuItem jMenuItem39;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem40;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;

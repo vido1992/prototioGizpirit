@@ -61,44 +61,38 @@
                                       <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="jBotonRegistrar" min="-2" pref="77" max="-2" attributes="0"/>
-                                      </Group>
                                   </Group>
+                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="DireccionClienteEmpleado" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ApellidosEmpleadoRegistro" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="nombreRegistroEmpleado" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="CIRegistroEmpleado" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                      <Component id="DireccionClienteEmpleado" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="ApellidosEmpleadoRegistro" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="nombreRegistroEmpleado" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="CIRegistroEmpleado" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="btnAyudaNombre" min="-2" pref="19" max="-2" attributes="0"/>
-                                                      <Component id="btnAyudaApellido" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="sueldoRegistroEmpleado" min="-2" pref="138" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="btnAyudaSueldo" min="-2" pref="19" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="telefonocelularEmpleadoRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                                              <Component id="telefonoConvencionaEmpleadoRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
-                                              <Component id="cbRolEmpleadoRegistro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="CorreoElectronicoRegistroEmpleado" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                                              <Component id="btnAyudaNombre" min="-2" pref="19" max="-2" attributes="0"/>
+                                              <Component id="btnAyudaApellido" alignment="0" min="-2" pref="19" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                                          <Component id="jButtonRegresar" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="sueldoRegistroEmpleado" min="-2" pref="138" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnAyudaSueldo" min="-2" pref="19" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="telefonocelularEmpleadoRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <Component id="telefonoConvencionaEmpleadoRegistro" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                      <Component id="cbRolEmpleadoRegistro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="CorreoElectronicoRegistroEmpleado" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
                                   </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="jBotonRegistrar" min="-2" pref="102" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="jButtonRegresar" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -276,7 +270,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabelLogo" min="-2" pref="202" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
