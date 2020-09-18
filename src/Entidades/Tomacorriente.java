@@ -31,7 +31,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Tomacorriente.findByTipo", query = "SELECT t FROM Tomacorriente t WHERE t.tipo = :tipo")
     , @NamedQuery(name = "Tomacorriente.findByAnguloavertura", query = "SELECT t FROM Tomacorriente t WHERE t.anguloavertura = :anguloavertura")
     , @NamedQuery(name = "Tomacorriente.findByPrecioimportacion", query = "SELECT t FROM Tomacorriente t WHERE t.precioimportacion = :precioimportacion")
-    , @NamedQuery(name = "Tomacorriente.findByPreciopublico", query = "SELECT t FROM Tomacorriente t WHERE t.preciopublico = :preciopublico")})
+    , @NamedQuery(name = "Tomacorriente.findByPreciopublico", query = "SELECT t FROM Tomacorriente t WHERE t.preciopublico = :preciopublico")
+    , @NamedQuery(name = "Tomacorriente.findByFechaimportacion", query = "SELECT t FROM Tomacorriente t WHERE t.fechaimportacion = :fechaimportacion")
+    , @NamedQuery(name = "Tomacorriente.findByCantidad", query = "SELECT t FROM Tomacorriente t WHERE t.cantidad = :cantidad")
+    , @NamedQuery(name = "Tomacorriente.findByEstado", query = "SELECT t FROM Tomacorriente t WHERE t.estado = :estado")})
 public class Tomacorriente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -53,6 +56,12 @@ public class Tomacorriente implements Serializable {
     private String precioimportacion;
     @Column(name = "preciopublico")
     private String preciopublico;
+    @Column(name = "fechaimportacion")
+    private String fechaimportacion;
+    @Column(name = "cantidad")
+    private String cantidad;
+    @Column(name = "estado")
+    private String estado;
 
     public Tomacorriente() {
     }
@@ -123,6 +132,30 @@ public class Tomacorriente implements Serializable {
 
     public void setPreciopublico(String preciopublico) {
         this.preciopublico = preciopublico;
+    }
+
+    public String getFechaimportacion() {
+        return fechaimportacion;
+    }
+
+    public void setFechaimportacion(String fechaimportacion) {
+        this.fechaimportacion = fechaimportacion;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     @Override

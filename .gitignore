@@ -1,4 +1,4 @@
-/src/Entidades/
-/src/META-INF/
-/src/Controladores/
+/src/Entidades/*
+/src/META-INF/*
+/src/Controladores/*
 /build/
