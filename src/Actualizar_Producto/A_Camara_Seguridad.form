@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
   </Properties>
@@ -22,17 +26,25 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+=======
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="88" max="32767" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
+>>>>>>> Stashed changes
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="18" max="32767" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,15 +57,30 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
+<<<<<<< Updated upstream
                       <Component id="jScrollPane3" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+=======
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+>>>>>>> Stashed changes
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
+<<<<<<< Updated upstream
                                           <Component id="rbIntern" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                           <Component id="rbExtern" min="-2" max="-2" attributes="0"/>
@@ -90,8 +117,59 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+=======
+                                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                          <Component id="jBotonRegistrarInv1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                                          <Component id="jButtonRegresar3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextField30" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="jTextField32" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTextField27" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="jTextField29" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                              <Component id="jTextField31" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                              <Component id="jTextField28" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+>>>>>>> Stashed changes
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+<<<<<<< Updated upstream
                           <EmptySpace min="0" pref="190" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -101,6 +179,13 @@
                   <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+=======
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="jScrollPane3" alignment="1" pref="679" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+>>>>>>> Stashed changes
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -231,6 +316,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbIntern">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Interna"/>
           </Properties>
           <Events>
@@ -239,6 +327,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbExtern">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Externa"/>
           </Properties>
         </Component>
@@ -303,6 +394,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">
           <AuxValues>
@@ -318,17 +412,70 @@
                     <Column editable="true" title="C&#xf3;digo" type="java.lang.Object"/>
                     <Column editable="true" title="Modelo " type="java.lang.Object"/>
                     <Column editable="true" title="Marca" type="java.lang.Object"/>
+<<<<<<< Updated upstream
                     <Column editable="true" title="Resoluci&#xf3;n" type="java.lang.Object"/>
                     <Column editable="true" title="Tipo" type="java.lang.Object"/>
                     <Column editable="true" title="&#xc1;ngulo" type="java.lang.Object"/>
+=======
+                    <Column editable="true" title="Resolucion" type="java.lang.Object"/>
+                    <Column editable="true" title="Tipo" type="java.lang.Object"/>
+                    <Column editable="true" title="Angulo de abertura" type="java.lang.Object"/>
+>>>>>>> Stashed changes
                     <Column editable="true" title="Precio Inicial" type="java.lang.Object"/>
                     <Column editable="true" title="Precio P&#xfa;blico" type="java.lang.Object"/>
                   </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable3MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
