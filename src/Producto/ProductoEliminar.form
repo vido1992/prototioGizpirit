@@ -52,7 +52,7 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jBotonRegistrar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBotonEliminar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Component id="jButtonRegresar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
@@ -62,10 +62,10 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                          <Component id="cbxProductoEliminar" min="-2" pref="151" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                          <Component id="jButton6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="cbxProductoEliminar" min="-2" pref="215" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="jButtonBuscar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -87,13 +87,13 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbxProductoEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jScrollPane3" min="-2" pref="88" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jBotonRegistrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jBotonEliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRegresar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="361" max="-2" attributes="0"/>
@@ -115,12 +115,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRegresarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jBotonRegistrar">
+        <Component class="javax.swing.JButton" name="jBotonEliminar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonRegistrarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonEliminarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -173,17 +173,18 @@
         <Component class="javax.swing.JComboBox" name="cbxProductoEliminar">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="RJ-Reloj"/>
-                <StringItem index="1" value="AU-Audifonos"/>
-                <StringItem index="2" value="CM-C&#xe1;mara"/>
-                <StringItem index="3" value="CA-Cargador"/>
-                <StringItem index="4" value="CB-Cable"/>
-                <StringItem index="5" value="IN-Interruptor"/>
-                <StringItem index="6" value="TO-Tomacorriente"/>
-                <StringItem index="7" value="SE-Sensor"/>
-                <StringItem index="8" value="CZ-ControladorVoz"/>
-                <StringItem index="9" value="La-Llaves Autom&#xe1;ticas"/>
+              <StringArray count="11">
+                <StringItem index="0" value="Selecione un producto a eliminar"/>
+                <StringItem index="1" value="RJ-Reloj"/>
+                <StringItem index="2" value="AU-Audifonos"/>
+                <StringItem index="3" value="CM-C&#xe1;mara"/>
+                <StringItem index="4" value="CA-Cargador"/>
+                <StringItem index="5" value="CB-Cable"/>
+                <StringItem index="6" value="IN-Interruptor"/>
+                <StringItem index="7" value="TO-Tomacorriente"/>
+                <StringItem index="8" value="SE-Sensor"/>
+                <StringItem index="9" value="CZ-ControladorVoz"/>
+                <StringItem index="10" value="La-Llaves Autom&#xe1;ticas"/>
               </StringArray>
             </Property>
           </Properties>
@@ -194,12 +195,12 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="jButtonBuscar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">

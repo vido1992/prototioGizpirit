@@ -5,8 +5,10 @@
  */
 package Producto;
 
+import Controladores.AudifonosJpaController;
 import Controladores.CableJpaController;
 import Controladores.exceptions.NonexistentEntityException;
+import Entidades.Audifonos;
 import Entidades.Cable;
 import java.util.List;
 import java.util.logging.Level;
@@ -25,6 +27,8 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
      */
     CableJpaController Cca = new CableJpaController();
     Cable ca = new Cable();
+    AudifonosJpaController Cau = new AudifonosJpaController();
+    Audifonos au = new Audifonos();
 
     public ProductoEliminar() {
         initComponents();
@@ -42,12 +46,12 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButtonRegresar = new javax.swing.JButton();
-        jBotonRegistrar = new javax.swing.JButton();
+        jBotonEliminar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         cbxProductoEliminar = new javax.swing.JComboBox<>();
-        jButton6 = new javax.swing.JButton();
+        jButtonBuscar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableProductoEliminar = new javax.swing.JTable();
 
@@ -60,10 +64,10 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
             }
         });
 
-        jBotonRegistrar.setText("Eliminar");
-        jBotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        jBotonEliminar.setText("Eliminar");
+        jBotonEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonRegistrarActionPerformed(evt);
+                jBotonEliminarActionPerformed(evt);
             }
         });
 
@@ -91,17 +95,17 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        cbxProductoEliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
+        cbxProductoEliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione un producto a eliminar", "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
         cbxProductoEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxProductoEliminarActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Buscar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonBuscarActionPerformed(evt);
             }
         });
 
@@ -127,7 +131,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBotonRegistrar)
+                .addComponent(jBotonEliminar)
                 .addGap(66, 66, 66)
                 .addComponent(jButtonRegresar)
                 .addGap(261, 261, 261))
@@ -136,10 +140,10 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addComponent(jLabel1)
-                        .addGap(68, 68, 68)
-                        .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(97, 97, 97)
-                        .addComponent(jButton6))
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(83, 83, 83)
+                        .addComponent(jButtonBuscar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -156,12 +160,12 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
+                    .addComponent(jButtonBuscar))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBotonRegistrar)
+                    .addComponent(jBotonEliminar)
                     .addComponent(jButtonRegresar))
                 .addGap(361, 361, 361))
         );
@@ -190,34 +194,45 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
-    private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
+    private void jBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEliminarActionPerformed
         try {
             String CodigoProducto = (String) jTableProductoEliminar.getValueAt(jTableProductoEliminar.getSelectedRow(), 0);
-            Cca.destroy(CodigoProducto);
-            JOptionPane.showMessageDialog(null, "Producto Eliminado");
-             CargarTabla();
+            if(CodigoProducto == null){
+                JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
+            
+            }else if(this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")){
+             Cca.destroy(CodigoProducto);
+              JOptionPane.showMessageDialog(null, "Producto Eliminado");
+              CargarTabla();
+            }else if(this.cbxProductoEliminar.getSelectedItem().equals("AU-Audifonos")){
+             Cau.destroy(CodigoProducto);
+              JOptionPane.showMessageDialog(null, "Producto Eliminado");
+              CargarTabla();
+            }
+           
+           
+             
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ProductoEliminar.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jBotonRegistrarActionPerformed
+    }//GEN-LAST:event_jBotonEliminarActionPerformed
 
     private void cbxProductoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProductoEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxProductoEliminarActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
         CargarTabla();
        
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 public void CargarTabla(){
 
- List<Cable> listC = Cca.findCableEntities();
-
-        if (this.cbxProductoEliminar.getSelectedItem().equals("Selecione un producto")) {
+        if (this.cbxProductoEliminar.getSelectedItem().equals("Selecione un producto a eliminar")) {
             JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
-        } else {
+        } else if(this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")) {
             //Sección 1 
+             List<Cable> listC = Cca.findCableEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
             modelo.setRowCount(0); 
             //Sección 2
@@ -239,6 +254,31 @@ public void CargarTabla(){
             if (listC.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
+        }else if(this.cbxProductoEliminar.getSelectedItem().equals("AU-Audifonos")){
+            
+           //Sección 1 
+            List<Audifonos> listAu = Cau.findAudifonosEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[15];
+            //Sección 3
+            for (int i = 0; i < listAu.size(); i++) {
+                Columna[0] = listAu.get(i).getCodigo();
+                Columna[1] = listAu.get(i).getModelo();
+                Columna[2] = listAu.get(i).getMarca();
+                Columna[3] = null;
+                Columna[4] = listAu.get(i).getTipo();
+                Columna[5] = listAu.get(i).getPrecioimportacion();
+                Columna[6] = listAu.get(i).getPreciopublico();
+                Columna[7] = listAu.get(i).getCantidad();
+                Columna[8] = listAu.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listAu.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
         }
 
 
@@ -246,8 +286,8 @@ public void CargarTabla(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbxProductoEliminar;
-    private javax.swing.JButton jBotonRegistrar;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jBotonEliminar;
+    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonRegresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
