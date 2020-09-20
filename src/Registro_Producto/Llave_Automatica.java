@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.LlaveautomaticaJpaController;
 import Entidades.Llaveautomatica;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -234,7 +236,19 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
             
              if (i==7)
             {
-                JOptionPane.showMessageDialog(null,  "Llave Automatica Registrados");
+                try {
+                    lla.setCodigo(txtCodigoLlave.getText());
+                    lla.setModelo(txtModeloLlave.getText());
+                    lla.setMarca(txtMarcaLlave.getText());
+                    lla.setPrecioimportacion(txtPrecioInicialLlave.getText());
+                    lla.setPreciopublico(txtPrecioPublicoLlave.getText());
+                    lla.setCantidad("0");
+                    lla.setEstado("Activo");
+                    Clla.create(lla);
+                    JOptionPane.showMessageDialog(null,  "Llave Automatica Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Llave_Automatica.class.getName()).log(Level.SEVERE, null, ex);
+                }
                  
             }
         }

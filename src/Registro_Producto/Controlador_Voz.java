@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.ControladorvozJpaController;
 import Entidades.Controladorvoz;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -19,12 +21,13 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
     /**
      * Creates new form Controlador_Voz
      */
-    ControladorvozJpaController Ccv= new ControladorvozJpaController();
+    ControladorvozJpaController Ccv = new ControladorvozJpaController();
     Controladorvoz cv = new Controladorvoz();
     Validar validar = new Validar();
+
     public Controlador_Voz() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-CONTROLADOR DE VOZ"); 
+        this.setTitle("SiGIn-GIZPIRIT-CONTROLADOR DE VOZ");
     }
 
     /**
@@ -230,8 +233,8 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_boxTamañoRegistroControladorActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        int i=0;
-          
+        int i = 0;
+
         if (this.txtCodigoRegistroControlador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloRegistroControlador.getText().equals("")) {
@@ -242,47 +245,58 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoRegistroControlador.getText().toString(),"CZ")) {
+            if (validar.validarCodigoTodos(this.txtCodigoRegistroControlador.getText().toString(), "CZ")) {
                 //{}
-                i++; 
+                i++;
             }
             if (validar.validarModelosTodos(this.txtModeloRegistroControlador.getText().toString())) {
                 i++;
-                
+
             }
-            
+
             if (validar.validarSueldo(this.txtPrecioInicialRegistroControlador.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoRegistroControlador.getText().toString())) {
                 i++;
-                
+
             }
-            if(this.boxMarcaRegistroControlador.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso marca");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxMarcaRegistroControlador.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso marca");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-            if(this.boxTamañoRegistroControlador.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso de Tamaño");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxTamañoRegistroControlador.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso de Tamaño");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==6)
-            {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
-                 
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 6) {
+                try {
+                    cv.setCodigo(txtCodigoRegistroControlador.getText());
+                    cv.setModelo(txtModeloRegistroControlador.getText());
+                    cv.setMarca(boxMarcaRegistroControlador.getSelectedItem().toString());
+                    cv.setTamaño(boxTamañoRegistroControlador.getSelectedItem().toString());
+                    cv.setPrecioimportacion(txtPrecioInicialRegistroControlador.getText());
+                    cv.setPreciopublico(txtPrecioPublicoRegistroControlador.getText());
+                    cv.setCantidad("0");
+                    cv.setEstado("Activo");
+                    Ccv.create(cv);
+                    JOptionPane.showMessageDialog(null, "Cable Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador_Voz.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
 

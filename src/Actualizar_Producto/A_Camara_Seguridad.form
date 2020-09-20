@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
   </Properties>
@@ -78,7 +82,7 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtPrecioPublicoActualizarCam" min="-2" pref="80" max="-2" attributes="0"/>
                                               <Component id="txtResolucionActualizarCam" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="boxPrecioInicialActualizarCam" min="-2" max="-2" attributes="0"/>
+                                              <Component id="boxAnguloAberturaActualizarCam" min="-2" max="-2" attributes="0"/>
                                               <Component id="txtMarcaActualizarCam" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
                                               <Component id="txtCodigoActualizarCam" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                                               <Component id="txtModeloActualizarCam" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
@@ -148,7 +152,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="boxPrecioInicialActualizarCam" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxAnguloAberturaActualizarCam" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel35" min="-2" pref="14" max="-2" attributes="0"/>
@@ -211,7 +215,7 @@
             <Property name="text" type="java.lang.String" value="Angulo de abertura: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="boxPrecioInicialActualizarCam">
+        <Component class="javax.swing.JComboBox" name="boxAnguloAberturaActualizarCam">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -231,6 +235,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbIntern">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Interna"/>
           </Properties>
           <Events>
@@ -239,6 +246,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbExtern">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Externa"/>
           </Properties>
         </Component>
@@ -303,6 +313,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Buscar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">
           <AuxValues>
@@ -329,6 +342,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable3MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

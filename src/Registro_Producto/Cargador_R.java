@@ -271,7 +271,21 @@ public class Cargador_R extends javax.swing.JInternalFrame {
             
              if (i==7)
             {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                try {
+                    car.setCodigo(txtCodigoRegistroCargador.getText());
+                    car.setModelo(txtModeloRegistroCargador.getText());
+                    car.setMarca(txtMarcaRegistroCargador.getText());
+                    car.setWattscarga(bxWattRegistroCargador.getSelectedItem().toString());
+                    car.setTipo(bxTipoRegistroCargador.getSelectedItem().toString());
+                    car.setPrecioimportacion(txtPreciInicRegistroCargador.getText());
+                    car.setPreciopublico(txtPrecioPubliRegistroCargador.getText());
+                    car.setCantidad("0");
+                    car.setEstado("Activo");
+                    JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                    Ccar.create(car);
+                } catch (Exception ex) {
+                    Logger.getLogger(Cargador_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
                  
             }
         }

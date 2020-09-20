@@ -327,7 +327,8 @@ public class Reloj_R extends javax.swing.JInternalFrame {
             }
             r.setPrecioimportacion(jTextFieldPrecioImpo.getText().toString());
             r.setPreciopublico(jTextFieldPrecioPubl.getText().toString());
-            
+            r.setCantidad("0");
+            r.setEstado("Activo");
             Creloj.create(r);
             
             JOptionPane.showMessageDialog(null, "Producto Reloj Registrado\n Correctamente");

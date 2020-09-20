@@ -5,8 +5,14 @@
  */
 package Actualizar_Producto;
 
+import Controladores.CamaraJpaController;
+import Entidades.Camara;
 import Registro_Producto.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validaciones.Validar;
 
 /**
@@ -18,7 +24,8 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     /**
      * Creates new form Camara
      */
-    
+        CamaraJpaController Ccam = new CamaraJpaController();
+    Camara cam = new Camara();
      Validar validar = new Validar();
     public A_Camara_Seguridad() {
         initComponents();
@@ -34,6 +41,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtMarcaActualizarCam = new javax.swing.JTextField();
         txtPrecioInicialActualizarCam = new javax.swing.JTextField();
@@ -44,7 +52,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         jLabel34 = new javax.swing.JLabel();
         txtModeloActualizarCam = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        boxPrecioInicialActualizarCam = new javax.swing.JComboBox();
+        boxAnguloAberturaActualizarCam = new javax.swing.JComboBox();
         jLabel37 = new javax.swing.JLabel();
         txtResolucionActualizarCam = new javax.swing.JTextField();
         rbIntern = new javax.swing.JRadioButton();
@@ -78,10 +86,11 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Angulo de abertura: ");
 
-        boxPrecioInicialActualizarCam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "180°", "360°" }));
+        boxAnguloAberturaActualizarCam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "180°", "360°" }));
 
         jLabel37.setText("Resolucion: ");
 
+        buttonGroup1.add(rbIntern);
         rbIntern.setText("Interna");
         rbIntern.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +98,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(rbExtern);
         rbExtern.setText("Externa");
 
         jLabel38.setText("Tipo:");
@@ -120,6 +130,11 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         jLabel4.setText("Precio inicial(USD):");
 
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -129,6 +144,11 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                 "Código", "Modelo ", "Marca", "Resolución", "Tipo", "Ángulo", "Precio Inicial", "Precio Público"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jBotonRegistrarInv1.setText("Actualizar");
@@ -176,7 +196,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtPrecioPublicoActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtResolucionActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(boxPrecioInicialActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(boxAnguloAberturaActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtMarcaActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtCodigoActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtModeloActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +249,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                     .addComponent(jLabel38))
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(boxPrecioInicialActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxAnguloAberturaActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -313,7 +333,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-            if(this.boxPrecioInicialActualizarCam.getSelectedItem().toString()!="Selección")
+            if(this.boxAnguloAberturaActualizarCam.getSelectedItem().toString()!="Selección")
             {i++;
             System.out.println( "buen ingreso");  
            
@@ -340,6 +360,26 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
             
              if (i==8)
             {
+                
+  try {
+            cam.setCodigo(txtCodigoActualizarCam.getText());
+            cam.setModelo(txtModeloActualizarCam.getText());
+            cam.setMarca(txtMarcaActualizarCam.getText());
+            cam.setResolucion(txtResolucionActualizarCam.getText());
+            if (rbIntern.isSelected()) {
+                cam.setTipo(rbIntern.getText());
+            } else {
+                cam.setTipo(rbExtern.getText());
+            }
+            cam.setAnguloavertura((String) boxAnguloAberturaActualizarCam.getSelectedItem());
+            cam.setPrecioimportacion(txtPrecioInicialActualizarCam.getText());
+            cam.setPreciopublico(txtPrecioPublicoActualizarCam.getText());
+            Ccam.edit(cam);
+            JOptionPane.showMessageDialog(null, "Producto Actualizado", "Actualizacion", JOptionPane.WARNING_MESSAGE);
+            cargarTabla();
+        } catch (Exception ex) {
+            Logger.getLogger(A_Camara_Seguridad.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 JOptionPane.showMessageDialog(null,  "Camara Registrados");
                 
             }
@@ -347,9 +387,61 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        txtCodigoActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
+        txtModeloActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        txtMarcaActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+        txtResolucionActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        String tipo = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 4);
+        if (tipo.equals("Interna")){
+            rbIntern.setSelected(true);
+        }else {
+            rbExtern.setSelected(true);
+        }
+        boxAnguloAberturaActualizarCam.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
+        txtPrecioInicialActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
+        txtPrecioPublicoActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 7));
+
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cargarTabla();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void cargarTabla() {
+        List<Camara> listcam = Ccam.findCamaraEntities();
+
+        // TODO add your handling code here:
+        //Sección 1 
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        //Sección 2
+        Object[] Columna = new Object[15];
+        //Sección 3
+        for (int i = 0; i < listcam.size(); i++) {
+            Columna[0] = listcam.get(i).getCodigo();
+            Columna[1] = listcam.get(i).getModelo();
+            Columna[2] = listcam.get(i).getMarca();
+            Columna[3] = listcam.get(i).getResolucion();
+            Columna[4] = listcam.get(i).getTipo();
+            Columna[5] = listcam.get(i).getAnguloavertura();
+            Columna[6] = listcam.get(i).getPrecioimportacion();
+            Columna[7] = listcam.get(i).getPreciopublico();
+
+            modelo.addRow(Columna);
+        }
+        jTable3.setModel(modelo);
+        if (listcam.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox boxPrecioInicialActualizarCam;
+    private javax.swing.JComboBox boxAnguloAberturaActualizarCam;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegresar3;

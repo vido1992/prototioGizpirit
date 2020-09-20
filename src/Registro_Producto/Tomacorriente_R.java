@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.TomacorrienteJpaController;
 import Entidades.Tomacorriente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -272,7 +274,21 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
             
              if (i==6)
             {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                try {
+                    toma.setCodigo(txtCodigoRegistroTomacorriente.getText());
+                    toma.setModelo(txtModeloRegistroTomacorriente.getText());
+                    toma.setMarca(boxMarcaRegistroTomacorriente.getSelectedItem().toString());
+                    toma.setForma(boxFormaRegistroTomacorriente.getSelectedItem().toString());
+                    toma.setTipo(tipoRegistroTomacorriente.getText());
+                    toma.setPrecioimportacion(txtPrecioInicialRegistroTomacorriente.getText());
+                    toma.setPreciopublico(txtPrecioPublicoRegistroTomacorriente.getText());
+                    toma.setCantidad("0");
+                    toma.setEstado("Activo");
+                    Cto.create(toma);
+                    JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Tomacorriente_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
                  
             }
         }

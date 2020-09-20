@@ -8,6 +8,8 @@ package Registro_Producto;
 import Controladores.InterruptorJpaController;
 import Entidades.Interruptor;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -276,7 +278,7 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
             if(this.boxTipoInterruptor.getSelectedItem().toString()!="Selección")
             {i++;
             System.out.println( "buen ingreso");     
-            this.marca = this.boxTipoInterruptor.getSelectedItem().toString();
+            this.tipo = this.boxTipoInterruptor.getSelectedItem().toString();
                  
             }else{
             JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
@@ -285,8 +287,21 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
              if (i==7)
-            {
+            {   try {
+                in.setCodigo(codigo);
+                in.setModelo(modelo);
+                in.setMarca(marca);
+                in.setNumerobotones(NumeroBotones);
+                in.setTipo(tipo);
+                in.setPrecioimportacion(pInicial);
+                in.setPreciopublico(pPublico);
+                in.setCantidad("0");
+                in.setEstado("Activo");
+                Cin.create(in);
                 JOptionPane.showMessageDialog(null,  "Interruptor Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Interruptor_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         
         }

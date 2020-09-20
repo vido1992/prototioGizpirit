@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.SensorJpaController;
 import Entidades.Sensor;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -257,7 +259,20 @@ public class Sensor_R extends javax.swing.JInternalFrame {
             
              if (i==6)
             {
-                JOptionPane.showMessageDialog(null,  "Sensor Registrados");
+                try {
+                    se.setCodigo(txtCodigoSensor.getText());
+                    se.setModelo(txtModeloSensor.getText());
+                    se.setMarca(txtMarcaSensor.getText());
+                    se.setTipo(boxTipoSensor.getSelectedItem().toString());
+                    se.setPrecioimportacion(txtPrecioInicialSensor.getText());
+                    se.setPreciopublico(txtPrecioPublicoSensor.getText());
+                    se.setCantidad("0");
+                    se.setEstado("Activo");
+                    Cse.create(se);
+                    JOptionPane.showMessageDialog(null,  "Sensor Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Sensor_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
             

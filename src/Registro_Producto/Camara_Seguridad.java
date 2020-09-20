@@ -319,9 +319,9 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
             }
             
                        
-
+            System.out.println(i);
             
-             if (i==8)
+             if (i==7)
             {
                 try {
                     ca.setCodigo(txtCodigoCamaraSeguridad.getText());
