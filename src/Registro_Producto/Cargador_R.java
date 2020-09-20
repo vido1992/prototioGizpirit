@@ -298,19 +298,20 @@ public class Cargador_R extends javax.swing.JInternalFrame {
             {i++;
             System.out.println( "buen ingreso tipo");  
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
             }
             if(this.bxWattRegistroCargador.getSelectedItem().toString()!="Selección")
             {i++;
             System.out.println( "buen ingreso de watts");  
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en Watts");
             }
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
              if (i==7)
             {
+                System.out.println( "REGISTRO");  
                 try {
                     car.setCodigo(txtCodigoRegistroCargador.getText());
                     car.setModelo(txtModeloRegistroCargador.getText());

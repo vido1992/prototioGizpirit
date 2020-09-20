@@ -290,13 +290,14 @@ public class Sensor_R extends javax.swing.JInternalFrame {
             {i++;
             System.out.println( "buen ingreso");   
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
             }
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
              if (i==6)
             {
+                System.out.println( "REGISTRO");  
                 try {
                     se.setCodigo(txtCodigoSensor.getText());
                     se.setModelo(txtModeloSensor.getText());
@@ -318,6 +319,7 @@ public class Sensor_R extends javax.swing.JInternalFrame {
                         
 
         }
+        limpiar();
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaNombre3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombre3ActionPerformed
@@ -332,7 +334,19 @@ public class Sensor_R extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
 
-
+ public void limpiar(){
+    
+    this.txtCodigoSensor.setText("");
+    this.txtMarcaSensor.setText("");
+    this.txtModeloSensor.setText("");
+    this.txtPrecioInicialSensor.setText("");
+    this.txtPrecioPublicoSensor.setText("");
+    this.boxTipoSensor.setSelectedItem("Selección");
+    
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoSensor;
     private javax.swing.JButton btnAyudaNombre3;

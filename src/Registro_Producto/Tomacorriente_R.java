@@ -301,19 +301,20 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
             {i++;
             System.out.println( "buen ingreso marca");  
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en forma");
             }
             if(this.boxMarcaRegistroTomacorriente.getSelectedItem().toString()!="Selección")
             {i++;
             System.out.println( "buen ingreso de Tamaño");  
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion marca");
             }
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
              if (i==6)
             {
+                System.out.println( "REGISTRO");  
                 try {
                     toma.setCodigo(txtCodigoRegistroTomacorriente.getText());
                     toma.setModelo(txtModeloRegistroTomacorriente.getText());
@@ -333,7 +334,7 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
             }
         }
         
-        
+        limpiar();
         
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
@@ -349,6 +350,17 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
 
+    
+    public void limpiar(){
+    
+    this.txtCodigoRegistroTomacorriente.setText("");
+    this.txtModeloRegistroTomacorriente.setText("");
+    this.txtPrecioInicialRegistroTomacorriente.setText("");
+    this.txtPrecioPublicoRegistroTomacorriente.setText("");
+    this.boxFormaRegistroTomacorriente.setSelectedItem("Selección");
+    this.boxMarcaRegistroTomacorriente.setSelectedItem("Selección");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxFormaRegistroTomacorriente;

@@ -299,18 +299,19 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
                 i++;
                 System.out.println("buen ingreso marca");
             } else {
-                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en marca");
             }
             if (this.boxTamañoRegistroControlador.getSelectedItem().toString() != "Selección") {
                 i++;
                 System.out.println("buen ingreso de Tamaño");
             } else {
-                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tamaño");
             }
 
             JOptionPane.showMessageDialog(null, "contador" + i);
 
             if (i == 6) {
+                System.out.println( "REGISTRO");  
                 try {
                     cv.setCodigo(txtCodigoRegistroControlador.getText());
                     cv.setModelo(txtModeloRegistroControlador.getText());

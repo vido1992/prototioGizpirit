@@ -325,7 +325,9 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
              if (i==7)
-            {   try {
+            {   
+                System.out.println( "REGISTRO");  
+                try {
                 in.setCodigo(codigo);
                 in.setModelo(modelo);
                 in.setMarca(marca);

@@ -300,7 +300,7 @@ public class Cable_R extends javax.swing.JInternalFrame {
            
                 
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en longitud");
             }
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 

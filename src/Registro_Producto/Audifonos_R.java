@@ -300,13 +300,14 @@ dispose();
             this.tipo = this.boxTipoRegistro.getSelectedItem().toString();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
             }
            
  
             
              if (i==6)
             {
+                System.out.println( "REGISTRO");  
                     try {
                     au.setCodigo(codigo);
                     au.setModelo(modelo);

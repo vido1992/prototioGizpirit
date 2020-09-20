@@ -363,6 +363,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
             
              if (i==7)
             {
+                System.out.println( "REGISTRO");  
                 try {
                     ca.setCodigo(txtCodigoCamaraSeguridad.getText());
                     ca.setModelo(txtModCamaraSeguridad.getText());
