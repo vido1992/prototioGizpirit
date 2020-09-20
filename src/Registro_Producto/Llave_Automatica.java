@@ -234,7 +234,7 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
-             if (i==7)
+             if (i==5)
             {
                 try {
                     lla.setCodigo(txtCodigoLlave.getText());

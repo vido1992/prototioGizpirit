@@ -881,10 +881,10 @@ escritorio.add(SA);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
-        escritorio.add(AI);
-        AI.show();
+        escritorio.add(TC);
+        TC.show();
         try {
-            AI.setMaximum(true);
+            TC.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
