@@ -221,9 +221,10 @@
         <Component class="javax.swing.JComboBox" name="cbxTipoActualizar">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Inalambrico"/>
-                <StringItem index="1" value="Alambrico"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Seleccio&#xf3;n"/>
+                <StringItem index="1" value="Inalambrico"/>
+                <StringItem index="2" value="Alambrico"/>
               </StringArray>
             </Property>
           </Properties>

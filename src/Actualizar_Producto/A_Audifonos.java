@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import validaciones.Validar;
 
 /**
  *
@@ -25,7 +26,7 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
      */
     AudifonosJpaController Cau = new AudifonosJpaController();
     Audifonos au = new Audifonos();
-
+Validar validar = new Validar();
     public A_Audifonos() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-AUDIFONOS");
@@ -83,7 +84,7 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Tipo");
 
-        cbxTipoActualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inalambrico", "Alambrico" }));
+        cbxTipoActualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccioón", "Inalambrico", "Alambrico" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("ACTUALIZACIÓN  AUDIFONOS");
@@ -261,7 +262,51 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        try {
+
+        int i=0;
+        if (this.txtCodigoActualizar.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloActualizar.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaActualizar.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioImportacionActualizar.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoActualizar.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+                //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoActualizar.getText().toString(),"AU")) {
+                //{}
+                i++;
+            }
+            if (validar.validarModelosTodos(this.txtModeloActualizar.getText().toString())) {
+                i++; 
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaActualizar.getText().toString())) {
+                i++; 
+            }
+
+            if (validar.validarSueldo(this.txtPrecioImportacionActualizar.getText().toString())) {
+                i++; 
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicoActualizar.getText().toString())) {
+                i++; 
+            }
+            if(this.cbxTipoActualizar.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso");   
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==6)
+            {
+                     
+        
+         try {
             au.setCodigo(txtCodigoActualizar.getText());
             au.setModelo(txtModeloActualizar.getText());
             au.setMarca(txtMarcaActualizar.getText());
@@ -274,6 +319,22 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             Logger.getLogger(A_Audifonos.class.getName()).log(Level.SEVERE, null, ex);
         }
+               
+            }
+            
+            
+            
+                        
+
+        }
+
+
+        
+        
+        
+        
+        
+      
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
