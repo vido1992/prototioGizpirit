@@ -164,30 +164,27 @@ public class Login extends javax.swing.JFrame {
 
     private void jBotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonIniciarSesionActionPerformed
         // TODO add your handling code here:
+        boolean nohay = true;
         List<Empleado> listemp = Cemp.findEmpleadoEntities();
-        if (listemp.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No hay ningunEmpleado");
-        } else if (jCCField.getText().isEmpty() || jContraseñaField.getText().isEmpty() || jComboUsuario.getSelectedItem().equals("Seleccionar")) {
-            JOptionPane.showMessageDialog(this, "Llenar todos los campos");
-        } else {
-            for (int i = 0; i < listemp.size(); i++) {
-                if (!jCCField.equals(listemp.get(i).getCedula())) {
-                    JOptionPane.showMessageDialog(this, "No hay ningunEmpleado con esta cedula");
-                } else if (!jContraseñaField.equals(listemp.get(i).getContraseña())) {
-                    JOptionPane.showMessageDialog(this, "Contraseña Incorrecta");
-                } else if (!jComboUsuario.getSelectedItem().equals(listemp.get(i).getRolempleado())) {
-                    JOptionPane.showMessageDialog(this, "Este no es su rol");
-                } else {
-                    this.setVisible(false);
+        for (int i = 0; i < listemp.size(); i++) {
+            if (jCCField.getText().equals(listemp.get(i).getCedula()) && jContraseñaField.getText().equals(listemp.get(i).getContraseña()) && jComboUsuario.getSelectedItem().equals(listemp.get(i).getRolempleado())) {
+                nohay = false;
+                this.setVisible(false);
+                m1.setVisible(true);
+                m1.setEnabled(true);
+                break;
+            }
+            if (listemp.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay ningun Empleado");
 
-                    m1.setVisible(true);
-                    m1.setEnabled(true);
-                }
+            } else if (jCCField.getText().isEmpty() || jContraseñaField.getText().isEmpty() || jComboUsuario.getSelectedItem().equals("Seleccionar")) {
+                JOptionPane.showMessageDialog(this, "Llenar todos los campos");
+            } else if (nohay) {
+                JOptionPane.showMessageDialog(this, "No hay ningun Empleado con esta cedula o Contraseña Incorrecta");
 
             }
+
         }
-
-
     }//GEN-LAST:event_jBotonIniciarSesionActionPerformed
 
     private void btnCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCedulaActionPerformed
