@@ -81,6 +81,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         nombreActualizarCliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         CIActualizarCliente = new javax.swing.JTextField();
+        btnAyudaApellido1 = new javax.swing.JButton();
 
         setClosable(true);
 
@@ -140,7 +141,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -175,6 +176,13 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jLabel5.setText("Cédula de Identidad");
 
         CIActualizarCliente.setEnabled(false);
+
+        btnAyudaApellido1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/2.png"))); // NOI18N
+        btnAyudaApellido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaApellido1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelActualizarCliLayout = new javax.swing.GroupLayout(jPanelActualizarCli);
         jPanelActualizarCli.setLayout(jPanelActualizarCliLayout);
@@ -219,8 +227,10 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                                     .addComponent(txtTelefonoCeluActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                                     .addComponent(txtDireccionDomicilioActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTelefonoConvencionalActualizarCliente))))))
-                .addGap(108, 108, 108))
+                                    .addComponent(txtTelefonoConvencionalActualizarCliente))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAyudaApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(82, 82, 82))
             .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
@@ -264,9 +274,11 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(ApellidosActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel13)
+                        .addComponent(txtCorreoActualizarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAyudaApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -480,10 +492,15 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTelefonoConvencionalActualizarClienteActionPerformed
 
+    private void btnAyudaApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaApellido1ActionPerformed
+        JOptionPane.showMessageDialog(this, "Debe Ingresar según RFC 733");
+    }//GEN-LAST:event_btnAyudaApellido1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidosActualizarCliente;
     private javax.swing.JTextField CIActualizarCliente;
+    private javax.swing.JButton btnAyudaApellido1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
