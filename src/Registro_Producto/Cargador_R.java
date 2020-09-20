@@ -232,8 +232,8 @@ public class Cargador_R extends javax.swing.JInternalFrame {
         } else if (this.txtPrecioPubliRegistroCargador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-
-            if (validar.validarCodigoTodos(this.txtCodigoRegistroCargador.getText().toString(),"CB")) {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoRegistroCargador.getText().toString(),"CA")) {
                 //{}
                 i++; 
             }

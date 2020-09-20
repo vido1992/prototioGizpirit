@@ -58,11 +58,11 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField28" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                                      <Component id="jTextField30" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jTextField27" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jTextField29" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="jTextField31" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioInicialLlave" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioPublicoLlave" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtMarcaLlave" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoLlave" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                      <Component id="txtModeloLlave" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -88,17 +88,17 @@
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField29" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCodigoLlave" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField31" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModeloLlave" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField27" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMarcaLlave" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -109,9 +109,9 @@
                           <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextField28" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPrecioInicialLlave" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField30" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPrecioPublicoLlave" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
@@ -130,16 +130,19 @@
             <Property name="text" type="java.lang.String" value="Precio inicial (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField27">
+        <Component class="javax.swing.JTextField" name="txtMarcaLlave">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField28">
+        <Component class="javax.swing.JTextField" name="txtPrecioInicialLlave">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField29">
+        <Component class="javax.swing.JTextField" name="txtCodigoLlave">
         </Component>
         <Component class="javax.swing.JButton" name="jBotonRegistrarInv1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonRegistrarInv1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegresar3">
           <Properties>
@@ -164,14 +167,14 @@
             <Property name="text" type="java.lang.String" value="Precio al p&#xfa;blico (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField30">
+        <Component class="javax.swing.JTextField" name="txtPrecioPublicoLlave">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel34">
           <Properties>
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField31">
+        <Component class="javax.swing.JTextField" name="txtModeloLlave">
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>

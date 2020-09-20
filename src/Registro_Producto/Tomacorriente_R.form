@@ -43,53 +43,49 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="txtPrecioInicialRegistroTomacorriente" alignment="0" pref="122" max="32767" attributes="0"/>
+                      <Component id="txtModeloRegistroTomacorriente" alignment="0" pref="122" max="32767" attributes="0"/>
+                      <Component id="boxMarcaRegistroTomacorriente" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxFormaRegistroTomacorriente" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="tipoRegistroTomacorriente" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioPublicoRegistroTomacorriente" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="txtCodigoRegistroTomacorriente" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="68" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextField28" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="jTextField29" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                              <Component id="jTextField31" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="jComboBox2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel39" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField30" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                                  <Component id="jBotonRegistrarInv1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="jButtonRegresar3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                          <Component id="jBotonRegistrarInv1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="jButtonRegresar3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="87" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -104,37 +100,37 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel31" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jTextField29" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodigoRegistroTomacorriente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField31" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtModeloRegistroTomacorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="boxMarcaRegistroTomacorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="boxFormaRegistroTomacorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel39" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoRegistroTomacorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextField28" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPrecioInicialRegistroTomacorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField30" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioPublicoRegistroTomacorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -148,14 +144,17 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField28">
+        <Component class="javax.swing.JTextField" name="txtPrecioInicialRegistroTomacorriente">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField29">
+        <Component class="javax.swing.JTextField" name="txtCodigoRegistroTomacorriente">
         </Component>
         <Component class="javax.swing.JButton" name="jBotonRegistrarInv1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Registrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBotonRegistrarInv1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegresar3">
           <Properties>
@@ -180,7 +179,7 @@
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField31">
+        <Component class="javax.swing.JTextField" name="txtModeloRegistroTomacorriente">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
@@ -192,28 +191,30 @@
             <Property name="text" type="java.lang.String" value="Forma:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox2">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Broadlink"/>
-                <StringItem index="1" value="Tuya Smart"/>
-              </StringArray>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox3">
+        <Component class="javax.swing.JComboBox" name="boxMarcaRegistroTomacorriente">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="Simple"/>
-                <StringItem index="1" value="Combinado"/>
-                <StringItem index="2" value="Cortapicos"/>
+                <StringItem index="0" value="Selecci&#xf3;n"/>
+                <StringItem index="1" value="Broadlink"/>
+                <StringItem index="2" value="Tuya Smart"/>
               </StringArray>
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel39">
+        <Component class="javax.swing.JComboBox" name="boxFormaRegistroTomacorriente">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Selecci&#xf3;n"/>
+                <StringItem index="1" value="Simple"/>
+                <StringItem index="2" value="Combinado"/>
+                <StringItem index="3" value="Cortapicos"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="tipoRegistroTomacorriente">
           <Properties>
             <Property name="text" type="java.lang.String" value="WI-FI"/>
           </Properties>
@@ -270,7 +271,7 @@
             <Property name="text" type="java.lang.String" value="Precio inicial(USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField30">
+        <Component class="javax.swing.JTextField" name="txtPrecioPublicoRegistroTomacorriente">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel33">
           <Properties>

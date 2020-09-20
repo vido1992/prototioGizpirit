@@ -230,7 +230,7 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_boxTamañoRegistroControladorActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-int i=0;
+        int i=0;
           
         if (this.txtCodigoRegistroControlador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
@@ -241,8 +241,8 @@ int i=0;
         } else if (this.txtPrecioPublicoRegistroControlador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-
-            if (validar.validarCodigoTodos(this.txtCodigoRegistroControlador.getText().toString(),"CB")) {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoRegistroControlador.getText().toString(),"CZ")) {
                 //{}
                 i++; 
             }

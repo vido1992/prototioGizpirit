@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.TomacorrienteJpaController;
 import Entidades.Tomacorriente;
+import javax.swing.JOptionPane;
+import validaciones.Validar;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
      */
     TomacorrienteJpaController Cto = new TomacorrienteJpaController();
     Tomacorriente toma = new Tomacorriente();
+    Validar validar = new Validar();
     public Tomacorriente_R() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-TOMACORRIENTE"); 
@@ -34,29 +37,34 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
+        txtPrecioInicialRegistroTomacorriente = new javax.swing.JTextField();
+        txtCodigoRegistroTomacorriente = new javax.swing.JTextField();
         jBotonRegistrarInv1 = new javax.swing.JButton();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
+        txtModeloRegistroTomacorriente = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jComboBox3 = new javax.swing.JComboBox();
-        jLabel39 = new javax.swing.JLabel();
+        boxMarcaRegistroTomacorriente = new javax.swing.JComboBox();
+        boxFormaRegistroTomacorriente = new javax.swing.JComboBox();
+        tipoRegistroTomacorriente = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        txtPrecioPublicoRegistroTomacorriente = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
 
         setClosable(true);
 
         jBotonRegistrarInv1.setText("Registrar");
+        jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonRegistrarInv1ActionPerformed(evt);
+            }
+        });
 
         jButtonRegresar3.setText("Regresar");
         jButtonRegresar3.addActionListener(new java.awt.event.ActionListener() {
@@ -75,11 +83,11 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
 
         jLabel37.setText("Forma:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Broadlink", "Tuya Smart" }));
+        boxMarcaRegistroTomacorriente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Broadlink", "Tuya Smart" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Simple", "Combinado", "Cortapicos" }));
+        boxFormaRegistroTomacorriente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Simple", "Combinado", "Cortapicos" }));
 
-        jLabel39.setText("WI-FI");
+        tipoRegistroTomacorriente.setText("WI-FI");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -114,42 +122,40 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel32)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel33))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtPrecioInicialRegistroTomacorriente, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(txtModeloRegistroTomacorriente, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(boxMarcaRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxFormaRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoRegistroTomacorriente)
+                    .addComponent(txtPrecioPublicoRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoRegistroTomacorriente))
+                .addGap(41, 41, 41))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(78, 78, 78)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel34)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel31)
-                            .addComponent(jLabel37)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel33))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel39)
-                            .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel7))
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(78, 78, 78)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jLabel7))
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(jBotonRegistrarInv1)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButtonRegresar3)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(28, 28, 28))
+                        .addGap(89, 89, 89)
+                        .addComponent(jBotonRegistrarInv1)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButtonRegresar3)))
+                .addGap(0, 87, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,30 +168,30 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel31)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodigoRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtModeloRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxMarcaRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel34))
                         .addGap(10, 10, 10)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxFormaRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel37))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel39)
+                            .addComponent(tipoRegistroTomacorriente)
                             .addComponent(jLabel35))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecioInicialRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioPublicoRegistroTomacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,27 +224,84 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
+    private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
+
+        int i=0;
+          
+        if (this.txtCodigoRegistroTomacorriente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtModeloRegistroTomacorriente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialRegistroTomacorriente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoRegistroTomacorriente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoRegistroTomacorriente.getText().toString(),"TO")) {
+                //{}
+                i++; 
+            }
+            if (validar.validarModelosTodos(this.txtModeloRegistroTomacorriente.getText().toString())) {
+                i++;
+                
+            }
+            
+            if (validar.validarSueldo(this.txtPrecioInicialRegistroTomacorriente.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicoRegistroTomacorriente.getText().toString())) {
+                i++;
+                
+            }
+            if(this.boxFormaRegistroTomacorriente.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso marca");  
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+            if(this.boxMarcaRegistroTomacorriente.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso de Tamaño");  
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==6)
+            {
+                JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                 
+            }
+        }
+        
+        
+        
+    }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox boxFormaRegistroTomacorriente;
+    private javax.swing.JComboBox boxMarcaRegistroTomacorriente;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButtonRegresar3;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
+    private javax.swing.JLabel tipoRegistroTomacorriente;
+    private javax.swing.JTextField txtCodigoRegistroTomacorriente;
+    private javax.swing.JTextField txtModeloRegistroTomacorriente;
+    private javax.swing.JTextField txtPrecioInicialRegistroTomacorriente;
+    private javax.swing.JTextField txtPrecioPublicoRegistroTomacorriente;
     // End of variables declaration//GEN-END:variables
 }

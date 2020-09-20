@@ -213,8 +213,8 @@ dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-  int i=0;
-            if (this.txtCodigoRegistro.getText().equals("")) {
+        int i=0;
+        if (this.txtCodigoRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
@@ -225,7 +225,7 @@ dispose();
         } else if (this.txtPrecioPublicoRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-
+                //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
             if (validar.validarCodigoTodos(this.txtCodigoRegistro.getText().toString(),"AU")) {
                 //{}
                 i++;

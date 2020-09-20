@@ -233,7 +233,7 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PUBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else
         {
-
+               //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
             if (validar.validarCodigoTodos(this.txtcodigoInterruptor.getText().toString(),"IN")) {
                 //{}
                 i++;

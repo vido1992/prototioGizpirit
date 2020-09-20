@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.LlaveautomaticaJpaController;
 import Entidades.Llaveautomatica;
+import javax.swing.JOptionPane;
+import validaciones.Validar;
 
 /**
  *
@@ -19,6 +21,7 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
      */
     LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
     Llaveautomatica lla = new Llaveautomatica();
+    Validar validar = new Validar();
     public Llave_Automatica() {
         initComponents();
     }
@@ -34,17 +37,17 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
+        txtMarcaLlave = new javax.swing.JTextField();
+        txtPrecioInicialLlave = new javax.swing.JTextField();
+        txtCodigoLlave = new javax.swing.JTextField();
         jBotonRegistrarInv1 = new javax.swing.JButton();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        txtPrecioPublicoLlave = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
+        txtModeloLlave = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -52,6 +55,11 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
         jLabel29.setText("Precio inicial (USD):");
 
         jBotonRegistrarInv1.setText("Registrar");
+        jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonRegistrarInv1ActionPerformed(evt);
+            }
+        });
 
         jButtonRegresar3.setText("Regresar");
         jButtonRegresar3.addActionListener(new java.awt.event.ActionListener() {
@@ -115,11 +123,11 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel29))
                                 .addGap(93, 93, 93)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtPrecioInicialLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioPublicoLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMarcaLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModeloLlave, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,15 +144,15 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModeloLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMarcaLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,9 +161,9 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel33))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrecioInicialLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtPrecioPublicoLlave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonRegistrarInv1)
@@ -184,6 +192,55 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
+    private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
+         int i=0;
+          
+        if (this.txtCodigoLlave.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloLlave.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaLlave.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialLlave.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoLlave.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoLlave.getText().toString(),"LA")) {
+                //{}
+                i++; 
+            }
+            if (validar.validarModelosTodos(this.txtModeloLlave.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaLlave.getText().toString())) {
+                i++;
+                
+            }
+
+            if (validar.validarSueldo(this.txtPrecioInicialLlave.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicoLlave.getText().toString())) {
+                i++;
+                
+            }
+             
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==7)
+            {
+                JOptionPane.showMessageDialog(null,  "Llave Automatica Registrados");
+                 
+            }
+        }
+        
+    }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonRegistrarInv1;
@@ -197,10 +254,10 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField txtCodigoLlave;
+    private javax.swing.JTextField txtMarcaLlave;
+    private javax.swing.JTextField txtModeloLlave;
+    private javax.swing.JTextField txtPrecioInicialLlave;
+    private javax.swing.JTextField txtPrecioPublicoLlave;
     // End of variables declaration//GEN-END:variables
 }

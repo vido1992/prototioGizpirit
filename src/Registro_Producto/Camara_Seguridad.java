@@ -270,7 +270,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
         } else if (this.txtPrecioPubCamaraSeguridad.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
             if (validar.validarCodigoTodos(this.txtCodigoCamaraSeguridad.getText().toString(),"CM")) {
                 
                 i++;
