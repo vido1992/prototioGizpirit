@@ -5,6 +5,9 @@
  */
 package Inicio;
 
+import Controladores.EmpleadoJpaController;
+import Entidades.Empleado;
+import java.util.List;
 import validaciones.Validar;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -17,6 +20,7 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
 
+    EmpleadoJpaController Cemp = new EmpleadoJpaController();
     Validar validar = new Validar();
     Menu m1 = new Menu();
     public int SELECCIÓN = 0, ADMINISTRADOR = 1, OPERADOR = 2;
@@ -160,9 +164,30 @@ public class Login extends javax.swing.JFrame {
 
     private void jBotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonIniciarSesionActionPerformed
         // TODO add your handling code here:
-        validar.validarCI(this.jCCField.getText().toString());
+        List<Empleado> listemp = Cemp.findEmpleadoEntities();
+        if (listemp.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hay ningunEmpleado");
+        } else if (jCCField.getText().isEmpty() || jContraseñaField.getText().isEmpty() || jComboUsuario.getSelectedItem().equals("Seleccionar")) {
+            JOptionPane.showMessageDialog(this, "Llenar todos los campos");
+        } else {
+            for (int i = 0; i < listemp.size(); i++) {
+                if (!jCCField.equals(listemp.get(i).getCedula())) {
+                    JOptionPane.showMessageDialog(this, "No hay ningunEmpleado con esta cedula");
+                } else if (!jContraseñaField.equals(listemp.get(i).getContraseña())) {
+                    JOptionPane.showMessageDialog(this, "Contraseña Incorrecta");
+                } else if (!jComboUsuario.getSelectedItem().equals(listemp.get(i).getRolempleado())) {
+                    JOptionPane.showMessageDialog(this, "Este no es su rol");
+                } else {
+                    this.setVisible(false);
 
-        String res = validarIngreso(jComboUsuario.getSelectedIndex(), jCCField.getText(), jContraseñaField.getText());
+                    m1.setVisible(true);
+                    m1.setEnabled(true);
+                }
+
+            }
+        }
+
+
     }//GEN-LAST:event_jBotonIniciarSesionActionPerformed
 
     private void btnCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCedulaActionPerformed
@@ -192,11 +217,6 @@ public class Login extends javax.swing.JFrame {
                     status = "Empty";
                     //empty++;
                     System.out.println(empty);
-                } else if (pass.equals(PASS_ADMIN) && CI.equals(CI_ADMIN)) {
-                    this.setVisible(false);
-
-                    m1.setVisible(true);
-                    m1.setEnabled(true);
                 } else if (intentos == 3) {
                     JOptionPane.showMessageDialog(null, "Ha excedido el número de intentos. Vuelva más tarde");
                     System.exit(0);
@@ -209,7 +229,7 @@ public class Login extends javax.swing.JFrame {
                 break;
 
             case 2:
-                if (pass.equals(PASS_USER) && CI.equals(CI_USER)) {
+                if (true) {
                     JOptionPane.showMessageDialog(null, "Ha iniciado sesión como operador operador");
                     this.setVisible(false);
 

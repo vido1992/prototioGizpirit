@@ -20,13 +20,14 @@ import validaciones.Validar;
  */
 public class RegistroEmpleado extends javax.swing.JInternalFrame {
 
-    Validar validar= new Validar();
- Base base=new Base();
+    Validar validar = new Validar();
+    Base base = new Base();
     EmpleadoJpaController Cemp = new EmpleadoJpaController();
- public String CC,Nombre,Apellido,Direccion,Correo, sueldo,TelefonoCelular,telefonoConvencional;
+    public String CC, Nombre, Apellido, Direccion, Correo, sueldo, TelefonoCelular, telefonoConvencional;
+
     public RegistroEmpleado() {
         initComponents();
-        this.setTitle("Registro Empleado"); 
+        this.setTitle("Registro Empleado");
     }
 
     /**
@@ -284,104 +285,88 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
-        int i=0;
-    
-        if(this.CIRegistroEmpleado.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if( nombreRegistroEmpleado.getText().equals("") )
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO NOMBRES VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if(this.ApellidosEmpleadoRegistro.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO APELLIDOS VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.DireccionClienteEmpleado.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if( this.telefonocelularEmpleadoRegistro.getText().equals(""))
-        {
+        int i = 0;
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.telefonoConvencionaEmpleadoRegistro.getText().equals(""))
-        {
+        if (this.CIRegistroEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (nombreRegistroEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO NOMBRES VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.ApellidosEmpleadoRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO APELLIDOS VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.DireccionClienteEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.telefonocelularEmpleadoRegistro.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else   if( this.sueldoRegistroEmpleado.getText().equals(""))
-        {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.telefonoConvencionaEmpleadoRegistro.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else if( this.CorreoElectronicoRegistroEmpleado.getText().equals(""))
-        {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.sueldoRegistroEmpleado.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else  
-            
-        {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.CorreoElectronicoRegistroEmpleado.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else {
             //System.out.println(this.CCCRegistro.getText().toString());
-            if (validar.validarCI(this.CIRegistroEmpleado.getText().toString()))
-            {
+            if (validar.validarCI(this.CIRegistroEmpleado.getText().toString())) {
                 i++;
-                this.CC=this.CIRegistroEmpleado.getText().toString();
+                this.CC = this.CIRegistroEmpleado.getText().toString();
                 //System.out.println("cc: "+this.CCCRegistro.getText().toString() );
             }
-            if(validar.validarTex(this.nombreRegistroEmpleado.getText().toString()))
-            {
+            if (validar.validarTex(this.nombreRegistroEmpleado.getText().toString())) {
                 i++;
-                this.Nombre= this.nombreRegistroEmpleado.getText().toString();
+                this.Nombre = this.nombreRegistroEmpleado.getText().toString();
                 //System.out.println(this.NombreClienteRegistro.getText().toString());
 
             }
 
-            if(validar.validarTex(this.ApellidosEmpleadoRegistro.getText().toString()))
-            {
+            if (validar.validarTex(this.ApellidosEmpleadoRegistro.getText().toString())) {
                 i++;
-                this.Apellido=this.ApellidosEmpleadoRegistro.getText().toString();
+                this.Apellido = this.ApellidosEmpleadoRegistro.getText().toString();
                 //System.out.println(this.ApellidosClienteRegistro.getText().toString());
             }
 
-            if(validar.validarDireccion(this.DireccionClienteEmpleado.getText().toString()))
-            {
+            if (validar.validarDireccion(this.DireccionClienteEmpleado.getText().toString())) {
                 i++;
-                this.Direccion=this.DireccionClienteEmpleado.getText().toString();
+                this.Direccion = this.DireccionClienteEmpleado.getText().toString();
                 // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
             }
-            if(validar.validarCorreo(this.CorreoElectronicoRegistroEmpleado.getText().toString()))
-            {i++;
-                this.Correo=this.CorreoElectronicoRegistroEmpleado.getText().toString();
+            if (validar.validarCorreo(this.CorreoElectronicoRegistroEmpleado.getText().toString())) {
+                i++;
+                this.Correo = this.CorreoElectronicoRegistroEmpleado.getText().toString();
                 //System.out.println(this.CorreoElectronico.getText().toString());
             }
-            if(validar.validarTelefonoC(this.telefonocelularEmpleadoRegistro.getText().toString()))
-            {i++;
-                this.TelefonoCelular=this.telefonocelularEmpleadoRegistro.getText();
+            if (validar.validarTelefonoC(this.telefonocelularEmpleadoRegistro.getText().toString())) {
+                i++;
+                this.TelefonoCelular = this.telefonocelularEmpleadoRegistro.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }
-             if(validar.validarTelefonoConvencional(this.telefonoConvencionaEmpleadoRegistro.getText().toString()))
-            {i++;
-                this.telefonoConvencional=this.telefonoConvencionaEmpleadoRegistro.getText();
+            if (validar.validarTelefonoConvencional(this.telefonoConvencionaEmpleadoRegistro.getText().toString())) {
+                i++;
+                this.telefonoConvencional = this.telefonoConvencionaEmpleadoRegistro.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }
-             if(validar.validarSueldo(this.sueldoRegistroEmpleado.getText().toString()))
-            {i++;
-                this.sueldo=this.sueldoRegistroEmpleado.getText();
+            if (validar.validarSueldo(this.sueldoRegistroEmpleado.getText().toString())) {
+                i++;
+                this.sueldo = this.sueldoRegistroEmpleado.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
             }
-             if(this.cbRolEmpleadoRegistro.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
+            if (this.cbRolEmpleadoRegistro.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
                 // System.out.println(this.TelefonoClienteRegistro.getText());
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en Rol Empleado");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Rol Empleado");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i);   
-            
-            if (i==9)
-            {
-                
-                 
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 9) {
+
                 try {
                     Empleado emp = new Empleado();
-                    
+
                     emp.setCedula(CC);
                     emp.setNombres(Nombre);
                     emp.setApellidos(Apellido);
@@ -392,15 +377,20 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     emp.setSueldo(sueldo);
                     emp.setEmail(Correo);
                     emp.setEstado("Activo");
+                    if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Vendedor")) {
+                        emp.setContraseña("123");
+                    } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Administrador")) {
+                        emp.setContraseña("1234");
+                    } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Bodeguero")) {
+                        emp.setContraseña("123");
+                    }
                     Cemp.create(emp);
                     JOptionPane.showMessageDialog(null, "Empleado Registrado");
                 } catch (Exception ex) {
                     Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
                 }
-           
+
             }
-            
-            
 
         }
     }//GEN-LAST:event_jBotonRegistrarActionPerformed
@@ -414,16 +404,16 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_telefonocelularEmpleadoRegistroActionPerformed
 
     private void btnAyudaSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaSueldoActionPerformed
-JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
-        
+        JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
+
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
 
     private void btnAyudaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombreActionPerformed
-JOptionPane.showMessageDialog(this, "Debe Ingresar Dos Nombres en MAYUSCULAS");
+        JOptionPane.showMessageDialog(this, "Debe Ingresar Dos Nombres en MAYUSCULAS");
     }//GEN-LAST:event_btnAyudaNombreActionPerformed
 
     private void btnAyudaApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaApellidoActionPerformed
-JOptionPane.showMessageDialog(this, "Debe Ingresar Dos Apellidos en MAYUSCULAS");
+        JOptionPane.showMessageDialog(this, "Debe Ingresar Dos Apellidos en MAYUSCULAS");
     }//GEN-LAST:event_btnAyudaApellidoActionPerformed
 
 
