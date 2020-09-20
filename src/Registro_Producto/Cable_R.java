@@ -10,6 +10,7 @@ import Entidades.Cable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import validaciones.Validar;
 
 /**
  *
@@ -20,6 +21,9 @@ public class Cable_R extends javax.swing.JInternalFrame {
     /**
      * Creates new form Cable
      */
+     Validar validar = new Validar();
+      
+      
     CableJpaController Cca = new CableJpaController();
     Cable ca = new Cable();
     public Cable_R() {
@@ -79,7 +83,7 @@ public class Cable_R extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Longitud");
 
-        cbLongitudRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30 cm", "1.2 m" }));
+        cbLongitudRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "30 cm", "1.2 m" }));
         cbLongitudRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbLongitudRegistroActionPerformed(evt);
@@ -218,7 +222,56 @@ public class Cable_R extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        try {
+        int i=0;
+          
+        if (this.txtCodigoRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicaRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+
+            if (validar.validarCodigoTodos(this.txtCodigoRegistro.getText().toString(),"CB")) {
+                //{}
+                i++; 
+            }
+            if (validar.validarModelosTodos(this.txtModeloRegistro.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaRegistro.getText().toString())) {
+                i++;
+                
+            }
+
+            if (validar.validarSueldo(this.txtPrecioInicialRegistro.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicaRegistro.getText().toString())) {
+                i++;
+                
+            }
+            if(this.cbLongitudRegistro.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso");  
+           
+                
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==6)
+            {
+                JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                  try {
             // TODO add your handling code here:
             ca.setCodigo(txtCodigoRegistro.getText());
             ca.setModelo(txtModeloRegistro.getText());
@@ -234,6 +287,13 @@ public class Cable_R extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             Logger.getLogger(Cable_R.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }
+        }
+        
+        
+        
+        
+      
 
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 

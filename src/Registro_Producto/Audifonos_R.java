@@ -223,7 +223,7 @@ dispose();
         } else if (this.txtPrecioInicialRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtPrecioPublicoRegistro.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELEFONO CONVENCIONAL VACIO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
 
             if (validar.validarCodigoTodos(this.txtCodigoRegistro.getText().toString(),"AU")) {
