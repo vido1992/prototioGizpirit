@@ -5,19 +5,9 @@
  */
 package Actualizar_Producto;
 
-import Controladores.CamaraJpaController;
-import Entidades.Camara;
 import Registro_Producto.*;
-<<<<<<< Updated upstream
 import javax.swing.JOptionPane;
 import validaciones.Validar;
-=======
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
->>>>>>> Stashed changes
 
 /**
  *
@@ -28,18 +18,11 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     /**
      * Creates new form Camara
      */
-<<<<<<< Updated upstream
     
      Validar validar = new Validar();
-=======
-    CamaraJpaController Ccam = new CamaraJpaController();
-    Camara cam = new Camara();
-    
-
->>>>>>> Stashed changes
     public A_Camara_Seguridad() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD");
+        this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD"); 
     }
 
     /**
@@ -51,7 +34,6 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtMarcaActualizarCam = new javax.swing.JTextField();
         txtPrecioInicialActualizarCam = new javax.swing.JTextField();
@@ -100,25 +82,14 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
         jLabel37.setText("Resolucion: ");
 
-<<<<<<< Updated upstream
         rbIntern.setText("Interna");
         rbIntern.addActionListener(new java.awt.event.ActionListener() {
-=======
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Interna");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
->>>>>>> Stashed changes
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbInternActionPerformed(evt);
             }
         });
 
-<<<<<<< Updated upstream
         rbExtern.setText("Externa");
-=======
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Externa");
->>>>>>> Stashed changes
 
         jLabel38.setText("Tipo:");
 
@@ -149,29 +120,15 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         jLabel4.setText("Precio inicial(USD):");
 
         jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-<<<<<<< Updated upstream
                 "Código", "Modelo ", "Marca", "Resolución", "Tipo", "Ángulo", "Precio Inicial", "Precio Público"
-=======
-                "Código", "Modelo ", "Marca", "Resolucion", "Tipo", "Angulo de abertura", "Precio Inicial", "Precio Público"
->>>>>>> Stashed changes
             }
         ));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
-            }
-        });
         jScrollPane3.setViewportView(jTable3);
 
         jBotonRegistrarInv1.setText("Actualizar");
@@ -193,29 +150,14 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-<<<<<<< Updated upstream
-=======
-                                .addGap(105, 105, 105)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabel7))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
->>>>>>> Stashed changes
                                 .addGap(31, 31, 31)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel38)
                                         .addGap(97, 97, 97)
-<<<<<<< Updated upstream
                                         .addComponent(rbIntern)
                                         .addGap(30, 30, 30)
                                         .addComponent(rbExtern))
-=======
-                                        .addComponent(jRadioButton1)
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jRadioButton2))
->>>>>>> Stashed changes
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(63, 63, 63)
                                         .addComponent(jBotonRegistrarInv1)
@@ -223,7 +165,6 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                                         .addComponent(jButtonRegresar3))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
                                             .addComponent(jLabel32)
                                             .addComponent(jLabel34)
                                             .addComponent(jLabel31)
@@ -253,37 +194,6 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(329, 329, 329))
-=======
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel32)
-                                                        .addComponent(jLabel34)
-                                                        .addComponent(jLabel31)
-                                                        .addComponent(jLabel35)
-                                                        .addComponent(jLabel37))
-                                                    .addGap(143, 143, 143))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jLabel4)
-                                                    .addGap(18, 18, 18)))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel33)
-                                                .addGap(132, 132, 132)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(199, 199, 199)
-                                .addComponent(jButton1)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE))
-                .addContainerGap())
->>>>>>> Stashed changes
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,23 +252,15 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< Updated upstream
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-=======
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(88, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
->>>>>>> Stashed changes
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         pack();
@@ -375,7 +277,6 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-<<<<<<< Updated upstream
         
         int i=0;
           
@@ -444,85 +345,11 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
             }
         }
         
-=======
-        try {
-            cam.setCodigo(jTextField29.getText());
-            cam.setModelo(jTextField31.getText());
-            cam.setMarca(jTextField27.getText());
-            cam.setResolucion(jTextField32.getText());
-            if (jRadioButton1.isSelected()) {
-                cam.setTipo(jRadioButton1.getText());
-            } else {
-                cam.setTipo(jRadioButton2.getText());
-            }
-            cam.setAnguloavertura((String) jComboBox1.getSelectedItem());
-            cam.setPrecioimportacion(jTextField28.getText());
-            cam.setPreciopublico(jTextField30.getText());
-            Ccam.edit(cam);
-            JOptionPane.showMessageDialog(null, "Producto Actualizado", "Actualizacion", JOptionPane.WARNING_MESSAGE);
-            cargarTabla();
-        } catch (Exception ex) {
-            Logger.getLogger(A_Camara_Seguridad.class.getName()).log(Level.SEVERE, null, ex);
-        }
->>>>>>> Stashed changes
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        cargarTabla();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        // TODO add your handling code here:
-        jTextField29.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
-        jTextField31.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
-        jTextField27.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
-        jTextField32.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
-        String tipo = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 4);
-        if (tipo.equals("Interna")){
-            jRadioButton1.setSelected(true);
-        }else {
-            jRadioButton2.setSelected(true);
-        }
-        jComboBox1.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
-        jTextField28.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
-        jTextField30.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 7));
-
-    }//GEN-LAST:event_jTable3MouseClicked
-
-    public void cargarTabla() {
-        List<Camara> listcam = Ccam.findCamaraEntities();
-
-        // TODO add your handling code here:
-        //Sección 1 
-        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
-        modelo.setRowCount(0);
-        //Sección 2
-        Object[] Columna = new Object[15];
-        //Sección 3
-        for (int i = 0; i < listcam.size(); i++) {
-            Columna[0] = listcam.get(i).getCodigo();
-            Columna[1] = listcam.get(i).getModelo();
-            Columna[2] = listcam.get(i).getMarca();
-            Columna[3] = listcam.get(i).getResolucion();
-            Columna[4] = listcam.get(i).getTipo();
-            Columna[5] = listcam.get(i).getAnguloavertura();
-            Columna[6] = listcam.get(i).getPrecioimportacion();
-            Columna[7] = listcam.get(i).getPreciopublico();
-
-            modelo.addRow(Columna);
-        }
-        jTable3.setModel(modelo);
-        if (listcam.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
-        }
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< Updated upstream
     private javax.swing.JComboBox boxPrecioInicialActualizarCam;
-=======
-    private javax.swing.ButtonGroup buttonGroup1;
->>>>>>> Stashed changes
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegresar3;
