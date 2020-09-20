@@ -319,21 +319,12 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
            
             JOptionPane.showMessageDialog(null,  "contador"+i); 
             
-             if (i==7)
+             if (i==8)
             {
                 JOptionPane.showMessageDialog(null,  "Camara Registrados");
                 
             }
-        }
-        
-        
-        
-        
-      
-        
-        
-        
-        
+        } 
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
 

@@ -6,6 +6,8 @@
 package Actualizar_Producto;
 
 import Registro_Producto.*;
+import javax.swing.JOptionPane;
+import validaciones.Validar;
 
 /**
  *
@@ -16,6 +18,8 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     /**
      * Creates new form Camara
      */
+    
+     Validar validar = new Validar();
     public A_Camara_Seguridad() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD"); 
@@ -31,20 +35,20 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
+        txtMarcaActualizarCam = new javax.swing.JTextField();
+        txtPrecioInicialActualizarCam = new javax.swing.JTextField();
+        txtCodigoActualizarCam = new javax.swing.JTextField();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
+        txtModeloActualizarCam = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        boxPrecioInicialActualizarCam = new javax.swing.JComboBox();
         jLabel37 = new javax.swing.JLabel();
-        jTextField32 = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        txtResolucionActualizarCam = new javax.swing.JTextField();
+        rbIntern = new javax.swing.JRadioButton();
+        rbExtern = new javax.swing.JRadioButton();
         jLabel38 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -55,11 +59,9 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         jTable3 = new javax.swing.JTable();
         jBotonRegistrarInv1 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        txtPrecioPublicoActualizarCam = new javax.swing.JTextField();
 
         setClosable(true);
-
-        jTextField29.setEnabled(false);
 
         jButtonRegresar3.setText("Regresar");
         jButtonRegresar3.addActionListener(new java.awt.event.ActionListener() {
@@ -76,18 +78,18 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Angulo de abertura: ");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "180°", "360°" }));
+        boxPrecioInicialActualizarCam.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "180°", "360°" }));
 
         jLabel37.setText("Resolucion: ");
 
-        jRadioButton1.setText("Interna");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        rbIntern.setText("Interna");
+        rbIntern.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                rbInternActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Externa");
+        rbExtern.setText("Externa");
 
         jLabel38.setText("Tipo:");
 
@@ -115,7 +117,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        jLabel4.setText("Precio inicial de importación unitario (USD):");
+        jLabel4.setText("Precio inicial(USD):");
 
         jButton1.setText("Buscar");
 
@@ -156,9 +158,9 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel38)
                                 .addGap(97, 97, 97)
-                                .addComponent(jRadioButton1)
+                                .addComponent(rbIntern)
                                 .addGap(30, 30, 30)
-                                .addComponent(jRadioButton2))
+                                .addComponent(rbExtern))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(63, 63, 63)
                                 .addComponent(jBotonRegistrarInv1)
@@ -166,29 +168,22 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                                 .addComponent(jButtonRegresar3))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel32)
-                                                .addComponent(jLabel34)
-                                                .addComponent(jLabel31)
-                                                .addComponent(jLabel35)
-                                                .addComponent(jLabel37))
-                                            .addGap(143, 143, 143))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addGap(18, 18, 18)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel33)
-                                        .addGap(132, 132, 132)))
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel34)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jLabel4))
+                                .addGap(132, 132, 132)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtPrecioPublicoActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtResolucionActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(boxPrecioInicialActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMarcaActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModeloActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioInicialActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -210,39 +205,39 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModeloActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMarcaActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel37)
-                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtResolucionActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
+                    .addComponent(rbIntern)
+                    .addComponent(rbExtern)
                     .addComponent(jLabel38))
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxPrecioInicialActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioInicialActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioPublicoActualizarCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegresar3)
@@ -273,20 +268,88 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void rbInternActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInternActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_rbInternActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
+        
+        int i=0;
+          
+        if (this.txtCodigoActualizarCam.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtModeloActualizarCam.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaActualizarCam.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialActualizarCam.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoActualizarCam.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoActualizarCam.getText().toString(),"CM")) {
+                
+                i++;
+            }
+            if (validar.validarModelosTodos(this.txtModeloActualizarCam.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaActualizarCam.getText().toString())) {
+                i++;
+                
+            }
+
+            if (validar.validarSueldo(this.txtPrecioInicialActualizarCam.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicoActualizarCam.getText().toString())) {
+                i++;
+                
+            }
+            if(this.boxPrecioInicialActualizarCam.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso");  
+           
+                
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en ángulo");
+            }
+                  
+            if(this.rbIntern.isSelected()==true)
+            {i++;
+            System.out.println( "buen ingreso seleccion interna");  
+                          
+            }else if (this.rbExtern.isSelected()==true ){
+                i++;
+                System.out.println( "buen ingreso seleccion externa");
+            
+            }else {
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
+            }
+            
+                       
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==8)
+            {
+                JOptionPane.showMessageDialog(null,  "Camara Registrados");
+                
+            }
+        }
+        
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox boxPrecioInicialActualizarCam;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonRegresar3;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -299,15 +362,15 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
-    private javax.swing.JTextField jTextField32;
+    private javax.swing.JRadioButton rbExtern;
+    private javax.swing.JRadioButton rbIntern;
+    private javax.swing.JTextField txtCodigoActualizarCam;
+    private javax.swing.JTextField txtMarcaActualizarCam;
+    private javax.swing.JTextField txtModeloActualizarCam;
+    private javax.swing.JTextField txtPrecioInicialActualizarCam;
+    private javax.swing.JTextField txtPrecioPublicoActualizarCam;
+    private javax.swing.JTextField txtResolucionActualizarCam;
     // End of variables declaration//GEN-END:variables
 }

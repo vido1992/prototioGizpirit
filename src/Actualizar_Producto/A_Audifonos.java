@@ -65,7 +65,7 @@ Validar validar = new Validar();
 
         setClosable(true);
 
-        jLabel29.setText("Precio de importación (USD):");
+        jLabel29.setText("Precio de Inicial (USD):");
 
         jButtonRegresar3.setText("Regresar");
         jButtonRegresar3.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ Validar validar = new Validar();
 
             },
             new String [] {
-                "Código", "Modelo ", "Marca", "Tipo", "Precio Importacion", "Precio Público"
+                "Código", "Modelo ", "Marca", "Tipo", "Precio Inicial", "Precio Público"
             }
         ));
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -59,9 +59,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbIntern" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rbExtern" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -71,35 +71,23 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel34" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel31" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField30" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jTextField32" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField27" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jTextField29" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                      <Component id="jTextField31" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                                      <Component id="jTextField28" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioPublicoActualizarCam" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtResolucionActualizarCam" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="boxPrecioInicialActualizarCam" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtMarcaActualizarCam" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtCodigoActualizarCam" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                      <Component id="txtModeloActualizarCam" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioInicialActualizarCam" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -130,33 +118,33 @@
                   <Component id="jScrollPane3" min="-2" pref="88" max="-2" attributes="0"/>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField29" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtCodigoActualizarCam" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField31" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModeloActualizarCam" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField27" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMarcaActualizarCam" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel37" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField32" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtResolucionActualizarCam" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbIntern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbExtern" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="boxPrecioInicialActualizarCam" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Component id="jLabel35" min="-2" pref="14" max="-2" attributes="0"/>
@@ -164,13 +152,13 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField28" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioInicialActualizarCam" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField30" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPrecioPublicoActualizarCam" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -183,14 +171,11 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField27">
+        <Component class="javax.swing.JTextField" name="txtMarcaActualizarCam">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField28">
+        <Component class="javax.swing.JTextField" name="txtPrecioInicialActualizarCam">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField29">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="txtCodigoActualizarCam">
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRegresar3">
           <Properties>
@@ -215,19 +200,20 @@
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField31">
+        <Component class="javax.swing.JTextField" name="txtModeloActualizarCam">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
             <Property name="text" type="java.lang.String" value="Angulo de abertura: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="boxPrecioInicialActualizarCam">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="180&#xb0;"/>
-                <StringItem index="1" value="360&#xb0;"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Selecci&#xf3;n"/>
+                <StringItem index="1" value="180&#xb0;"/>
+                <StringItem index="2" value="360&#xb0;"/>
               </StringArray>
             </Property>
           </Properties>
@@ -237,17 +223,17 @@
             <Property name="text" type="java.lang.String" value="Resolucion: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField32">
+        <Component class="javax.swing.JTextField" name="txtResolucionActualizarCam">
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+        <Component class="javax.swing.JRadioButton" name="rbIntern">
           <Properties>
             <Property name="text" type="java.lang.String" value="Interna"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbInternActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+        <Component class="javax.swing.JRadioButton" name="rbExtern">
           <Properties>
             <Property name="text" type="java.lang.String" value="Externa"/>
           </Properties>
@@ -306,7 +292,7 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Precio inicial de importaci&#xf3;n unitario (USD):"/>
+            <Property name="text" type="java.lang.String" value="Precio inicial(USD):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
@@ -351,7 +337,7 @@
             <Property name="text" type="java.lang.String" value="Precio al p&#xfa;blico (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField30">
+        <Component class="javax.swing.JTextField" name="txtPrecioPublicoActualizarCam">
         </Component>
       </SubComponents>
     </Container>

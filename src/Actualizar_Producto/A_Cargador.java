@@ -6,6 +6,8 @@
 package Actualizar_Producto;
 
 import Registro_Producto.*;
+import javax.swing.JOptionPane;
+import validaciones.Validar;
 
 /**
  *
@@ -16,6 +18,7 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     /**
      * Creates new form Cargador
      */
+     Validar validar = new Validar();
     public A_Cargador() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CARGADOR"); 
@@ -31,20 +34,20 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField27 = new javax.swing.JTextField();
-        jTextField28 = new javax.swing.JTextField();
-        jTextField29 = new javax.swing.JTextField();
+        txtMarcaActualizarCargador = new javax.swing.JTextField();
+        txtPrecioInicialActualizarCargador = new javax.swing.JTextField();
+        txtCodigoActualizarCargador = new javax.swing.JTextField();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField30 = new javax.swing.JTextField();
+        txtPrecioPublicoActualizarCargador = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        jTextField31 = new javax.swing.JTextField();
+        txtModeloActualizarCargador = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        boxWattActualizarCargador = new javax.swing.JComboBox();
         jLabel37 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        boxTipoActualizarCargador = new javax.swing.JComboBox();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -73,11 +76,11 @@ public class A_Cargador extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Tipo");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "18 Wtts", "27 Wtts", "30 Wtts" }));
+        boxWattActualizarCargador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "18 Wtts", "27 Wtts", "30 Wtts" }));
 
         jLabel37.setText("Watts de carga:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cubo USB", "Reloj" }));
+        boxTipoActualizarCargador.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Cubo USB", "Reloj" }));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -108,7 +111,7 @@ public class A_Cargador extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Modelo ", "Precio Público", "Cantidad"
+                "Tipo", "Código", "Modelo ", "Marca", "Watts", "Precio Inicial", "Precio Público"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
@@ -122,7 +125,7 @@ public class A_Cargador extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel4.setText("Precio inicial de importación unitario (USD):");
+        jLabel4.setText("Precio inicial (USD):");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,41 +143,39 @@ public class A_Cargador extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel33)
                                     .addComponent(jLabel31)
                                     .addComponent(jLabel37)
-                                    .addComponent(jLabel35))
-                                .addGap(126, 126, 126))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel4))
+                                .addGap(126, 126, 126)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(boxTipoActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(boxWattActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioInicialActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioPublicoActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMarcaActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCodigoActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtModeloActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel7))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(226, 226, 226)
-                        .addComponent(jButton6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jBotonRegistrarInv1))
+                                .addGap(100, 100, 100)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addComponent(jLabel7))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(226, 226, 226)
+                                .addComponent(jButton6)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButtonRegresar3)
-                        .addGap(125, 125, 125)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addComponent(jBotonRegistrarInv1)
+                                .addGap(189, 189, 189)
+                                .addComponent(jButtonRegresar3)
+                                .addGap(0, 190, Short.MAX_VALUE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,31 +191,31 @@ public class A_Cargador extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxTipoActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigoActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel31))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32)
-                    .addComponent(jTextField31, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtModeloActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMarcaActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel34))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel37)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxWattActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecioInicialActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPrecioPublicoActualizarCargador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonRegistrarInv1)
@@ -228,7 +229,7 @@ public class A_Cargador extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGap(0, 42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,15 +248,72 @@ public class A_Cargador extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
+        
+        int i=0;
+          
+        if (this.txtCodigoActualizarCargador.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloActualizarCargador.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaActualizarCargador.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialActualizarCargador.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoActualizarCargador.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoActualizarCargador.getText().toString(),"CA")) {
+                //{}
+                i++; 
+            }
+            if (validar.validarModelosTodos(this.txtModeloActualizarCargador.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaActualizarCargador.getText().toString())) {
+                i++;
+                
+            }
+
+            if (validar.validarSueldo(this.txtPrecioInicialActualizarCargador.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarSueldo(this.txtPrecioPublicoActualizarCargador.getText().toString())) {
+                i++;
+                
+            }
+            if(this.boxTipoActualizarCargador.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso tipo");  
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+            if(this.boxWattActualizarCargador.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso de watts");  
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==7)
+            {
+                JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                 
+            }
+        }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox boxTipoActualizarCargador;
+    private javax.swing.JComboBox boxWattActualizarCargador;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonRegresar3;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -269,10 +327,10 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
-    private javax.swing.JTextField jTextField30;
-    private javax.swing.JTextField jTextField31;
+    private javax.swing.JTextField txtCodigoActualizarCargador;
+    private javax.swing.JTextField txtMarcaActualizarCargador;
+    private javax.swing.JTextField txtModeloActualizarCargador;
+    private javax.swing.JTextField txtPrecioInicialActualizarCargador;
+    private javax.swing.JTextField txtPrecioPublicoActualizarCargador;
     // End of variables declaration//GEN-END:variables
 }

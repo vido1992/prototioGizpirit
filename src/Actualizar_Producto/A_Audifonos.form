@@ -172,7 +172,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel29">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Precio de importaci&#xf3;n (USD):"/>
+            <Property name="text" type="java.lang.String" value="Precio de Inicial (USD):"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMarcaActualizar">
@@ -291,7 +291,7 @@
                     <Column editable="true" title="Modelo " type="java.lang.Object"/>
                     <Column editable="true" title="Marca" type="java.lang.Object"/>
                     <Column editable="true" title="Tipo" type="java.lang.Object"/>
-                    <Column editable="true" title="Precio Importacion" type="java.lang.Object"/>
+                    <Column editable="true" title="Precio Inicial" type="java.lang.Object"/>
                     <Column editable="true" title="Precio P&#xfa;blico" type="java.lang.Object"/>
                   </Table>
                 </Property>

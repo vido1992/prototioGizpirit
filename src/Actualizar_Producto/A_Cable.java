@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import validaciones.Validar;
 
 /**
  *
@@ -25,7 +26,7 @@ public class A_Cable extends javax.swing.JInternalFrame {
      */
     CableJpaController Cca = new CableJpaController();
     Cable ca = new Cable();
-
+Validar validar = new Validar();
     public A_Cable() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CABLE");
@@ -81,7 +82,7 @@ public class A_Cable extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Longitud");
 
-        cbxLongitudActualizacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "30 cm", "1.2 m" }));
+        cbxLongitudActualizacion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "30 cm", "1.2 m" }));
         cbxLongitudActualizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxLongitudActualizacionActionPerformed(evt);
@@ -112,7 +113,7 @@ public class A_Cable extends javax.swing.JInternalFrame {
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        jLabel4.setText("Precio inicial de importación unitario (USD):");
+        jLabel4.setText("Precio inicial(USD):");
 
         jTableCableConsulta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -270,6 +271,57 @@ public class A_Cable extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
+
+        int i=0;
+          
+        if (this.txtCodigoActualizacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloActualizacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaActualizacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioImportacionActualizacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublico.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+               //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoActualizacion.getText().toString(),"CB")) {
+                //{}
+                i++; 
+            }
+            if (validar.validarModelosTodos(this.txtModeloActualizacion.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaActualizacion.getText().toString())) {
+                i++;
+                
+            }
+
+            if (validar.validarSueldo(this.txtPrecioImportacionActualizacion.getText().toString())) {
+                i++;
+                
+            }
+            if (validar.validarSueldo(this.txtPrecioPublico.getText().toString())) {
+                i++;
+                
+            }
+            if(this.cbxLongitudActualizacion.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso");  
+           
+                
+            }else{
+            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            }
+           
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
+             if (i==6)
+            {
+                
+                 
         try {
             ca.setCodigo(txtCodigoActualizacion.getText());
             ca.setModelo(txtModeloActualizacion.getText());
@@ -283,6 +335,19 @@ public class A_Cable extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             Logger.getLogger(A_Cable.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }
+        }
+        
+        
+        
+        
+      
+
+        
+        
+        
+        
+      
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void jTableCableConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCableConsultaMouseClicked
