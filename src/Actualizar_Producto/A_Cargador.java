@@ -5,8 +5,14 @@
  */
 package Actualizar_Producto;
 
+import Controladores.CargadorJpaController;
+import Entidades.Cargador;
 import Registro_Producto.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validaciones.Validar;
 
 /**
@@ -18,10 +24,13 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     /**
      * Creates new form Cargador
      */
-     Validar validar = new Validar();
+    CargadorJpaController Ccar = new CargadorJpaController();
+    Cargador car = new Cargador();
+    Validar validar = new Validar();
+    
     public A_Cargador() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-CARGADOR"); 
+        this.setTitle("SiGIn-GIZPIRIT-CARGADOR");
     }
 
     /**
@@ -114,9 +123,19 @@ public class A_Cargador extends javax.swing.JInternalFrame {
                 "Tipo", "Código", "Modelo ", "Marca", "Watts", "Precio Inicial", "Precio Público"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jBotonRegistrarInv1.setText("Actualizar");
         jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
@@ -247,10 +266,9 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-
         
-        int i=0;
-          
+        int i = 0;
+        
         if (this.txtCodigoActualizarCargador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloActualizarCargador.getText().equals("")) {
@@ -263,9 +281,9 @@ public class A_Cargador extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoActualizarCargador.getText().toString(),"CA")) {
+            if (validar.validarCodigoTodos(this.txtCodigoActualizarCargador.getText().toString(), "CA")) {
                 //{}
-                i++; 
+                i++;
             }
             if (validar.validarModelosTodos(this.txtModeloActualizarCargador.getText().toString())) {
                 i++;
@@ -275,7 +293,7 @@ public class A_Cargador extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-
+            
             if (validar.validarSueldo(this.txtPrecioInicialActualizarCargador.getText().toString())) {
                 i++;
                 
@@ -284,34 +302,82 @@ public class A_Cargador extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-            if(this.boxTipoActualizarCargador.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso tipo");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxTipoActualizarCargador.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso tipo");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-            if(this.boxWattActualizarCargador.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso de watts");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxWattActualizarCargador.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso de watts");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
             
-             if (i==7)
-            {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
-                 
+            JOptionPane.showMessageDialog(null, "contador" + i);
+            
+            if (i == 7) {
+                try {
+                    car.setCodigo(txtCodigoActualizarCargador.getText());
+                    car.setModelo(txtModeloActualizarCargador.getText());
+                    car.setMarca(txtMarcaActualizarCargador.getText());
+                    car.setWattscarga(boxWattActualizarCargador.getSelectedItem().toString());
+                    car.setTipo(boxTipoActualizarCargador.getSelectedItem().toString());
+                    car.setPrecioimportacion(txtPrecioInicialActualizarCargador.getText());
+                    car.setPreciopublico(txtPrecioPublicoActualizarCargador.getText());
+                    JOptionPane.showMessageDialog(null, "Cargador Actualizado");
+                    Ccar.edit(car);
+                    cargartabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(Cargador_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
-public void cargartabla(){
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        cargartabla();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
-
-
-}
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        txtCodigoActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        txtModeloActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+        txtMarcaActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        boxWattActualizarCargador.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 4));
+        boxTipoActualizarCargador.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
+        txtPrecioInicialActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
+        txtPrecioPublicoActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
+        
+    }//GEN-LAST:event_jTable3MouseClicked
+    
+    public void cargartabla() {
+        List<Cargador> listcar = Ccar.findCargadorEntities();
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        //Sección 2
+        Object[] Columna = new Object[7];
+        //Sección 3
+        for (int i = 0; i < listcar.size(); i++) {
+            Columna[0] = listcar.get(i).getTipo();
+            Columna[1] = listcar.get(i).getCodigo();
+            Columna[2] = listcar.get(i).getModelo();
+            Columna[3] = listcar.get(i).getMarca();
+            Columna[4] = listcar.get(i).getWattscarga();
+            Columna[5] = listcar.get(i).getPrecioimportacion();
+            Columna[6] = listcar.get(i).getPreciopublico();
+            
+            modelo.addRow(Columna);
+        }
+        jTable3.setModel(modelo);
+        if (listcar.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoActualizarCargador;
     private javax.swing.JComboBox boxWattActualizarCargador;

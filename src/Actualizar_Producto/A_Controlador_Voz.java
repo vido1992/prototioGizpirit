@@ -5,8 +5,14 @@
  */
 package Actualizar_Producto;
 
+import Controladores.ControladorvozJpaController;
+import Entidades.Controladorvoz;
 import Registro_Producto.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validaciones.Validar;
 
 /**
@@ -18,6 +24,8 @@ public class A_Controlador_Voz extends javax.swing.JInternalFrame {
     /**
      * Creates new form Controlador_Voz
      */
+        ControladorvozJpaController Ccv = new ControladorvozJpaController();
+    Controladorvoz cv = new Controladorvoz();
     Validar validar = new Validar();
     public A_Controlador_Voz() {
         initComponents();
@@ -120,9 +128,19 @@ public class A_Controlador_Voz extends javax.swing.JInternalFrame {
                 "Código", "Modelo ", "Marca", "Tamaño", "Precio Inicial", "Precio Público"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jBotonRegistrarInv1.setText("Actualizar");
         jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
@@ -301,15 +319,62 @@ public class A_Controlador_Voz extends javax.swing.JInternalFrame {
             
              if (i==6)
             {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                  try {
+                    cv.setCodigo(txtCodigoActualizar.getText());
+                    cv.setModelo(txtModeloActualizar.getText());
+                    cv.setMarca(boxMarcaActualizar.getSelectedItem().toString());
+                    cv.setTamaño(boxTamañoActualizar.getSelectedItem().toString());
+                    cv.setPrecioimportacion(txtPrecioInicialActualizar.getText());
+                    cv.setPreciopublico(txtPrecioPublicoActualizar.getText());
+                    Ccv.edit(cv);
+                    JOptionPane.showMessageDialog(null, "ControladorVoz Actualizado");
+                    cargartabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(Controlador_Voz.class.getName()).log(Level.SEVERE, null, ex);
+                }
                  
             }
         }
         
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        txtCodigoActualizar.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
+        txtModeloActualizar.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        boxMarcaActualizar.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+        boxTamañoActualizar.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        txtPrecioInicialActualizar.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 4));
+        txtPrecioPublicoActualizar.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
+        
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        cargartabla();
+    }//GEN-LAST:event_jButton6ActionPerformed
 public void cargartabla(){
 
-
+   List<Controladorvoz> listcv = Ccv.findControladorvozEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcv.size(); i++) {
+                Columna[0] = listcv.get(i).getCodigo();
+                Columna[1] = listcv.get(i).getModelo();
+                Columna[2] = listcv.get(i).getMarca();
+                Columna[3] = listcv.get(i).getTamaño();
+                Columna[4] = listcv.get(i).getPrecioimportacion();
+                Columna[5] = listcv.get(i).getPreciopublico();
+   
+                modelo.addRow(Columna);
+            }
+            jTable3.setModel(modelo);
+            if (listcv.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
 
 }
 

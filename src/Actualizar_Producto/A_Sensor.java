@@ -5,8 +5,14 @@
  */
 package Actualizar_Producto;
 
+import Controladores.SensorJpaController;
+import Entidades.Sensor;
 import Registro_Producto.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validaciones.Validar;
 
 /**
@@ -18,10 +24,13 @@ public class A_Sensor extends javax.swing.JInternalFrame {
     /**
      * Creates new form Sensor
      */
-      Validar validar = new Validar();
+    SensorJpaController Cse = new SensorJpaController();
+    Sensor se = new Sensor();
+    Validar validar = new Validar();
+
     public A_Sensor() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-SENSOR"); 
+        this.setTitle("SiGIn-GIZPIRIT-SENSOR");        
     }
 
     /**
@@ -114,6 +123,11 @@ public class A_Sensor extends javax.swing.JInternalFrame {
                 "Código", "Modelo ", "Marca", "Tipo", "Precio Inicial", "Precio Público"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jButton6.setText("Buscar");
@@ -243,11 +257,12 @@ public class A_Sensor extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        cargartabla();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-
-        int i=0;
+        
+        int i = 0;
         if (this.txtCodigoSensor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloSensor.getText().equals("")) {
@@ -260,35 +275,46 @@ public class A_Sensor extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoSensor.getText().toString(),"SE")) {
-             
-                i++; 
+            if (validar.validarCodigoTodos(this.txtCodigoSensor.getText().toString(), "SE")) {
+                
+                i++;                
             }
             if (validar.validarModelosTodos(this.txtModeloSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
             if (validar.validarMarcaTodos(this.txtMarcaSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
-
+            
             if (validar.validarSueldo(this.txtPrecioInicialSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
             if (validar.validarSueldo(this.txtPrecioPublicoSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
-            if(this.boxTipoSensor.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");   
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxTipoSensor.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");                
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
             
-             if (i==6)
-            {
-                JOptionPane.showMessageDialog(null,  "Sensor Registrados");
+            JOptionPane.showMessageDialog(null, "contador" + i);            
+            
+            if (i == 6) {
+                try {
+                    se.setCodigo(txtCodigoSensor.getText());
+                    se.setModelo(txtModeloSensor.getText());
+                    se.setMarca(txtMarcaSensor.getText());
+                    se.setTipo(boxTipoSensor.getSelectedItem().toString());
+                    se.setPrecioimportacion(txtPrecioInicialSensor.getText());
+                    se.setPreciopublico(txtPrecioPublicoSensor.getText());
+                    Cse.edit(se);
+                    JOptionPane.showMessageDialog(null, "Sensor Actualizado");
+                    cargartabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(Sensor_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             
         }
@@ -298,11 +324,38 @@ public class A_Sensor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModeloSensorActionPerformed
 
-public void cargartabla(){
-
-
-
-}
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        txtCodigoSensor.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
+        txtModeloSensor.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        txtMarcaSensor.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));        
+        boxTipoSensor.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        txtPrecioInicialSensor.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 4));        
+        txtPrecioPublicoSensor.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));        
+    }//GEN-LAST:event_jTable3MouseClicked
+    
+    public void cargartabla() {
+          List<Sensor> listsem = Cse.findSensorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listsem.size(); i++) {
+                Columna[0] = listsem.get(i).getCodigo();
+                Columna[1] = listsem.get(i).getModelo();
+                Columna[2] = listsem.get(i).getMarca();
+                Columna[3] = listsem.get(i).getTipo();
+                Columna[4] = listsem.get(i).getPrecioimportacion();
+                Columna[5] = listsem.get(i).getPreciopublico();
+               
+                modelo.addRow(Columna);
+            }
+            jTable3.setModel(modelo);
+            if (listsem.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoSensor;
     private javax.swing.JButton jBotonRegistrarInv1;

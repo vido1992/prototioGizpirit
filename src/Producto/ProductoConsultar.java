@@ -288,7 +288,7 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CA-Cargador")) {
-              List<Cargador> listcar = Ccar.findCargadorEntities();
+            List<Cargador> listcar = Ccar.findCargadorEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
@@ -307,7 +307,7 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
             }
 
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("IN-Interruptor")) {
-               List<Interruptor> listint = Cin.findInterruptorEntities();
+            List<Interruptor> listint = Cin.findInterruptorEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
@@ -325,9 +325,8 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
 
-
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("TO-Tomacorriente")) {
-    List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
+            List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
@@ -345,7 +344,7 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("SE-Sensor")) {
- List<Sensor> listsem = Cse.findSensorEntities();
+            List<Sensor> listsem = Cse.findSensorEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
@@ -363,7 +362,7 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CZ-ControladorVoz")) {
- List<Controladorvoz> listcv = Ccv.findControladorvozEntities();
+            List<Controladorvoz> listcv = Ccv.findControladorvozEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
@@ -381,7 +380,7 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("La-Llaves Automáticas")) {
- List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
+            List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
@@ -399,7 +398,7 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("RJ-Reloj")) {
- List<Reloj> listrej = Creloj.findRelojEntities();
+            List<Reloj> listrej = Creloj.findRelojEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2

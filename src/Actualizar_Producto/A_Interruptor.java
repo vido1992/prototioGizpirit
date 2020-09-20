@@ -5,8 +5,14 @@
  */
 package Actualizar_Producto;
 
+import Controladores.InterruptorJpaController;
+import Entidades.Interruptor;
 import Registro_Producto.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validaciones.Validar;
 
 /**
@@ -18,10 +24,13 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
     /**
      * Creates new form Interruptores
      */
-      Validar validar = new Validar();
+    InterruptorJpaController Cin = new InterruptorJpaController();
+    Interruptor in = new Interruptor();
+    Validar validar = new Validar();
+
     public A_Interruptor() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-INTERRUPTORES"); 
+        this.setTitle("SiGIn-GIZPIRIT-INTERRUPTORES");
     }
 
     /**
@@ -116,9 +125,19 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
                 "Código", "Modelo ", "Marca", "Número Botones", "Tipo", "Precio Inicial", "Precio Público"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jBotonRegistrarInv1.setText("Actualizar");
         jBotonRegistrarInv1.addActionListener(new java.awt.event.ActionListener() {
@@ -243,13 +262,13 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
-     dispose();
+        dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-         int i=0;
-            if (this.txtCodigo.getText().equals("")) {
+        int i = 0;
+        if (this.txtCodigo.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtModelo.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
@@ -257,10 +276,9 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtPrecioPublico.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PUBLICO VACIO", JOptionPane.WARNING_MESSAGE);
-        } else
-        {
-               //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigo.getText().toString(),"IN")) {
+        } else {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigo.getText().toString(), "IN")) {
                 //{}
                 i++;
             }
@@ -272,45 +290,94 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
             }
 
             if (validar.validarSueldo(this.txtPrecioPublico.getText().toString())) {
-                i++; 
-            } 
-            if(this.boxNumero.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
-           
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en botones");
-       
+                i++;
             }
-            if(this.boxMarca.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
-            
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en marca");
+            if (this.boxNumero.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en botones");
+
             }
-            if(this.boxTipo.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
-                            
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
+            if (this.boxMarca.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en marca");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==7)
-            {
-                JOptionPane.showMessageDialog(null,  "Interruptor Registrados");
+            if (this.boxTipo.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tipo");
             }
-        
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 7) {
+                try {
+                    in.setCodigo(txtCodigo.getText());
+                    in.setModelo(txtModelo.getText());
+                    in.setMarca(boxMarca.getSelectedItem().toString());
+                    in.setNumerobotones(boxNumero.getSelectedItem().toString());
+                    in.setTipo(boxTipo.getSelectedItem().toString());
+                    in.setPrecioimportacion(txtPrecioInicial.getText());
+                    in.setPreciopublico(txtPrecioPublico.getText());
+                    Cin.edit(in);
+                    JOptionPane.showMessageDialog(null, "Interruptor Actualizado");
+                    cargartabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(Interruptor_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
-public void cargartabla(){
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        txtCodigo.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
+        txtModelo.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        boxMarca.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+        boxNumero.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        boxTipo.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 4));
+        txtPrecioInicial.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
+        txtPrecioPublico.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
 
 
+    }//GEN-LAST:event_jTable3MouseClicked
 
-}
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        cargartabla();
+    }//GEN-LAST:event_jButton6ActionPerformed
+    public void cargartabla() {
+        List<Interruptor> listint = Cin.findInterruptorEntities();
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        //Sección 2
+        Object[] Columna = new Object[7];
+        //Sección 3
+        for (int i = 0; i < listint.size(); i++) {
+            Columna[0] = listint.get(i).getCodigo();
+            Columna[1] = listint.get(i).getModelo();
+            Columna[2] = listint.get(i).getMarca();
+            Columna[3] = listint.get(i).getNumerobotones();
+            Columna[4] = listint.get(i).getTipo();
+            Columna[5] = listint.get(i).getPrecioimportacion();
+            Columna[6] = listint.get(i).getPreciopublico();
+  
+            modelo.addRow(Columna);
+        }
+        jTable3.setModel(modelo);
+        if (listint.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxMarca;
     private javax.swing.JComboBox boxNumero;

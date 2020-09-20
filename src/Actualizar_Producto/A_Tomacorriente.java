@@ -5,8 +5,14 @@
  */
 package Actualizar_Producto;
 
+import Controladores.TomacorrienteJpaController;
+import Entidades.Tomacorriente;
 import Registro_Producto.*;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import validaciones.Validar;
 
 /**
@@ -18,10 +24,13 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
     /**
      * Creates new form Tomacorriente
      */
+    TomacorrienteJpaController Cto = new TomacorrienteJpaController();
+    Tomacorriente toma = new Tomacorriente();
     Validar validar = new Validar();
+
     public A_Tomacorriente() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-TOMACORRIENTE"); 
+        this.setTitle("SiGIn-GIZPIRIT-TOMACORRIENTE");
     }
 
     /**
@@ -109,6 +118,11 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
         jLabel4.setText("Precio inicial(USD):");
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,6 +132,11 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
                 "Código", "Modelo ", "Marca", "Forma", "Tipo", "Precio Inicial", "Precio Público"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jLabel33.setText("Precio al público (USD):");
@@ -247,8 +266,8 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-        int i=0;
-          
+        int i = 0;
+
         if (this.txtCodigoTomacorriente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtModeloTomacorriente.getText().equals("")) {
@@ -259,51 +278,97 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoTomacorriente.getText().toString(),"TO")) {
+            if (validar.validarCodigoTodos(this.txtCodigoTomacorriente.getText().toString(), "TO")) {
                 //{}
-                i++; 
+                i++;
             }
             if (validar.validarModelosTodos(this.txtModeloTomacorriente.getText().toString())) {
                 i++;
-                
+
             }
-            
+
             if (validar.validarSueldo(this.txtPrecioInicialTomacorriente.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoTomacorriente.getText().toString())) {
                 i++;
-                
+
             }
-            if(this.boxFormaTomacorriente.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso marca");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxFormaTomacorriente.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso marca");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-            if(this.boxMarcaTomacorriente.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso de Tamaño");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.boxMarcaTomacorriente.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso de Tamaño");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==6)
-            {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
-                 
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 6) {
+                try {
+                    toma.setCodigo(txtCodigoTomacorriente.getText());
+                    toma.setModelo(txtModeloTomacorriente.getText());
+                    toma.setMarca(boxMarcaTomacorriente.getSelectedItem().toString());
+                    toma.setForma(boxFormaTomacorriente.getSelectedItem().toString());
+                    toma.setTipo(jLabel39.getText());
+                    toma.setPrecioimportacion(txtPrecioInicialTomacorriente.getText());
+                    toma.setPreciopublico(txtPrecioPublicoTomacorriente.getText());
+                    Cto.edit(toma);
+                    JOptionPane.showMessageDialog(null, "Tomacorriente Actualizado");
+                    cargartabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(Tomacorriente_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
         }
-        
+
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
-public void cargartabla(){
 
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        txtCodigoTomacorriente.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
+        txtModeloTomacorriente.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        boxMarcaTomacorriente.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+        boxFormaTomacorriente.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        txtPrecioInicialTomacorriente.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
+        txtPrecioPublicoTomacorriente.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
 
+    }//GEN-LAST:event_jTable3MouseClicked
 
-}
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        cargartabla();
+    }//GEN-LAST:event_jButton6ActionPerformed
+    public void cargartabla() {
+List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[7];
+            //Sección 3
+            for (int i = 0; i < listtom.size(); i++) {
+                Columna[0] = listtom.get(i).getCodigo();
+                Columna[1] = listtom.get(i).getModelo();
+                Columna[2] = listtom.get(i).getMarca();
+                Columna[3] = listtom.get(i).getForma();
+                Columna[4] = listtom.get(i).getTipo();
+                Columna[5] = listtom.get(i).getPrecioimportacion();
+                Columna[6] = listtom.get(i).getPreciopublico();
+       
+                modelo.addRow(Columna);
+            }
+            jTable3.setModel(modelo);
+            if (listtom.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxFormaTomacorriente;
