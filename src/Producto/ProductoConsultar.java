@@ -5,7 +5,9 @@
  */
 package Producto;
 
+import Controladores.AudifonosJpaController;
 import Controladores.CableJpaController;
+import Entidades.Audifonos;
 import Entidades.Cable;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -22,6 +24,8 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
      */
     CableJpaController Cca = new CableJpaController();
     Cable ca = new Cable();
+    AudifonosJpaController Cau = new AudifonosJpaController();
+    Audifonos au = new Audifonos();
 
     public ProductoConsultar() {
         initComponents();
@@ -189,16 +193,18 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        List<Cable> listC = Cca.findCableEntities();
 
         if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto")) {
             JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
-        } else {
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
             //Sección 1 
+            List<Cable> listC = Cca.findCableEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
             //Sección 2
             Object[] Columna = new Object[6];
             //Sección 3
+
             for (int i = 0; i < listC.size(); i++) {
                 Columna[0] = listC.get(i).getCodigo();
                 Columna[1] = listC.get(i).getModelo();
@@ -208,6 +214,26 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
             }
             jTableConsultaProducto.setModel(modelo);
             if (listC.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("AU-Audifonos")) {
+
+            //Sección 1 
+            List<Audifonos> listAu = Cau.findAudifonosEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listAu.size(); i++) {
+                Columna[0] = listAu.get(i).getCodigo();
+                Columna[1] = listAu.get(i).getModelo();
+                Columna[2] = listAu.get(i).getPreciopublico();
+                Columna[3] = listAu.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listAu.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         }

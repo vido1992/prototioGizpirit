@@ -7,6 +7,8 @@ package Registro_Producto;
 
 import Controladores.AudifonosJpaController;
 import Entidades.Audifonos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import validaciones.Validar;
 
@@ -265,7 +267,21 @@ dispose();
             
              if (i==6)
             {
-                JOptionPane.showMessageDialog(null,  "Audifonos Registrados");
+                    try {
+                    au.setCodigo(codigo);
+                    au.setModelo(modelo);
+                    au.setMarca(marca);
+                    au.setTipo(tipo);
+                    au.setPrecioimportacion(pInicial);
+                    au.setPreciopublico(pPublico);
+                    au.setCantidad("0");
+                    au.setEstado("Activo");
+                    Cau.create(au);
+                    JOptionPane.showMessageDialog(null,  "Audifonos Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Audifonos_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
             }
             
             
