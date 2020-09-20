@@ -38,6 +38,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         txtMarcaCamaraSeguridad = new javax.swing.JTextField();
         txtPrecioIniCamaraSeguridad = new javax.swing.JTextField();
@@ -90,6 +91,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
 
         jLabel37.setText("Resolucion: ");
 
+        buttonGroup1.add(InternaCamaraSegurida);
         InternaCamaraSegurida.setText("Interna");
         InternaCamaraSegurida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +99,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(ExternaCamaraSegurida);
         ExternaCamaraSegurida.setText("Externa");
 
         jLabel38.setText("Tipo:");
@@ -316,12 +319,30 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
             }
             
                        
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
+
             
              if (i==8)
             {
-                JOptionPane.showMessageDialog(null,  "Camara Registrados");
+                try {
+                    ca.setCodigo(txtCodigoCamaraSeguridad.getText());
+                    ca.setModelo(txtModCamaraSeguridad.getText());
+                    ca.setMarca(txtMarcaCamaraSeguridad.getText());
+                    ca.setResolucion(txtResoluCamaraSeguridad.getText());
+                    if (InternaCamaraSegurida.isSelected()){
+                        ca.setTipo(InternaCamaraSegurida.getText());
+                    }else{
+                        ca.setTipo(ExternaCamaraSegurida.getText());
+                    }
+                    ca.setAnguloavertura((String) bxAnguloCamaraSeguridad.getSelectedItem());
+                    ca.setPrecioimportacion(txtPrecioIniCamaraSeguridad.getText());
+                    ca.setPreciopublico(txtPrecioPubCamaraSeguridad.getText());
+                    ca.setCantidad("0");
+                    ca.setEstado("Activo");
+                    Cca.create(ca);
+                    JOptionPane.showMessageDialog(null,  "Camara Registrados");
+                } catch (Exception ex) {
+                    Logger.getLogger(Camara_Seguridad.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
             }
         } 
@@ -331,6 +352,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton ExternaCamaraSegurida;
     private javax.swing.JRadioButton InternaCamaraSegurida;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox bxAnguloCamaraSeguridad;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButtonRegresar3;

@@ -263,7 +263,7 @@ dispose();
             JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
             }
            
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
+ 
             
              if (i==6)
             {

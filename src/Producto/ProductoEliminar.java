@@ -7,9 +7,11 @@ package Producto;
 
 import Controladores.AudifonosJpaController;
 import Controladores.CableJpaController;
+import Controladores.CamaraJpaController;
 import Controladores.exceptions.NonexistentEntityException;
 import Entidades.Audifonos;
 import Entidades.Cable;
+import Entidades.Camara;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +31,8 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     Cable ca = new Cable();
     AudifonosJpaController Cau = new AudifonosJpaController();
     Audifonos au = new Audifonos();
+    CamaraJpaController Ccam = new CamaraJpaController();
+    Camara cam = new Camara();
 
     public ProductoEliminar() {
         initComponents();
@@ -114,10 +118,31 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Modelo ", "Marca", "Longitud", "Tipo", "Precio Importación", "Precio Público", "Cantidad", "Estado", "Distancia"
+                "Código", "Modelo ", "Marca", "Longitud", "Resolución", "Tipo", "Angulo de Abertura", "Precio Importación", "Precio Público", "Cantidad", "Estado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(jTableProductoEliminar);
+        if (jTableProductoEliminar.getColumnModel().getColumnCount() > 0) {
+            jTableProductoEliminar.getColumnModel().getColumn(0).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(1).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(2).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(3).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(4).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(5).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(6).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(7).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(8).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(9).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(10).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -146,8 +171,8 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                         .addComponent(jButtonBuscar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 839, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 965, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,16 +200,16 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
+                .addContainerGap(105, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,21 +222,23 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     private void jBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEliminarActionPerformed
         try {
             String CodigoProducto = (String) jTableProductoEliminar.getValueAt(jTableProductoEliminar.getSelectedRow(), 0);
-            if(CodigoProducto == null){
+            if (CodigoProducto == null) {
                 JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
-            
-            }else if(this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")){
-             Cca.destroy(CodigoProducto);
-              JOptionPane.showMessageDialog(null, "Producto Eliminado");
-              CargarTabla();
-            }else if(this.cbxProductoEliminar.getSelectedItem().equals("AU-Audifonos")){
-             Cau.destroy(CodigoProducto);
-              JOptionPane.showMessageDialog(null, "Producto Eliminado");
-              CargarTabla();
+
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")) {
+                Cca.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("AU-Audifonos")) {
+                Cau.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("CM-Cámara")) {
+                Ccam.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
             }
-           
-           
-             
+
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ProductoEliminar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -224,17 +251,17 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
         CargarTabla();
-       
+
     }//GEN-LAST:event_jButtonBuscarActionPerformed
-public void CargarTabla(){
+    public void CargarTabla() {
 
         if (this.cbxProductoEliminar.getSelectedItem().equals("Selecione un producto a eliminar")) {
             JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
-        } else if(this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")) {
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")) {
             //Sección 1 
-             List<Cable> listC = Cca.findCableEntities();
+            List<Cable> listC = Cca.findCableEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
-            modelo.setRowCount(0); 
+            modelo.setRowCount(0);
             //Sección 2
             Object[] Columna = new Object[15];
             //Sección 3
@@ -243,20 +270,19 @@ public void CargarTabla(){
                 Columna[1] = listC.get(i).getModelo();
                 Columna[2] = listC.get(i).getMarca();
                 Columna[3] = listC.get(i).getLongitud();
-                Columna[4] = null;
-                Columna[5] = listC.get(i).getPrecioimportacion();
-                Columna[6] = listC.get(i).getPreciopublico();
-                Columna[7] = listC.get(i).getCantidad();
-                Columna[8] = listC.get(i).getEstado();
+                Columna[7] = listC.get(i).getPrecioimportacion();
+                Columna[8] = listC.get(i).getPreciopublico();
+                Columna[9] = listC.get(i).getCantidad();
+                Columna[10] = listC.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableProductoEliminar.setModel(modelo);
             if (listC.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
-        }else if(this.cbxProductoEliminar.getSelectedItem().equals("AU-Audifonos")){
-            
-           //Sección 1 
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("AU-Audifonos")) {
+
+            //Sección 1 
             List<Audifonos> listAu = Cau.findAudifonosEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
             modelo.setRowCount(0);
@@ -267,22 +293,46 @@ public void CargarTabla(){
                 Columna[0] = listAu.get(i).getCodigo();
                 Columna[1] = listAu.get(i).getModelo();
                 Columna[2] = listAu.get(i).getMarca();
-                Columna[3] = null;
-                Columna[4] = listAu.get(i).getTipo();
-                Columna[5] = listAu.get(i).getPrecioimportacion();
-                Columna[6] = listAu.get(i).getPreciopublico();
-                Columna[7] = listAu.get(i).getCantidad();
-                Columna[8] = listAu.get(i).getEstado();
+                Columna[5] = listAu.get(i).getTipo();
+                Columna[7] = listAu.get(i).getPrecioimportacion();
+                Columna[8] = listAu.get(i).getPreciopublico();
+                Columna[9] = listAu.get(i).getCantidad();
+                Columna[10] = listAu.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableProductoEliminar.setModel(modelo);
             if (listAu.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("CM-Cámara")) {
+            //Sección 1 
+            List<Camara> listcam = Ccam.findCamaraEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[15];
+            //Sección 3
+            for (int i = 0; i < listcam.size(); i++) {
+                Columna[0] = listcam.get(i).getCodigo();
+                Columna[1] = listcam.get(i).getModelo();
+                Columna[2] = listcam.get(i).getMarca();
+                Columna[4] = listcam.get(i).getResolucion();
+                Columna[5] = listcam.get(i).getTipo();
+                Columna[6] = listcam.get(i).getAnguloavertura();
+                Columna[7] = listcam.get(i).getPrecioimportacion();
+                Columna[8] = listcam.get(i).getPreciopublico();
+                Columna[9] = listcam.get(i).getCantidad();
+                Columna[10] = listcam.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listcam.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
         }
 
-
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbxProductoEliminar;

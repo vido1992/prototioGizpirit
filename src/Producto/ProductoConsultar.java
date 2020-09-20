@@ -7,8 +7,10 @@ package Producto;
 
 import Controladores.AudifonosJpaController;
 import Controladores.CableJpaController;
+import Controladores.CamaraJpaController;
 import Entidades.Audifonos;
 import Entidades.Cable;
+import Entidades.Camara;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +28,8 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
     Cable ca = new Cable();
     AudifonosJpaController Cau = new AudifonosJpaController();
     Audifonos au = new Audifonos();
+    CamaraJpaController Ccam = new CamaraJpaController();
+    Camara cam = new Camara();
 
     public ProductoConsultar() {
         initComponents();
@@ -234,6 +238,25 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
             }
             jTableConsultaProducto.setModel(modelo);
             if (listAu.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CM-Cámara")) {
+            //Sección 1 
+            List<Camara> listcam = Ccam.findCamaraEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcam.size(); i++) {
+                Columna[0] = listcam.get(i).getCodigo();
+                Columna[1] = listcam.get(i).getModelo();
+                Columna[2] = listcam.get(i).getPreciopublico();
+                Columna[3] = listcam.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listcam.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         }
