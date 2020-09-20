@@ -299,7 +299,11 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+public void cargartabla(){
 
+
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxFormaTomacorriente;

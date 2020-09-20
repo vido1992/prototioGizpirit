@@ -269,7 +269,11 @@ public class A_Llave_Automatica extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+public void cargartabla(){
 
+
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonRegistrarInv1;

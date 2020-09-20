@@ -298,7 +298,11 @@ public class A_Sensor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtModeloSensorActionPerformed
 
+public void cargartabla(){
 
+
+
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoSensor;
     private javax.swing.JButton jBotonRegistrarInv1;

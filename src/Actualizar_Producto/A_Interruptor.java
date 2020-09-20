@@ -306,8 +306,11 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
         
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
+public void cargartabla(){
 
 
+
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxMarca;
     private javax.swing.JComboBox boxNumero;

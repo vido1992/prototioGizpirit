@@ -307,7 +307,11 @@ public class A_Cargador extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
+public void cargartabla(){
 
+
+
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoActualizarCargador;
     private javax.swing.JComboBox boxWattActualizarCargador;

@@ -8,10 +8,24 @@ package Producto;
 import Controladores.AudifonosJpaController;
 import Controladores.CableJpaController;
 import Controladores.CamaraJpaController;
+import Controladores.CargadorJpaController;
+import Controladores.ControladorvozJpaController;
+import Controladores.InterruptorJpaController;
+import Controladores.LlaveautomaticaJpaController;
+import Controladores.RelojJpaController;
+import Controladores.SensorJpaController;
+import Controladores.TomacorrienteJpaController;
 import Controladores.exceptions.NonexistentEntityException;
 import Entidades.Audifonos;
 import Entidades.Cable;
 import Entidades.Camara;
+import Entidades.Cargador;
+import Entidades.Controladorvoz;
+import Entidades.Interruptor;
+import Entidades.Llaveautomatica;
+import Entidades.Reloj;
+import Entidades.Sensor;
+import Entidades.Tomacorriente;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +47,20 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     Audifonos au = new Audifonos();
     CamaraJpaController Ccam = new CamaraJpaController();
     Camara cam = new Camara();
+    CargadorJpaController Ccar = new CargadorJpaController();
+    Cargador car = new Cargador();
+    InterruptorJpaController Cin = new InterruptorJpaController();
+    Interruptor in = new Interruptor();
+    TomacorrienteJpaController Cto = new TomacorrienteJpaController();
+    Tomacorriente toma = new Tomacorriente();
+    SensorJpaController Cse = new SensorJpaController();
+    Sensor se = new Sensor();
+    ControladorvozJpaController Ccv = new ControladorvozJpaController();
+    Controladorvoz cv = new Controladorvoz();
+    LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
+    Llaveautomatica lla = new Llaveautomatica();
+    RelojJpaController Creloj = new RelojJpaController();
+    Reloj r = new Reloj();
 
     public ProductoEliminar() {
         initComponents();
@@ -118,11 +146,11 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Código", "Modelo ", "Marca", "Longitud", "Resolución", "Tipo", "Angulo de Abertura", "Precio Importación", "Precio Público", "Cantidad", "Estado"
+                "Código", "Modelo ", "Marca", "Longitud", "Resolución", "Tipo", "Angulo de Abertura", "Whatts", "Tamaño", "NumeroBotones", "Gama", "Sumergible", "SistemaAndroid", "Forma", "Precio Importación", "Precio Público", "Cantidad", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -142,6 +170,13 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
             jTableProductoEliminar.getColumnModel().getColumn(8).setResizable(false);
             jTableProductoEliminar.getColumnModel().getColumn(9).setResizable(false);
             jTableProductoEliminar.getColumnModel().getColumn(10).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(11).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(12).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(13).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(14).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(15).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(16).setResizable(false);
+            jTableProductoEliminar.getColumnModel().getColumn(17).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -161,18 +196,17 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 .addComponent(jButtonRegresar)
                 .addGap(261, 261, 261))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addComponent(jButtonBuscar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 965, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(cbxProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
+                .addComponent(jButtonBuscar)
+                .addContainerGap(740, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,16 +234,16 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(105, Short.MAX_VALUE)
+                .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,6 +269,34 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 CargarTabla();
             } else if (this.cbxProductoEliminar.getSelectedItem().equals("CM-Cámara")) {
                 Ccam.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("RJ-Reloj")) {
+                Creloj.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("CA-Cargador")) {
+                Ccar.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("IN-Interruptor")) {
+                Cin.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("TO-Tomacorriente")) {
+                Cto.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("SE-Sensor")) {
+                Cse.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("CZ-ControladorVoz")) {
+                Ccv.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                CargarTabla();
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("La-Llaves Automáticas")) {
+                Clla.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
             }
@@ -263,17 +325,17 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[15];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listC.size(); i++) {
                 Columna[0] = listC.get(i).getCodigo();
                 Columna[1] = listC.get(i).getModelo();
                 Columna[2] = listC.get(i).getMarca();
                 Columna[3] = listC.get(i).getLongitud();
-                Columna[7] = listC.get(i).getPrecioimportacion();
-                Columna[8] = listC.get(i).getPreciopublico();
-                Columna[9] = listC.get(i).getCantidad();
-                Columna[10] = listC.get(i).getEstado();
+                Columna[14] = listC.get(i).getPrecioimportacion();
+                Columna[15] = listC.get(i).getPreciopublico();
+                Columna[16] = listC.get(i).getCantidad();
+                Columna[17] = listC.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableProductoEliminar.setModel(modelo);
@@ -287,17 +349,17 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[15];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listAu.size(); i++) {
                 Columna[0] = listAu.get(i).getCodigo();
                 Columna[1] = listAu.get(i).getModelo();
                 Columna[2] = listAu.get(i).getMarca();
                 Columna[5] = listAu.get(i).getTipo();
-                Columna[7] = listAu.get(i).getPrecioimportacion();
-                Columna[8] = listAu.get(i).getPreciopublico();
-                Columna[9] = listAu.get(i).getCantidad();
-                Columna[10] = listAu.get(i).getEstado();
+                Columna[14] = listAu.get(i).getPrecioimportacion();
+                Columna[15] = listAu.get(i).getPreciopublico();
+                Columna[16] = listAu.get(i).getCantidad();
+                Columna[17] = listAu.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableProductoEliminar.setModel(modelo);
@@ -310,7 +372,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[15];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listcam.size(); i++) {
                 Columna[0] = listcam.get(i).getCodigo();
@@ -319,10 +381,10 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 Columna[4] = listcam.get(i).getResolucion();
                 Columna[5] = listcam.get(i).getTipo();
                 Columna[6] = listcam.get(i).getAnguloavertura();
-                Columna[7] = listcam.get(i).getPrecioimportacion();
-                Columna[8] = listcam.get(i).getPreciopublico();
-                Columna[9] = listcam.get(i).getCantidad();
-                Columna[10] = listcam.get(i).getEstado();
+                Columna[14] = listcam.get(i).getPrecioimportacion();
+                Columna[15] = listcam.get(i).getPreciopublico();
+                Columna[16] = listcam.get(i).getCantidad();
+                Columna[17] = listcam.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableProductoEliminar.setModel(modelo);
@@ -330,6 +392,166 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
 
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("CA-Cargador")) {
+            List<Cargador> listcar = Ccar.findCargadorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listcar.size(); i++) {
+                Columna[0] = listcar.get(i).getCodigo();
+                Columna[1] = listcar.get(i).getModelo();
+                Columna[2] = listcar.get(i).getMarca();
+                Columna[5] = listcar.get(i).getTipo();
+                Columna[7] = listcar.get(i).getWattscarga();
+                Columna[14] = listcar.get(i).getPrecioimportacion();
+                Columna[15] = listcar.get(i).getPreciopublico();
+                Columna[16] = listcar.get(i).getCantidad();
+                Columna[17] = listcar.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listcar.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("IN-Interruptor")) {
+            List<Interruptor> listint = Cin.findInterruptorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listint.size(); i++) {
+                Columna[0] = listint.get(i).getCodigo();
+                Columna[1] = listint.get(i).getModelo();
+                Columna[2] = listint.get(i).getMarca();
+                Columna[9] = listint.get(i).getNumerobotones();
+                Columna[5] = listint.get(i).getTipo();
+                Columna[14] = listint.get(i).getPrecioimportacion();
+                Columna[15] = listint.get(i).getPreciopublico();
+                Columna[16] = listint.get(i).getCantidad();
+                Columna[17] = listint.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listint.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("TO-Tomacorriente")) {
+            List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listtom.size(); i++) {
+                Columna[0] = listtom.get(i).getCodigo();
+                Columna[1] = listtom.get(i).getModelo();
+                Columna[2] = listtom.get(i).getMarca();
+                Columna[5] = listtom.get(i).getTipo();
+                Columna[13] = listtom.get(i).getForma();
+                Columna[14] = listtom.get(i).getPrecioimportacion();
+                Columna[15] = listtom.get(i).getPreciopublico();
+                Columna[16] = listtom.get(i).getCantidad();
+                Columna[17] = listtom.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listtom.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("SE-Sensor")) {
+            List<Sensor> listsem = Cse.findSensorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listsem.size(); i++) {
+                Columna[0] = listsem.get(i).getCodigo();
+                Columna[1] = listsem.get(i).getModelo();
+                Columna[2] = listsem.get(i).getMarca();
+                Columna[5] = listsem.get(i).getTipo();
+                Columna[14] = listsem.get(i).getPrecioimportacion();
+                Columna[15] = listsem.get(i).getPreciopublico();
+                Columna[16] = listsem.get(i).getCantidad();
+                Columna[17] = listsem.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listsem.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("CZ-ControladorVoz")) {
+            List<Controladorvoz> listcv = Ccv.findControladorvozEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listcv.size(); i++) {
+                Columna[0] = listcv.get(i).getCodigo();
+                Columna[1] = listcv.get(i).getModelo();
+                Columna[2] = listcv.get(i).getMarca();
+                Columna[8] = listcv.get(i).getTamaño();
+                Columna[14] = listcv.get(i).getPrecioimportacion();
+                Columna[15] = listcv.get(i).getPreciopublico();
+                Columna[16] = listcv.get(i).getCantidad();
+                Columna[17] = listcv.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listcv.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("La-Llaves Automáticas")) {
+            List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listlla.size(); i++) {
+                Columna[0] = listlla.get(i).getCodigo();
+                Columna[1] = listlla.get(i).getModelo();
+                Columna[2] = listlla.get(i).getMarca();
+                Columna[14] = listlla.get(i).getPrecioimportacion();
+                Columna[15] = listlla.get(i).getPreciopublico();
+                Columna[16] = listlla.get(i).getCantidad();
+                Columna[17] = listlla.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listlla.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxProductoEliminar.getSelectedItem().equals("RJ-Reloj")) {
+            List<Reloj> listrej = Creloj.findRelojEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[18];
+            //Sección 3
+            for (int i = 0; i < listrej.size(); i++) {
+                Columna[0] = listrej.get(i).getCodigo();
+                Columna[1] = listrej.get(i).getModelo();
+                Columna[2] = listrej.get(i).getMarca();
+                Columna[10] = listrej.get(i).getGama();
+                Columna[11] = listrej.get(i).getSumergible();
+                Columna[12] = listrej.get(i).getSistemaandroid();
+                Columna[14] = listrej.get(i).getPrecioimportacion();
+                Columna[15] = listrej.get(i).getPreciopublico();
+                Columna[16] = listrej.get(i).getCantidad();
+                Columna[17] = listrej.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableProductoEliminar.setModel(modelo);
+            if (listrej.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
         }
 
     }
