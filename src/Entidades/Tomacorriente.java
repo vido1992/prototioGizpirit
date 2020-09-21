@@ -29,7 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Tomacorriente.findByMarca", query = "SELECT t FROM Tomacorriente t WHERE t.marca = :marca")
     , @NamedQuery(name = "Tomacorriente.findByForma", query = "SELECT t FROM Tomacorriente t WHERE t.forma = :forma")
     , @NamedQuery(name = "Tomacorriente.findByTipo", query = "SELECT t FROM Tomacorriente t WHERE t.tipo = :tipo")
-    , @NamedQuery(name = "Tomacorriente.findByAnguloavertura", query = "SELECT t FROM Tomacorriente t WHERE t.anguloavertura = :anguloavertura")
     , @NamedQuery(name = "Tomacorriente.findByPrecioimportacion", query = "SELECT t FROM Tomacorriente t WHERE t.precioimportacion = :precioimportacion")
     , @NamedQuery(name = "Tomacorriente.findByPreciopublico", query = "SELECT t FROM Tomacorriente t WHERE t.preciopublico = :preciopublico")
     , @NamedQuery(name = "Tomacorriente.findByFechaimportacion", query = "SELECT t FROM Tomacorriente t WHERE t.fechaimportacion = :fechaimportacion")
@@ -50,8 +49,6 @@ public class Tomacorriente implements Serializable {
     private String forma;
     @Column(name = "tipo")
     private String tipo;
-    @Column(name = "anguloavertura")
-    private String anguloavertura;
     @Column(name = "precioimportacion")
     private String precioimportacion;
     @Column(name = "preciopublico")
@@ -108,14 +105,6 @@ public class Tomacorriente implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getAnguloavertura() {
-        return anguloavertura;
-    }
-
-    public void setAnguloavertura(String anguloavertura) {
-        this.anguloavertura = anguloavertura;
     }
 
     public String getPrecioimportacion() {

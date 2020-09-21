@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Empleado.findByRolempleado", query = "SELECT e FROM Empleado e WHERE e.rolempleado = :rolempleado")
     , @NamedQuery(name = "Empleado.findBySueldo", query = "SELECT e FROM Empleado e WHERE e.sueldo = :sueldo")
     , @NamedQuery(name = "Empleado.findByEmail", query = "SELECT e FROM Empleado e WHERE e.email = :email")
+    , @NamedQuery(name = "Empleado.findByContrase\u00f1a", query = "SELECT e FROM Empleado e WHERE e.contrase\u00f1a = :contrase\u00f1a")
     , @NamedQuery(name = "Empleado.findByEstado", query = "SELECT e FROM Empleado e WHERE e.estado = :estado")})
 public class Empleado implements Serializable {
 
@@ -57,6 +58,8 @@ public class Empleado implements Serializable {
     private String sueldo;
     @Column(name = "email")
     private String email;
+    @Column(name = "contrase\u00f1a")
+    private String contraseña;
     @Column(name = "estado")
     private String estado;
 
@@ -137,6 +140,14 @@ public class Empleado implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
     public String getEstado() {

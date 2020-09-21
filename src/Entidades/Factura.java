@@ -9,8 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -38,10 +36,9 @@ public class Factura implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "numerofactura")
-    private Integer numerofactura;
+    private String numerofactura;
     @Column(name = "codigovendedor")
     private String codigovendedor;
     @Column(name = "fechaventa")
@@ -60,15 +57,15 @@ public class Factura implements Serializable {
     public Factura() {
     }
 
-    public Factura(Integer numerofactura) {
+    public Factura(String numerofactura) {
         this.numerofactura = numerofactura;
     }
 
-    public Integer getNumerofactura() {
+    public String getNumerofactura() {
         return numerofactura;
     }
 
-    public void setNumerofactura(Integer numerofactura) {
+    public void setNumerofactura(String numerofactura) {
         this.numerofactura = numerofactura;
     }
 

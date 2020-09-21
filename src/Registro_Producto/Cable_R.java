@@ -303,11 +303,10 @@ public class Cable_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en longitud");
             }
            
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
+            
             
              if (i==6)
             {
-                JOptionPane.showMessageDialog(null,  "Cable Registrados");
                   try {
             // TODO add your handling code here:
             ca.setCodigo(txtCodigoRegistro.getText());

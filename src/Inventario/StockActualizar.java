@@ -341,7 +341,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -376,6 +376,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 } else {
                     ca.setEstado(jRadioButton2.getText());
                 }
+                
                 Cca.edit(ca);
                 jTextField33.setText(CantidadTotal);
 
@@ -473,24 +474,38 @@ public class StockActualizar extends javax.swing.JInternalFrame {
 
     private void jTableConsultaProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaProductoMouseClicked
         // TODO add your handling code here:
-   
-       
-       jDateChooser2.setDate(ParseFecha((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0)));
-       //jTextField32.set
+
+        if (CantidadImportacion == null) {
+            CantidadImportacion = "0";
+        } else {
+            CantidadImportacion = jTextField26.getText();
+        }
+        jDateChooser2.setDate(ParseFecha((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0)));
+        jTextField32.setText((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 16));
+        
+        int Caim = Integer.parseInt(CantidadImportacion);
+        int Caac = Integer.parseInt(jTextField32.getText());
+        CantidadTotal=String.valueOf(Caim+Caac);
+        jTextField33.setText(CantidadTotal);
+        if(jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 17).toString().equals("Activo")){
+            jRadioButton1.setSelected(true);
+        
+        }else{
+            jRadioButton2.setSelected(true);
+        
+        }
     }//GEN-LAST:event_jTableConsultaProductoMouseClicked
-     public static Date ParseFecha(String fecha)
-    {
+    public static Date ParseFecha(String fecha) {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date fechaDate = null;
         try {
             fechaDate = formato.parse(fecha);
-        } 
-        catch (ParseException ex) 
-        {
+        } catch (ParseException ex) {
             System.out.println(ex);
         }
         return fechaDate;
     }
+
     public void cargarTabla() {
         if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto a eliminar")) {
             JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
