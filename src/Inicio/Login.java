@@ -7,7 +7,9 @@ package Inicio;
 
 import Controladores.EmpleadoJpaController;
 import Entidades.Empleado;
+import Ventas.VentaRegistro;
 import java.util.List;
+import java.util.Locale;
 import validaciones.Validar;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -19,14 +21,16 @@ import javax.swing.JOptionPane;
  * @author David
  */
 public class Login extends javax.swing.JFrame {
-
+    
     EmpleadoJpaController Cemp = new EmpleadoJpaController();
     Validar validar = new Validar();
     Menu m1 = new Menu();
     public int SELECCIÓN = 0, ADMINISTRADOR = 1, OPERADOR = 2;
-
+    
     public String PASS_ADMIN = "1234", PASS_USER = "123";
     public String CI_ADMIN = "1724307135", CI_USER = "1501042855";
+
+   
     int intentos;
 
     /**
@@ -34,7 +38,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-
+        
         this.setTitle("SiGIn-GIZPIRIT");
         this.setLocationRelativeTo(null);
     }
@@ -87,7 +91,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, -1, -1));
 
         jComboUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Administrador", "Vendedor", "Bodeguero" }));
-        jComboUsuario.setSelectedIndex(2);
+        jComboUsuario.setSelectedIndex(1);
         getContentPane().add(jComboUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 139, -1));
 
         jLabel2.setText("Seleccione tipo de usuario");
@@ -139,7 +143,7 @@ public class Login extends javax.swing.JFrame {
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/GZlogohor3-01_200x.png"))); // NOI18N
         getContentPane().add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 190, 60));
 
-        jContraseñaField.setText("123");
+        jContraseñaField.setText("1234");
         jContraseñaField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jContraseñaFieldActionPerformed(evt);
@@ -172,18 +176,21 @@ public class Login extends javax.swing.JFrame {
                 this.setVisible(false);
                 m1.setVisible(true);
                 m1.setEnabled(true);
+              
+                VentaRegistro.jTextFieldIDVendedorFactura.setText(jCCField.getText().toString());
                 break;
             }
             if (listemp.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No hay ningun Empleado");
-
+                
             } else if (jCCField.getText().isEmpty() || jContraseñaField.getText().isEmpty() || jComboUsuario.getSelectedItem().equals("Seleccionar")) {
                 JOptionPane.showMessageDialog(this, "Llenar todos los campos");
+                break;
             } else if (nohay) {
-                JOptionPane.showMessageDialog(this, "No hay ningun Empleado con esta cedula o Contraseña Incorrecta");
-
+                JOptionPane.showMessageDialog(this, "el empleado no coincide con el rol o Contraseña Incorrecta");
+                break;                
             }
-
+            
         }
     }//GEN-LAST:event_jBotonIniciarSesionActionPerformed
 
@@ -204,9 +211,9 @@ public class Login extends javax.swing.JFrame {
     private void jCCFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCCFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCCFieldActionPerformed
-
+    
     public void validarPass(int index, String CI, String pass) {
-
+        
         switch (index) {
             case 1:
                 if (CI.isEmpty() || pass.isEmpty()) {
@@ -224,12 +231,12 @@ public class Login extends javax.swing.JFrame {
                     intentos = intentos + 1;
                 }
                 break;
-
+            
             case 2:
                 if (true) {
                     JOptionPane.showMessageDialog(null, "Ha iniciado sesión como operador operador");
                     this.setVisible(false);
-
+                    
                     m1.setVisible(true);
                     m1.setEnabled(true);
                     // m1.asignarOperador();
@@ -238,33 +245,35 @@ public class Login extends javax.swing.JFrame {
                 }
                 break;
         }
-
+        
     }
-
+    
     public String validarIngreso(int index, String CI, String pass) {
-
+        
         String retorno = "";
-
+        
         if (index == SELECCIÓN) {
             retorno = "No se ha seleccionado usuario";
         } else {
             validarPass(index, CI, pass);
         }
-
+        
         return retorno;
     }
-
+    
     private void setLblError(Color color, String text) {
         lblErrors.setBackground(java.awt.Color.RED);
         lblErrors.setText(text);
         System.out.println(text);
     }
-
+    
     void desaparece(KeyEvent event) {
         if (empty > 0) {
             setLblError(Color.TOMATO, "");
         }
     }
+    
+    
 
     /**
      * @param args the command line arguments

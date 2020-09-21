@@ -5,9 +5,35 @@
  */
 package Inventario;
 
+import Controladores.AudifonosJpaController;
+import Controladores.CableJpaController;
+import Controladores.CamaraJpaController;
+import Controladores.CargadorJpaController;
+import Controladores.ControladorvozJpaController;
+import Controladores.InterruptorJpaController;
+import Controladores.LlaveautomaticaJpaController;
+import Controladores.RelojJpaController;
+import Controladores.SensorJpaController;
+import Controladores.TomacorrienteJpaController;
+import Controladores.exceptions.NonexistentEntityException;
+import Entidades.Audifonos;
+import Entidades.Cable;
+import Entidades.Camara;
+import Entidades.Cargador;
+import Entidades.Controladorvoz;
+import Entidades.Interruptor;
+import Entidades.Llaveautomatica;
+import Entidades.Reloj;
+import Entidades.Sensor;
+import Entidades.Tomacorriente;
 import Inicio.Menu;
 import Producto.ProductoConsultar;
+import Producto.ProductoEliminar;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,11 +41,30 @@ import javax.swing.JOptionPane;
  */
 public class StockActualizar extends javax.swing.JInternalFrame {
 
-    ProductoConsultar SC= new ProductoConsultar();
-            
+    CableJpaController Cca = new CableJpaController();
+    Cable ca = new Cable();
+    AudifonosJpaController Cau = new AudifonosJpaController();
+    Audifonos au = new Audifonos();
+    CamaraJpaController Ccam = new CamaraJpaController();
+    Camara cam = new Camara();
+    CargadorJpaController Ccar = new CargadorJpaController();
+    Cargador car = new Cargador();
+    InterruptorJpaController Cin = new InterruptorJpaController();
+    Interruptor in = new Interruptor();
+    TomacorrienteJpaController Cto = new TomacorrienteJpaController();
+    Tomacorriente toma = new Tomacorriente();
+    SensorJpaController Cse = new SensorJpaController();
+    Sensor se = new Sensor();
+    ControladorvozJpaController Ccv = new ControladorvozJpaController();
+    Controladorvoz cv = new Controladorvoz();
+    LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
+    Llaveautomatica lla = new Llaveautomatica();
+    RelojJpaController Creloj = new RelojJpaController();
+    Reloj r = new Reloj();
+
     public StockActualizar() {
         initComponents();
-         this.setTitle("SiGIn-GIZPIRIT");  
+        this.setTitle("SiGIn-GIZPIRIT");
     }
 
     /**
@@ -31,6 +76,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -46,10 +92,10 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         jTextField33 = new javax.swing.JTextField();
         jTextField32 = new javax.swing.JTextField();
         jTextField26 = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox<String>();
+        cbxCodigoConsulta = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableConsultaProducto = new javax.swing.JTable();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
@@ -90,7 +136,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -111,25 +157,36 @@ public class StockActualizar extends javax.swing.JInternalFrame {
 
         jTextField32.setEnabled(false);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "RJ-Reloj", "AU-Audífonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        cbxCodigoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione un producto", "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
+        cbxCodigoConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                cbxCodigoConsultaActionPerformed(evt);
             }
         });
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableConsultaProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Modelo ", "Precio Público", "Cantidad"
+                "Código", "Modelo ", "Precio Público", "Cantidad", "Estado"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jTableConsultaProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableConsultaProductoMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableConsultaProducto);
 
+        buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Inactivo");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,6 +194,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("Activo");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,12 +252,12 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton6))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(162, 162, 162)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(122, 122, 122)
@@ -222,7 +280,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6))
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,7 +329,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -283,12 +341,65 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
-       
+        try {
+            String CodigoProducto = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0);
+            if (CodigoProducto == null) {
+                JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
+
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
+                ca.setFechaimportacion(jDateChooser2.getDate().toString());
+                ca.setCantidad(jTextField26.getText());
+                Cca.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("AU-Audifonos")) {
+                Cau.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CM-Cámara")) {
+                Ccam.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("RJ-Reloj")) {
+                Creloj.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CA-Cargador")) {
+                Ccar.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("IN-Interruptor")) {
+                Cin.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("TO-Tomacorriente")) {
+                Cto.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("SE-Sensor")) {
+                Cse.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CZ-ControladorVoz")) {
+                Ccv.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            } else if (this.cbxCodigoConsulta.getSelectedItem().equals("La-Llaves Automáticas")) {
+                Clla.destroy(CodigoProducto);
+                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                cargarTabla();
+            }
+
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ProductoEliminar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jBotonRegistrarActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void cbxCodigoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCodigoConsultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_cbxCodigoConsultaActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
@@ -302,13 +413,236 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, "Debe Ingresar cantidad de enteros");
     }//GEN-LAST:event_btnAyudaNombreActionPerformed
 
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        cargarTabla();
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTableConsultaProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaProductoMouseClicked
+        // TODO add your handling code here:
+        jTextField32.setText((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3));
+        int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+        jTextField33.setText(String.valueOf(total));
+        if (jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3).equals("Activo")) {
+            jRadioButton1.setSelected(true);
+        } else {
+            jRadioButton2.setSelected(true);
+        }
+
+
+    }//GEN-LAST:event_jTableConsultaProductoMouseClicked
+    public void cargarTabla() {
+        // TODO add your handling code here:
+        if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto")) {
+            JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
+            //Sección 1 
+            List<Cable> listC = Cca.findCableEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+
+            for (int i = 0; i < listC.size(); i++) {
+                Columna[0] = listC.get(i).getCodigo();
+                Columna[1] = listC.get(i).getModelo();
+                Columna[2] = listC.get(i).getPreciopublico();
+                Columna[3] = listC.get(i).getCantidad();
+                Columna[4] = listC.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listC.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("AU-Audifonos")) {
+
+            //Sección 1 
+            List<Audifonos> listAu = Cau.findAudifonosEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listAu.size(); i++) {
+                Columna[0] = listAu.get(i).getCodigo();
+                Columna[1] = listAu.get(i).getModelo();
+                Columna[2] = listAu.get(i).getPreciopublico();
+                Columna[3] = listAu.get(i).getCantidad();
+                Columna[4] = listAu.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listAu.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CM-Cámara")) {
+            //Sección 1 
+            List<Camara> listcam = Ccam.findCamaraEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcam.size(); i++) {
+                Columna[0] = listcam.get(i).getCodigo();
+                Columna[1] = listcam.get(i).getModelo();
+                Columna[2] = listcam.get(i).getPreciopublico();
+                Columna[3] = listcam.get(i).getCantidad();
+                Columna[4] = listcam.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listcam.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CA-Cargador")) {
+            List<Cargador> listcar = Ccar.findCargadorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcar.size(); i++) {
+                Columna[0] = listcar.get(i).getCodigo();
+                Columna[1] = listcar.get(i).getModelo();
+                Columna[2] = listcar.get(i).getPreciopublico();
+                Columna[3] = listcar.get(i).getCantidad();
+                Columna[4] = listcar.get(i).getEstado();
+
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listcar.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("IN-Interruptor")) {
+            List<Interruptor> listint = Cin.findInterruptorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listint.size(); i++) {
+                Columna[0] = listint.get(i).getCodigo();
+                Columna[1] = listint.get(i).getModelo();
+                Columna[2] = listint.get(i).getPreciopublico();
+                Columna[3] = listint.get(i).getCantidad();
+                Columna[4] = listint.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listint.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("TO-Tomacorriente")) {
+            List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listtom.size(); i++) {
+                Columna[0] = listtom.get(i).getCodigo();
+                Columna[1] = listtom.get(i).getModelo();
+                Columna[2] = listtom.get(i).getPreciopublico();
+                Columna[3] = listtom.get(i).getCantidad();
+                Columna[4] = listtom.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listtom.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("SE-Sensor")) {
+            List<Sensor> listsem = Cse.findSensorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listsem.size(); i++) {
+                Columna[0] = listsem.get(i).getCodigo();
+                Columna[1] = listsem.get(i).getModelo();
+                Columna[2] = listsem.get(i).getPreciopublico();
+                Columna[3] = listsem.get(i).getCantidad();
+                Columna[4] = listsem.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listsem.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CZ-ControladorVoz")) {
+            List<Controladorvoz> listcv = Ccv.findControladorvozEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcv.size(); i++) {
+                Columna[0] = listcv.get(i).getCodigo();
+                Columna[1] = listcv.get(i).getModelo();
+                Columna[2] = listcv.get(i).getPreciopublico();
+                Columna[3] = listcv.get(i).getCantidad();
+                Columna[4] = listcv.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listcv.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("La-Llaves Automáticas")) {
+            List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listlla.size(); i++) {
+                Columna[0] = listlla.get(i).getCodigo();
+                Columna[1] = listlla.get(i).getModelo();
+                Columna[2] = listlla.get(i).getPreciopublico();
+                Columna[3] = listlla.get(i).getCantidad();
+                Columna[4] = listlla.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listlla.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("RJ-Reloj")) {
+            List<Reloj> listrej = Creloj.findRelojEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listrej.size(); i++) {
+                Columna[0] = listrej.get(i).getCodigo();
+                Columna[1] = listrej.get(i).getModelo();
+                Columna[2] = listrej.get(i).getPreciopublico();
+                Columna[3] = listrej.get(i).getCantidad();
+                Columna[4] = listrej.get(i).getEstado();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProducto.setModel(modelo);
+            if (listrej.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAyudaNombre;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> cbxCodigoConsulta;
     private javax.swing.JButton jBotonRegistrar;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonRegresar;
-    private javax.swing.JComboBox<String> jComboBox5;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
@@ -323,7 +657,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTableConsultaProducto;
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField32;
     private javax.swing.JTextField jTextField33;

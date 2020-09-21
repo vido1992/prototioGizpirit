@@ -6,28 +6,42 @@
 package Ventas;
 
 import Cliente.ConsultaCliente;
+import Controladores.FacturaJpaController;
+import Entidades.Cable;
+import Entidades.Empleado;
+import Entidades.Factura;
+import Inicio.Login;
 import Inicio.Menu;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author David
  */
-
 public class VentaRegistro extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form VentaRegistro
      */
-    AgregarProducto CP=new AgregarProducto();
-    ConsultaCliente CCL=new ConsultaCliente();
-    String CI,Nombre,Apellido,direccion,Telefono;
-    
-    
-   // 
+    Empleado em = new Empleado();
+    Factura fa = new Factura();
+    FacturaJpaController Cfa = new FacturaJpaController();
+
+    AgregarProducto CP = new AgregarProducto();
+    ConsultaCliente CCL = new ConsultaCliente();
+
+
+    String CI, Nombre, Apellido, direccion, Telefono;
+    String NumFactura;
+    public static String CodigoVendedor;
+
+    // 
     public VentaRegistro() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-FACTURACIÓN"); 
+        this.setTitle("SiGIn-GIZPIRIT-FACTURACIÓN");
+        generarNumeroFactura();
+
     }
 
     /**
@@ -59,7 +73,7 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
         jLabel45 = new javax.swing.JLabel();
         jButtonRegresar3 = new javax.swing.JButton();
         txtNom = new java.awt.TextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldIDVendedorFactura = new javax.swing.JTextField();
         txtNom1 = new java.awt.TextField();
         txtNom2 = new java.awt.TextField();
         jBotonAñadirProducto1 = new javax.swing.JButton();
@@ -151,6 +165,9 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
         txtNom.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtNom.setPreferredSize(new java.awt.Dimension(250, 28));
 
+        jTextFieldIDVendedorFactura.setEnabled(false);
+        //jTextFieldIDVendedorFactura.setText(CodigoVendedor);
+
         txtNom1.setEditable(false);
         txtNom1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         txtNom1.setPreferredSize(new java.awt.Dimension(250, 28));
@@ -205,7 +222,7 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
                                                         .addGap(53, 53, 53)
                                                         .addComponent(jLabel42)))))
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextFieldIDVendedorFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel40)
                                         .addGap(26, 26, 26)
@@ -255,7 +272,7 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel42)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldIDVendedorFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel39)
@@ -333,33 +350,47 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
+    public void obtenerdatosBase() {
+        em.getCedula();
 
-    public void obtenerCliente(ArrayList<String> cliente){
-    
-        this.CI=cliente.get(0);
-        this.Nombre=cliente.get(1);
-        this.Apellido=cliente.get(2);
-        this.direccion=cliente.get(3);
-        this.Telefono=cliente.get(5);
-        
-    
-    
     }
-    
-    
-    
-    
+
+    public void generarNumeroFactura() {
+        List<Factura> listfa = Cfa.findFacturaEntities();
+
+        if (listfa.isEmpty()) {
+            NumFactura = "1";
+            jTextField1.setText(NumFactura);
+        } else {
+            for (int i = 0; i < listfa.size(); i++) {
+                listfa.get(i).setNumerofactura(String.valueOf(i));
+                jTextField1.setText(String.valueOf(i));
+            }
+
+        }
+
+    }
+
+   
+
+    public void obtenerCliente(ArrayList<String> cliente) {
+
+        this.CI = cliente.get(0);
+        this.Nombre = cliente.get(1);
+        this.Apellido = cliente.get(2);
+        this.direccion = cliente.get(3);
+        this.Telefono = cliente.get(5);
+
+    }
+
+
     private void jBotonAñadirProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAñadirProducto1ActionPerformed
         ConsultaClienteVenta CCV = new ConsultaClienteVenta();
         Menu.escritorio.add(CCV);
         CCV.setVisible(true);
         CCV.toFront();
-        
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_jBotonAñadirProducto1ActionPerformed
 
 
@@ -387,7 +418,7 @@ public class VentaRegistro extends javax.swing.JInternalFrame {
     public static javax.swing.JTable jTable4;
     public static javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    public static javax.swing.JTextField jTextFieldIDVendedorFactura;
     private java.awt.TextField txtNom;
     private java.awt.TextField txtNom1;
     private java.awt.TextField txtNom2;

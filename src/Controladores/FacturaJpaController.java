@@ -6,6 +6,7 @@
 package Controladores;
 
 import Controladores.exceptions.NonexistentEntityException;
+import Controladores.exceptions.PreexistingEntityException;
 import Entidades.Factura;
 import java.io.Serializable;
 import java.util.List;
@@ -32,13 +33,18 @@ public class FacturaJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Factura factura) {
+    public void create(Factura factura) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(factura);
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findFactura(factura.getNumerofactura()) != null) {
+                throw new PreexistingEntityException("Factura " + factura + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -56,7 +62,7 @@ public class FacturaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Integer id = factura.getNumerofactura();
+                String id = factura.getNumerofactura();
                 if (findFactura(id) == null) {
                     throw new NonexistentEntityException("The factura with id " + id + " no longer exists.");
                 }
@@ -69,7 +75,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
-    public void destroy(Integer id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -114,7 +120,7 @@ public class FacturaJpaController implements Serializable {
         }
     }
 
-    public Factura findFactura(Integer id) {
+    public Factura findFactura(String id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Factura.class, id);
