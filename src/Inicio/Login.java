@@ -167,15 +167,15 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jBotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonIniciarSesionActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+                m1.setVisible(true);
+                m1.setEnabled(true);
         boolean nohay = true;
         List<Empleado> listemp = Cemp.findEmpleadoEntities();
         for (int i = 0; i < listemp.size(); i++) {
             if (jCCField.getText().equals(listemp.get(i).getCedula()) && jContraseñaField.getText().equals(listemp.get(i).getContraseña()) && jComboUsuario.getSelectedItem().equals(listemp.get(i).getRolempleado())) {
                 nohay = false;
-                this.setVisible(false);
-                m1.setVisible(true);
-                m1.setEnabled(true);
+               
               
                 VentaRegistro.jTextFieldIDVendedorFactura.setText(jCCField.getText().toString());
                 break;

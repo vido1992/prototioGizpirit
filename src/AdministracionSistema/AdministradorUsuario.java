@@ -5,6 +5,8 @@
  */
 package AdministracionSistema;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -169,114 +171,7 @@ public class AdministradorUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
-        int i = 0;
-
-        if (this.CIRegistroEmpleado.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (nombreRegistroEmpleado.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO NOMBRES VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.ApellidosEmpleadoRegistro.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO APELLIDOS VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.DireccionClienteEmpleado.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.telefonocelularEmpleadoRegistro.getText().equals("")) {
-
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.telefonoConvencionaEmpleadoRegistro.getText().equals("")) {
-
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.sueldoRegistroEmpleado.getText().equals("")) {
-
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.CorreoElectronicoRegistroEmpleado.getText().equals("")) {
-
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else {
-            //System.out.println(this.CCCRegistro.getText().toString());
-            if (validar.validarCI(this.CIRegistroEmpleado.getText().toString())) {
-                i++;
-                this.CC = this.CIRegistroEmpleado.getText().toString();
-                //System.out.println("cc: "+this.CCCRegistro.getText().toString() );
-            }
-            if (validar.validarTex(this.nombreRegistroEmpleado.getText().toString())) {
-                i++;
-                this.Nombre = this.nombreRegistroEmpleado.getText().toString();
-                //System.out.println(this.NombreClienteRegistro.getText().toString());
-
-            }
-
-            if (validar.validarTex(this.ApellidosEmpleadoRegistro.getText().toString())) {
-                i++;
-                this.Apellido = this.ApellidosEmpleadoRegistro.getText().toString();
-                //System.out.println(this.ApellidosClienteRegistro.getText().toString());
-            }
-
-            if (validar.validarDireccion(this.DireccionClienteEmpleado.getText().toString())) {
-                i++;
-                this.Direccion = this.DireccionClienteEmpleado.getText().toString();
-                // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
-            }
-            if (validar.validarCorreo(this.CorreoElectronicoRegistroEmpleado.getText().toString())) {
-                i++;
-                this.Correo = this.CorreoElectronicoRegistroEmpleado.getText().toString();
-                //System.out.println(this.CorreoElectronico.getText().toString());
-            }
-            if (validar.validarTelefonoC(this.telefonocelularEmpleadoRegistro.getText().toString())) {
-                i++;
-                this.TelefonoCelular = this.telefonocelularEmpleadoRegistro.getText();
-                // System.out.println(this.TelefonoClienteRegistro.getText());
-            }
-            if (validar.validarTelefonoConvencional(this.telefonoConvencionaEmpleadoRegistro.getText().toString())) {
-                i++;
-                this.telefonoConvencional = this.telefonoConvencionaEmpleadoRegistro.getText();
-                // System.out.println(this.TelefonoClienteRegistro.getText());
-            }
-            if (validar.validarSueldo(this.sueldoRegistroEmpleado.getText().toString())) {
-                i++;
-                this.sueldo = this.sueldoRegistroEmpleado.getText();
-                // System.out.println(this.TelefonoClienteRegistro.getText());
-            }
-            if (this.cbRolEmpleadoRegistro.getSelectedItem().toString() != "Selección") {
-                i++;
-                System.out.println("buen ingreso");
-                // System.out.println(this.TelefonoClienteRegistro.getText());
-            } else {
-                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Rol Empleado");
-            }
-
-            JOptionPane.showMessageDialog(null, "contador" + i);
-
-            if (i == 9) {
-
-                try {
-                    Empleado emp = new Empleado();
-
-                    emp.setCedula(CC);
-                    emp.setNombres(Nombre);
-                    emp.setApellidos(Apellido);
-                    emp.setDireciondomicilio(Direccion);
-                    emp.setTelefonocelular(TelefonoCelular);
-                    emp.setTelefonoconvencional(telefonoConvencional);
-                    emp.setRolempleado((String) cbRolEmpleadoRegistro.getSelectedItem());
-                    emp.setSueldo(sueldo);
-                    emp.setEmail(Correo);
-                    emp.setEstado("Activo");
-                    if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Vendedor")) {
-                        //    emp.setContraseña("123");
-                    } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Administrador")) {
-                        //  emp.setContraseña("1234");
-                    } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Bodeguero")) {
-                        //  emp.setContraseña("123");
-                    }
-                    Cemp.create(emp);
-                    JOptionPane.showMessageDialog(null, "Empleado Registrado");
-                } catch (Exception ex) {
-                    Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-
-        }
+       
     }//GEN-LAST:event_jBotonRegistrarActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
