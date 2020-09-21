@@ -27,21 +27,273 @@ public class AdministradorParametro extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        cbRolEmpleadoRegistro = new javax.swing.JComboBox();
+        jLabel10 = new javax.swing.JLabel();
+        CIRegistroEmpleado = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        CIRegistroEmpleado1 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jLabelLogo = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jBotonRegistrar = new javax.swing.JButton();
+        jButtonRegresar = new javax.swing.JButton();
+
+        jLabel9.setText("Parametro: ");
+
+        cbRolEmpleadoRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Vendedor", "Administrador", "Bodeguero" }));
+
+        jLabel10.setText("ID:");
+
+        jLabel11.setText("Contraseña:");
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabelLogo.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/GZlogohor3-01_200x.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jLabelLogo)
+                .addGap(0, 3, Short.MAX_VALUE))
+        );
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("ADMINISTRACIÓN DE PARÁMETROS");
+
+        jBotonRegistrar.setText("Registrar");
+        jBotonRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonRegistrarActionPerformed(evt);
+            }
+        });
+
+        jButtonRegresar.setText("Regresar");
+        jButtonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 73, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(CIRegistroEmpleado1)
+                                .addGap(129, 129, 129))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(CIRegistroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbRolEmpleadoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(jButtonRegresar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jLabel7)
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(CIRegistroEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(cbRolEmpleadoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(CIRegistroEmpleado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBotonRegistrar)
+                    .addComponent(jButtonRegresar))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
+        int i = 0;
+
+        if (this.CIRegistroEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (nombreRegistroEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO NOMBRES VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.ApellidosEmpleadoRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO APELLIDOS VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.DireccionClienteEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.telefonocelularEmpleadoRegistro.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.telefonoConvencionaEmpleadoRegistro.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.sueldoRegistroEmpleado.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.CorreoElectronicoRegistroEmpleado.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //System.out.println(this.CCCRegistro.getText().toString());
+            if (validar.validarCI(this.CIRegistroEmpleado.getText().toString())) {
+                i++;
+                this.CC = this.CIRegistroEmpleado.getText().toString();
+                //System.out.println("cc: "+this.CCCRegistro.getText().toString() );
+            }
+            if (validar.validarTex(this.nombreRegistroEmpleado.getText().toString())) {
+                i++;
+                this.Nombre = this.nombreRegistroEmpleado.getText().toString();
+                //System.out.println(this.NombreClienteRegistro.getText().toString());
+
+            }
+
+            if (validar.validarTex(this.ApellidosEmpleadoRegistro.getText().toString())) {
+                i++;
+                this.Apellido = this.ApellidosEmpleadoRegistro.getText().toString();
+                //System.out.println(this.ApellidosClienteRegistro.getText().toString());
+            }
+
+            if (validar.validarDireccion(this.DireccionClienteEmpleado.getText().toString())) {
+                i++;
+                this.Direccion = this.DireccionClienteEmpleado.getText().toString();
+                // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
+            }
+            if (validar.validarCorreo(this.CorreoElectronicoRegistroEmpleado.getText().toString())) {
+                i++;
+                this.Correo = this.CorreoElectronicoRegistroEmpleado.getText().toString();
+                //System.out.println(this.CorreoElectronico.getText().toString());
+            }
+            if (validar.validarTelefonoC(this.telefonocelularEmpleadoRegistro.getText().toString())) {
+                i++;
+                this.TelefonoCelular = this.telefonocelularEmpleadoRegistro.getText();
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            }
+            if (validar.validarTelefonoConvencional(this.telefonoConvencionaEmpleadoRegistro.getText().toString())) {
+                i++;
+                this.telefonoConvencional = this.telefonoConvencionaEmpleadoRegistro.getText();
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            }
+            if (validar.validarSueldo(this.sueldoRegistroEmpleado.getText().toString())) {
+                i++;
+                this.sueldo = this.sueldoRegistroEmpleado.getText();
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            }
+            if (this.cbRolEmpleadoRegistro.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Rol Empleado");
+            }
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 9) {
+
+                try {
+                    Empleado emp = new Empleado();
+
+                    emp.setCedula(CC);
+                    emp.setNombres(Nombre);
+                    emp.setApellidos(Apellido);
+                    emp.setDireciondomicilio(Direccion);
+                    emp.setTelefonocelular(TelefonoCelular);
+                    emp.setTelefonoconvencional(telefonoConvencional);
+                    emp.setRolempleado((String) cbRolEmpleadoRegistro.getSelectedItem());
+                    emp.setSueldo(sueldo);
+                    emp.setEmail(Correo);
+                    emp.setEstado("Activo");
+                    if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Vendedor")) {
+                        //    emp.setContraseña("123");
+                    } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Administrador")) {
+                        //  emp.setContraseña("1234");
+                    } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Bodeguero")) {
+                        //  emp.setContraseña("123");
+                    }
+                    Cemp.create(emp);
+                    JOptionPane.showMessageDialog(null, "Empleado Registrado");
+                } catch (Exception ex) {
+                    Logger.getLogger(RegistroEmpleado.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        }
+    }//GEN-LAST:event_jBotonRegistrarActionPerformed
+
+    private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButtonRegresarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CIRegistroEmpleado;
+    private javax.swing.JTextField CIRegistroEmpleado1;
+    private javax.swing.JComboBox cbRolEmpleadoRegistro;
+    private javax.swing.JButton jBotonRegistrar;
+    private javax.swing.JButton jButtonRegresar;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
