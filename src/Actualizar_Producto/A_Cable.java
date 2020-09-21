@@ -26,7 +26,11 @@ public class A_Cable extends javax.swing.JInternalFrame {
      */
     CableJpaController Cca = new CableJpaController();
     Cable ca = new Cable();
-Validar validar = new Validar();
+    Validar validar = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
+
     public A_Cable() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CABLE");
@@ -265,15 +269,15 @@ Validar validar = new Validar();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      CargarDatosTabla();
+        CargarDatosTabla();
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-        int i=0;
-          
+        int i = 0;
+
         if (this.txtCodigoActualizacion.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloActualizacion.getText().equals("")) {
@@ -285,69 +289,60 @@ Validar validar = new Validar();
         } else if (this.txtPrecioPublico.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-               //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoActualizacion.getText().toString(),"CB")) {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoActualizacion.getText().toString(), "CB")) {
                 //{}
-                i++; 
+                i++;
             }
             if (validar.validarModelosTodos(this.txtModeloActualizacion.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarMarcaTodos(this.txtMarcaActualizacion.getText().toString())) {
                 i++;
-                
+
             }
 
             if (validar.validarSueldo(this.txtPrecioImportacionActualizacion.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublico.getText().toString())) {
                 i++;
-                
-            }
-            if(this.cbxLongitudActualizacion.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");  
-           
-                
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
-            }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==6)
-            {
-                
-                 
-        try {
-            ca.setCodigo(txtCodigoActualizacion.getText());
-            ca.setModelo(txtModeloActualizacion.getText());
-            ca.setMarca(txtMarcaActualizacion.getText());
-            ca.setLongitud((String) cbxLongitudActualizacion.getSelectedItem());
-            ca.setPrecioimportacion(txtPrecioImportacionActualizacion.getText());
-            ca.setPreciopublico(txtPrecioPublico.getText());
-            Cca.edit(ca);
-            JOptionPane.showMessageDialog(null, "Producto Cable Actualizado\n Correctamente");
-            CargarDatosTabla();
-        } catch (Exception ex) {
-            Logger.getLogger(A_Cable.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }
-        }
-        
-        
-        
-        
-      
 
-        
-        
-        
-        
-      
+            }
+            if (this.cbxLongitudActualizacion.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
+            }
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 6) {
+
+                try {
+                    ca.setCodigo(txtCodigoActualizacion.getText());
+                    ca.setModelo(txtModeloActualizacion.getText());
+                    ca.setMarca(txtMarcaActualizacion.getText());
+                    ca.setLongitud((String) cbxLongitudActualizacion.getSelectedItem());
+                    ca.setPrecioimportacion(txtPrecioImportacionActualizacion.getText());
+                    ca.setPreciopublico(txtPrecioPublico.getText());
+                    ca.setCantidad(cantidad);
+                    ca.setFechaimportacion(fechaImpor);
+                    ca.setEstado(Estado);
+                    Cca.edit(ca);
+                    JOptionPane.showMessageDialog(null, "Producto Cable Actualizado\n Correctamente");
+                    CargarDatosTabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(A_Cable.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void jTableCableConsultaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCableConsultaMouseClicked
@@ -359,8 +354,8 @@ Validar validar = new Validar();
         txtPrecioImportacionActualizacion.setText((String) jTableCableConsulta.getValueAt(jTableCableConsulta.getSelectedRow(), 4));
         txtPrecioPublico.setText((String) jTableCableConsulta.getValueAt(jTableCableConsulta.getSelectedRow(), 5));
     }//GEN-LAST:event_jTableCableConsultaMouseClicked
-public void CargarDatosTabla(){
-  List<Cable> listC = Cca.findCableEntities();
+    public void CargarDatosTabla() {
+        List<Cable> listC = Cca.findCableEntities();
         if (listC.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -378,12 +373,15 @@ public void CargarDatosTabla(){
                 Columna[3] = listC.get(i).getLongitud();
                 Columna[4] = listC.get(i).getPrecioimportacion();
                 Columna[5] = listC.get(i).getPreciopublico();
+                cantidad = listC.get(i).getCantidad();
+                fechaImpor = listC.get(i).getFechaimportacion();
+                Estado = listC.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableCableConsulta.setModel(modelo);
         }
 
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cbxLongitudActualizacion;

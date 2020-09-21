@@ -337,6 +337,7 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
                 in.setPreciopublico(pPublico);
                 in.setCantidad("0");
                 in.setEstado("Activo");
+                in.setFechaimportacion("");
                 Cin.create(in);
                 JOptionPane.showMessageDialog(null,  "Interruptor Registrados");
                 } catch (Exception ex) {

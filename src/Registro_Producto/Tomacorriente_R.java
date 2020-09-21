@@ -325,6 +325,7 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
                     toma.setPreciopublico(txtPrecioPublicoRegistroTomacorriente.getText());
                     toma.setCantidad("0");
                     toma.setEstado("Activo");
+                    toma.setFechaimportacion("");
                     Cto.create(toma);
                     JOptionPane.showMessageDialog(null,  "Cable Registrados");
                 } catch (Exception ex) {

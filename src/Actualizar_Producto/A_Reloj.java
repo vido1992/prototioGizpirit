@@ -24,13 +24,16 @@ public class A_Reloj extends javax.swing.JInternalFrame {
     /**
      * Creates new form Reloj
      */
-        RelojJpaController Creloj = new RelojJpaController();
+    RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
-        Validar val = new Validar();
+    Validar val = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
 
     public A_Reloj() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-RELOJ"); 
+        this.setTitle("SiGIn-GIZPIRIT-RELOJ");
     }
 
     /**
@@ -309,36 +312,38 @@ public class A_Reloj extends javax.swing.JInternalFrame {
                 val.ValidarTextoModelo(jTextFieldModelo);
                 val.ValidarTextoMarca(jTextFieldMarca);
                 val.ValidarJcombobox(jComboBoxGama);
-                
+
                 /*val.ValidarRadioButomsis(jRadioButtonSiSis);
                 val.ValidarRadioButomsis(jRadioButtonNoSis);
                 
                 val.ValidarRadioButomSum(jRadioButtonSiSumer);
                 val.ValidarRadioButomSum(jRadioButtonNoSumer);*/
-                
                 val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
                 val.ValidarPrecioPublico(jTextFieldPrecioPubl);
-                
+
             }
             r.setCodigo(jTextFieldModelo1.getText());
             r.setModelo(jTextFieldModelo.getText());
             r.setMarca(jTextFieldMarca.getText());
             r.setGama((String) jComboBoxGama.getSelectedItem());
-            if(jRadioButtonSiSumer.isSelected()){
+            if (jRadioButtonSiSumer.isSelected()) {
                 r.setSumergible(jRadioButtonSiSumer.getText().toString());
-            }else{
+            } else {
                 r.setSumergible(jRadioButtonNoSumer.getText().toString());
             }
-            if(jRadioButtonSiSis.isSelected()){
+            if (jRadioButtonSiSis.isSelected()) {
                 r.setSistemaandroid(jRadioButtonSiSis.getText().toString());
-            }else{
+            } else {
                 r.setSistemaandroid(jRadioButtonNoSis.getText().toString());
             }
             r.setPrecioimportacion(jTextFieldPrecioImpo.getText().toString());
             r.setPreciopublico(jTextFieldPrecioPubl.getText().toString());
+            r.setCantidad(cantidad);
+            r.setFechaimportacion(fechaImpor);
+            r.setEstado(Estado);
 
             Creloj.edit(r);
-            
+
             JOptionPane.showMessageDialog(null, "Producto Reloj Actualizado\n Correctamente");
             cargartabla();
         } catch (Exception ex) {
@@ -360,49 +365,51 @@ public class A_Reloj extends javax.swing.JInternalFrame {
         jTextFieldModelo1.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
         jTextFieldModelo.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
         jTextFieldMarca.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
-       jComboBoxGama.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
-       String sumer = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 4);
-           if(sumer.equals("SI")){
-             jRadioButtonSiSumer.setSelected(true);
-            }else{
-               jRadioButtonNoSumer.setSelected(true);
-            }
-             String sistem = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 5);
-            if(sistem.equals("SI")){
-                jRadioButtonSiSis.setSelected(true);
-            }else{
-             jRadioButtonNoSis.setSelected(true);
-            }       
-                jTextFieldPrecioImpo.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
-                
-               jTextFieldPrecioPubl.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 7)); 
+        jComboBoxGama.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        String sumer = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 4);
+        if (sumer.equals("SI")) {
+            jRadioButtonSiSumer.setSelected(true);
+        } else {
+            jRadioButtonNoSumer.setSelected(true);
+        }
+        String sistem = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 5);
+        if (sistem.equals("SI")) {
+            jRadioButtonSiSis.setSelected(true);
+        } else {
+            jRadioButtonNoSis.setSelected(true);
+        }
+        jTextFieldPrecioImpo.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
+
+        jTextFieldPrecioPubl.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 7));
     }//GEN-LAST:event_jTable3MouseClicked
-public void cargartabla(){
-    List<Reloj> listrej = Creloj.findRelojEntities();
-            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
-            modelo.setRowCount(0);
-            //Sección 2
-            Object[] Columna = new Object[8];
-            //Sección 3
-            for (int i = 0; i < listrej.size(); i++) {
-                Columna[0] = listrej.get(i).getCodigo();
-                Columna[1] = listrej.get(i).getModelo();
-                Columna[2] = listrej.get(i).getMarca();
-                Columna[3] = listrej.get(i).getGama();
-                Columna[4] = listrej.get(i).getSumergible();
-                Columna[5] = listrej.get(i).getSistemaandroid();
-                Columna[6] = listrej.get(i).getPrecioimportacion();
-                Columna[7] = listrej.get(i).getPreciopublico();
- 
-                modelo.addRow(Columna);
-            }
-            jTable3.setModel(modelo);
-            if (listrej.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
-            }
+    public void cargartabla() {
+        List<Reloj> listrej = Creloj.findRelojEntities();
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        //Sección 2
+        Object[] Columna = new Object[8];
+        //Sección 3
+        for (int i = 0; i < listrej.size(); i++) {
+            Columna[0] = listrej.get(i).getCodigo();
+            Columna[1] = listrej.get(i).getModelo();
+            Columna[2] = listrej.get(i).getMarca();
+            Columna[3] = listrej.get(i).getGama();
+            Columna[4] = listrej.get(i).getSumergible();
+            Columna[5] = listrej.get(i).getSistemaandroid();
+            Columna[6] = listrej.get(i).getPrecioimportacion();
+            Columna[7] = listrej.get(i).getPreciopublico();
+            cantidad = listrej.get(i).getCantidad();
+            fechaImpor = listrej.get(i).getFechaimportacion();
+            Estado = listrej.get(i).getEstado();
 
+            modelo.addRow(Columna);
+        }
+        jTable3.setModel(modelo);
+        if (listrej.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
 
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

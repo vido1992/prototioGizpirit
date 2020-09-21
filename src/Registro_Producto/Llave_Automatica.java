@@ -287,6 +287,7 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
                     lla.setPreciopublico(txtPrecioPublicoLlave.getText());
                     lla.setCantidad("0");
                     lla.setEstado("Activo");
+                    lla.setFechaimportacion("");
                     Clla.create(lla);
                     JOptionPane.showMessageDialog(null,  "Llave Automatica Registrados");
                 } catch (Exception ex) {

@@ -379,6 +379,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
                     ca.setPreciopublico(txtPrecioPubCamaraSeguridad.getText());
                     ca.setCantidad("0");
                     ca.setEstado("Activo");
+                    ca.setFechaimportacion("");
                     Cca.create(ca);
                     JOptionPane.showMessageDialog(null,  "Camara Registrados");
                 } catch (Exception ex) {

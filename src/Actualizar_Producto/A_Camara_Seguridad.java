@@ -24,12 +24,16 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     /**
      * Creates new form Camara
      */
-        CamaraJpaController Ccam = new CamaraJpaController();
+    CamaraJpaController Ccam = new CamaraJpaController();
     Camara cam = new Camara();
-     Validar validar = new Validar();
+    Validar validar = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
+
     public A_Camara_Seguridad() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD"); 
+        this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD");
     }
 
     /**
@@ -297,9 +301,8 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-        
-        int i=0;
-          
+        int i = 0;
+
         if (this.txtCodigoActualizarCam.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtModeloActualizarCam.getText().equals("")) {
@@ -312,79 +315,78 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoActualizarCam.getText().toString(),"CM")) {
-                
+            if (validar.validarCodigoTodos(this.txtCodigoActualizarCam.getText().toString(), "CM")) {
+
                 i++;
             }
             if (validar.validarModelosTodos(this.txtModeloActualizarCam.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarMarcaTodos(this.txtMarcaActualizarCam.getText().toString())) {
                 i++;
-                
+
             }
 
             if (validar.validarSueldo(this.txtPrecioInicialActualizarCam.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoActualizarCam.getText().toString())) {
                 i++;
-                
+
             }
-            if(this.boxAnguloAberturaActualizarCam.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");  
-           
-                
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en ángulo");
-            }
-                  
-            if(this.rbIntern.isSelected()==true)
-            {i++;
-            System.out.println( "buen ingreso seleccion interna");  
-                          
-            }else if (this.rbExtern.isSelected()==true ){
+            if (this.boxAnguloAberturaActualizarCam.getSelectedItem().toString() != "Selección") {
                 i++;
-                System.out.println( "buen ingreso seleccion externa");
-            
-            }else {
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
-            }
-            
-                       
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==8)
-            {
-                
-  try {
-            cam.setCodigo(txtCodigoActualizarCam.getText());
-            cam.setModelo(txtModeloActualizarCam.getText());
-            cam.setMarca(txtMarcaActualizarCam.getText());
-            cam.setResolucion(txtResolucionActualizarCam.getText());
-            if (rbIntern.isSelected()) {
-                cam.setTipo(rbIntern.getText());
+                System.out.println("buen ingreso");
+
             } else {
-                cam.setTipo(rbExtern.getText());
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en ángulo");
             }
-            cam.setAnguloavertura((String) boxAnguloAberturaActualizarCam.getSelectedItem());
-            cam.setPrecioimportacion(txtPrecioInicialActualizarCam.getText());
-            cam.setPreciopublico(txtPrecioPublicoActualizarCam.getText());
-            Ccam.edit(cam);
-            JOptionPane.showMessageDialog(null, "Producto Actualizado", "Actualizacion", JOptionPane.WARNING_MESSAGE);
-            cargarTabla();
-        } catch (Exception ex) {
-            Logger.getLogger(A_Camara_Seguridad.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                JOptionPane.showMessageDialog(null,  "Camara Registrados");
-                
+
+            if (this.rbIntern.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion interna");
+
+            } else if (this.rbExtern.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion externa");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tipo");
+            }
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 8) {
+
+                try {
+                    cam.setCodigo(txtCodigoActualizarCam.getText());
+                    cam.setModelo(txtModeloActualizarCam.getText());
+                    cam.setMarca(txtMarcaActualizarCam.getText());
+                    cam.setResolucion(txtResolucionActualizarCam.getText());
+                    if (rbIntern.isSelected()) {
+                        cam.setTipo(rbIntern.getText());
+                    } else {
+                        cam.setTipo(rbExtern.getText());
+                    }
+                    cam.setAnguloavertura((String) boxAnguloAberturaActualizarCam.getSelectedItem());
+                    cam.setPrecioimportacion(txtPrecioInicialActualizarCam.getText());
+                    cam.setPreciopublico(txtPrecioPublicoActualizarCam.getText());
+                    cam.setCantidad(cantidad);
+                    cam.setFechaimportacion(fechaImpor);
+                    cam.setEstado(Estado);
+                    Ccam.edit(cam);
+                    JOptionPane.showMessageDialog(null, "Producto Actualizado", "Actualizacion", JOptionPane.WARNING_MESSAGE);
+                    cargarTabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(A_Camara_Seguridad.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                JOptionPane.showMessageDialog(null, "Camara Registrados");
+
             }
         }
-        
+
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
@@ -394,9 +396,9 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
         txtMarcaActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
         txtResolucionActualizarCam.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
         String tipo = (String) jTable3.getValueAt(jTable3.getSelectedRow(), 4);
-        if (tipo.equals("Interna")){
+        if (tipo.equals("Interna")) {
             rbIntern.setSelected(true);
-        }else {
+        } else {
             rbExtern.setSelected(true);
         }
         boxAnguloAberturaActualizarCam.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
@@ -408,7 +410,7 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         cargarTabla();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void cargarTabla() {
@@ -430,6 +432,9 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
             Columna[5] = listcam.get(i).getAnguloavertura();
             Columna[6] = listcam.get(i).getPrecioimportacion();
             Columna[7] = listcam.get(i).getPreciopublico();
+            cantidad = listcam.get(i).getCantidad();
+            fechaImpor = listcam.get(i).getFechaimportacion();
+            Estado = listcam.get(i).getEstado();
 
             modelo.addRow(Columna);
         }

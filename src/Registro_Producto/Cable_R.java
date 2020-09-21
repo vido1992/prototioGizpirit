@@ -319,6 +319,7 @@ public class Cable_R extends javax.swing.JInternalFrame {
             ca.setFechaimportacion("");
             ca.setCantidad("0");
             ca.setEstado("Activo");
+            ca.setFechaimportacion("");
             Cca.create(ca);
             JOptionPane.showMessageDialog(null, "Producto Cable Registrado\n Correctamente");
         } catch (Exception ex) {

@@ -322,6 +322,7 @@ public class Cargador_R extends javax.swing.JInternalFrame {
                     car.setPreciopublico(txtPrecioPubliRegistroCargador.getText());
                     car.setCantidad("0");
                     car.setEstado("Activo");
+                    car.setFechaimportacion("");
                     JOptionPane.showMessageDialog(null,  "Cable Registrados");
                     Ccar.create(car);
                 } catch (Exception ex) {

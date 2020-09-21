@@ -307,6 +307,7 @@ public class Sensor_R extends javax.swing.JInternalFrame {
                     se.setPreciopublico(txtPrecioPublicoSensor.getText());
                     se.setCantidad("0");
                     se.setEstado("Activo");
+                    se.setFechaimportacion("");
                     Cse.create(se);
                     JOptionPane.showMessageDialog(null,  "Sensor Registrados");
                 } catch (Exception ex) {

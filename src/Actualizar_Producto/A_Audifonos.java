@@ -26,7 +26,12 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
      */
     AudifonosJpaController Cau = new AudifonosJpaController();
     Audifonos au = new Audifonos();
-Validar validar = new Validar();
+
+    Validar validar = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
+
     public A_Audifonos() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-AUDIFONOS");
@@ -263,7 +268,7 @@ Validar validar = new Validar();
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-        int i=0;
+        int i = 0;
         if (this.txtCodigoActualizar.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloActualizar.getText().equals("")) {
@@ -275,66 +280,57 @@ Validar validar = new Validar();
         } else if (this.txtPrecioPublicoActualizar.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-                //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoActualizar.getText().toString(),"AU")) {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoActualizar.getText().toString(), "AU")) {
                 //{}
                 i++;
             }
             if (validar.validarModelosTodos(this.txtModeloActualizar.getText().toString())) {
-                i++; 
+                i++;
             }
             if (validar.validarMarcaTodos(this.txtMarcaActualizar.getText().toString())) {
-                i++; 
+                i++;
             }
 
             if (validar.validarSueldo(this.txtPrecioImportacionActualizar.getText().toString())) {
-                i++; 
+                i++;
             }
             if (validar.validarSueldo(this.txtPrecioPublicoActualizar.getText().toString())) {
-                i++; 
+                i++;
             }
-            if(this.cbxTipoActualizar.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");   
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion");
+            if (this.cbxTipoActualizar.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==6)
-            {
-                     
-        
-         try {
-            au.setCodigo(txtCodigoActualizar.getText());
-            au.setModelo(txtModeloActualizar.getText());
-            au.setMarca(txtMarcaActualizar.getText());
-            au.setTipo((String) cbxTipoActualizar.getSelectedItem());
-            au.setPrecioimportacion(txtPrecioImportacionActualizar.getText());
-            au.setPreciopublico(txtPrecioPublicoActualizar.getText());
-            Cau.edit(au);
-            JOptionPane.showMessageDialog(null, "Producto Actualizado", "Actualizacion", JOptionPane.WARNING_MESSAGE);
-            cargarTabla();
-        } catch (Exception ex) {
-            Logger.getLogger(A_Audifonos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-               
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 6) {
+
+                try {
+                    au.setCodigo(txtCodigoActualizar.getText());
+                    au.setModelo(txtModeloActualizar.getText());
+                    au.setMarca(txtMarcaActualizar.getText());
+                    au.setTipo((String) cbxTipoActualizar.getSelectedItem());
+                    au.setPrecioimportacion(txtPrecioImportacionActualizar.getText());
+                    au.setPreciopublico(txtPrecioPublicoActualizar.getText());
+                    au.setCantidad(cantidad);
+                    au.setFechaimportacion(fechaImpor);
+                    au.setEstado(Estado);
+                    Cau.edit(au);
+                    JOptionPane.showMessageDialog(null, "Producto Actualizado", "Actualizacion", JOptionPane.WARNING_MESSAGE);
+                    cargarTabla();
+                } catch (Exception ex) {
+                    Logger.getLogger(A_Audifonos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
             }
-            
-            
-            
-                        
 
         }
 
 
-        
-        
-        
-        
-        
-      
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -368,6 +364,9 @@ Validar validar = new Validar();
             Columna[3] = listAu.get(i).getTipo();
             Columna[4] = listAu.get(i).getPrecioimportacion();
             Columna[5] = listAu.get(i).getPreciopublico();
+            cantidad = listAu.get(i).getCantidad();
+            fechaImpor = listAu.get(i).getFechaimportacion();
+            Estado = listAu.get(i).getEstado();
 
             modelo.addRow(Columna);
         }

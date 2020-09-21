@@ -29,6 +29,10 @@ import Entidades.Tomacorriente;
 import Inicio.Menu;
 import Producto.ProductoConsultar;
 import Producto.ProductoEliminar;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,6 +65,8 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     Llaveautomatica lla = new Llaveautomatica();
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
+    String CantidadTotal;
+    String CantidadImportacion;
 
     public StockActualizar() {
         initComponents();
@@ -94,12 +100,12 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         jTextField26 = new javax.swing.JTextField();
         cbxCodigoConsulta = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTableConsultaProducto = new javax.swing.JTable();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton1 = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         btnAyudaNombre = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTableConsultaProducto = new javax.swing.JTable();
 
         setClosable(true);
         setMaximizable(true);
@@ -171,21 +177,6 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             }
         });
 
-        jTableConsultaProducto.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Código", "Modelo ", "Precio Público", "Cantidad", "Estado"
-            }
-        ));
-        jTableConsultaProducto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableConsultaProductoMouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(jTableConsultaProducto);
-
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Inactivo");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -211,6 +202,29 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             }
         });
 
+        jTableConsultaProducto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código", "Modelo ", "Marca", "Longitud", "Resolución", "Tipo", "Angulo de Abertura", "Whatts", "Tamaño", "NumeroBotones", "Gama", "Sumergible", "SistemaAndroid", "Forma", "Precio Importación", "Precio Público", "Cantidad", "Estado", "FechaImportacion"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true, false, false, false, true, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableConsultaProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableConsultaProductoMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableConsultaProducto);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -218,10 +232,12 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(jBotonRegistrar))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(69, 69, 69)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,48 +259,46 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                                                 .addGap(19, 19, 19)
                                                 .addComponent(jRadioButton1)
                                                 .addGap(48, 48, 48)
-                                                .addComponent(jRadioButton2))))
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jButtonRegresar)
+                                                    .addComponent(jRadioButton2)))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(86, 86, 86)
-                                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(132, 132, 132))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(162, 162, 162)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel7))
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
                                 .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
                                 .addComponent(cbxCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton6))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jBotonRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonRegresar)
-                .addGap(116, 116, 116))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addGap(154, 154, 154))
+                                .addComponent(jButton6)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1123, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cbxCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6))
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -322,9 +336,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -347,18 +359,57 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
 
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
+
+                int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+                CantidadTotal = String.valueOf(total);
+
+                ca.setCodigo((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0));
+                ca.setModelo((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 1));
+                ca.setMarca((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 2));
+                ca.setLongitud((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3));
+                ca.setPrecioimportacion((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 14));
+                ca.setPreciopublico((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 15));
                 ca.setFechaimportacion(jDateChooser2.getDate().toString());
-                ca.setCantidad(jTextField26.getText());
-                Cca.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                ca.setCantidad(CantidadTotal);
+                if (jRadioButton1.isSelected()) {
+                    ca.setEstado(jRadioButton1.getText());
+                } else {
+                    ca.setEstado(jRadioButton2.getText());
+                }
+                Cca.edit(ca);
+                jTextField33.setText(CantidadTotal);
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("AU-Audifonos")) {
-                Cau.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+                CantidadTotal = String.valueOf(total);
+                au.setFechaimportacion(jDateChooser2.getDate().toString());
+                au.setCantidad(CantidadTotal);
+                if (jRadioButton2.isSelected()) {
+                    au.setEstado(jRadioButton1.getText());
+                } else {
+                    au.setEstado(jRadioButton2.getText());
+                }
+                Cau.edit(au);
+                jTextField33.setText(CantidadTotal);
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CM-Cámara")) {
-                Ccam.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+                CantidadTotal = String.valueOf(total);
+                cam.setFechaimportacion(jDateChooser2.getDate().toString());
+                cam.setCantidad(CantidadTotal);
+                if (jRadioButton2.isSelected()) {
+                    cam.setEstado(jRadioButton1.getText());
+                } else {
+                    cam.setEstado(jRadioButton2.getText());
+                }
+                Ccam.edit(cam);
+                jTextField33.setText(CantidadTotal);
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("RJ-Reloj")) {
                 Creloj.destroy(CodigoProducto);
@@ -392,6 +443,8 @@ public class StockActualizar extends javax.swing.JInternalFrame {
 
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ProductoEliminar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(StockActualizar.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -420,20 +473,26 @@ public class StockActualizar extends javax.swing.JInternalFrame {
 
     private void jTableConsultaProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaProductoMouseClicked
         // TODO add your handling code here:
-        jTextField32.setText((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3));
-        int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
-        jTextField33.setText(String.valueOf(total));
-        if (jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3).equals("Activo")) {
-            jRadioButton1.setSelected(true);
-        } else {
-            jRadioButton2.setSelected(true);
-        }
-
-
+   
+       
+       jDateChooser2.setDate(ParseFecha((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0)));
+       //jTextField32.set
     }//GEN-LAST:event_jTableConsultaProductoMouseClicked
+     public static Date ParseFecha(String fecha)
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha);
+        } 
+        catch (ParseException ex) 
+        {
+            System.out.println(ex);
+        }
+        return fechaDate;
+    }
     public void cargarTabla() {
-        // TODO add your handling code here:
-        if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto")) {
+        if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto a eliminar")) {
             JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
             //Sección 1 
@@ -441,15 +500,17 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
-
             for (int i = 0; i < listC.size(); i++) {
                 Columna[0] = listC.get(i).getCodigo();
                 Columna[1] = listC.get(i).getModelo();
-                Columna[2] = listC.get(i).getPreciopublico();
-                Columna[3] = listC.get(i).getCantidad();
-                Columna[4] = listC.get(i).getEstado();
+                Columna[2] = listC.get(i).getMarca();
+                Columna[3] = listC.get(i).getLongitud();
+                Columna[14] = listC.get(i).getPrecioimportacion();
+                Columna[15] = listC.get(i).getPreciopublico();
+                Columna[16] = listC.get(i).getCantidad();
+                Columna[17] = listC.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -463,14 +524,17 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listAu.size(); i++) {
                 Columna[0] = listAu.get(i).getCodigo();
                 Columna[1] = listAu.get(i).getModelo();
-                Columna[2] = listAu.get(i).getPreciopublico();
-                Columna[3] = listAu.get(i).getCantidad();
-                Columna[4] = listAu.get(i).getEstado();
+                Columna[2] = listAu.get(i).getMarca();
+                Columna[5] = listAu.get(i).getTipo();
+                Columna[14] = listAu.get(i).getPrecioimportacion();
+                Columna[15] = listAu.get(i).getPreciopublico();
+                Columna[16] = listAu.get(i).getCantidad();
+                Columna[17] = listAu.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -483,34 +547,43 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listcam.size(); i++) {
                 Columna[0] = listcam.get(i).getCodigo();
                 Columna[1] = listcam.get(i).getModelo();
-                Columna[2] = listcam.get(i).getPreciopublico();
-                Columna[3] = listcam.get(i).getCantidad();
-                Columna[4] = listcam.get(i).getEstado();
+                Columna[2] = listcam.get(i).getMarca();
+                Columna[4] = listcam.get(i).getResolucion();
+                Columna[5] = listcam.get(i).getTipo();
+                Columna[6] = listcam.get(i).getAnguloavertura();
+                Columna[14] = listcam.get(i).getPrecioimportacion();
+                Columna[15] = listcam.get(i).getPreciopublico();
+                Columna[16] = listcam.get(i).getCantidad();
+                Columna[17] = listcam.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
             if (listcam.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
+
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CA-Cargador")) {
             List<Cargador> listcar = Ccar.findCargadorEntities();
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listcar.size(); i++) {
                 Columna[0] = listcar.get(i).getCodigo();
                 Columna[1] = listcar.get(i).getModelo();
-                Columna[2] = listcar.get(i).getPreciopublico();
-                Columna[3] = listcar.get(i).getCantidad();
-                Columna[4] = listcar.get(i).getEstado();
-
+                Columna[2] = listcar.get(i).getMarca();
+                Columna[5] = listcar.get(i).getTipo();
+                Columna[7] = listcar.get(i).getWattscarga();
+                Columna[14] = listcar.get(i).getPrecioimportacion();
+                Columna[15] = listcar.get(i).getPreciopublico();
+                Columna[16] = listcar.get(i).getCantidad();
+                Columna[17] = listcar.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -523,14 +596,18 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listint.size(); i++) {
                 Columna[0] = listint.get(i).getCodigo();
                 Columna[1] = listint.get(i).getModelo();
-                Columna[2] = listint.get(i).getPreciopublico();
-                Columna[3] = listint.get(i).getCantidad();
-                Columna[4] = listint.get(i).getEstado();
+                Columna[2] = listint.get(i).getMarca();
+                Columna[9] = listint.get(i).getNumerobotones();
+                Columna[5] = listint.get(i).getTipo();
+                Columna[14] = listint.get(i).getPrecioimportacion();
+                Columna[15] = listint.get(i).getPreciopublico();
+                Columna[16] = listint.get(i).getCantidad();
+                Columna[17] = listint.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -543,14 +620,18 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listtom.size(); i++) {
                 Columna[0] = listtom.get(i).getCodigo();
                 Columna[1] = listtom.get(i).getModelo();
-                Columna[2] = listtom.get(i).getPreciopublico();
-                Columna[3] = listtom.get(i).getCantidad();
-                Columna[4] = listtom.get(i).getEstado();
+                Columna[2] = listtom.get(i).getMarca();
+                Columna[5] = listtom.get(i).getTipo();
+                Columna[13] = listtom.get(i).getForma();
+                Columna[14] = listtom.get(i).getPrecioimportacion();
+                Columna[15] = listtom.get(i).getPreciopublico();
+                Columna[16] = listtom.get(i).getCantidad();
+                Columna[17] = listtom.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -562,14 +643,17 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listsem.size(); i++) {
                 Columna[0] = listsem.get(i).getCodigo();
                 Columna[1] = listsem.get(i).getModelo();
-                Columna[2] = listsem.get(i).getPreciopublico();
-                Columna[3] = listsem.get(i).getCantidad();
-                Columna[4] = listsem.get(i).getEstado();
+                Columna[2] = listsem.get(i).getMarca();
+                Columna[5] = listsem.get(i).getTipo();
+                Columna[14] = listsem.get(i).getPrecioimportacion();
+                Columna[15] = listsem.get(i).getPreciopublico();
+                Columna[16] = listsem.get(i).getCantidad();
+                Columna[17] = listsem.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -581,14 +665,17 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listcv.size(); i++) {
                 Columna[0] = listcv.get(i).getCodigo();
                 Columna[1] = listcv.get(i).getModelo();
-                Columna[2] = listcv.get(i).getPreciopublico();
-                Columna[3] = listcv.get(i).getCantidad();
-                Columna[4] = listcv.get(i).getEstado();
+                Columna[2] = listcv.get(i).getMarca();
+                Columna[8] = listcv.get(i).getTamaño();
+                Columna[14] = listcv.get(i).getPrecioimportacion();
+                Columna[15] = listcv.get(i).getPreciopublico();
+                Columna[16] = listcv.get(i).getCantidad();
+                Columna[17] = listcv.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -600,14 +687,16 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listlla.size(); i++) {
                 Columna[0] = listlla.get(i).getCodigo();
                 Columna[1] = listlla.get(i).getModelo();
-                Columna[2] = listlla.get(i).getPreciopublico();
-                Columna[3] = listlla.get(i).getCantidad();
-                Columna[4] = listlla.get(i).getEstado();
+                Columna[2] = listlla.get(i).getMarca();
+                Columna[14] = listlla.get(i).getPrecioimportacion();
+                Columna[15] = listlla.get(i).getPreciopublico();
+                Columna[16] = listlla.get(i).getCantidad();
+                Columna[17] = listlla.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -619,14 +708,19 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[6];
+            Object[] Columna = new Object[18];
             //Sección 3
             for (int i = 0; i < listrej.size(); i++) {
                 Columna[0] = listrej.get(i).getCodigo();
                 Columna[1] = listrej.get(i).getModelo();
-                Columna[2] = listrej.get(i).getPreciopublico();
-                Columna[3] = listrej.get(i).getCantidad();
-                Columna[4] = listrej.get(i).getEstado();
+                Columna[2] = listrej.get(i).getMarca();
+                Columna[10] = listrej.get(i).getGama();
+                Columna[11] = listrej.get(i).getSumergible();
+                Columna[12] = listrej.get(i).getSistemaandroid();
+                Columna[14] = listrej.get(i).getPrecioimportacion();
+                Columna[15] = listrej.get(i).getPreciopublico();
+                Columna[16] = listrej.get(i).getCantidad();
+                Columna[17] = listrej.get(i).getEstado();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -634,6 +728,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         }
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -321,6 +321,7 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
                     cv.setPreciopublico(txtPrecioPublicoRegistroControlador.getText());
                     cv.setCantidad("0");
                     cv.setEstado("Activo");
+                    cv.setFechaimportacion("");
                     Ccv.create(cv);
                     JOptionPane.showMessageDialog(null, "Cable Registrados");
                 } catch (Exception ex) {

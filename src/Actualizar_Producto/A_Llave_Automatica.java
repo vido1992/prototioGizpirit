@@ -24,9 +24,13 @@ public class A_Llave_Automatica extends javax.swing.JInternalFrame {
     /**
      * Creates new form Llave_Automatica
      */
-       LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
+    LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
     Llaveautomatica lla = new Llaveautomatica();
-     Validar validar = new Validar();
+    Validar validar = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
+
     public A_Llave_Automatica() {
         initComponents();
     }
@@ -237,8 +241,8 @@ public class A_Llave_Automatica extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-         int i=0;
-          
+        int i = 0;
+
         if (this.txtCodigoLlave.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloLlave.getText().equals("")) {
@@ -251,46 +255,47 @@ public class A_Llave_Automatica extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoLlave.getText().toString(),"LA")) {
+            if (validar.validarCodigoTodos(this.txtCodigoLlave.getText().toString(), "LA")) {
                 //{}
-                i++; 
+                i++;
             }
             if (validar.validarModelosTodos(this.txtModeloLlave.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarMarcaTodos(this.txtMarcaLlave.getText().toString())) {
                 i++;
-                
+
             }
 
             if (validar.validarSueldo(this.txtPrecioInicialLlave.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoLlave.getText().toString())) {
                 i++;
-                
+
             }
-             
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==5)
-            {
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 5) {
                 try {
                     lla.setCodigo(txtCodigoLlave.getText());
                     lla.setModelo(txtModeloLlave.getText());
                     lla.setMarca(txtMarcaLlave.getText());
                     lla.setPrecioimportacion(txtPrecioInicialLlave.getText());
                     lla.setPreciopublico(txtPrecioPublicoLlave.getText());
+                    lla.setCantidad(cantidad);
+                    lla.setFechaimportacion(fechaImpor);
+                    lla.setEstado(Estado);
                     Clla.edit(lla);
-                    JOptionPane.showMessageDialog(null,  "Llave Automatica Actualizada");
+                    JOptionPane.showMessageDialog(null, "Llave Automatica Actualizada");
                     cargartabla();
                 } catch (Exception ex) {
                     Logger.getLogger(Llave_Automatica.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                 
+
             }
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
@@ -298,34 +303,37 @@ public class A_Llave_Automatica extends javax.swing.JInternalFrame {
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         // TODO add your handling code here:
         txtCodigoLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
-         txtModeloLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
-         txtMarcaLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));     
-         txtPrecioInicialLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));       
-          txtPrecioPublicoLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 4));      
-                
+        txtModeloLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 1));
+        txtMarcaLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 2));
+        txtPrecioInicialLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 3));
+        txtPrecioPublicoLlave.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 4));
+
     }//GEN-LAST:event_jTable3MouseClicked
-public void cargartabla(){
+    public void cargartabla() {
 
- List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
-            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
-            modelo.setRowCount(0);
-            //Sección 2
-            Object[] Columna = new Object[6];
-            //Sección 3
-            for (int i = 0; i < listlla.size(); i++) {
-                Columna[0] = listlla.get(i).getCodigo();
-                Columna[1] = listlla.get(i).getModelo();
-                Columna[2] = listlla.get(i).getMarca();
-                Columna[3] = listlla.get(i).getPrecioimportacion();
-                Columna[4] = listlla.get(i).getPreciopublico();
-                modelo.addRow(Columna);
-            }
-            jTable3.setModel(modelo);
-            if (listlla.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
-            }
+        List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        //Sección 2
+        Object[] Columna = new Object[6];
+        //Sección 3
+        for (int i = 0; i < listlla.size(); i++) {
+            Columna[0] = listlla.get(i).getCodigo();
+            Columna[1] = listlla.get(i).getModelo();
+            Columna[2] = listlla.get(i).getMarca();
+            Columna[3] = listlla.get(i).getPrecioimportacion();
+            Columna[4] = listlla.get(i).getPreciopublico();
+            cantidad = listlla.get(i).getCantidad();
+            fechaImpor = listlla.get(i).getFechaimportacion();
+            Estado = listlla.get(i).getEstado();
+            modelo.addRow(Columna);
+        }
+        jTable3.setModel(modelo);
+        if (listlla.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
 
-}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonRegistrarInv1;

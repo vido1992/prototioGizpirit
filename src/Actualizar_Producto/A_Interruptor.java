@@ -27,6 +27,9 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
     InterruptorJpaController Cin = new InterruptorJpaController();
     Interruptor in = new Interruptor();
     Validar validar = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
 
     public A_Interruptor() {
         initComponents();
@@ -326,6 +329,9 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
                     in.setTipo(boxTipo.getSelectedItem().toString());
                     in.setPrecioimportacion(txtPrecioInicial.getText());
                     in.setPreciopublico(txtPrecioPublico.getText());
+                    in.setCantidad(cantidad);
+                    in.setFechaimportacion(fechaImpor);
+                    in.setEstado(Estado);
                     Cin.edit(in);
                     JOptionPane.showMessageDialog(null, "Interruptor Actualizado");
                     cargartabla();
@@ -369,7 +375,10 @@ public class A_Interruptor extends javax.swing.JInternalFrame {
             Columna[4] = listint.get(i).getTipo();
             Columna[5] = listint.get(i).getPrecioimportacion();
             Columna[6] = listint.get(i).getPreciopublico();
-  
+            cantidad = listint.get(i).getCantidad();
+            fechaImpor = listint.get(i).getFechaimportacion();
+            Estado = listint.get(i).getEstado();
+
             modelo.addRow(Columna);
         }
         jTable3.setModel(modelo);

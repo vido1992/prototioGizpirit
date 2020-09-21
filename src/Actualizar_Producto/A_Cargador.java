@@ -27,7 +27,10 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     CargadorJpaController Ccar = new CargadorJpaController();
     Cargador car = new Cargador();
     Validar validar = new Validar();
-    
+    String cantidad;
+    String fechaImpor;
+    String Estado;
+
     public A_Cargador() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CARGADOR");
@@ -266,9 +269,9 @@ public class A_Cargador extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        
+
         int i = 0;
-        
+
         if (this.txtCodigoActualizarCargador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloActualizarCargador.getText().equals("")) {
@@ -287,20 +290,20 @@ public class A_Cargador extends javax.swing.JInternalFrame {
             }
             if (validar.validarModelosTodos(this.txtModeloActualizarCargador.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarMarcaTodos(this.txtMarcaActualizarCargador.getText().toString())) {
                 i++;
-                
+
             }
-            
+
             if (validar.validarSueldo(this.txtPrecioInicialActualizarCargador.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoActualizarCargador.getText().toString())) {
                 i++;
-                
+
             }
             if (this.boxTipoActualizarCargador.getSelectedItem().toString() != "Selección") {
                 i++;
@@ -314,9 +317,9 @@ public class A_Cargador extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
-            
+
             JOptionPane.showMessageDialog(null, "contador" + i);
-            
+
             if (i == 7) {
                 try {
                     car.setCodigo(txtCodigoActualizarCargador.getText());
@@ -326,13 +329,16 @@ public class A_Cargador extends javax.swing.JInternalFrame {
                     car.setTipo(boxTipoActualizarCargador.getSelectedItem().toString());
                     car.setPrecioimportacion(txtPrecioInicialActualizarCargador.getText());
                     car.setPreciopublico(txtPrecioPublicoActualizarCargador.getText());
+                    car.setCantidad(cantidad);
+                    car.setFechaimportacion(fechaImpor);
+                    car.setEstado(Estado);
                     JOptionPane.showMessageDialog(null, "Cargador Actualizado");
                     Ccar.edit(car);
                     cargartabla();
                 } catch (Exception ex) {
                     Logger.getLogger(Cargador_R.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
             }
         }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
@@ -351,9 +357,9 @@ public class A_Cargador extends javax.swing.JInternalFrame {
         boxTipoActualizarCargador.setSelectedItem((String) jTable3.getValueAt(jTable3.getSelectedRow(), 0));
         txtPrecioInicialActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 5));
         txtPrecioPublicoActualizarCargador.setText((String) jTable3.getValueAt(jTable3.getSelectedRow(), 6));
-        
+
     }//GEN-LAST:event_jTable3MouseClicked
-    
+
     public void cargartabla() {
         List<Cargador> listcar = Ccar.findCargadorEntities();
         DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
@@ -369,14 +375,17 @@ public class A_Cargador extends javax.swing.JInternalFrame {
             Columna[4] = listcar.get(i).getWattscarga();
             Columna[5] = listcar.get(i).getPrecioimportacion();
             Columna[6] = listcar.get(i).getPreciopublico();
-            
+            cantidad = listcar.get(i).getCantidad();
+            fechaImpor = listcar.get(i).getFechaimportacion();
+            Estado = listcar.get(i).getEstado();
+
             modelo.addRow(Columna);
         }
         jTable3.setModel(modelo);
         if (listcar.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
         }
-        
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoActualizarCargador;

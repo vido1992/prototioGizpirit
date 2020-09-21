@@ -317,6 +317,7 @@ dispose();
                     au.setPreciopublico(pPublico);
                     au.setCantidad("0");
                     au.setEstado("Activo");
+                    au.setFechaimportacion("");
                     Cau.create(au);
                     JOptionPane.showMessageDialog(null,  "Audifonos Registrados");
                 } catch (Exception ex) {

@@ -27,6 +27,9 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
     TomacorrienteJpaController Cto = new TomacorrienteJpaController();
     Tomacorriente toma = new Tomacorriente();
     Validar validar = new Validar();
+    String cantidad;
+    String fechaImpor;
+    String Estado;
 
     public A_Tomacorriente() {
         initComponents();
@@ -319,6 +322,9 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
                     toma.setTipo(jLabel39.getText());
                     toma.setPrecioimportacion(txtPrecioInicialTomacorriente.getText());
                     toma.setPreciopublico(txtPrecioPublicoTomacorriente.getText());
+                    toma.setCantidad(cantidad);
+                    toma.setFechaimportacion(fechaImpor);
+                    toma.setEstado(Estado);
                     Cto.edit(toma);
                     JOptionPane.showMessageDialog(null, "Tomacorriente Actualizado");
                     cargartabla();
@@ -347,27 +353,30 @@ public class A_Tomacorriente extends javax.swing.JInternalFrame {
         cargartabla();
     }//GEN-LAST:event_jButton6ActionPerformed
     public void cargartabla() {
-List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
-            DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
-            modelo.setRowCount(0);
-            //Sección 2
-            Object[] Columna = new Object[7];
-            //Sección 3
-            for (int i = 0; i < listtom.size(); i++) {
-                Columna[0] = listtom.get(i).getCodigo();
-                Columna[1] = listtom.get(i).getModelo();
-                Columna[2] = listtom.get(i).getMarca();
-                Columna[3] = listtom.get(i).getForma();
-                Columna[4] = listtom.get(i).getTipo();
-                Columna[5] = listtom.get(i).getPrecioimportacion();
-                Columna[6] = listtom.get(i).getPreciopublico();
-       
-                modelo.addRow(Columna);
-            }
-            jTable3.setModel(modelo);
-            if (listtom.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
-            }
+        List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        //Sección 2
+        Object[] Columna = new Object[7];
+        //Sección 3
+        for (int i = 0; i < listtom.size(); i++) {
+            Columna[0] = listtom.get(i).getCodigo();
+            Columna[1] = listtom.get(i).getModelo();
+            Columna[2] = listtom.get(i).getMarca();
+            Columna[3] = listtom.get(i).getForma();
+            Columna[4] = listtom.get(i).getTipo();
+            Columna[5] = listtom.get(i).getPrecioimportacion();
+            Columna[6] = listtom.get(i).getPreciopublico();
+            cantidad = listtom.get(i).getCantidad();
+            fechaImpor = listtom.get(i).getFechaimportacion();
+            Estado = listtom.get(i).getEstado();
+
+            modelo.addRow(Columna);
+        }
+        jTable3.setModel(modelo);
+        if (listtom.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
