@@ -322,14 +322,13 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                 txtDicDomicActualizarEmpleado.setText(listemp.get(i).getDireciondomicilio());
                 txtTelCelActualizarEmpleado.setText(listemp.get(i).getTelefonocelular());
                 txtTelConvenActualizarEmpleado.setText(listemp.get(i).getTelefonoconvencional());
-               // cbRolEmpleadoRegistro.setSelectedIndex(listemp.get(i).getRolempleado());
+                cbRolEmpleadoRegistro.setSelectedItem(listemp.get(i).getRolempleado());
                 txtSueldoActualizarEmpleado.setText(listemp.get(i).getSueldo());
-                if(listemp.get(i).getEstado().equals("Activo")){
-                txtEstadoActualizarEmpleado.setSelectedIndex(0);
-                }else{
-                txtEstadoActualizarEmpleado.setSelectedIndex(1);
+                if (listemp.get(i).getEstado().equals("Activo")) {
+                    txtEstadoActualizarEmpleado.setSelectedIndex(0);
+                } else {
+                    txtEstadoActualizarEmpleado.setSelectedIndex(1);
                 }
-                
 
             }
         }
@@ -343,36 +342,32 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
         int i = 0;
 
         if (this.txtDicDomicActualizarEmpleado.getText().equals("")) {
+            i++;
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtTelCelActualizarEmpleado.getText().equals("")) {
-
+            i++;
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtTelConvenActualizarEmpleado.getText().equals("")) {
-
+            i++;
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtSueldoActualizarEmpleado.getText().equals("")) {
-
+            i++;
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtCorreoActualizarEmpleado.getText().equals("")) {
-
+            i++;
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.cbRolEmpleadoRegistro.getSelectedItem().toString() != "Selección") {
-                i++;
-                System.out.println("buen ingreso");
-                // System.out.println(this.TelefonoClienteRegistro.getText());
-            } else {
-                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Rol Empleado");
-            }
+            i++;
+            System.out.println("buen ingreso");
+            // System.out.println(this.TelefonoClienteRegistro.getText());
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Rol Empleado");
 
-            JOptionPane.showMessageDialog(null, "contador" + i);
+        }
+ 
 
-            if (i == 9) {
-        
-        
-        
-        
-        
-            
+        if (i == 1) {
+
             try {
                 Empleado emp = new Empleado();
                 emp.setCedula(txtCIActualizarEmpleado.getText());
@@ -385,14 +380,20 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                 emp.setSueldo(txtSueldoActualizarEmpleado.getText());
                 emp.setEmail(txtCorreoActualizarEmpleado.getText());
                 emp.setEstado((String) txtEstadoActualizarEmpleado.getSelectedItem());
+                if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Vendedor")) {
+                    emp.setContraseña("123");
+                } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Administrador")) {
+                    emp.setContraseña("1234");
+                } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Bodeguero")) {
+                    emp.setContraseña("123");
+                }
                 Cemp.edit(emp);
                 JOptionPane.showMessageDialog(null, "Empleado Actualizado");
             } catch (Exception ex) {
                 Logger.getLogger(ActualizarEmpleado.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-        
-            }
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnAyudaApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaApellido1ActionPerformed

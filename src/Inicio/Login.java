@@ -167,31 +167,30 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jBotonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonIniciarSesionActionPerformed
-        this.setVisible(false);
-                m1.setVisible(true);
-                m1.setEnabled(true);
+      
         boolean nohay = true;
         List<Empleado> listemp = Cemp.findEmpleadoEntities();
         for (int i = 0; i < listemp.size(); i++) {
             if (jCCField.getText().equals(listemp.get(i).getCedula()) && jContraseñaField.getText().equals(listemp.get(i).getContraseña()) && jComboUsuario.getSelectedItem().equals(listemp.get(i).getRolempleado())) {
                 nohay = false;
                
-              
+                this.setVisible(false);
+                m1.setVisible(true);
+                m1.setEnabled(true);
                 VentaRegistro.jTextFieldIDVendedorFactura.setText(jCCField.getText().toString());
                 break;
-            }
-            if (listemp.isEmpty()) {
+            }           
+        }
+          if (listemp.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No hay ningun Empleado");
                 
             } else if (jCCField.getText().isEmpty() || jContraseñaField.getText().isEmpty() || jComboUsuario.getSelectedItem().equals("Seleccionar")) {
                 JOptionPane.showMessageDialog(this, "Llenar todos los campos");
-                break;
+             
             } else if (nohay) {
                 JOptionPane.showMessageDialog(this, "el empleado no coincide con el rol o Contraseña Incorrecta");
-                break;                
+                            
             }
-            
-        }
     }//GEN-LAST:event_jBotonIniciarSesionActionPerformed
 
     private void btnCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCedulaActionPerformed
