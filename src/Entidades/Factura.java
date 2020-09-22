@@ -27,7 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Factura.findByNumerofactura", query = "SELECT f FROM Factura f WHERE f.numerofactura = :numerofactura")
     , @NamedQuery(name = "Factura.findByCodigovendedor", query = "SELECT f FROM Factura f WHERE f.codigovendedor = :codigovendedor")
     , @NamedQuery(name = "Factura.findByFechaventa", query = "SELECT f FROM Factura f WHERE f.fechaventa = :fechaventa")
-    , @NamedQuery(name = "Factura.findByCliente", query = "SELECT f FROM Factura f WHERE f.cliente = :cliente")
+    , @NamedQuery(name = "Factura.findByCicliente", query = "SELECT f FROM Factura f WHERE f.cicliente = :cicliente")
+    , @NamedQuery(name = "Factura.findByNombres", query = "SELECT f FROM Factura f WHERE f.nombres = :nombres")
+    , @NamedQuery(name = "Factura.findByApellidos", query = "SELECT f FROM Factura f WHERE f.apellidos = :apellidos")
     , @NamedQuery(name = "Factura.findByProducto", query = "SELECT f FROM Factura f WHERE f.producto = :producto")
     , @NamedQuery(name = "Factura.findBySubtutal", query = "SELECT f FROM Factura f WHERE f.subtutal = :subtutal")
     , @NamedQuery(name = "Factura.findByIva", query = "SELECT f FROM Factura f WHERE f.iva = :iva")
@@ -43,8 +45,12 @@ public class Factura implements Serializable {
     private String codigovendedor;
     @Column(name = "fechaventa")
     private String fechaventa;
-    @Column(name = "cliente")
-    private String cliente;
+    @Column(name = "cicliente")
+    private String cicliente;
+    @Column(name = "nombres")
+    private String nombres;
+    @Column(name = "apellidos")
+    private String apellidos;
     @Column(name = "producto")
     private String producto;
     @Column(name = "subtutal")
@@ -85,12 +91,28 @@ public class Factura implements Serializable {
         this.fechaventa = fechaventa;
     }
 
-    public String getCliente() {
-        return cliente;
+    public String getCicliente() {
+        return cicliente;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setCicliente(String cicliente) {
+        this.cicliente = cicliente;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getProducto() {

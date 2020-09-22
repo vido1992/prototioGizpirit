@@ -5,6 +5,12 @@
  */
 package Ventas;
 
+import Controladores.FacturaJpaController;
+import Entidades.Factura;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author David
@@ -14,6 +20,8 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentaConsulta
      */
+        Factura fa = new Factura();
+    FacturaJpaController Cfa = new FacturaJpaController();
     public VentaConsulta() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT"); 
@@ -35,13 +43,10 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
         jBotonIniciarSesion1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
-        jLabel43 = new javax.swing.JLabel();
         jButtonRegresar2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
 
         setClosable(true);
         setResizable(true);
@@ -53,7 +58,12 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
 
         jLabel31.setText("Seleccione el elemento de búsqueda");
 
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Número Factura", "Apellido Cliente", "Fecha", "C.I Cliente" }));
+        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione metodo de busqueda", "Número Factura", "Apellido Cliente", "Fecha", "C.I Cliente" }));
+        jComboBox9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox9ActionPerformed(evt);
+            }
+        });
 
         jBotonIniciarSesion1.setText("Buscar");
         jBotonIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,8 +81,6 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane5.setViewportView(jTable5);
-
-        jLabel43.setText("Productos:");
 
         jButtonRegresar2.setText("Regresar");
         jButtonRegresar2.addActionListener(new java.awt.event.ActionListener() {
@@ -105,16 +113,6 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("CONSULTA VENTA ");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Código", "Tipo", "Modelo", "Precio unitario", "Cantidad", "Precio total"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable4);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -126,31 +124,25 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBotonIniciarSesion1)
+                            .addComponent(jLabel31))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jBotonIniciarSesion1)
-                                    .addComponent(jLabel31))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(109, 109, 109)
-                                        .addComponent(jButtonRegresar2))))))
+                                        .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(jButtonRegresar2))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel43)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,7 +151,7 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31)
                     .addComponent(jComboBox9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,11 +162,7 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
                     .addComponent(jBotonIniciarSesion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel43)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(239, 239, 239))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,14 +170,14 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 432, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -200,23 +188,132 @@ public class VentaConsulta extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar2ActionPerformed
 
     private void jBotonIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonIniciarSesion1ActionPerformed
-        // TODO add your handling code here:
+        // CArgamos table
+        CargarTabla();
     }//GEN-LAST:event_jBotonIniciarSesion1ActionPerformed
 
+    private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox9ActionPerformed
+public void CargarTabla(){
+if(jComboBox9.getSelectedIndex()==0){
+     JOptionPane.showMessageDialog(null, "Selecione una opcion a consultar");
+
+
+}else if(jComboBox9.getSelectedItem().toString().equals("Número Factura")){
+    
+     //Sección 1 
+            List<Factura> listfa = Cfa.findFacturaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable5.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[5];
+            //Sección 3
+            for (int i = 0; i < listfa.size(); i++) {
+                if(listfa.get(i).getNumerofactura().equals(jTextField28.getText())){
+                Columna[0] = listfa.get(i).getNumerofactura();
+                Columna[1] = listfa.get(i).getApellidos();
+                Columna[2] = listfa.get(i).getNombres();
+                Columna[3] = listfa.get(i).getFechaventa();
+                Columna[4] = listfa.get(i).getTotal();
+                
+                modelo.addRow(Columna);
+                }
+            }
+            jTable5.setModel(modelo);
+            if (listfa.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Factura", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+
+}else if(jComboBox9.getSelectedItem().toString().equals("Apellido Cliente")){
+  //Sección 1 
+            List<Factura> listfa = Cfa.findFacturaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable5.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[5];
+            //Sección 3
+            for (int i = 0; i < listfa.size(); i++) {
+                if(listfa.get(i).getApellidos().equals(jTextField28.getText())){
+                Columna[0] = listfa.get(i).getNumerofactura();
+                Columna[1] = listfa.get(i).getApellidos();
+                Columna[2] = listfa.get(i).getNombres();
+                Columna[3] = listfa.get(i).getFechaventa();
+                Columna[4] = listfa.get(i).getTotal();
+                
+                modelo.addRow(Columna);
+                }
+            }
+            jTable5.setModel(modelo);
+            if (listfa.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Factura", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+}else if(jComboBox9.getSelectedItem().toString().equals("C.I Cliente")){
+  //Sección 1 
+            List<Factura> listfa = Cfa.findFacturaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable5.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[5];
+            //Sección 3
+            for (int i = 0; i < listfa.size(); i++) {
+                if(listfa.get(i).getCicliente().equals(jTextField28.getText())){
+                Columna[0] = listfa.get(i).getNumerofactura();
+                Columna[1] = listfa.get(i).getApellidos();
+                Columna[2] = listfa.get(i).getNombres();
+                Columna[3] = listfa.get(i).getFechaventa();
+                Columna[4] = listfa.get(i).getTotal();
+                
+                modelo.addRow(Columna);
+                }
+            }
+            jTable5.setModel(modelo);
+            if (listfa.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Factura", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+}else if(jComboBox9.getSelectedItem().toString().equals("Fecha")){
+  //Sección 1 
+            List<Factura> listfa = Cfa.findFacturaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTable5.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[5];
+            //Sección 3
+            for (int i = 0; i < listfa.size(); i++) {
+                if(listfa.get(i).getFechaventa().equals(jTextField28.getText())){
+                Columna[0] = listfa.get(i).getNumerofactura();
+                Columna[1] = listfa.get(i).getApellidos();
+                Columna[2] = listfa.get(i).getNombres();
+                Columna[3] = listfa.get(i).getFechaventa();
+                Columna[4] = listfa.get(i).getTotal();
+                
+                modelo.addRow(Columna);
+                }
+            }
+            jTable5.setModel(modelo);
+            if (listfa.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Factura", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+}
+
+
+
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonIniciarSesion1;
     private javax.swing.JButton jButtonRegresar2;
     private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField28;
     // End of variables declaration//GEN-END:variables

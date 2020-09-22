@@ -5,8 +5,29 @@
  */
 package Ventas;
 
+import Actualizar_Producto.A_Audifonos;
+import Actualizar_Producto.A_Cable;
+import Actualizar_Producto.A_Reloj;
+import Controladores.AudifonosJpaController;
+import Controladores.CableJpaController;
+import Controladores.CamaraJpaController;
+import Controladores.CargadorJpaController;
+import Controladores.ControladorvozJpaController;
+import Controladores.InterruptorJpaController;
+import Controladores.LlaveautomaticaJpaController;
 import Controladores.RelojJpaController;
+import Controladores.SensorJpaController;
+import Controladores.TomacorrienteJpaController;
+import Entidades.Audifonos;
+import Entidades.Cable;
+import Entidades.Camara;
+import Entidades.Cargador;
+import Entidades.Controladorvoz;
+import Entidades.Interruptor;
+import Entidades.Llaveautomatica;
 import Entidades.Reloj;
+import Entidades.Sensor;
+import Entidades.Tomacorriente;
 import Inicio.Menu;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -21,9 +42,29 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     /**
      * Creates new form InventarioConsulta
      */
+    CableJpaController Cca = new CableJpaController();
+    Cable ca = new Cable();
+    AudifonosJpaController Cau = new AudifonosJpaController();
+    Audifonos au = new Audifonos();
+    CamaraJpaController Ccam = new CamaraJpaController();
+    Camara cam = new Camara();
+    CargadorJpaController Ccar = new CargadorJpaController();
+    Cargador car = new Cargador();
+    InterruptorJpaController Cin = new InterruptorJpaController();
+    Interruptor in = new Interruptor();
+    TomacorrienteJpaController Cto = new TomacorrienteJpaController();
+    Tomacorriente toma = new Tomacorriente();
+    SensorJpaController Cse = new SensorJpaController();
+    Sensor se = new Sensor();
+    ControladorvozJpaController Ccv = new ControladorvozJpaController();
+    Controladorvoz cv = new Controladorvoz();
+    LlaveautomaticaJpaController Clla = new LlaveautomaticaJpaController();
+    Llaveautomatica lla = new Llaveautomatica();
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
-
+    A_Audifonos AA= new A_Audifonos();
+    A_Cable AC = new A_Cable();
+    A_Reloj AR = new A_Reloj();
     public AgregarProducto() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT");
@@ -42,13 +83,13 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         jButtonRegresar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jTextField15 = new javax.swing.JTextField();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cbxCodigoConsulta = new javax.swing.JComboBox<>();
         jLabelBusqInv = new javax.swing.JLabel();
         jLabelBusqInv1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jTableConsultaProductoVenta = new javax.swing.JTable();
 
         setClosable(true);
         setMaximizable(true);
@@ -68,7 +109,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Audifonos", "Relojes", "Domotica", "Cámara", "Código de producto", "Nombre del producto" }));
+        cbxCodigoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione un producto", "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
 
         jLabelBusqInv.setText("Seleccione el elemento de búsqueda");
 
@@ -95,15 +136,15 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTableConsultaProductoVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Código", "Modelo", "Precio unitario", "Cantidad", "Precio total"
+                "Código", "Modelo", "Marca", "Precio", "Cantidad"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(jTableConsultaProductoVenta);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,7 +169,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelBusqInv)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbxCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonRegresar)
@@ -144,7 +185,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jLabelBusqInv)
-                    .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxCodigoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,80 +215,282 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
+        if (cbxCodigoConsulta.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SELECION PRODUCTO VACÍO", JOptionPane.WARNING_MESSAGE);
 
-       String Codigo = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 0);
-       String Tipo = null;
-       String Modelo = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 1);
-       String PrecioU = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 2);
-       String Cantidad = jTextField15.getText();
-       String PrecioTotal = (String) jTable4.getValueAt(jTable4.getSelectedRow(), 4);
-     
+        } else if (jTextField15.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CANTIDAD PEDIDO VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else {
+
+            llenarTablaProductoVenta();
+           
+            
+        }
+
+        dispose();
+    }//GEN-LAST:event_jButtonRegresarActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        CargarTable();
+
+    }//GEN-LAST:event_jButton6ActionPerformed
+    public void llenarTablaProductoVenta() {
+
+        String Codigo = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 0);
+        String Modelo = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 1);
+        String Marca = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 2);
+        String PrecioU = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 3);
+
+        String Cantidad = jTextField15.getText();
+
+        float u, c;
+        u = Float.parseFloat(PrecioU);
+        c = Float.parseFloat(Cantidad);
+
+        String PrecioTotal = Float.toString(u * c);
+        if (c > Integer.parseInt((String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 4))) {
+            JOptionPane.showMessageDialog(null, "Cantidad de prodcto exedida", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        } else {
+
             //Sección 1 
             DefaultTableModel modelo = (DefaultTableModel) VentaRegistro.jTable4.getModel();
             //Sección 2
             Object[] Columna = new Object[6];
             //Sección 3
 
-             
-                    Columna[0] = Codigo;
-                    Columna[1] = Tipo;
-                    Columna[2] = Modelo;
-                    Columna[3] = PrecioU;
-                    Columna[4] = Cantidad;
-                    Columna[5]=PrecioTotal;
-                    modelo.addRow(Columna);
+            Columna[0] = Codigo;
+            Columna[1] = Modelo;
+            Columna[2] = Marca;
+            Columna[3] = PrecioU;
+            Columna[4] = Cantidad;
+            Columna[5] = PrecioTotal;
+            modelo.addRow(Columna);
 
-                
-                VentaRegistro.jTable4.setModel(modelo);
-            
-         
-        
-        dispose();
-    }//GEN-LAST:event_jButtonRegresarActionPerformed
+            VentaRegistro.jTable4.setModel(modelo);
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        }
+
+    }
+
+    public void CargarTable() {
+
         List<Reloj> listR = Creloj.findRelojEntities();
         boolean esta = true;
-        if (this.jComboBox5.getSelectedIndex() == 0) {
+        if (this.cbxCodigoConsulta.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.jComboBox5.getSelectedItem().equals("Relojes")) {
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
             //Sección 1 
-            DefaultTableModel modelo = (DefaultTableModel) jTable4.getModel();
+            List<Cable> listC = Cca.findCableEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
             //Sección 2
             Object[] Columna = new Object[6];
             //Sección 3
 
-            for (int i = 0; i < listR.size(); i++) {
-                if (!listR.isEmpty()) {
-                    Columna[0] = listR.get(i).getCodigo();
-                    Columna[1] = listR.get(i).getModelo();
-                    Columna[2] = listR.get(i).getPrecioimportacion();
-                    Columna[3] = listR.get(i).getPreciopublico();
-                    Columna[4] = listR.get(i).getPreciopublico();
-                    modelo.addRow(Columna);
-                    esta = false;
-                }
-                jTable4.setModel(modelo);
+            for (int i = 0; i < listC.size(); i++) {
+                Columna[0] = listC.get(i).getCodigo();
+                Columna[1] = listC.get(i).getModelo();
+                Columna[2] = listC.get(i).getMarca();
+                Columna[3] = listC.get(i).getPreciopublico();
+                Columna[4] = listC.get(i).getCantidad();
+                modelo.addRow(Columna);
             }
-            if (esta) {
-                JOptionPane.showMessageDialog(null, "No existe Relojes", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listC.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("AU-Audifonos")) {
+
+            //Sección 1 
+            List<Audifonos> listAu = Cau.findAudifonosEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listAu.size(); i++) {
+                Columna[0] = listAu.get(i).getCodigo();
+                Columna[1] = listAu.get(i).getModelo();
+                Columna[2] = listAu.get(i).getMarca();
+                Columna[3] = listAu.get(i).getPreciopublico();
+                Columna[4] = listAu.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listAu.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CM-Cámara")) {
+            //Sección 1 
+            List<Camara> listcam = Ccam.findCamaraEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcam.size(); i++) {
+                Columna[0] = listcam.get(i).getCodigo();
+                Columna[1] = listcam.get(i).getModelo();
+                Columna[2] = listcam.get(i).getMarca();
+                Columna[3] = listcam.get(i).getPreciopublico();
+                Columna[4] = listcam.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listcam.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CA-Cargador")) {
+            List<Cargador> listcar = Ccar.findCargadorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcar.size(); i++) {
+                Columna[0] = listcar.get(i).getCodigo();
+                Columna[1] = listcar.get(i).getModelo();
+                Columna[2] = listcar.get(i).getMarca();
+                Columna[3] = listcar.get(i).getPreciopublico();
+                Columna[4] = listcar.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listcar.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("IN-Interruptor")) {
+            List<Interruptor> listint = Cin.findInterruptorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listint.size(); i++) {
+                Columna[0] = listint.get(i).getCodigo();
+                Columna[1] = listint.get(i).getModelo();
+                Columna[2] = listint.get(i).getMarca();
+                Columna[3] = listint.get(i).getPreciopublico();
+                Columna[4] = listint.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listint.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("TO-Tomacorriente")) {
+            List<Tomacorriente> listtom = Cto.findTomacorrienteEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listtom.size(); i++) {
+                Columna[0] = listtom.get(i).getCodigo();
+                Columna[1] = listtom.get(i).getModelo();
+                Columna[2] = listtom.get(i).getMarca();
+                Columna[3] = listtom.get(i).getPreciopublico();
+                Columna[4] = listtom.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listtom.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("SE-Sensor")) {
+            List<Sensor> listsem = Cse.findSensorEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listsem.size(); i++) {
+                Columna[0] = listsem.get(i).getCodigo();
+                Columna[1] = listsem.get(i).getModelo();
+                Columna[2] = listsem.get(i).getMarca();
+                Columna[3] = listsem.get(i).getPreciopublico();
+                Columna[4] = listsem.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listsem.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CZ-ControladorVoz")) {
+            List<Controladorvoz> listcv = Ccv.findControladorvozEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listcv.size(); i++) {
+                Columna[0] = listcv.get(i).getCodigo();
+                Columna[1] = listcv.get(i).getModelo();
+                Columna[2] = listcv.get(i).getMarca();
+                Columna[3] = listcv.get(i).getPreciopublico();
+                Columna[4] = listcv.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listcv.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("La-Llaves Automáticas")) {
+            List<Llaveautomatica> listlla = Clla.findLlaveautomaticaEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listlla.size(); i++) {
+                Columna[0] = listlla.get(i).getCodigo();
+                Columna[1] = listlla.get(i).getModelo();
+                Columna[2] = listlla.get(i).getMarca();
+                Columna[3] = listlla.get(i).getPreciopublico();
+                Columna[4] = listlla.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listlla.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+        } else if (this.cbxCodigoConsulta.getSelectedItem().equals("RJ-Reloj")) {
+            List<Reloj> listrej = Creloj.findRelojEntities();
+            DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+            modelo.setRowCount(0);
+            //Sección 2
+            Object[] Columna = new Object[6];
+            //Sección 3
+            for (int i = 0; i < listrej.size(); i++) {
+                Columna[0] = listrej.get(i).getCodigo();
+                Columna[1] = listrej.get(i).getModelo();
+                Columna[2] = listrej.get(i).getMarca();
+                Columna[3] = listrej.get(i).getPreciopublico();
+                Columna[4] = listrej.get(i).getCantidad();
+                modelo.addRow(Columna);
+            }
+            jTableConsultaProductoVenta.setModel(modelo);
+            if (listrej.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No existe Producto", "No se encuentra", JOptionPane.WARNING_MESSAGE);
             }
         }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbxCodigoConsulta;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonRegresar;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabelBusqInv;
     private javax.swing.JLabel jLabelBusqInv1;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTableConsultaProductoVenta;
     private javax.swing.JTextField jTextField15;
     // End of variables declaration//GEN-END:variables
 }
