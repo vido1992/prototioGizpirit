@@ -66,7 +66,8 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
     String CantidadTotal;
-    String CantidadImportacion;
+    String CantidadImportacion = "0";
+    String Código, Modelo, Marca, Longitud, Resolución, Tipo, AngulodeAbertura, Whatts, Tamaño, NumeroBotones, Gama, Sumergible, SistemaAndroid, Forma, PrecioImportación, PrecioPúblico, Cantidad, Estado, FechaImportacion;
 
     public StockActualizar() {
         initComponents();
@@ -86,7 +87,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jDateChooserFechaImportacion = new com.toedter.calendar.JDateChooser();
         jButtonRegresar = new javax.swing.JButton();
         jBotonRegistrar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -95,13 +96,13 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
-        jTextField33 = new javax.swing.JTextField();
-        jTextField32 = new javax.swing.JTextField();
-        jTextField26 = new javax.swing.JTextField();
+        txtTotalCantidad = new javax.swing.JTextField();
+        txtCantidadActual = new javax.swing.JTextField();
+        txtCantidadImportacion = new javax.swing.JTextField();
         cbxCodigoConsulta = new javax.swing.JComboBox<>();
         jButton6 = new javax.swing.JButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButtonInactivo = new javax.swing.JRadioButton();
+        jRadioButtonActivo = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         btnAyudaNombre = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -159,9 +160,9 @@ public class StockActualizar extends javax.swing.JInternalFrame {
 
         jLabel40.setText("Total cantidad:");
 
-        jTextField33.setEnabled(false);
+        txtTotalCantidad.setEnabled(false);
 
-        jTextField32.setEnabled(false);
+        txtCantidadActual.setEnabled(false);
 
         cbxCodigoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione un producto", "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
         cbxCodigoConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -177,19 +178,19 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Inactivo");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonInactivo);
+        jRadioButtonInactivo.setText("Inactivo");
+        jRadioButtonInactivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jRadioButtonInactivoActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Activo");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonActivo);
+        jRadioButtonActivo.setText("Activo");
+        jRadioButtonActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                jRadioButtonActivoActionPerformed(evt);
             }
         });
 
@@ -249,23 +250,23 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(73, 73, 73)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtTotalCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtCantidadActual, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtCantidadImportacion, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(18, 18, 18)
                                                         .addComponent(btnAyudaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(19, 19, 19)
-                                                .addComponent(jRadioButton1)
+                                                .addComponent(jRadioButtonActivo)
                                                 .addGap(48, 48, 48)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jButtonRegresar)
-                                                    .addComponent(jRadioButton2)))))
+                                                    .addComponent(jRadioButtonInactivo)))))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel8)
                                         .addGap(86, 86, 86)
-                                        .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addComponent(jDateChooserFechaImportacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(162, 162, 162)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -300,7 +301,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooserFechaImportacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel8)))
@@ -314,17 +315,17 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                         .addComponent(jLabel40))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCantidadImportacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAyudaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField32, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCantidadActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
-                        .addComponent(jTextField33, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtTotalCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(jRadioButtonActivo)
+                    .addComponent(jRadioButtonInactivo))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBotonRegistrar)
@@ -341,7 +342,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 631, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -353,14 +354,14 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jBotonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarActionPerformed
+        obtenerDatosTabla();
         try {
             String CodigoProducto = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0);
             if (CodigoProducto == null) {
                 JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
 
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
-
-                int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
                 CantidadTotal = String.valueOf(total);
 
                 ca.setCodigo((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0));
@@ -369,81 +370,286 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 ca.setLongitud((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3));
                 ca.setPrecioimportacion((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 14));
                 ca.setPreciopublico((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 15));
-                ca.setFechaimportacion(jDateChooser2.getDate().toString());
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                ca.setFechaimportacion(fecha2);
                 ca.setCantidad(CantidadTotal);
-                if (jRadioButton1.isSelected()) {
-                    ca.setEstado(jRadioButton1.getText());
+                if (jRadioButtonActivo.isSelected()) {
+                    ca.setEstado(jRadioButtonActivo.getText());
                 } else {
-                    ca.setEstado(jRadioButton2.getText());
+                    ca.setEstado(jRadioButtonInactivo.getText());
                 }
-                
+
                 Cca.edit(ca);
-                jTextField33.setText(CantidadTotal);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
 
                 JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("AU-Audifonos")) {
-                int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
                 CantidadTotal = String.valueOf(total);
-                au.setFechaimportacion(jDateChooser2.getDate().toString());
+                au.setCodigo(Código);
+                au.setModelo(Modelo);
+                au.setMarca(Marca);
+                au.setTipo(Tipo);
+                au.setPrecioimportacion(PrecioImportación);
+                au.setPreciopublico(PrecioPúblico);
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                au.setFechaimportacion(fecha2);
                 au.setCantidad(CantidadTotal);
-                if (jRadioButton2.isSelected()) {
-                    au.setEstado(jRadioButton1.getText());
+                if (jRadioButtonActivo.isSelected()) {
+                    au.setEstado(jRadioButtonActivo.getText());
                 } else {
-                    au.setEstado(jRadioButton2.getText());
+                    au.setEstado(jRadioButtonInactivo.getText());
                 }
                 Cau.edit(au);
-                jTextField33.setText(CantidadTotal);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
 
                 JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CM-Cámara")) {
-                int total = Integer.parseInt(jTextField26.getText()) + Integer.parseInt(jTextField32.getText());
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
                 CantidadTotal = String.valueOf(total);
-                cam.setFechaimportacion(jDateChooser2.getDate().toString());
+                cam.setCodigo(Código);
+                cam.setModelo(Modelo);
+                cam.setMarca(Marca);
+                cam.setResolucion(Resolución);
+                cam.setTipo(Tipo);
+                cam.setAnguloavertura(AngulodeAbertura);
+                cam.setPrecioimportacion(PrecioImportación);
+                cam.setPreciopublico(PrecioPúblico);
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                cam.setFechaimportacion(fecha2);
                 cam.setCantidad(CantidadTotal);
-                if (jRadioButton2.isSelected()) {
-                    cam.setEstado(jRadioButton1.getText());
+                if (jRadioButtonActivo.isSelected()) {
+                    cam.setEstado(jRadioButtonActivo.getText());
                 } else {
-                    cam.setEstado(jRadioButton2.getText());
+                    cam.setEstado(jRadioButtonInactivo.getText());
                 }
                 Ccam.edit(cam);
-                jTextField33.setText(CantidadTotal);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
 
                 JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("RJ-Reloj")) {
-                Creloj.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                r.setCodigo(Código);
+                r.setModelo(Modelo);
+                r.setMarca(Marca);
+                r.setGama(Gama);
+
+                r.setSumergible(Sumergible);
+
+                r.setSistemaandroid(SistemaAndroid);
+
+                r.setPrecioimportacion(PrecioImportación);
+                r.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                r.setFechaimportacion(fecha2);
+                r.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    r.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    r.setEstado(jRadioButtonInactivo.getText());
+                }
+                Creloj.edit(r);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CA-Cargador")) {
-                Ccar.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                car.setCodigo(Código);
+                car.setModelo(Modelo);
+                car.setMarca(Marca);
+                car.setWattscarga(Whatts);
+                car.setTipo(Tipo);
+                car.setPrecioimportacion(PrecioImportación);
+                car.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                car.setFechaimportacion(fecha2);
+                car.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    car.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    car.setEstado(jRadioButtonInactivo.getText());
+                }
+                Ccar.edit(car);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("IN-Interruptor")) {
-                Cin.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                in.setCodigo(Código);
+                in.setModelo(Modelo);
+                in.setMarca(Marca);
+                in.setNumerobotones(NumeroBotones);
+                in.setTipo(Tipo);
+                in.setPrecioimportacion(PrecioImportación);
+                in.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                in.setFechaimportacion(fecha2);
+                in.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    in.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    in.setEstado(jRadioButtonInactivo.getText());
+                }
+                Cin.edit(in);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("TO-Tomacorriente")) {
-                Cto.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                toma.setCodigo(Código);
+                toma.setModelo(Modelo);
+                toma.setMarca(Marca);
+                toma.setForma(Forma);
+                toma.setTipo(Tipo);
+                toma.setPrecioimportacion(PrecioImportación);
+                toma.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                toma.setFechaimportacion(fecha2);
+                toma.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    toma.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    toma.setEstado(jRadioButtonInactivo.getText());
+                }
+                Cto.edit(toma);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("SE-Sensor")) {
-                Cse.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                se.setCodigo(Código);
+                se.setModelo(Modelo);
+                se.setMarca(Marca);
+                se.setTipo(Tipo);
+                se.setPrecioimportacion(PrecioImportación);
+                se.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                se.setFechaimportacion(fecha2);
+                se.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    se.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    se.setEstado(jRadioButtonInactivo.getText());
+                }
+                Cse.edit(se);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CZ-ControladorVoz")) {
-                Ccv.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                cv.setCodigo(Código);
+                cv.setModelo(Modelo);
+                cv.setMarca(Marca);
+                cv.setTamaño(Tamaño);
+                cv.setPrecioimportacion(PrecioImportación);
+                cv.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                cv.setFechaimportacion(fecha2);
+                cv.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    cv.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    cv.setEstado(jRadioButtonInactivo.getText());
+                }
+                Ccv.edit(cv);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             } else if (this.cbxCodigoConsulta.getSelectedItem().equals("La-Llaves Automáticas")) {
-                Clla.destroy(CodigoProducto);
-                JOptionPane.showMessageDialog(null, "Producto Eliminado");
+                int total = Integer.parseInt(txtCantidadImportacion.getText()) + Integer.parseInt(txtCantidadActual.getText());
+                CantidadTotal = String.valueOf(total);
+                lla.setCodigo(Código);
+                lla.setModelo(Modelo);
+                lla.setMarca(Marca);
+                lla.setPrecioimportacion(PrecioImportación);
+                lla.setPreciopublico(PrecioPúblico);
+
+                Date fecha = jDateChooserFechaImportacion.getDate();
+                DateFormat f = new SimpleDateFormat("dd-MM-yyyy");
+                String fecha2 = f.format(fecha);
+                lla.setFechaimportacion(fecha2);
+                lla.setCantidad(CantidadTotal);
+                if (jRadioButtonActivo.isSelected()) {
+                    lla.setEstado(jRadioButtonActivo.getText());
+                } else {
+                    lla.setEstado(jRadioButtonInactivo.getText());
+                }
+                Clla.edit(lla);
+                txtTotalCantidad.setText(CantidadTotal);
+                txtCantidadImportacion.setText("0");
+                txtCantidadActual.setText(CantidadTotal);
+                CantidadTotal = "0";
+
+                JOptionPane.showMessageDialog(null, "Stock Actualizado");
                 cargarTabla();
             }
 
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ProductoEliminar.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
             Logger.getLogger(StockActualizar.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -455,13 +661,13 @@ public class StockActualizar extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxCodigoConsultaActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void jRadioButtonInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonInactivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_jRadioButtonInactivoActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void jRadioButtonActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonActivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonActivoActionPerformed
 
     private void btnAyudaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombreActionPerformed
         JOptionPane.showMessageDialog(this, "Debe Ingresar cantidad de enteros");
@@ -473,30 +679,54 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTableConsultaProductoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaProductoMouseClicked
-        // TODO add your handling code here:
 
-        if (CantidadImportacion == null) {
-            CantidadImportacion = "0";
+        // TODO add your handling code here:
+        String fecha = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 18);
+        if (fecha.equals("")) {
+            jDateChooserFechaImportacion.setDate(null);
         } else {
-            CantidadImportacion = jTextField26.getText();
+            jDateChooserFechaImportacion.setDate(ParseFecha(fecha));
         }
-        jDateChooser2.setDate(ParseFecha((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0)));
-        jTextField32.setText((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 16));
-        
+        txtCantidadActual.setText((String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 16));
         int Caim = Integer.parseInt(CantidadImportacion);
-        int Caac = Integer.parseInt(jTextField32.getText());
-        CantidadTotal=String.valueOf(Caim+Caac);
-        jTextField33.setText(CantidadTotal);
-        if(jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 17).toString().equals("Activo")){
-            jRadioButton1.setSelected(true);
-        
-        }else{
-            jRadioButton2.setSelected(true);
-        
+        int Caac = Integer.parseInt(txtCantidadActual.getText());
+        CantidadTotal = String.valueOf(Caim + Caac);
+        txtTotalCantidad.setText(CantidadTotal);
+        if (jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 17).toString().equals("Activo")) {
+            jRadioButtonActivo.setSelected(true);
+
+        } else {
+            jRadioButtonInactivo.setSelected(true);
+
         }
+
+
     }//GEN-LAST:event_jTableConsultaProductoMouseClicked
+    public void obtenerDatosTabla() {
+        Código = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 0);
+        Modelo = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 1);
+        Marca = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 2);
+        Longitud = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 3);
+        Resolución = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 4);
+        Tipo = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 5);
+        AngulodeAbertura = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 6);
+        Whatts = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 7);
+        Tamaño = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 8);
+        NumeroBotones = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 9);
+        Gama = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 10);
+        Sumergible = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 11);
+        SistemaAndroid = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 12);
+        Forma = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 13);
+        PrecioImportación = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 14);
+        PrecioPúblico = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 15);
+        Cantidad = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 16);
+        Estado = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 17);
+        FechaImportacion = (String) jTableConsultaProducto.getValueAt(jTableConsultaProducto.getSelectedRow(), 18);
+
+    }
+
     public static Date ParseFecha(String fecha) {
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
         Date fechaDate = null;
         try {
             fechaDate = formato.parse(fecha);
@@ -507,7 +737,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     }
 
     public void cargarTabla() {
-        if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto a eliminar")) {
+        if (this.cbxCodigoConsulta.getSelectedItem().equals("Selecione un producto")) {
             JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
         } else if (this.cbxCodigoConsulta.getSelectedItem().equals("CB-Cable")) {
             //Sección 1 
@@ -515,7 +745,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listC.size(); i++) {
                 Columna[0] = listC.get(i).getCodigo();
@@ -526,6 +756,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listC.get(i).getPreciopublico();
                 Columna[16] = listC.get(i).getCantidad();
                 Columna[17] = listC.get(i).getEstado();
+                Columna[18] = listC.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -539,7 +770,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listAu.size(); i++) {
                 Columna[0] = listAu.get(i).getCodigo();
@@ -550,6 +781,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listAu.get(i).getPreciopublico();
                 Columna[16] = listAu.get(i).getCantidad();
                 Columna[17] = listAu.get(i).getEstado();
+                Columna[18] = listAu.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -562,7 +794,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listcam.size(); i++) {
                 Columna[0] = listcam.get(i).getCodigo();
@@ -575,6 +807,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listcam.get(i).getPreciopublico();
                 Columna[16] = listcam.get(i).getCantidad();
                 Columna[17] = listcam.get(i).getEstado();
+                Columna[18] = listcam.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -587,7 +820,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listcar.size(); i++) {
                 Columna[0] = listcar.get(i).getCodigo();
@@ -599,6 +832,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listcar.get(i).getPreciopublico();
                 Columna[16] = listcar.get(i).getCantidad();
                 Columna[17] = listcar.get(i).getEstado();
+                Columna[18] = listcar.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -611,7 +845,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listint.size(); i++) {
                 Columna[0] = listint.get(i).getCodigo();
@@ -623,6 +857,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listint.get(i).getPreciopublico();
                 Columna[16] = listint.get(i).getCantidad();
                 Columna[17] = listint.get(i).getEstado();
+                Columna[18] = listint.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -635,7 +870,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listtom.size(); i++) {
                 Columna[0] = listtom.get(i).getCodigo();
@@ -647,6 +882,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listtom.get(i).getPreciopublico();
                 Columna[16] = listtom.get(i).getCantidad();
                 Columna[17] = listtom.get(i).getEstado();
+                Columna[18] = listtom.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -658,7 +894,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listsem.size(); i++) {
                 Columna[0] = listsem.get(i).getCodigo();
@@ -669,6 +905,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listsem.get(i).getPreciopublico();
                 Columna[16] = listsem.get(i).getCantidad();
                 Columna[17] = listsem.get(i).getEstado();
+                Columna[18] = listsem.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -680,7 +917,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listcv.size(); i++) {
                 Columna[0] = listcv.get(i).getCodigo();
@@ -691,6 +928,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listcv.get(i).getPreciopublico();
                 Columna[16] = listcv.get(i).getCantidad();
                 Columna[17] = listcv.get(i).getEstado();
+                Columna[18] = listcv.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -702,7 +940,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listlla.size(); i++) {
                 Columna[0] = listlla.get(i).getCodigo();
@@ -712,6 +950,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listlla.get(i).getPreciopublico();
                 Columna[16] = listlla.get(i).getCantidad();
                 Columna[17] = listlla.get(i).getEstado();
+                Columna[18] = listlla.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -723,7 +962,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
             DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
             modelo.setRowCount(0);
             //Sección 2
-            Object[] Columna = new Object[18];
+            Object[] Columna = new Object[19];
             //Sección 3
             for (int i = 0; i < listrej.size(); i++) {
                 Columna[0] = listrej.get(i).getCodigo();
@@ -736,6 +975,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
                 Columna[15] = listrej.get(i).getPreciopublico();
                 Columna[16] = listrej.get(i).getCantidad();
                 Columna[17] = listrej.get(i).getEstado();
+                Columna[18] = listrej.get(i).getFechaimportacion();
                 modelo.addRow(Columna);
             }
             jTableConsultaProducto.setModel(modelo);
@@ -753,7 +993,7 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBotonRegistrar;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButtonRegresar;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaImportacion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel36;
@@ -764,12 +1004,12 @@ public class StockActualizar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButtonActivo;
+    private javax.swing.JRadioButton jRadioButtonInactivo;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTableConsultaProducto;
-    private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField32;
-    private javax.swing.JTextField jTextField33;
+    private javax.swing.JTextField txtCantidadActual;
+    private javax.swing.JTextField txtCantidadImportacion;
+    private javax.swing.JTextField txtTotalCantidad;
     // End of variables declaration//GEN-END:variables
 }

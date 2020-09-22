@@ -61,6 +61,7 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     Llaveautomatica lla = new Llaveautomatica();
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
+    String CodigoProducto = "";
 
     public ProductoEliminar() {
         initComponents();
@@ -155,6 +156,11 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jTableProductoEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableProductoEliminarMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(jTableProductoEliminar);
@@ -255,11 +261,14 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
 
     private void jBotonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEliminarActionPerformed
         try {
-            String CodigoProducto = (String) jTableProductoEliminar.getValueAt(jTableProductoEliminar.getSelectedRow(), 0);
-            if (CodigoProducto == null) {
-                JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
+            
+           
+            if (this.cbxProductoEliminar.getSelectedItem().equals("Selecione un producto a eliminar")) {
+               JOptionPane.showMessageDialog(null, "Selecione un producto", "CAMPO No selecionado", JOptionPane.WARNING_MESSAGE);
 
-            } else if (this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")) {
+            } else if(CodigoProducto.equals("")){
+                  JOptionPane.showMessageDialog(null, "Selecione un producto de la tabla");
+            }else if (this.cbxProductoEliminar.getSelectedItem().equals("CB-Cable")) {
                 Cca.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
@@ -271,31 +280,31 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
                 Ccam.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("RJ-Reloj")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("RJ-Reloj")) {
                 Creloj.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("CA-Cargador")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("CA-Cargador")) {
                 Ccar.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("IN-Interruptor")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("IN-Interruptor")) {
                 Cin.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("TO-Tomacorriente")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("TO-Tomacorriente")) {
                 Cto.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("SE-Sensor")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("SE-Sensor")) {
                 Cse.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("CZ-ControladorVoz")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("CZ-ControladorVoz")) {
                 Ccv.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
-            }else if (this.cbxProductoEliminar.getSelectedItem().equals("La-Llaves Automáticas")) {
+            } else if (this.cbxProductoEliminar.getSelectedItem().equals("La-Llaves Automáticas")) {
                 Clla.destroy(CodigoProducto);
                 JOptionPane.showMessageDialog(null, "Producto Eliminado");
                 CargarTabla();
@@ -315,6 +324,11 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
         CargarTabla();
 
     }//GEN-LAST:event_jButtonBuscarActionPerformed
+
+    private void jTableProductoEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProductoEliminarMouseClicked
+        // TODO add your handling code here:
+         CodigoProducto = (String) jTableProductoEliminar.getValueAt(jTableProductoEliminar.getSelectedRow(), 0);
+    }//GEN-LAST:event_jTableProductoEliminarMouseClicked
     public void CargarTabla() {
 
         if (this.cbxProductoEliminar.getSelectedItem().equals("Selecione un producto a eliminar")) {

@@ -5,7 +5,6 @@
  */
 package Inicio;
 
-
 import Cliente.ConsultaCliente;
 import Cliente.ActualizarCliente;
 import Cliente.Registro_Cliente;
@@ -41,70 +40,65 @@ import javax.swing.JOptionPane;
 
 public class Menu extends javax.swing.JFrame {
 
-
 //Inventario
-StockActualizar SA =new StockActualizar();
-StockConsulta SC = new StockConsulta();
+    StockActualizar SA = new StockActualizar();
+    StockConsulta SC = new StockConsulta();
 
 //Producto
-ProductoConsultar PC=new ProductoConsultar();
-ProductoEliminar PE =new ProductoEliminar();
+    ProductoConsultar PC = new ProductoConsultar();
+    ProductoEliminar PE = new ProductoEliminar();
 
 //vendedor factura
-VentaRegistro VR1= new VentaRegistro();
-VentaConsulta VC1= new VentaConsulta();
-AgregarProducto IC1=new AgregarProducto();
+    VentaRegistro VR1 = new VentaRegistro();
+    VentaConsulta VC1 = new VentaConsulta();
+    AgregarProducto IC1 = new AgregarProducto();
 
 //clientes
-Registro_Cliente RC1=new Registro_Cliente();
-ActualizarCliente AC=new ActualizarCliente();
-ConsultaCliente CC=new ConsultaCliente();
-EliminarCliente EC=new EliminarCliente();
+    Registro_Cliente RC1 = new Registro_Cliente();
+    ActualizarCliente AC = new ActualizarCliente();
+    ConsultaCliente CC = new ConsultaCliente();
+    EliminarCliente EC = new EliminarCliente();
 
 //Productos registrar
-Audifonos_R A= new Audifonos_R();
-Cable_R CA= new Cable_R();
-Camara_Seguridad CS = new Camara_Seguridad();
-Cargador_R CG = new Cargador_R();
-Controlador_Voz CV = new Controlador_Voz();
-Interruptor_R I = new Interruptor_R();
-Llave_Automatica LA = new Llave_Automatica();
-Reloj_R R = new Reloj_R();
-Sensor_R S= new Sensor_R();
-Tomacorriente_R TC = new Tomacorriente_R();
-
-
-
+    Audifonos_R A = new Audifonos_R();
+    Cable_R CA = new Cable_R();
+    Camara_Seguridad CS = new Camara_Seguridad();
+    Cargador_R CG = new Cargador_R();
+    Controlador_Voz CV = new Controlador_Voz();
+    Interruptor_R I = new Interruptor_R();
+    Llave_Automatica LA = new Llave_Automatica();
+    Reloj_R R = new Reloj_R();
+    Sensor_R S = new Sensor_R();
+    Tomacorriente_R TC = new Tomacorriente_R();
 
 //PRODUCTO actualizar
-A_Audifonos AAU = new A_Audifonos();
-A_Cable ACA = new A_Cable();
-A_Camara_Seguridad ACS = new A_Camara_Seguridad();
-A_Cargador ACR = new A_Cargador();
-A_Controlador_Voz ACV = new A_Controlador_Voz();
-A_Interruptor AI = new A_Interruptor();
-A_Llave_Automatica AL = new A_Llave_Automatica();
-A_Reloj AR = new A_Reloj();
-A_Tomacorriente AT = new A_Tomacorriente();
-A_Sensor AS = new A_Sensor();
+    A_Audifonos AAU = new A_Audifonos();
+    A_Cable ACA = new A_Cable();
+    A_Camara_Seguridad ACS = new A_Camara_Seguridad();
+    A_Cargador ACR = new A_Cargador();
+    A_Controlador_Voz ACV = new A_Controlador_Voz();
+    A_Interruptor AI = new A_Interruptor();
+    A_Llave_Automatica AL = new A_Llave_Automatica();
+    A_Reloj AR = new A_Reloj();
+    A_Tomacorriente AT = new A_Tomacorriente();
+    A_Sensor AS = new A_Sensor();
 
 //EMPLEADO
-ActualizarEmpleado AE= new ActualizarEmpleado();
-ConsultarEmpleado CE= new ConsultarEmpleado();
-RegistroEmpleado RE= new RegistroEmpleado();
-EliminarEmpleado EE =new EliminarEmpleado();
+    ActualizarEmpleado AE = new ActualizarEmpleado();
+    ConsultarEmpleado CE = new ConsultarEmpleado();
+    RegistroEmpleado RE = new RegistroEmpleado();
+    EliminarEmpleado EE = new EliminarEmpleado();
 
-/**
+    /**
      * Creates new form Menú
      */
     public Menu() {
         initComponents();
-         this.setTitle("SiGIn-GIZPIRIT");   
+        this.setTitle("SiGIn-GIZPIRIT");
         this.setLocationRelativeTo(null);
-        
+
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -657,121 +651,119 @@ EliminarEmpleado EE =new EliminarEmpleado();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ClienteActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteActualizarActionPerformed
- escritorio.add(AC);
+        escritorio.add(AC);
         AC.show();
-          try {
-        AC.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-               
+        try {
+            AC.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_ClienteActualizarActionPerformed
 
     private void ClienteConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteConsultarActionPerformed
- escritorio.add(CC);
-        CC.show();  
-          try {
-        CC.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
-        
-       
+        escritorio.add(CC);
+        CC.show();
+        try {
+            CC.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_ClienteConsultarActionPerformed
 
     private void EmpleadoRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoRegistrarActionPerformed
-       
-        
+
         escritorio.add(RE);
         RE.show();
-          try {
-        RE.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-       
-   
+        try {
+            RE.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_EmpleadoRegistrarActionPerformed
 
     private void EmpleadoConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoConsultarActionPerformed
 
         escritorio.add(CE);
         CE.show();
-          try {
-        CE.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-       
+        try {
+            CE.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EmpleadoConsultarActionPerformed
 
     private void InvantarioConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvantarioConsultarActionPerformed
 
-        
         escritorio.add(SC);
         SC.show();
-          try {
-        IC1.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-       
- 
+        try {
+            SC.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_InvantarioConsultarActionPerformed
-   
+
     private void VentaFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaFacturaActionPerformed
 
         escritorio.add(VR1);
         VR1.show();
-         try {
-        VR1.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
+        try {
+            VR1.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_VentaFacturaActionPerformed
 
     private void VentaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VentaConsultarActionPerformed
-        
+
         escritorio.add(VC1);
         VC1.show();
-    try {
-        VC1.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
+        try {
+            VC1.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_VentaConsultarActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
-         if(JOptionPane.showConfirmDialog(null,"¿Está seguro?")==0){
-            System.exit(0);}
+        if (JOptionPane.showConfirmDialog(null, "¿Está seguro?") == 0) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_formWindowClosing
 
     private void EmpleadoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoActualizarActionPerformed
 
         escritorio.add(AE);
         AE.show();
-          try {
-        AE.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-       
+        try {
+            AE.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_EmpleadoActualizarActionPerformed
 
     private void ClienteRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClienteRegistrarActionPerformed
         // TODO add your handling code here:
         escritorio.add(RC1);
         RC1.show();
-          try {
-        RC1.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-       
+        try {
+            RC1.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_ClienteRegistrarActionPerformed
 
     private void AdministracionUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdministracionUsuarioActionPerformed
@@ -783,14 +775,13 @@ EliminarEmpleado EE =new EliminarEmpleado();
     }//GEN-LAST:event_AdministracionAuditoriaActionPerformed
 
     private void InvantarioActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvantarioActualizarActionPerformed
-escritorio.add(SA);
+        escritorio.add(SA);
         SA.show();
-          try {
-        SA.setMaximum(true);
-    } catch (PropertyVetoException ex) {
-        Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        
+        try {
+            SA.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
     }//GEN-LAST:event_InvantarioActualizarActionPerformed
@@ -913,7 +904,7 @@ escritorio.add(SA);
 
     private void jMenuItem36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem36ActionPerformed
         // TODO add your handling code here:
-         escritorio.add(AT);
+        escritorio.add(AT);
         AT.show();
         try {
             AT.setMaximum(true);
@@ -935,7 +926,7 @@ escritorio.add(SA);
 
     private void jMenuItem34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem34ActionPerformed
         // TODO add your handling code here:
-           escritorio.add(AS);
+        escritorio.add(AS);
         AS.show();
         try {
             AS.setMaximum(true);
@@ -946,7 +937,7 @@ escritorio.add(SA);
 
     private void jMenuItem33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem33ActionPerformed
         // TODO add your handling code here:
-          escritorio.add(ACV);
+        escritorio.add(ACV);
         ACV.show();
         try {
             ACV.setMaximum(true);
@@ -957,7 +948,7 @@ escritorio.add(SA);
 
     private void jMenuItem37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem37ActionPerformed
         // TODO add your handling code here:
-         escritorio.add(AL);
+        escritorio.add(AL);
         AL.show();
         try {
             AL.setMaximum(true);
@@ -968,7 +959,7 @@ escritorio.add(SA);
 
     private void jMenuItem29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem29ActionPerformed
         // TODO add your handling code here:
-         escritorio.add(AR);
+        escritorio.add(AR);
         AR.show();
         try {
             AR.setMaximum(true);
@@ -979,7 +970,7 @@ escritorio.add(SA);
 
     private void jMenuItem31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem31ActionPerformed
         // TODO add your handling code here:
-         escritorio.add(ACA);
+        escritorio.add(ACA);
         ACA.show();
         try {
             ACA.setMaximum(true);
@@ -990,7 +981,7 @@ escritorio.add(SA);
 
     private void jMenuItem32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem32ActionPerformed
         // TODO add your handling code here:
-         escritorio.add(ACS);
+        escritorio.add(ACS);
         ACS.show();
         try {
             ACS.setMaximum(true);
@@ -1001,7 +992,7 @@ escritorio.add(SA);
 
     private void jMenuItem30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem30ActionPerformed
         // TODO add your handling code here:
-          escritorio.add(ACR);
+        escritorio.add(ACR);
         ACR.show();
         try {
             ACR.setMaximum(true);
@@ -1012,7 +1003,7 @@ escritorio.add(SA);
 
     private void ProductoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoEliminarActionPerformed
         // TODO add your handling code here:
-          escritorio.add(PE);
+        escritorio.add(PE);
         PE.show();
         try {
             PE.setMaximum(true);
@@ -1030,11 +1021,11 @@ escritorio.add(SA);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_ClienteEliminarActionPerformed
 
     private void EmpleadoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpleadoEliminarActionPerformed
-       escritorio.add(EE);
+        escritorio.add(EE);
         EE.show();
         try {
             EE.setMaximum(true);
@@ -1086,7 +1077,7 @@ escritorio.add(SA);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
-                
+
             }
         });
     }

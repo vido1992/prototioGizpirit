@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/AdministracionSistema/AdministradorUsuario.java</file>
+            <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/Empleado/RegistroEmpleado.java</file>
             <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/AdministracionSistema/AdministradorParametro.java</file>
             <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/validaciones/Validar.java</file>
-            <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/AdministracionSistema/Auditoria.java</file>
+            <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/Entidades/Audifonos.java</file>
+            <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/Cliente/Registro_Cliente.java</file>
             <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/Inicio/Login.java</file>
+            <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/Admini/OneDrive%20-%20Escuela%20Politécnica%20Nacional/Quinto%20Semestre/FUNDAMENTOS%20DE%20INGENIERIA%20DE%20SOFTWARE%20GR1COM_2020-1/Proyecto/prototioGizpirit/src/Controladores/AudifonosJpaController.java</file>
         </group>
     </open-files>
 </project-private>

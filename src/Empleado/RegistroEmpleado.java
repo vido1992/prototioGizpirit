@@ -378,11 +378,11 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     emp.setEmail(Correo);
                     emp.setEstado("Activo");
                     if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Vendedor")) {
-                    //    emp.setContraseña("123");
+                        emp.setContraseña("123");
                     } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Administrador")) {
-                      //  emp.setContraseña("1234");
+                        emp.setContraseña("1234");
                     } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Bodeguero")) {
-                      //  emp.setContraseña("123");
+                        emp.setContraseña("123");
                     }
                     Cemp.create(emp);
                     JOptionPane.showMessageDialog(null, "Empleado Registrado");
