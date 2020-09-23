@@ -348,6 +348,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtCIActualizarEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se actualizará empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -443,7 +444,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el correo electrónico del cliente?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtCorreoActualizarEmpleado.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -453,7 +454,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la Dirección de Domicilio del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtDicDomicActualizarEmpleado.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             
@@ -465,7 +466,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono celular del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtTelCelActualizarEmpleado.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                     
@@ -477,7 +478,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono convencional del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtTelConvenActualizarEmpleado.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -489,7 +490,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                     int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el sueldo inicial del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtSueldoActualizarEmpleado.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                

@@ -228,6 +228,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtCIEliminarCliente.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se eliminara cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -237,7 +238,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
             
         }
         if(esta){
-        JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        //JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

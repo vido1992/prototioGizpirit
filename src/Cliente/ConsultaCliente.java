@@ -298,6 +298,7 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtCIConsultaCliente.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se obtiene búsqueda", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                

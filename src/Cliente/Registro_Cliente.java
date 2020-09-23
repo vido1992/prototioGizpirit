@@ -314,7 +314,9 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.CCCRegistro.setText(""); 
                     }else {
-                            dispose(); 
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
+                        dispose(); 
+                            
                     }
                
             }
@@ -329,7 +331,8 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.NombreClienteRegistro.setText(""); 
                     }else {
-                            dispose(); 
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);        
+                        dispose(); 
                     }
             
             }
@@ -343,6 +346,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.ApellidosClienteRegistro.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -356,6 +360,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.DireccionClienteRegistro.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -368,6 +373,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.CorreoElectronico.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -380,6 +386,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.TelefonoClienteRegistro.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -392,6 +399,7 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.telefonoConvencional.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }

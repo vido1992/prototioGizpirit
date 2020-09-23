@@ -318,6 +318,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.CIRegistroEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -332,6 +333,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.nombreRegistroEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -346,6 +348,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.ApellidosEmpleadoRegistro.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -360,6 +363,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.DireccionClienteEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -373,6 +377,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.CorreoElectronicoRegistroEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -386,6 +391,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.telefonocelularEmpleadoRegistro.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -399,6 +405,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.telefonoConvencionaEmpleadoRegistro.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
@@ -412,6 +419,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.sueldoRegistroEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena Empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                

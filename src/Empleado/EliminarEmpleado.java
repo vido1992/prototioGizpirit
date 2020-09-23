@@ -223,6 +223,7 @@ public class EliminarEmpleado extends javax.swing.JInternalFrame {
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtCIEliminarEmpleado.setText(""); 
                     }else {
+                        JOptionPane.showMessageDialog(null, "No se eliminara empleado", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                

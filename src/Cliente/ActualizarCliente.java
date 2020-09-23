@@ -418,7 +418,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el correo electrónico del cliente?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtCorreoActualizarCliente.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -428,7 +428,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la Dirección de Domicilio del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtDireccionDomicilioActualizarCliente.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             
@@ -440,7 +440,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono celular del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtTelefonoCeluActualizarCliente.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                     
@@ -452,7 +452,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
             int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono convencional del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtTelefonoConvencionalActualizarCliente.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
             }
@@ -479,7 +479,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                         cAct.setEstado(txtActualizarClienteInactivo.getText());
                     }
                     Ccliente.edit(cAct);
-                    JOptionPane.showMessageDialog(null, "Empleado Actualizado");
+                    JOptionPane.showMessageDialog(null, "Cliente Actualizado");
                 } catch (Exception ex) {
                     Logger.getLogger(ActualizarCliente.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -524,7 +524,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                     int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
                     if(dialogButton == JOptionPane.YES_OPTION) {
                     this.txtactualizarClienteCi.setText(""); 
-                    }else {
+                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
                             dispose(); 
                     }
                
