@@ -65,6 +65,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     A_Audifonos AA= new A_Audifonos();
     A_Cable AC = new A_Cable();
     A_Reloj AR = new A_Reloj();
+    boolean selc = true;
     public AgregarProducto() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT");
@@ -144,6 +145,11 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
                 "Código", "Modelo", "Marca", "Precio", "Cantidad"
             }
         ));
+        jTableConsultaProductoVenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableConsultaProductoVentaMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTableConsultaProductoVenta);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -215,13 +221,17 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
+        System.out.println(this.selc);
         if (cbxCodigoConsulta.getSelectedIndex() == 0) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SELECION PRODUCTO VACÍO", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "CAMPO SELECIONe PRODUCTO VACÍO", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
 
         } else if (jTextField15.getText().equals("")) {
 
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CANTIDAD PEDIDO VACÍO", JOptionPane.WARNING_MESSAGE);
-        } else {
+            JOptionPane.showMessageDialog(null, "CAMPO CANTIDAD PEDIDO VACÍO", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
+        } else if(this.selc){
+        JOptionPane.showMessageDialog(null, "Seleccione un Prodcuto", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
+        
+        }else {
 
             llenarTablaProductoVenta();
            
@@ -229,6 +239,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         }
 
         dispose();
+        this.selc= true;
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -236,6 +247,12 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         CargarTable();
 
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTableConsultaProductoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaProductoVentaMouseClicked
+        // TODO add your handling code here:
+        this.selc= false;
+        
+    }//GEN-LAST:event_jTableConsultaProductoVentaMouseClicked
     public void llenarTablaProductoVenta() {
 
         String Codigo = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 0);

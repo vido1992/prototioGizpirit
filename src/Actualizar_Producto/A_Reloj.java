@@ -304,10 +304,15 @@ public class A_Reloj extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
+          boolean pasa = true;
         try {
+          
             if (jTextFieldModelo1.getText().isEmpty() || jTextFieldModelo.getText().isEmpty() || jTextFieldMarca.getText().isEmpty() || jTextFieldPrecioImpo.getText().isEmpty() || jTextFieldPrecioPubl.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "ingrese todos los campos", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
-            } else {
+                pasa = false;
+            } else if (pasa){
+                int i;
+                
                 val.ValidarTextoCodigo(jTextFieldModelo1);
                 val.ValidarTextoModelo(jTextFieldModelo);
                 val.ValidarTextoMarca(jTextFieldMarca);
@@ -320,8 +325,10 @@ public class A_Reloj extends javax.swing.JInternalFrame {
                 val.ValidarRadioButomSum(jRadioButtonNoSumer);*/
                 val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
                 val.ValidarPrecioPublico(jTextFieldPrecioPubl);
+                
+                pasa = true;
 
-            }
+            }else if(pasa){
             r.setCodigo(jTextFieldModelo1.getText());
             r.setModelo(jTextFieldModelo.getText());
             r.setMarca(jTextFieldMarca.getText());
@@ -346,6 +353,7 @@ public class A_Reloj extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null, "Producto Reloj Actualizado\n Correctamente");
             cargartabla();
+            }
         } catch (Exception ex) {
             Logger.getLogger(Reloj_R.class.getName()).log(Level.SEVERE, null, ex);
         }
