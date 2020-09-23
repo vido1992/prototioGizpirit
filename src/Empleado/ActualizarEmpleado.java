@@ -60,7 +60,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         txtSueldoActualizarEmpleado = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtEstadoActualizarEmpleado = new javax.swing.JComboBox();
+        cbsxstadoActualizarEmpleado = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -117,7 +117,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Estado");
 
-        txtEstadoActualizarEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Activo", "Inactivo" }));
+        cbsxstadoActualizarEmpleado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Activo", "Inactivo" }));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -203,7 +203,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtEstadoActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbsxstadoActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(txtTelCelActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(txtCorreoActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -289,7 +289,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtEstadoActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbsxstadoActualizarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -312,7 +312,15 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        List<Empleado> listemp = Cemp.findEmpleadoEntities();
+        
+        
+        if (this.txtCIActualizarEmpleado.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);    
+        }else  {
+             
+              if (validar.validarCI(this.txtCIActualizarEmpleado.getText().toString())) {
+                         
+                  List<Empleado> listemp = Cemp.findEmpleadoEntities();
         for (int i = 0; i < listemp.size(); i++) {
             if (txtCIActualizarEmpleado.getText().equals(listemp.get(i).getCedula())) {
 
@@ -325,13 +333,76 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                 cbRolEmpleadoRegistro.setSelectedItem(listemp.get(i).getRolempleado());
                 txtSueldoActualizarEmpleado.setText(listemp.get(i).getSueldo());
                 if (listemp.get(i).getEstado().equals("Activo")) {
-                    txtEstadoActualizarEmpleado.setSelectedIndex(0);
+                    cbsxstadoActualizarEmpleado.setSelectedIndex(0);
                 } else {
-                    txtEstadoActualizarEmpleado.setSelectedIndex(1);
+                    cbsxstadoActualizarEmpleado.setSelectedIndex(1);
                 }
 
             }
-        }
+        } /// fin for
+                  
+                  
+                  
+            } else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCIActualizarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
+            }           
+            
+             
+        
+        
+          
+        
+        
+         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
@@ -342,19 +413,19 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
         int i = 0;
 
         if (this.txtDicDomicActualizarEmpleado.getText().equals("")) {
-            i++;
+            
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtTelCelActualizarEmpleado.getText().equals("")) {
-            i++;
+          
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CELULAR VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtTelConvenActualizarEmpleado.getText().equals("")) {
-            i++;
+            
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtSueldoActualizarEmpleado.getText().equals("")) {
-            i++;
+           
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO SUELDO INICIAL VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtCorreoActualizarEmpleado.getText().equals("")) {
-            i++;
+            
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (this.cbRolEmpleadoRegistro.getSelectedItem().toString() != "Selección") {
             i++;
@@ -365,8 +436,82 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
 
         }
  
+        if (validar.validarCorreo(txtCorreoActualizarEmpleado.getText())) {
+                i++;
+            }else{
+            
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el correo electrónico del cliente?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCorreoActualizarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+            }
+            if (validar.validarDireccion(txtDicDomicActualizarEmpleado.getText())) {
+                i++;
+            }else{
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la Dirección de Domicilio del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtDicDomicActualizarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+            
+            
+            }
+            if (validar.validarTelefonoC(txtTelCelActualizarEmpleado.getText())) {
+                i++;
+            }else{
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono celular del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtTelCelActualizarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+                    
+            }
+            if (validar.validarTelefonoConvencional(this.txtTelConvenActualizarEmpleado.getText())) {
+                i++;
+            }else{
+            
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono convencional del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtTelConvenActualizarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+            }
+            if (validar.validarSueldo(this.txtSueldoActualizarEmpleado.getText().toString())) {
+                i++;
+                this.sueldo = this.txtSueldoActualizarEmpleado.getText();
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el sueldo inicial del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtSueldoActualizarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
+            }
+            
+           
+         if (this.cbsxstadoActualizarEmpleado.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+                // System.out.println(this.TelefonoClienteRegistro.getText());
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar el estado de Empleado");
+            }
+        
+        
+        
+        
+        
+        
+        
 
-        if (i == 1) {
+        if (i == 7) {
 
             try {
                 Empleado emp = new Empleado();
@@ -379,7 +524,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
                 emp.setRolempleado(cbRolEmpleadoRegistro.getSelectedItem().toString());
                 emp.setSueldo(txtSueldoActualizarEmpleado.getText());
                 emp.setEmail(txtCorreoActualizarEmpleado.getText());
-                emp.setEstado((String) txtEstadoActualizarEmpleado.getSelectedItem());
+                emp.setEstado((String) cbsxstadoActualizarEmpleado.getSelectedItem());
                 if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Vendedor")) {
                     emp.setContraseña("123");
                 } else if (cbRolEmpleadoRegistro.getSelectedItem().toString().equals("Administrador")) {
@@ -409,6 +554,7 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnAyudaApellido1;
     private javax.swing.JButton btnAyudaSueldo2;
     private javax.swing.JComboBox cbRolEmpleadoRegistro;
+    private javax.swing.JComboBox cbsxstadoActualizarEmpleado;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonRegresar;
@@ -430,7 +576,6 @@ public class ActualizarEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCIActualizarEmpleado;
     private javax.swing.JTextField txtCorreoActualizarEmpleado;
     private javax.swing.JTextField txtDicDomicActualizarEmpleado;
-    private javax.swing.JComboBox txtEstadoActualizarEmpleado;
     private java.awt.TextField txtNombreActualizarEmpleado;
     private javax.swing.JTextField txtSueldoActualizarEmpleado;
     private javax.swing.JTextField txtTelCelActualizarEmpleado;

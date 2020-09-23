@@ -313,44 +313,108 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                 i++;
                 this.CC = this.CIRegistroEmpleado.getText().toString();
                 //System.out.println("cc: "+this.CCCRegistro.getText().toString() );
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.CIRegistroEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (validar.validarTex(this.nombreRegistroEmpleado.getText().toString())) {
                 i++;
                 this.Nombre = this.nombreRegistroEmpleado.getText().toString();
                 //System.out.println(this.NombreClienteRegistro.getText().toString());
 
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar los nombres del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.nombreRegistroEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
 
             if (validar.validarTex(this.ApellidosEmpleadoRegistro.getText().toString())) {
                 i++;
                 this.Apellido = this.ApellidosEmpleadoRegistro.getText().toString();
                 //System.out.println(this.ApellidosClienteRegistro.getText().toString());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar los apellidos del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.ApellidosEmpleadoRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
 
             if (validar.validarDireccion(this.DireccionClienteEmpleado.getText().toString())) {
                 i++;
                 this.Direccion = this.DireccionClienteEmpleado.getText().toString();
                 // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la Dirección de Domicilio del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.DireccionClienteEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (validar.validarCorreo(this.CorreoElectronicoRegistroEmpleado.getText().toString())) {
                 i++;
                 this.Correo = this.CorreoElectronicoRegistroEmpleado.getText().toString();
                 //System.out.println(this.CorreoElectronico.getText().toString());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el correo electrónico del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.CorreoElectronicoRegistroEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (validar.validarTelefonoC(this.telefonocelularEmpleadoRegistro.getText().toString())) {
                 i++;
                 this.TelefonoCelular = this.telefonocelularEmpleadoRegistro.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono celular del empleado ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.telefonocelularEmpleadoRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (validar.validarTelefonoConvencional(this.telefonoConvencionaEmpleadoRegistro.getText().toString())) {
                 i++;
                 this.telefonoConvencional = this.telefonoConvencionaEmpleadoRegistro.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar  el teléfono convencional del empleado ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.telefonoConvencionaEmpleadoRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (validar.validarSueldo(this.sueldoRegistroEmpleado.getText().toString())) {
                 i++;
                 this.sueldo = this.sueldoRegistroEmpleado.getText();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el sueldo inicial del empleado?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.sueldoRegistroEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (this.cbRolEmpleadoRegistro.getSelectedItem().toString() != "Selección") {
                 i++;

@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import validaciones.Validar;
 
 /**
  *
@@ -25,7 +26,7 @@ public class EliminarEmpleado extends javax.swing.JInternalFrame {
      * Creates new form EliminarEmpleado
      */
     EmpleadoJpaController EM = new EmpleadoJpaController();
-    
+        Validar validar = new Validar();
     public EliminarEmpleado() {
         initComponents();
     }
@@ -196,6 +197,9 @@ public class EliminarEmpleado extends javax.swing.JInternalFrame {
         if (this.txtCIEliminarEmpleado.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
         } else {
+            if (validar.validarCI(this.txtCIEliminarEmpleado.getText().toString())) {
+            
+
             //Sección 1
             DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
             //Sección 2
@@ -213,7 +217,24 @@ public class EliminarEmpleado extends javax.swing.JInternalFrame {
                 }
             }
             jTable3.setModel(modelo);
-        }
+            
+        }else{
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCIEliminarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
+            }           
+                
+            
+        }//fin else 
+        
+        
+        
+        
+        
         if(esta){
             JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
         }

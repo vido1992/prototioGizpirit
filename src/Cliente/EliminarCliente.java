@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import validaciones.Validar;
 
 /**
  *
@@ -24,7 +25,7 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
      * Creates new form EliminarCliente
      */
     ClienteJpaController Ccliente = new ClienteJpaController();
-
+  Validar validar = new Validar();
     public EliminarCliente() {
         initComponents();
     }
@@ -170,16 +171,15 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addGap(0, 48, Short.MAX_VALUE))
         );
 
         pack();
@@ -190,11 +190,21 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        
+        
+        
+        
         List<Cliente> listC = Ccliente.findClienteEntities();
-        boolean esta=true;
+        boolean esta=false;
+        
+        
         if (this.txtCIEliminarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
         } else {
+            
+            if (validar.validarCI(this.txtCIEliminarCliente.getText().toString())) {
+            
             //Sección 1 
             DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
             //Sección 2
@@ -208,10 +218,23 @@ public class EliminarCliente extends javax.swing.JInternalFrame {
                     Columna[2] = listC.get(i).getCedula();
                     Columna[3] = listC.get(i).getEstado();
                     modelo.addRow(Columna);
-                    esta=false;
+                    esta=true;
                 }
             }
             jTable3.setModel(modelo);
+            
+        }else{
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCIEliminarCliente.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
+            }
+            
+            
+            
         }
         if(esta){
         JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);

@@ -398,7 +398,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int i = 0;
-        if (this.txtactualizarClienteCi.getText().equals("")) {
+       if (this.txtactualizarClienteCi.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (txtCorreoActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO", JOptionPane.WARNING_MESSAGE);
@@ -409,17 +409,52 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         } else if (this.txtTelefonoConvencionalActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL", JOptionPane.WARNING_MESSAGE);
         } else {
+              
+            
             if (validar.validarCorreo(txtCorreoActualizarCliente.getText())) {
                 i++;
+            }else{
+            
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el correo electrónico del cliente?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCorreoActualizarCliente.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
             if (validar.validarDireccion(txtDireccionDomicilioActualizarCliente.getText())) {
                 i++;
+            }else{
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la Dirección de Domicilio del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtDireccionDomicilioActualizarCliente.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+            
+            
             }
             if (validar.validarTelefonoC(txtTelefonoCeluActualizarCliente.getText())) {
                 i++;
+            }else{
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono celular del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtTelefonoCeluActualizarCliente.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+                    
             }
             if (validar.validarTelefonoConvencional(this.txtTelefonoConvencionalActualizarCliente.getText())) {
                 i++;
+            }else{
+            
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono convencional del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtTelefonoConvencionalActualizarCliente.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
             if (this.txtActualizarClienteActivo.isSelected() == true) {
                 i++;
@@ -427,6 +462,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                 i++;
             } else {
                 JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO ESTADO CLIENTE ", JOptionPane.WARNING_MESSAGE);
+                
             }
             if (i == 5) {
                 try {
@@ -456,28 +492,52 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         List<Cliente> listC = Ccliente.findClienteEntities();
-        for (int i = 0; i < listC.size(); i++) {
-            if (txtactualizarClienteCi.getText().equals(listC.get(i).getCedula())) {
-                CIActualizarCliente.setText(listC.get(i).getCedula());
-                nombreActualizarCliente.setText(listC.get(i).getNombres());
-                ApellidosActualizarCliente.setText(listC.get(i).getApellidos());
-                txtCorreoActualizarCliente.setText(listC.get(i).getEmail());
-                txtDireccionDomicilioActualizarCliente.setText(listC.get(i).getDireciondomicilio());
-                txtTelefonoCeluActualizarCliente.setText(listC.get(i).getTelefonocelular());
-                txtTelefonoConvencionalActualizarCliente.setText(listC.get(i).getTelefonoconvencional());
-                if(listC.get(i).getEstado().equals(null)){
-                    txtActualizarClienteActivo.setSelected(false);
-                    txtActualizarClienteInactivo.setSelected(false);
-                }else if (listC.get(i).getEstado().equals("Activo")) {
-                    txtActualizarClienteActivo.setSelected(true);
-                } else if (listC.get(i).getEstado().equals("Inactivo")) {
-                    txtActualizarClienteInactivo.setSelected(true);
-                }
-                
-            }
+       
+        
+         if (this.txtactualizarClienteCi.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);    
+        }else  {
+             
+              if (validar.validarCI(this.txtactualizarClienteCi.getText().toString())) {
+                         for (int i = 0; i < listC.size(); i++) {
+                        if (txtactualizarClienteCi.getText().equals(listC.get(i).getCedula())) {
+                            CIActualizarCliente.setText(listC.get(i).getCedula());
+                            nombreActualizarCliente.setText(listC.get(i).getNombres());
+                            ApellidosActualizarCliente.setText(listC.get(i).getApellidos());
+                            txtCorreoActualizarCliente.setText(listC.get(i).getEmail());
+                            txtDireccionDomicilioActualizarCliente.setText(listC.get(i).getDireciondomicilio());
+                            txtTelefonoCeluActualizarCliente.setText(listC.get(i).getTelefonocelular());
+                            txtTelefonoConvencionalActualizarCliente.setText(listC.get(i).getTelefonoconvencional());
+                            if(listC.get(i).getEstado().equals(null)){
+                                txtActualizarClienteActivo.setSelected(false);
+                                txtActualizarClienteInactivo.setSelected(false);
+                            }else if (listC.get(i).getEstado().equals("Activo")) {
+                                txtActualizarClienteActivo.setSelected(true);
+                            } else if (listC.get(i).getEstado().equals("Inactivo")) {
+                                txtActualizarClienteInactivo.setSelected(true);
+                            }
+
+                        }
+
+                    }
+            } else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtactualizarClienteCi.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
+            }           
             
-        }
-        // TODO add your handling code here:
+             
+        
+        
+          
+        
+        
+         }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed

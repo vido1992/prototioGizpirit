@@ -9,6 +9,7 @@ import Controladores.EmpleadoJpaController;
 import Entidades.Empleado;
 import java.util.List;
 import javax.swing.JOptionPane;
+import validaciones.Validar;
 
 /**
  *
@@ -19,6 +20,7 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
     /**
      * Creates new form ConsultarEmpleado
      */
+    Validar validar = new Validar();
     EmpleadoJpaController Cemp = new EmpleadoJpaController();
     public ConsultarEmpleado() {
         initComponents();
@@ -337,6 +339,10 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
         }else{
            
+             if (validar.validarCI(this.txtCIConsultarEmpleado.getText().toString())) {
+            
+            
+            
            List<Empleado> listemp = Cemp.findEmpleadoEntities();
         for (int i = 0; i < listemp.size(); i++) {
             if (txtCIConsultarEmpleado.getText().equals(listemp.get(i).getCedula())) {
@@ -354,8 +360,20 @@ public class ConsultarEmpleado extends javax.swing.JInternalFrame {
             
         }
            
-           }
-        
+           }else  {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCIConsultarEmpleado.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
+            }           
+             
+             
+             
+             
+    }
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

@@ -289,14 +289,14 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,  "No se permite campos vacios","CAMPOS VACIO", JOptionPane.WARNING_MESSAGE);
         } */
         if (this.CCCRegistro.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);
-        } else if (NombreClienteRegistro.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);    
+        }else  if (NombreClienteRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO NOMBRES VACIO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.ApellidosClienteRegistro.getText().equals("")) {
+        }else  if (this.ApellidosClienteRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO APELLIDOS VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.DireccionClienteRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO DIRECCION VACIO", JOptionPane.WARNING_MESSAGE);
-        } else if (this.TelefonoClienteRegistro.getText().equals("")) {
+        }else  if (this.TelefonoClienteRegistro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELEFONO CELULAR VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.telefonoConvencional.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELEFONO CONVENCIONAL VACIO", JOptionPane.WARNING_MESSAGE);
@@ -309,39 +309,91 @@ public class Registro_Cliente extends javax.swing.JInternalFrame {
                 i++;
                 this.CI = this.CCCRegistro.getText().toString();
 
+            } else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.CCCRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+               
             }
             if (validar.validarTex(this.NombreClienteRegistro.getText().toString())) {
                 i++;
                 this.Nombre = this.NombreClienteRegistro.getText().toString();
                 //System.out.println(this.NombreClienteRegistro.getText().toString());
 
+            }else{
+            
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar los nombres del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.NombreClienteRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
+            
             }
 
             if (validar.validarTex(this.ApellidosClienteRegistro.getText().toString())) {
                 i++;
                 this.Apellido = this.ApellidosClienteRegistro.getText().toString();
                 //System.out.println(this.ApellidosClienteRegistro.getText().toString());
+            }else {
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar los apellidos del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.ApellidosClienteRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
 
             if (validar.validarDireccion(this.DireccionClienteRegistro.getText().toString())) {
                 i++;
                 this.Direccion = this.DireccionClienteRegistro.getText().toString();
                 // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
+            }else {
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la dirección de domicilio del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.DireccionClienteRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
             if (validar.validarCorreo(this.CorreoElectronico.getText().toString())) {
                 i++;
                 this.Correo = this.CorreoElectronico.getText().toString();
                 //System.out.println(this.CorreoElectronico.getText().toString());
+            }else {
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el Correo Electrónico ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.CorreoElectronico.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
             if (validar.validarTelefonoC(this.TelefonoClienteRegistro.getText())) {
                 i++;
                 this.TelefonoCelular = this.TelefonoClienteRegistro.getText();
 
+            }else {
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el Teléfono celular ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.TelefonoClienteRegistro.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
             if (validar.validarTelefonoConvencional(this.telefonoConvencional.getText())) {
                 i++;
 
                 this.TelefonoConvencional = this.telefonoConvencional.getText();
+            }else {
+            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el Teléfono convencional ?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.telefonoConvencional.setText(""); 
+                    }else {
+                            dispose(); 
+                    }
             }
 
         }
