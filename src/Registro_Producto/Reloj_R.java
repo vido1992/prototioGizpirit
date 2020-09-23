@@ -24,6 +24,7 @@ public class Reloj_R extends javax.swing.JInternalFrame {
     float precioImportacion, precioPublico;
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
+     Validar validar = new Validar();
     /**
      * Creates new form Reloj
      */
@@ -41,15 +42,15 @@ public class Reloj_R extends javax.swing.JInternalFrame {
     public void obtenerDatos() {
 
         //this.codigo=jTextFielCodigo.getText().toString();
-        this.modelo = jTextFieldModelo.getText().toString();
-        this.marca = jTextFieldMarca.getText().toString();
-        this.gama = jComboBoxGama.getSelectedItem().toString();
-        this.sumerguibleSi = jRadioButtonSiSumer.getText().toString();
-        this.sumerguibleNo = jRadioButtonNoSumer.getText().toString();
-        this.sistemaSi = jRadioButtonSiSis.getText().toString();
-        this.sistemaNo = jRadioButtonNoSis.getText().toString();
-        this.precioImportacion = Float.parseFloat(jTextFieldPrecioImpo.getText().toString());
-        this.precioPublico = Float.parseFloat(jTextFieldPrecioPubl.getText().toString());
+        this.modelo = txtModeloReloj.getText().toString();
+        this.marca = txtMarcaReloj.getText().toString();
+        this.gama = boxGamaReloj.getSelectedItem().toString();
+        this.sumerguibleSi = rbSumergibleSI.getText().toString();
+        this.sumerguibleNo = rbSumergibleNo.getText().toString();
+        this.sistemaSi = rbSASI.getText().toString();
+        this.sistemaNo = rbSANO.getText().toString();
+        this.precioImportacion = Float.parseFloat(txtPrecioInicialReloj.getText().toString());
+        this.precioPublico = Float.parseFloat(txtPrecioPublicoReloj.getText().toString());
 
     }
 
@@ -66,29 +67,29 @@ public class Reloj_R extends javax.swing.JInternalFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jTextFieldMarca = new javax.swing.JTextField();
+        txtMarcaReloj = new javax.swing.JTextField();
         jBotonRegistrarInv1 = new javax.swing.JButton();
         jButtonRegresar3 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jTextFieldModelo = new javax.swing.JTextField();
+        txtModeloReloj = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jComboBoxGama = new javax.swing.JComboBox();
+        boxGamaReloj = new javax.swing.JComboBox();
         jLabel38 = new javax.swing.JLabel();
-        jRadioButtonSiSumer = new javax.swing.JRadioButton();
-        jRadioButtonNoSumer = new javax.swing.JRadioButton();
+        rbSumergibleSI = new javax.swing.JRadioButton();
+        rbSumergibleNo = new javax.swing.JRadioButton();
         jLabel39 = new javax.swing.JLabel();
-        jRadioButtonSiSis = new javax.swing.JRadioButton();
-        jRadioButtonNoSis = new javax.swing.JRadioButton();
+        rbSASI = new javax.swing.JRadioButton();
+        rbSANO = new javax.swing.JRadioButton();
         jPanel3 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldPrecioImpo = new javax.swing.JTextField();
+        txtPrecioInicialReloj = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldPrecioPubl = new javax.swing.JTextField();
-        jTextFieldModelo1 = new javax.swing.JTextField();
+        txtPrecioPublicoReloj = new javax.swing.JTextField();
+        txtCodigoReloj = new javax.swing.JTextField();
         btnAyudaNombre3 = new javax.swing.JButton();
         btnAyudaSueldo1 = new javax.swing.JButton();
         btnAyudaSueldo = new javax.swing.JButton();
@@ -117,23 +118,23 @@ public class Reloj_R extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Sumergible: ");
 
-        jComboBoxGama.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Alta", "Baja", "Media" }));
+        boxGamaReloj.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Alta", "Baja", "Media" }));
 
         jLabel38.setText("Gama: ");
 
-        buttonGroup1.add(jRadioButtonSiSumer);
-        jRadioButtonSiSumer.setText("SI");
+        buttonGroup1.add(rbSumergibleSI);
+        rbSumergibleSI.setText("SI");
 
-        buttonGroup1.add(jRadioButtonNoSumer);
-        jRadioButtonNoSumer.setText("NO");
+        buttonGroup1.add(rbSumergibleNo);
+        rbSumergibleNo.setText("NO");
 
         jLabel39.setText("Sistema Android: ");
 
-        buttonGroup2.add(jRadioButtonSiSis);
-        jRadioButtonSiSis.setText("SI");
+        buttonGroup2.add(rbSASI);
+        rbSASI.setText("SI");
 
-        buttonGroup2.add(jRadioButtonNoSis);
-        jRadioButtonNoSis.setText("NO");
+        buttonGroup2.add(rbSANO);
+        rbSANO.setText("NO");
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -206,22 +207,22 @@ public class Reloj_R extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel5)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtModeloReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCodigoReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonSiSis, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jRadioButtonSiSumer, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(rbSASI, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rbSumergibleSI, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jRadioButtonNoSis)
-                                    .addComponent(jRadioButtonNoSumer)))
-                            .addComponent(jComboBoxGama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rbSANO)
+                                    .addComponent(rbSumergibleNo)))
+                            .addComponent(boxGamaReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMarcaReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldPrecioImpo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldPrecioPubl, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPrecioInicialReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPrecioPublicoReloj, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnAyudaSueldo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +233,6 @@ public class Reloj_R extends javax.swing.JInternalFrame {
                         .addGap(81, 81, 81)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
                 .addComponent(btnAyudaNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -258,31 +258,31 @@ public class Reloj_R extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel31)
-                        .addComponent(jTextFieldModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtCodigoReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnAyudaNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtModeloReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMarcaReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel34))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxGama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(boxGamaReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel38))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButtonSiSumer)
-                            .addComponent(jRadioButtonNoSumer))
+                            .addComponent(rbSumergibleSI)
+                            .addComponent(rbSumergibleNo))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButtonSiSis)
-                            .addComponent(jRadioButtonNoSis)))
+                            .addComponent(rbSASI)
+                            .addComponent(rbSANO)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel35)
@@ -292,10 +292,10 @@ public class Reloj_R extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFieldPrecioImpo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPrecioInicialReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldPrecioPubl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecioPublicoReloj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnAyudaSueldo1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,51 +330,141 @@ public class Reloj_R extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
+        int i=0;
+        if (this.txtCodigoReloj.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (txtModeloReloj.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtMarcaReloj.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MARCA VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioInicialReloj.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
+        } else if (this.txtPrecioPublicoReloj.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
+        } else {
+                //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoReloj.getText().toString(),"RJ")) {
+                //{}
+                i++;
+            }
+            if (validar.validarModelosTodos(this.txtModeloReloj.getText().toString())) {
+                i++;
+               
+            }
+            if (validar.validarMarcaTodos(this.txtMarcaReloj.getText().toString())) {
+                i++;
+            
+            }
 
-        try {
-            if (jTextFieldModelo1.getText().isEmpty() || jTextFieldModelo.getText().isEmpty() || jTextFieldMarca.getText().isEmpty() || jTextFieldPrecioImpo.getText().isEmpty() || jTextFieldPrecioPubl.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "ingrese todos los campos", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
-            } else {
-                val.ValidarTextoCodigo(jTextFieldModelo1);
-                val.ValidarTextoModelo(jTextFieldModelo);
-                val.ValidarTextoMarca(jTextFieldMarca);
-                val.ValidarJcombobox(jComboBoxGama);
-                
-                /*val.ValidarRadioButomsis(jRadioButtonSiSis);
-                val.ValidarRadioButomsis(jRadioButtonNoSis);
-                
-                val.ValidarRadioButomSum(jRadioButtonSiSumer);
-                val.ValidarRadioButomSum(jRadioButtonNoSumer);*/
-                
-                val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
-                val.ValidarPrecioPublico(jTextFieldPrecioPubl);
-                
+            if (validar.validarSueldo(this.txtPrecioInicialReloj.getText().toString())) {
+                i++;
+               
             }
-            r.setCodigo(jTextFieldModelo1.getText());
-            r.setModelo(jTextFieldModelo.getText());
-            r.setMarca(jTextFieldMarca.getText());
-            r.setGama((String) jComboBoxGama.getSelectedItem());
-            if(jRadioButtonSiSumer.isSelected()){
-                r.setSumergible(jRadioButtonSiSumer.getText().toString());
+            if (validar.validarSueldo(this.txtPrecioPublicoReloj.getText().toString())) {
+                i++;
+            
+            }
+            if(this.boxGamaReloj.getSelectedItem().toString()!="Selección")
+            {i++;
+            System.out.println( "buen ingreso");  
+            
             }else{
-                r.setSumergible(jRadioButtonNoSumer.getText().toString());
+            JOptionPane.showMessageDialog(null,  "Gama equivocada");
             }
-            if(jRadioButtonSiSis.isSelected()){
-                r.setSistemaandroid(jRadioButtonSiSis.getText().toString());
+           if(this.rbSANO.isSelected()==true)
+            {i++;
+            System.out.println( "buen ingreso seleccion interna");  
+                          
+            }else if (this.rbSASI.isSelected()==true ){
+                i++;
+                System.out.println( "buen ingreso seleccion externa");
+            
+            }else {
+            JOptionPane.showMessageDialog(null,  "Sistema Android no es un valor booleano");
+            }
+           
+           if(this.rbSumergibleNo.isSelected()==true)
+            {i++;
+            System.out.println( "buen ingreso seleccion interna");  
+                          
+            }else if (this.rbSumergibleSI.isSelected()==true ){
+                i++;
+                System.out.println( "buen ingreso seleccion externa");
+            
+            }else {
+            JOptionPane.showMessageDialog(null,  "Sumergible no tiene un valor booleano");
+            }
+           
+           
+           
+           
+           
+ 
+            
+             if (i==8)
+            {
+                System.out.println( "REGISTRO");  
+                    try {
+                   r.setCodigo(txtCodigoReloj.getText());
+            r.setModelo(txtModeloReloj.getText());
+            r.setMarca(txtMarcaReloj.getText());
+            r.setGama((String) boxGamaReloj.getSelectedItem());
+            if(rbSumergibleSI.isSelected()){
+                r.setSumergible(rbSumergibleSI.getText().toString());
             }else{
-                r.setSistemaandroid(jRadioButtonNoSis.getText().toString());
+                r.setSumergible(rbSumergibleNo.getText().toString());
             }
-            r.setPrecioimportacion(jTextFieldPrecioImpo.getText().toString());
-            r.setPreciopublico(jTextFieldPrecioPubl.getText().toString());
+            if(rbSASI.isSelected()){
+                r.setSistemaandroid(rbSASI.getText().toString());
+            }else{
+                r.setSistemaandroid(rbSANO.getText().toString());
+            }
+            r.setPrecioimportacion(txtPrecioInicialReloj.getText().toString());
+            r.setPreciopublico(txtPrecioPublicoReloj.getText().toString());
             r.setCantidad("0");
             r.setEstado("Activo");
             r.setFechaimportacion("");
             Creloj.create(r);
             
-            JOptionPane.showMessageDialog(null, "Producto Reloj Registrado\n Correctamente");
-        } catch (Exception ex) {
-            Logger.getLogger(Reloj_R.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null,  "Reloj Registrado");
+                } catch (Exception ex) {
+                    Logger.getLogger(Reloj_R.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
+            } 
         }
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaNombre3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombre3ActionPerformed
@@ -391,7 +481,7 @@ public class Reloj_R extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAyudaNombre2;
+    private javax.swing.JComboBox boxGamaReloj;
     private javax.swing.JButton btnAyudaNombre3;
     private javax.swing.JButton btnAyudaSueldo;
     private javax.swing.JButton btnAyudaSueldo1;
@@ -400,7 +490,6 @@ public class Reloj_R extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jBotonRegistrarInv1;
     private javax.swing.JButton jButtonRegresar3;
-    private javax.swing.JComboBox jComboBoxGama;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
@@ -413,14 +502,14 @@ public class Reloj_R extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButtonNoSis;
-    private javax.swing.JRadioButton jRadioButtonNoSumer;
-    private javax.swing.JRadioButton jRadioButtonSiSis;
-    private javax.swing.JRadioButton jRadioButtonSiSumer;
-    private javax.swing.JTextField jTextFieldMarca;
-    private javax.swing.JTextField jTextFieldModelo;
-    private javax.swing.JTextField jTextFieldModelo1;
-    private javax.swing.JTextField jTextFieldPrecioImpo;
-    private javax.swing.JTextField jTextFieldPrecioPubl;
+    private javax.swing.JRadioButton rbSANO;
+    private javax.swing.JRadioButton rbSASI;
+    private javax.swing.JRadioButton rbSumergibleNo;
+    private javax.swing.JRadioButton rbSumergibleSI;
+    private javax.swing.JTextField txtCodigoReloj;
+    private javax.swing.JTextField txtMarcaReloj;
+    private javax.swing.JTextField txtModeloReloj;
+    private javax.swing.JTextField txtPrecioInicialReloj;
+    private javax.swing.JTextField txtPrecioPublicoReloj;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,25 +69,25 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldModelo" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
-                              <Component id="jTextFieldModelo1" min="-2" pref="122" max="-2" attributes="0"/>
+                              <Component id="txtModeloReloj" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                              <Component id="txtCodigoReloj" min="-2" pref="122" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioButtonSiSis" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSiSumer" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbSASI" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbSumergibleSI" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jRadioButtonNoSis" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonNoSumer" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbSANO" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbSumergibleNo" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jComboBoxGama" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldMarca" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="boxGamaReloj" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMarcaReloj" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldPrecioImpo" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldPrecioPubl" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioInicialReloj" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioPublicoReloj" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -137,23 +137,23 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldModelo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCodigoReloj" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="btnAyudaNombre3" min="-2" pref="22" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldModelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtModeloReloj" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel32" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldMarca" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtMarcaReloj" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel34" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBoxGama" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="boxGamaReloj" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel38" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -162,13 +162,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButtonSiSumer" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonNoSumer" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbSumergibleSI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbSumergibleNo" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButtonSiSis" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonNoSis" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbSASI" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbSANO" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -182,10 +182,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Component id="jTextFieldPrecioImpo" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPrecioInicialReloj" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldPrecioPubl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPrecioPublicoReloj" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -206,7 +206,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextFieldMarca">
+        <Component class="javax.swing.JTextField" name="txtMarcaReloj">
         </Component>
         <Component class="javax.swing.JButton" name="jBotonRegistrarInv1">
           <Properties>
@@ -239,14 +239,14 @@
             <Property name="text" type="java.lang.String" value="Marca:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldModelo">
+        <Component class="javax.swing.JTextField" name="txtModeloReloj">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel35">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sumergible: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxGama">
+        <Component class="javax.swing.JComboBox" name="boxGamaReloj">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
@@ -263,7 +263,7 @@
             <Property name="text" type="java.lang.String" value="Gama: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonSiSumer">
+        <Component class="javax.swing.JRadioButton" name="rbSumergibleSI">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -271,7 +271,7 @@
             <Property name="text" type="java.lang.String" value="SI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonNoSumer">
+        <Component class="javax.swing.JRadioButton" name="rbSumergibleNo">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -284,7 +284,7 @@
             <Property name="text" type="java.lang.String" value="Sistema Android: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonSiSis">
+        <Component class="javax.swing.JRadioButton" name="rbSASI">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup2"/>
@@ -292,7 +292,7 @@
             <Property name="text" type="java.lang.String" value="SI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRadioButtonNoSis">
+        <Component class="javax.swing.JRadioButton" name="rbSANO">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup2"/>
@@ -352,16 +352,16 @@
             <Property name="text" type="java.lang.String" value="Precio inicial (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPrecioImpo">
+        <Component class="javax.swing.JTextField" name="txtPrecioInicialReloj">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="text" type="java.lang.String" value="Precio al p&#xfa;blico (USD):"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPrecioPubl">
+        <Component class="javax.swing.JTextField" name="txtPrecioPublicoReloj">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldModelo1">
+        <Component class="javax.swing.JTextField" name="txtCodigoReloj">
         </Component>
         <Component class="javax.swing.JButton" name="btnAyudaNombre3">
           <Properties>
