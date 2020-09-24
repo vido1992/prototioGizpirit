@@ -265,6 +265,15 @@ public class A_Cargador extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoActualizarCargador.setText("");
+        txtMarcaActualizarCargador.setText("");
+        txtModeloActualizarCargador.setText("");
+        txtPrecioInicialActualizarCargador.setText("");
+        txtPrecioPublicoActualizarCargador.setText("");
+      boxTipoActualizarCargador.setSelectedIndex(0);
+    boxWattActualizarCargador.setSelectedIndex(0);
+      DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 

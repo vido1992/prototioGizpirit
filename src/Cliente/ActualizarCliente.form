@@ -84,9 +84,9 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="txtActualizarClienteActivo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="brtActualizarClienteActivo" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="txtActualizarClienteInactivo" min="-2" max="-2" attributes="0"/>
+                                  <Component id="brtActualizarClienteInactivo" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
@@ -183,8 +183,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtActualizarClienteActivo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtActualizarClienteInactivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="brtActualizarClienteActivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="brtActualizarClienteInactivo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -314,7 +314,7 @@
             <Property name="text" type="java.lang.String" value="Estado Cliente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="txtActualizarClienteActivo">
+        <Component class="javax.swing.JRadioButton" name="brtActualizarClienteActivo">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>
@@ -322,10 +322,10 @@
             <Property name="text" type="java.lang.String" value="Activo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtActualizarClienteActivoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="brtActualizarClienteActivoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="txtActualizarClienteInactivo">
+        <Component class="javax.swing.JRadioButton" name="brtActualizarClienteInactivo">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="buttonGroup1"/>

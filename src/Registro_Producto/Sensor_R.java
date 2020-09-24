@@ -24,9 +24,10 @@ public class Sensor_R extends javax.swing.JInternalFrame {
     SensorJpaController Cse = new SensorJpaController();
     Sensor se = new Sensor();
     Validar validar = new Validar();
+
     public Sensor_R() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-SENSOR"); 
+        this.setTitle("SiGIn-GIZPIRIT-SENSOR");        
     }
 
     /**
@@ -252,11 +253,17 @@ public class Sensor_R extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoSensor.setText("");
+        txtMarcaSensor.setText("");
+        txtModeloSensor.setText("");
+        txtPrecioInicialSensor.setText("");
+        txtPrecioPublicoSensor.setText("");
+        boxTipoSensor.setSelectedIndex(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        int i=0;
+        int i = 0;
         if (this.txtCodigoSensor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloSensor.getText().equals("")) {
@@ -269,35 +276,34 @@ public class Sensor_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoSensor.getText().toString(),"SE")) {
-             
-                i++; 
+            if (validar.validarCodigoTodos(this.txtCodigoSensor.getText().toString(), "SE")) {
+                
+                i++;                
             }
             if (validar.validarModelosTodos(this.txtModeloSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
             if (validar.validarMarcaTodos(this.txtMarcaSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
-
+            
             if (validar.validarSueldo(this.txtPrecioInicialSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
             if (validar.validarSueldo(this.txtPrecioPublicoSensor.getText().toString())) {
-                i++; 
+                i++;                
             }
-            if(this.boxTipoSensor.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");   
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
+            if (this.boxTipoSensor.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");                
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tipo");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
             
-             if (i==6)
-            {
-                System.out.println( "REGISTRO");  
+            JOptionPane.showMessageDialog(null, "contador" + i);            
+            
+            if (i == 6) {
+                System.out.println("REGISTRO");                
                 try {
                     se.setCodigo(txtCodigoSensor.getText());
                     se.setModelo(txtModeloSensor.getText());
@@ -309,16 +315,12 @@ public class Sensor_R extends javax.swing.JInternalFrame {
                     se.setEstado("Activo");
                     se.setFechaimportacion("");
                     Cse.create(se);
-                    JOptionPane.showMessageDialog(null,  "Sensor Registrados");
+                    JOptionPane.showMessageDialog(null, "Sensor Registrados");
                 } catch (Exception ex) {
                     Logger.getLogger(Sensor_R.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             
-            
-            
-                        
-
         }
         limpiar();
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
@@ -334,20 +336,19 @@ public class Sensor_R extends javax.swing.JInternalFrame {
     private void btnAyudaSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaSueldoActionPerformed
         JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
-
- public void limpiar(){
     
-    this.txtCodigoSensor.setText("");
-    this.txtMarcaSensor.setText("");
-    this.txtModeloSensor.setText("");
-    this.txtPrecioInicialSensor.setText("");
-    this.txtPrecioPublicoSensor.setText("");
-    this.boxTipoSensor.setSelectedItem("Selección");
-    
+    public void limpiar() {
+        
+        this.txtCodigoSensor.setText("");
+        this.txtMarcaSensor.setText("");
+        this.txtModeloSensor.setText("");
+        this.txtPrecioInicialSensor.setText("");
+        this.txtPrecioPublicoSensor.setText("");
+        this.boxTipoSensor.setSelectedItem("Selección");
+        
     }
-    
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxTipoSensor;
     private javax.swing.JButton btnAyudaNombre3;

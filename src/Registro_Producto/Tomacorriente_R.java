@@ -24,9 +24,10 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
     TomacorrienteJpaController Cto = new TomacorrienteJpaController();
     Tomacorriente toma = new Tomacorriente();
     Validar validar = new Validar();
+
     public Tomacorriente_R() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-TOMACORRIENTE"); 
+        this.setTitle("SiGIn-GIZPIRIT-TOMACORRIENTE");
     }
 
     /**
@@ -261,15 +262,20 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
-
+        txtCodigoRegistroTomacorriente.setText("");
+        txtModeloRegistroTomacorriente.setText("");
+        txtPrecioInicialRegistroTomacorriente.setText("");
+        txtPrecioPublicoRegistroTomacorriente.setText("");
+        boxFormaRegistroTomacorriente.setSelectedIndex(0);
+        boxMarcaRegistroTomacorriente.setSelectedIndex(0);
         dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-        int i=0;
-          
+        int i = 0;
+
         if (this.txtCodigoRegistroTomacorriente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtModeloRegistroTomacorriente.getText().equals("")) {
@@ -280,41 +286,40 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoRegistroTomacorriente.getText().toString(),"TO")) {
+            if (validar.validarCodigoTodos(this.txtCodigoRegistroTomacorriente.getText().toString(), "TO")) {
                 //{}
-                i++; 
+                i++;
             }
             if (validar.validarModelosTodos(this.txtModeloRegistroTomacorriente.getText().toString())) {
                 i++;
-                
+
             }
-            
+
             if (validar.validarSueldo(this.txtPrecioInicialRegistroTomacorriente.getText().toString())) {
                 i++;
-                
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoRegistroTomacorriente.getText().toString())) {
                 i++;
-                
+
             }
-            if(this.boxFormaRegistroTomacorriente.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso marca");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en forma");
+            if (this.boxFormaRegistroTomacorriente.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso marca");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en forma");
             }
-            if(this.boxMarcaRegistroTomacorriente.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso de Tamaño");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion marca");
+            if (this.boxMarcaRegistroTomacorriente.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso de Tamaño");
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion marca");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==6)
-            {
-                System.out.println( "REGISTRO");  
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 6) {
+                System.out.println("REGISTRO");
                 try {
                     toma.setCodigo(txtCodigoRegistroTomacorriente.getText());
                     toma.setModelo(txtModeloRegistroTomacorriente.getText());
@@ -327,16 +332,16 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
                     toma.setEstado("Activo");
                     toma.setFechaimportacion("");
                     Cto.create(toma);
-                    JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                    JOptionPane.showMessageDialog(null, "Cable Registrados");
                 } catch (Exception ex) {
                     Logger.getLogger(Tomacorriente_R.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                 
+
             }
         }
-        
+
         limpiar();
-        
+
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaNombre3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombre3ActionPerformed
@@ -351,17 +356,16 @@ public class Tomacorriente_R extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
 
-    
-    public void limpiar(){
-    
-    this.txtCodigoRegistroTomacorriente.setText("");
-    this.txtModeloRegistroTomacorriente.setText("");
-    this.txtPrecioInicialRegistroTomacorriente.setText("");
-    this.txtPrecioPublicoRegistroTomacorriente.setText("");
-    this.boxFormaRegistroTomacorriente.setSelectedItem("Selección");
-    this.boxMarcaRegistroTomacorriente.setSelectedItem("Selección");
+    public void limpiar() {
+
+        this.txtCodigoRegistroTomacorriente.setText("");
+        this.txtModeloRegistroTomacorriente.setText("");
+        this.txtPrecioInicialRegistroTomacorriente.setText("");
+        this.txtPrecioPublicoRegistroTomacorriente.setText("");
+        this.boxFormaRegistroTomacorriente.setSelectedItem("Selección");
+        this.boxMarcaRegistroTomacorriente.setSelectedItem("Selección");
     }
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox boxFormaRegistroTomacorriente;

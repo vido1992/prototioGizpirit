@@ -292,6 +292,15 @@ public class A_Camara_Seguridad extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoActualizarCam.setText("");
+        txtMarcaActualizarCam.setText("");
+        txtModeloActualizarCam.setText("");
+        txtPrecioInicialActualizarCam.setText("");
+        txtPrecioPublicoActualizarCam.setText("");
+        txtResolucionActualizarCam.setText("");
+        rbExtern.setSelected(false);
+        rbIntern.setSelected(false);
+        boxAnguloAberturaActualizarCam.setSelectedIndex(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 

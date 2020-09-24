@@ -300,19 +300,31 @@ public class A_Reloj extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        jComboBoxGama.setSelectedIndex(0);
+        jTextFieldMarca.setText("");
+        jTextFieldModelo.setText("");
+        jTextFieldModelo1.setText("");
+        jTextFieldPrecioImpo.setText("");
+        jTextFieldPrecioPubl.setText("");
+        jRadioButtonNoSis.setSelected(false);
+        jRadioButtonNoSumer.setSelected(false);
+        jRadioButtonSiSis.setSelected(false);
+        jRadioButtonSiSumer.setSelected(false);
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-          boolean pasa = true;
+        boolean pasa = true;
         try {
-          
+
             if (jTextFieldModelo1.getText().isEmpty() || jTextFieldModelo.getText().isEmpty() || jTextFieldMarca.getText().isEmpty() || jTextFieldPrecioImpo.getText().isEmpty() || jTextFieldPrecioPubl.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "ingrese todos los campos", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
                 pasa = false;
-            } else if (pasa){
+            } else if (pasa) {
                 int i;
-                
+
                 val.ValidarTextoCodigo(jTextFieldModelo1);
                 val.ValidarTextoModelo(jTextFieldModelo);
                 val.ValidarTextoMarca(jTextFieldMarca);
@@ -325,34 +337,34 @@ public class A_Reloj extends javax.swing.JInternalFrame {
                 val.ValidarRadioButomSum(jRadioButtonNoSumer);*/
                 val.ValidarPrecioImportacion(jTextFieldPrecioImpo);
                 val.ValidarPrecioPublico(jTextFieldPrecioPubl);
-                
+
                 pasa = true;
 
-            }else if(pasa){
-            r.setCodigo(jTextFieldModelo1.getText());
-            r.setModelo(jTextFieldModelo.getText());
-            r.setMarca(jTextFieldMarca.getText());
-            r.setGama((String) jComboBoxGama.getSelectedItem());
-            if (jRadioButtonSiSumer.isSelected()) {
-                r.setSumergible(jRadioButtonSiSumer.getText().toString());
-            } else {
-                r.setSumergible(jRadioButtonNoSumer.getText().toString());
-            }
-            if (jRadioButtonSiSis.isSelected()) {
-                r.setSistemaandroid(jRadioButtonSiSis.getText().toString());
-            } else {
-                r.setSistemaandroid(jRadioButtonNoSis.getText().toString());
-            }
-            r.setPrecioimportacion(jTextFieldPrecioImpo.getText().toString());
-            r.setPreciopublico(jTextFieldPrecioPubl.getText().toString());
-            r.setCantidad(cantidad);
-            r.setFechaimportacion(fechaImpor);
-            r.setEstado(Estado);
+            } else if (pasa) {
+                r.setCodigo(jTextFieldModelo1.getText());
+                r.setModelo(jTextFieldModelo.getText());
+                r.setMarca(jTextFieldMarca.getText());
+                r.setGama((String) jComboBoxGama.getSelectedItem());
+                if (jRadioButtonSiSumer.isSelected()) {
+                    r.setSumergible(jRadioButtonSiSumer.getText().toString());
+                } else {
+                    r.setSumergible(jRadioButtonNoSumer.getText().toString());
+                }
+                if (jRadioButtonSiSis.isSelected()) {
+                    r.setSistemaandroid(jRadioButtonSiSis.getText().toString());
+                } else {
+                    r.setSistemaandroid(jRadioButtonNoSis.getText().toString());
+                }
+                r.setPrecioimportacion(jTextFieldPrecioImpo.getText().toString());
+                r.setPreciopublico(jTextFieldPrecioPubl.getText().toString());
+                r.setCantidad(cantidad);
+                r.setFechaimportacion(fechaImpor);
+                r.setEstado(Estado);
 
-            Creloj.edit(r);
+                Creloj.edit(r);
 
-            JOptionPane.showMessageDialog(null, "Producto Reloj Actualizado\n Correctamente");
-            cargartabla();
+                JOptionPane.showMessageDialog(null, "Producto Reloj Actualizado\n Correctamente");
+                cargartabla();
             }
         } catch (Exception ex) {
             Logger.getLogger(Reloj_R.class.getName()).log(Level.SEVERE, null, ex);

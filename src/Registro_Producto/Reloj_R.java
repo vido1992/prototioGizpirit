@@ -5,7 +5,6 @@
  */
 package Registro_Producto;
 
-
 import Controladores.RelojJpaController;
 import Entidades.Reloj;
 import java.util.ArrayList;
@@ -24,13 +23,12 @@ public class Reloj_R extends javax.swing.JInternalFrame {
     float precioImportacion, precioPublico;
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
-     Validar validar = new Validar();
+    Validar validar = new Validar();
     /**
      * Creates new form Reloj
      */
 
     // C_Reloj RE = new C_Reloj();
-
     Validar val = new Validar();
 
     public Reloj_R() {
@@ -326,11 +324,22 @@ public class Reloj_R extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        rbSANO.setSelected(false);
+        rbSASI.setSelected(false);
+        rbSumergibleNo.setSelected(false);
+        rbSumergibleSI.setSelected(false);
+        txtCodigoReloj.setText("");
+        txtMarcaReloj.setText("");
+        txtModeloReloj.setText("");
+        txtPrecioInicialReloj.setText("");
+        txtPrecioPublicoReloj.setText("");
+        boxGamaReloj.setSelectedIndex(0);
+       
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        int i=0;
+        int i = 0;
         if (this.txtCodigoReloj.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloReloj.getText().equals("")) {
@@ -342,129 +351,92 @@ public class Reloj_R extends javax.swing.JInternalFrame {
         } else if (this.txtPrecioPublicoReloj.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
-                //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoReloj.getText().toString(),"RJ")) {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtCodigoReloj.getText().toString(), "RJ")) {
                 //{}
                 i++;
             }
             if (validar.validarModelosTodos(this.txtModeloReloj.getText().toString())) {
                 i++;
-               
+
             }
             if (validar.validarMarcaTodos(this.txtMarcaReloj.getText().toString())) {
                 i++;
-            
+
             }
 
             if (validar.validarSueldo(this.txtPrecioInicialReloj.getText().toString())) {
                 i++;
-               
+
             }
             if (validar.validarSueldo(this.txtPrecioPublicoReloj.getText().toString())) {
                 i++;
-            
+
             }
-            if(this.boxGamaReloj.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");  
-            
-            }else{
-            JOptionPane.showMessageDialog(null,  "Gama equivocada");
-            }
-           if(this.rbSANO.isSelected()==true)
-            {i++;
-            System.out.println( "buen ingreso seleccion interna");  
-                          
-            }else if (this.rbSASI.isSelected()==true ){
+            if (this.boxGamaReloj.getSelectedItem().toString() != "Selección") {
                 i++;
-                System.out.println( "buen ingreso seleccion externa");
-            
-            }else {
-            JOptionPane.showMessageDialog(null,  "Sistema Android no es un valor booleano");
+                System.out.println("buen ingreso");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Gama equivocada");
             }
-           
-           if(this.rbSumergibleNo.isSelected()==true)
-            {i++;
-            System.out.println( "buen ingreso seleccion interna");  
-                          
-            }else if (this.rbSumergibleSI.isSelected()==true ){
+            if (this.rbSANO.isSelected() == true) {
                 i++;
-                System.out.println( "buen ingreso seleccion externa");
-            
-            }else {
-            JOptionPane.showMessageDialog(null,  "Sumergible no tiene un valor booleano");
+                System.out.println("buen ingreso seleccion interna");
+
+            } else if (this.rbSASI.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion externa");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Sistema Android no es un valor booleano");
             }
-           
-           
-           
-           
-           
- 
-            
-             if (i==8)
-            {
-                System.out.println( "REGISTRO");  
-                    try {
-                   r.setCodigo(txtCodigoReloj.getText());
-            r.setModelo(txtModeloReloj.getText());
-            r.setMarca(txtMarcaReloj.getText());
-            r.setGama((String) boxGamaReloj.getSelectedItem());
-            if(rbSumergibleSI.isSelected()){
-                r.setSumergible(rbSumergibleSI.getText().toString());
-            }else{
-                r.setSumergible(rbSumergibleNo.getText().toString());
+
+            if (this.rbSumergibleNo.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion interna");
+
+            } else if (this.rbSumergibleSI.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion externa");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Sumergible no tiene un valor booleano");
             }
-            if(rbSASI.isSelected()){
-                r.setSistemaandroid(rbSASI.getText().toString());
-            }else{
-                r.setSistemaandroid(rbSANO.getText().toString());
-            }
-            r.setPrecioimportacion(txtPrecioInicialReloj.getText().toString());
-            r.setPreciopublico(txtPrecioPublicoReloj.getText().toString());
-            r.setCantidad("0");
-            r.setEstado("Activo");
-            r.setFechaimportacion("");
-            Creloj.create(r);
-            
-                    JOptionPane.showMessageDialog(null,  "Reloj Registrado");
+
+            if (i == 8) {
+                System.out.println("REGISTRO");
+                try {
+                    r.setCodigo(txtCodigoReloj.getText());
+                    r.setModelo(txtModeloReloj.getText());
+                    r.setMarca(txtMarcaReloj.getText());
+                    r.setGama((String) boxGamaReloj.getSelectedItem());
+                    if (rbSumergibleSI.isSelected()) {
+                        r.setSumergible(rbSumergibleSI.getText().toString());
+                    } else {
+                        r.setSumergible(rbSumergibleNo.getText().toString());
+                    }
+                    if (rbSASI.isSelected()) {
+                        r.setSistemaandroid(rbSASI.getText().toString());
+                    } else {
+                        r.setSistemaandroid(rbSANO.getText().toString());
+                    }
+                    r.setPrecioimportacion(txtPrecioInicialReloj.getText().toString());
+                    r.setPreciopublico(txtPrecioPublicoReloj.getText().toString());
+                    r.setCantidad("0");
+                    r.setEstado("Activo");
+                    r.setFechaimportacion("");
+                    Creloj.create(r);
+
+                    JOptionPane.showMessageDialog(null, "Reloj Registrado");
                 } catch (Exception ex) {
                     Logger.getLogger(Reloj_R.class.getName()).log(Level.SEVERE, null, ex);
                 }
-               
-            } 
+
+            }
         }
 
 
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaNombre3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombre3ActionPerformed

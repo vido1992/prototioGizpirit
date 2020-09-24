@@ -265,6 +265,15 @@ public class A_Cable extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoActualizacion.setText("");
+        txtMarcaActualizacion.setText("");
+        txtModeloActualizacion.setText("");
+        txtPrecioImportacionActualizacion.setText("");
+        txtPrecioPublico.setText("");
+        cbxLongitudActualizacion.setSelectedIndex(0);
+        DefaultTableModel modelo = (DefaultTableModel) jTableCableConsulta.getModel();
+        modelo.setRowCount(0);
+        // End of variables declaration                   
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 

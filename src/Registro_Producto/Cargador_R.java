@@ -24,10 +24,11 @@ public class Cargador_R extends javax.swing.JInternalFrame {
      */
     CargadorJpaController Ccar = new CargadorJpaController();
     Cargador car = new Cargador();
-     Validar validar = new Validar();
+    Validar validar = new Validar();
+
     public Cargador_R() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-CARGADOR"); 
+        this.setTitle("SiGIn-GIZPIRIT-CARGADOR");        
     }
 
     /**
@@ -119,7 +120,7 @@ public class Cargador_R extends javax.swing.JInternalFrame {
         );
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("PRODUCTO CARGADOR");
+        jLabel7.setText("REGISTRO CARGADOR");
 
         btnAyudaNombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icono/2.png"))); // NOI18N
         btnAyudaNombre.addActionListener(new java.awt.event.ActionListener() {
@@ -255,12 +256,19 @@ public class Cargador_R extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoRegistroCargador.setText("");
+        txtMarcaRegistroCargador.setText("");
+        txtModeloRegistroCargador.setText("");
+        txtPreciInicRegistroCargador.setText("");
+        txtPrecioPubliRegistroCargador.setText("");
+        bxWattRegistroCargador.setSelectedIndex(0);
+        
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
-        int i=0;
-          
+        int i = 0;
+        
         if (this.txtCodigoRegistroCargador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloRegistroCargador.getText().equals("")) {
@@ -273,9 +281,9 @@ public class Cargador_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoRegistroCargador.getText().toString(),"CA")) {
+            if (validar.validarCodigoTodos(this.txtCodigoRegistroCargador.getText().toString(), "CA")) {
                 //{}
-                i++; 
+                i++;                
             }
             if (validar.validarModelosTodos(this.txtModeloRegistroCargador.getText().toString())) {
                 i++;
@@ -285,7 +293,7 @@ public class Cargador_R extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-
+            
             if (validar.validarSueldo(this.txtPreciInicRegistroCargador.getText().toString())) {
                 i++;
                 
@@ -294,24 +302,23 @@ public class Cargador_R extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-            if(this.bxTipoRegistroCargador.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso tipo");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
+            if (this.bxTipoRegistroCargador.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso tipo");                
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tipo");
             }
-            if(this.bxWattRegistroCargador.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso de watts");  
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en Watts");
+            if (this.bxWattRegistroCargador.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso de watts");                
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Watts");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
             
-             if (i==7)
-            {
-                System.out.println( "REGISTRO");  
+            JOptionPane.showMessageDialog(null, "contador" + i);            
+            
+            if (i == 7) {
+                System.out.println("REGISTRO");                
                 try {
                     car.setCodigo(txtCodigoRegistroCargador.getText());
                     car.setModelo(txtModeloRegistroCargador.getText());
@@ -323,12 +330,12 @@ public class Cargador_R extends javax.swing.JInternalFrame {
                     car.setCantidad("0");
                     car.setEstado("Activo");
                     car.setFechaimportacion("");
-                    JOptionPane.showMessageDialog(null,  "Cable Registrados");
+                    JOptionPane.showMessageDialog(null, "Cable Registrados");
                     Ccar.create(car);
                 } catch (Exception ex) {
                     Logger.getLogger(Cargador_R.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                 
+                
             }
         }
         
@@ -343,7 +350,7 @@ public class Cargador_R extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
 
     private void btnAyudaSueldo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaSueldo2ActionPerformed
-       JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
+        JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
     }//GEN-LAST:event_btnAyudaSueldo2ActionPerformed
 
 

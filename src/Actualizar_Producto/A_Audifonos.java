@@ -262,6 +262,14 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setRowCount(0);
+        txtCodigoActualizar.setText("");
+        txtModeloActualizar.setText("");
+        txtMarcaActualizar.setText("");
+        cbxTipoActualizar.setSelectedIndex(0);
+        txtPrecioImportacionActualizar.setText("");
+        txtPrecioPublicoActualizar.setText("");
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 

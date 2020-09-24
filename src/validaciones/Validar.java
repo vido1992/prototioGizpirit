@@ -330,6 +330,9 @@ public class Validar {
         }
 
     }
+    
+    
+  
 
 }//fin toda la clase
 

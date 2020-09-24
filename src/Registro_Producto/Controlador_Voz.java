@@ -24,7 +24,7 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
     ControladorvozJpaController Ccv = new ControladorvozJpaController();
     Controladorvoz cv = new Controladorvoz();
     Validar validar = new Validar();
-
+    
     public Controlador_Voz() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT-CONTROLADOR DE VOZ");
@@ -254,6 +254,12 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
+        txtCodigoRegistroControlador.setText("");
+        txtModeloRegistroControlador.setText("");
+        txtPrecioInicialRegistroControlador.setText("");
+        txtPrecioPublicoRegistroControlador.setText("");
+        boxMarcaRegistroControlador.setSelectedIndex(0);
+        boxTamañoRegistroControlador.setSelectedIndex(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
@@ -267,7 +273,7 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
         int i = 0;
-
+        
         if (this.txtCodigoRegistroControlador.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (txtModeloRegistroControlador.getText().equals("")) {
@@ -284,16 +290,16 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
             }
             if (validar.validarModelosTodos(this.txtModeloRegistroControlador.getText().toString())) {
                 i++;
-
+                
             }
-
+            
             if (validar.validarSueldo(this.txtPrecioInicialRegistroControlador.getText().toString())) {
                 i++;
-
+                
             }
             if (validar.validarSueldo(this.txtPrecioPublicoRegistroControlador.getText().toString())) {
                 i++;
-
+                
             }
             if (this.boxMarcaRegistroControlador.getSelectedItem().toString() != "Selección") {
                 i++;
@@ -307,11 +313,11 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tamaño");
             }
-
+            
             JOptionPane.showMessageDialog(null, "contador" + i);
-
+            
             if (i == 6) {
-                System.out.println( "REGISTRO");  
+                System.out.println("REGISTRO");
                 try {
                     cv.setCodigo(txtCodigoRegistroControlador.getText());
                     cv.setModelo(txtModeloRegistroControlador.getText());
@@ -327,15 +333,15 @@ public class Controlador_Voz extends javax.swing.JInternalFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(Controlador_Voz.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
+                
             }
         }
-
+        
 
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombreActionPerformed
- JOptionPane.showMessageDialog(this, "Debe Ingresar CZ seguido de 3 números ");
+        JOptionPane.showMessageDialog(this, "Debe Ingresar CZ seguido de 3 números ");
     }//GEN-LAST:event_btnAyudaNombreActionPerformed
 
     private void btnAyudaSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaSueldoActionPerformed

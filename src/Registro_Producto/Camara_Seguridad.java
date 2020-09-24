@@ -23,10 +23,11 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
      */
     CamaraJpaController Cca = new CamaraJpaController();
     Camara ca = new Camara();
-     Validar validar = new Validar();
+    Validar validar = new Validar();
+    
     public Camara_Seguridad() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD"); 
+        this.setTitle("SiGIn-GIZPIRIT-CAMARA DE SEGURIDAD");
     }
 
     /**
@@ -291,6 +292,15 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoCamaraSeguridad.setText("");
+        txtMarcaCamaraSeguridad.setText("");
+        txtModCamaraSeguridad.setText("");
+        txtPrecioIniCamaraSeguridad.setText("");
+        txtPrecioPubCamaraSeguridad.setText("");
+        txtResoluCamaraSeguridad.setText("");
+        InternaCamaraSegurida.setSelected(false);
+        ExternaCamaraSegurida.setSelected(false);
+        bxAnguloCamaraSeguridad.setSelectedIndex(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
@@ -300,8 +310,8 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
         
-        int i=0;
-          
+        int i = 0;
+        
         if (this.txtCodigoCamaraSeguridad.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtModCamaraSeguridad.getText().equals("")) {
@@ -314,11 +324,10 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PÚBLICO VACIO", JOptionPane.WARNING_MESSAGE);
         } else {
             //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtCodigoCamaraSeguridad.getText().toString(),"CM")) {
+            if (validar.validarCodigoTodos(this.txtCodigoCamaraSeguridad.getText().toString(), "CM")) {
                 
                 i++;
                 
-
             }
             if (validar.validarModelosTodos(this.txtModCamaraSeguridad.getText().toString())) {
                 i++;
@@ -328,7 +337,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-
+            
             if (validar.validarSueldo(this.txtPrecioIniCamaraSeguridad.getText().toString())) {
                 i++;
                 
@@ -337,41 +346,38 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
                 i++;
                 
             }
-            if(this.bxAnguloCamaraSeguridad.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");  
-           
-                
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en ángulo");
-            }
-                  
-            if(this.InternaCamaraSegurida.isSelected()==true)
-            {i++;
-            System.out.println( "buen ingreso seleccion interna");  
-                          
-            }else if (this.ExternaCamaraSegurida.isSelected()==true ){
+            if (this.bxAnguloCamaraSeguridad.getSelectedItem().toString() != "Selección") {
                 i++;
-                System.out.println( "buen ingreso seleccion externa");
-            
-            }else {
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
+                System.out.println("buen ingreso");
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en ángulo");
             }
             
-                       
+            if (this.InternaCamaraSegurida.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion interna");
+                
+            } else if (this.ExternaCamaraSegurida.isSelected() == true) {
+                i++;
+                System.out.println("buen ingreso seleccion externa");
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tipo");
+            }
+            
             System.out.println(i);
             
-             if (i==7)
-            {
-                System.out.println( "REGISTRO");  
+            if (i == 7) {
+                System.out.println("REGISTRO");
                 try {
                     ca.setCodigo(txtCodigoCamaraSeguridad.getText());
                     ca.setModelo(txtModCamaraSeguridad.getText());
                     ca.setMarca(txtMarcaCamaraSeguridad.getText());
                     ca.setResolucion(txtResoluCamaraSeguridad.getText());
-                    if (InternaCamaraSegurida.isSelected()){
+                    if (InternaCamaraSegurida.isSelected()) {
                         ca.setTipo(InternaCamaraSegurida.getText());
-                    }else{
+                    } else {
                         ca.setTipo(ExternaCamaraSegurida.getText());
                     }
                     ca.setAnguloavertura((String) bxAnguloCamaraSeguridad.getSelectedItem());
@@ -381,13 +387,13 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
                     ca.setEstado("Activo");
                     ca.setFechaimportacion("");
                     Cca.create(ca);
-                    JOptionPane.showMessageDialog(null,  "Camara Registrados");
+                    JOptionPane.showMessageDialog(null, "Camara Registrados");
                 } catch (Exception ex) {
                     Logger.getLogger(Camara_Seguridad.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
             }
-        } 
+        }
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombreActionPerformed
@@ -399,7 +405,7 @@ public class Camara_Seguridad extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAyudaSueldoActionPerformed
 
     private void btnAyudaSueldo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaSueldo1ActionPerformed
- JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
+        JOptionPane.showMessageDialog(this, "Debe Ingresar la cantidad en el formato. Eje: 200.00");
 
     }//GEN-LAST:event_btnAyudaSueldo1ActionPerformed
 

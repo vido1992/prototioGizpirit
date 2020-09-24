@@ -255,6 +255,12 @@ public class Cable_R extends javax.swing.JInternalFrame {
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
         // TODO add your handling code here:
+        txtCodigoRegistro.setText("");
+        txtModeloRegistro.setText("");
+        txtMarcaRegistro.setText("");
+        cbLongitudRegistro.setSelectedIndex(0);
+        txtPrecioInicialRegistro.setText("");
+        txtPrecioPublicaRegistro.setText("");
         dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 

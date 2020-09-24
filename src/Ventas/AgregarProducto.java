@@ -29,6 +29,7 @@ import Entidades.Reloj;
 import Entidades.Sensor;
 import Entidades.Tomacorriente;
 import Inicio.Menu;
+import java.text.DecimalFormat;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -62,10 +63,11 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
     Llaveautomatica lla = new Llaveautomatica();
     RelojJpaController Creloj = new RelojJpaController();
     Reloj r = new Reloj();
-    A_Audifonos AA= new A_Audifonos();
+    A_Audifonos AA = new A_Audifonos();
     A_Cable AC = new A_Cable();
     A_Reloj AR = new A_Reloj();
     boolean selc = true;
+
     public AgregarProducto() {
         initComponents();
         this.setTitle("SiGIn-GIZPIRIT");
@@ -228,18 +230,22 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         } else if (jTextField15.getText().equals("")) {
 
             JOptionPane.showMessageDialog(null, "CAMPO CANTIDAD PEDIDO VACÍO", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
-        } else if(this.selc){
-        JOptionPane.showMessageDialog(null, "Seleccione un Prodcuto", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
-        
-        }else {
+        } else if (this.selc) {
+            JOptionPane.showMessageDialog(null, "Seleccione un Prodcuto", "Campo obligatorio", JOptionPane.WARNING_MESSAGE);
+
+        } else {
 
             llenarTablaProductoVenta();
-           
-            
-        }
 
+        }
+        DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProductoVenta.getModel();
+        modelo.setRowCount(0);
+
+        cbxCodigoConsulta.setSelectedIndex(0);
+        jTextField15.setText("");
+        this.selc = true;
         dispose();
-        this.selc= true;
+
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -250,11 +256,11 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
 
     private void jTableConsultaProductoVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableConsultaProductoVentaMouseClicked
         // TODO add your handling code here:
-        this.selc= false;
-        
+        this.selc = false;
+
     }//GEN-LAST:event_jTableConsultaProductoVentaMouseClicked
     public void llenarTablaProductoVenta() {
-
+        DecimalFormat formato1 = new DecimalFormat("#.00");
         String Codigo = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 0);
         String Modelo = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 1);
         String Marca = (String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 2);
@@ -262,11 +268,17 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
 
         String Cantidad = jTextField15.getText();
 
-        float u, c;
+        float u = 0, c = 0;
+
         u = Float.parseFloat(PrecioU);
         c = Float.parseFloat(Cantidad);
 
-        String PrecioTotal = Float.toString(u * c);
+        float total = u * c;
+        System.out.println(total);
+
+        formato1.format(total);
+        System.out.println(total);
+        String PrecioTotal = Float.toString(total);
         if (c > Integer.parseInt((String) jTableConsultaProductoVenta.getValueAt(jTableConsultaProductoVenta.getSelectedRow(), 4))) {
             JOptionPane.showMessageDialog(null, "Cantidad de prodcto exedida", "No se encuentra", JOptionPane.WARNING_MESSAGE);
         } else {

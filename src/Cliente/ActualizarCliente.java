@@ -73,8 +73,8 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabelLogo = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txtActualizarClienteActivo = new javax.swing.JRadioButton();
-        txtActualizarClienteInactivo = new javax.swing.JRadioButton();
+        brtActualizarClienteActivo = new javax.swing.JRadioButton();
+        brtActualizarClienteInactivo = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         ApellidosActualizarCliente = new javax.swing.JTextField();
@@ -154,16 +154,16 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Estado Cliente");
 
-        buttonGroup1.add(txtActualizarClienteActivo);
-        txtActualizarClienteActivo.setText("Activo");
-        txtActualizarClienteActivo.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(brtActualizarClienteActivo);
+        brtActualizarClienteActivo.setText("Activo");
+        brtActualizarClienteActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtActualizarClienteActivoActionPerformed(evt);
+                brtActualizarClienteActivoActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(txtActualizarClienteInactivo);
-        txtActualizarClienteInactivo.setText("Inactivo");
+        buttonGroup1.add(brtActualizarClienteInactivo);
+        brtActualizarClienteInactivo.setText("Inactivo");
 
         jLabel3.setText("Nombres");
 
@@ -218,9 +218,9 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                         .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                                 .addGap(93, 93, 93)
-                                .addComponent(txtActualizarClienteActivo)
+                                .addComponent(brtActualizarClienteActivo)
                                 .addGap(26, 26, 26)
-                                .addComponent(txtActualizarClienteInactivo))
+                                .addComponent(brtActualizarClienteInactivo))
                             .addGroup(jPanelActualizarCliLayout.createSequentialGroup()
                                 .addGap(44, 44, 44)
                                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -294,8 +294,8 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(txtActualizarClienteActivo)
-                    .addComponent(txtActualizarClienteInactivo))
+                    .addComponent(brtActualizarClienteActivo)
+                    .addComponent(brtActualizarClienteInactivo))
                 .addGap(27, 27, 27)
                 .addGroup(jPanelActualizarCliLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
@@ -398,7 +398,7 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         int i = 0;
-       if (this.txtactualizarClienteCi.getText().equals("")) {
+        if (this.txtactualizarClienteCi.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
         } else if (txtCorreoActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CORREO ELECTRÓNICO", JOptionPane.WARNING_MESSAGE);
@@ -409,56 +409,58 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
         } else if (this.txtTelefonoConvencionalActualizarCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO TELÉFONO CONVENCIONAL", JOptionPane.WARNING_MESSAGE);
         } else {
-              
             
             if (validar.validarCorreo(txtCorreoActualizarCliente.getText())) {
                 i++;
-            }else{
-            
-            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el correo electrónico del cliente?","WARNING",JOptionPane.YES_NO_OPTION);
-                    if(dialogButton == JOptionPane.YES_OPTION) {
-                    this.txtCorreoActualizarCliente.setText(""); 
-                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
-                            dispose(); 
-                    }
+            } else {
+                
+                int dialogButton = JOptionPane.showConfirmDialog(null, "Desea volver a ingresar el correo electrónico del cliente?", "WARNING", JOptionPane.YES_NO_OPTION);
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCorreoActualizarCliente.setText("");                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);                    
+                    dispose();                    
+                }
             }
             if (validar.validarDireccion(txtDireccionDomicilioActualizarCliente.getText())) {
                 i++;
-            }else{
-            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la Dirección de Domicilio del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
-                    if(dialogButton == JOptionPane.YES_OPTION) {
-                    this.txtDireccionDomicilioActualizarCliente.setText(""); 
-                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
-                            dispose(); 
-                    }
-            
-            
+            } else {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "Desea volver a ingresar la Dirección de Domicilio del cliente ?", "WARNING", JOptionPane.YES_NO_OPTION);
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtDireccionDomicilioActualizarCliente.setText("");                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);                    
+                    dispose();                    
+                }
+                
             }
             if (validar.validarTelefonoC(txtTelefonoCeluActualizarCliente.getText())) {
                 i++;
-            }else{
-            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono celular del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
-                    if(dialogButton == JOptionPane.YES_OPTION) {
-                    this.txtTelefonoCeluActualizarCliente.setText(""); 
-                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
-                            dispose(); 
-                    }
-                    
+            } else {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "Desea volver a ingresar el teléfono celular del cliente ?", "WARNING", JOptionPane.YES_NO_OPTION);
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtTelefonoCeluActualizarCliente.setText("");                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);                    
+                    dispose();                    
+                }
+                
             }
             if (validar.validarTelefonoConvencional(this.txtTelefonoConvencionalActualizarCliente.getText())) {
                 i++;
-            }else{
-            
-            int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el teléfono convencional del cliente ?","WARNING",JOptionPane.YES_NO_OPTION);
-                    if(dialogButton == JOptionPane.YES_OPTION) {
-                    this.txtTelefonoConvencionalActualizarCliente.setText(""); 
-                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
-                            dispose(); 
-                    }
+            } else {
+                
+                int dialogButton = JOptionPane.showConfirmDialog(null, "Desea volver a ingresar el teléfono convencional del cliente ?", "WARNING", JOptionPane.YES_NO_OPTION);
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtTelefonoConvencionalActualizarCliente.setText("");                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);                    
+                    dispose();                    
+                }
             }
-            if (this.txtActualizarClienteActivo.isSelected() == true) {
+            if (this.brtActualizarClienteActivo.isSelected() == true) {
                 i++;
-            } else if (this.txtActualizarClienteInactivo.isSelected() == true) {
+            } else if (this.brtActualizarClienteInactivo.isSelected() == true) {
                 i++;
             } else {
                 JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO ESTADO CLIENTE ", JOptionPane.WARNING_MESSAGE);
@@ -473,10 +475,10 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
                     cAct.setDireciondomicilio(txtDireccionDomicilioActualizarCliente.getText());
                     cAct.setTelefonocelular(txtTelefonoCeluActualizarCliente.getText());
                     cAct.setTelefonoconvencional(txtTelefonoConvencionalActualizarCliente.getText());
-                    if (txtActualizarClienteActivo.isSelected()) {
-                        cAct.setEstado(txtActualizarClienteActivo.getText());
-                    } else if (txtActualizarClienteInactivo.isSelected()) {
-                        cAct.setEstado(txtActualizarClienteInactivo.getText());
+                    if (brtActualizarClienteActivo.isSelected()) {
+                        cAct.setEstado(brtActualizarClienteActivo.getText());
+                    } else if (brtActualizarClienteInactivo.isSelected()) {
+                        cAct.setEstado(brtActualizarClienteInactivo.getText());
                     }
                     Ccliente.edit(cAct);
                     JOptionPane.showMessageDialog(null, "Cliente Actualizado");
@@ -492,61 +494,65 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         List<Cliente> listC = Ccliente.findClienteEntities();
-       
         
-         if (this.txtactualizarClienteCi.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);    
-        }else  {
-             
-              if (validar.validarCI(this.txtactualizarClienteCi.getText().toString())) {
-                         for (int i = 0; i < listC.size(); i++) {
-                        if (txtactualizarClienteCi.getText().equals(listC.get(i).getCedula())) {
-                            CIActualizarCliente.setText(listC.get(i).getCedula());
-                            nombreActualizarCliente.setText(listC.get(i).getNombres());
-                            ApellidosActualizarCliente.setText(listC.get(i).getApellidos());
-                            txtCorreoActualizarCliente.setText(listC.get(i).getEmail());
-                            txtDireccionDomicilioActualizarCliente.setText(listC.get(i).getDireciondomicilio());
-                            txtTelefonoCeluActualizarCliente.setText(listC.get(i).getTelefonocelular());
-                            txtTelefonoConvencionalActualizarCliente.setText(listC.get(i).getTelefonoconvencional());
-                            if(listC.get(i).getEstado().equals(null)){
-                                txtActualizarClienteActivo.setSelected(false);
-                                txtActualizarClienteInactivo.setSelected(false);
-                            }else if (listC.get(i).getEstado().equals("Activo")) {
-                                txtActualizarClienteActivo.setSelected(true);
-                            } else if (listC.get(i).getEstado().equals("Inactivo")) {
-                                txtActualizarClienteInactivo.setSelected(true);
-                            }
-
-                        }
-
-                    }
-            } else {
-                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la cédula de identidad?","WARNING",JOptionPane.YES_NO_OPTION);
-                    if(dialogButton == JOptionPane.YES_OPTION) {
-                    this.txtactualizarClienteCi.setText(""); 
-                    }else {JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
-                            dispose(); 
-                    }
-               
-            }           
+        if (this.txtactualizarClienteCi.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CÉDULA DE IDENTIDAD VACIO", JOptionPane.WARNING_MESSAGE);            
+        } else {
             
-             
-        
-        
-          
-        
-        
-         }
+            if (validar.validarCI(this.txtactualizarClienteCi.getText().toString())) {
+                for (int i = 0; i < listC.size(); i++) {
+                    if (txtactualizarClienteCi.getText().equals(listC.get(i).getCedula())) {
+                        CIActualizarCliente.setText(listC.get(i).getCedula());
+                        nombreActualizarCliente.setText(listC.get(i).getNombres());
+                        ApellidosActualizarCliente.setText(listC.get(i).getApellidos());
+                        txtCorreoActualizarCliente.setText(listC.get(i).getEmail());
+                        txtDireccionDomicilioActualizarCliente.setText(listC.get(i).getDireciondomicilio());
+                        txtTelefonoCeluActualizarCliente.setText(listC.get(i).getTelefonocelular());
+                        txtTelefonoConvencionalActualizarCliente.setText(listC.get(i).getTelefonoconvencional());
+                        if (listC.get(i).getEstado().equals(null)) {
+                            brtActualizarClienteActivo.setSelected(false);
+                            brtActualizarClienteInactivo.setSelected(false);
+                        } else if (listC.get(i).getEstado().equals("Activo")) {
+                            brtActualizarClienteActivo.setSelected(true);
+                        } else if (listC.get(i).getEstado().equals("Inactivo")) {
+                            brtActualizarClienteInactivo.setSelected(true);
+                        }
+                        
+                    }
+                    
+                }
+            } else {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "Desea volver a ingresar la cédula de identidad?", "WARNING", JOptionPane.YES_NO_OPTION);
+                if (dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtactualizarClienteCi.setText("");                    
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se actualizará cliente", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);                    
+                    dispose();                    
+                }
+                
+            }            
+            
+        }
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
+        ApellidosActualizarCliente.setText("");
+        CIActualizarCliente.setText("");
+        nombreActualizarCliente.setText("");
+        brtActualizarClienteActivo.setSelected(false);
+        brtActualizarClienteInactivo.setSelected(false);
+        txtCorreoActualizarCliente.setText("");
+        txtDireccionDomicilioActualizarCliente.setText("");
+        txtTelefonoCeluActualizarCliente.setText("");
+        txtTelefonoConvencionalActualizarCliente.setText("");
+        txtactualizarClienteCi.setText("");
         dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
-    private void txtActualizarClienteActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtActualizarClienteActivoActionPerformed
+    private void brtActualizarClienteActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_brtActualizarClienteActivoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtActualizarClienteActivoActionPerformed
+    }//GEN-LAST:event_brtActualizarClienteActivoActionPerformed
 
     private void txtTelefonoConvencionalActualizarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoConvencionalActualizarClienteActionPerformed
         // TODO add your handling code here:
@@ -560,6 +566,8 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidosActualizarCliente;
     private javax.swing.JTextField CIActualizarCliente;
+    private javax.swing.JRadioButton brtActualizarClienteActivo;
+    private javax.swing.JRadioButton brtActualizarClienteInactivo;
     private javax.swing.JButton btnAyudaApellido1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton4;
@@ -579,8 +587,6 @@ public class ActualizarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelActualizarCli;
     private javax.swing.JTextField nombreActualizarCliente;
-    private javax.swing.JRadioButton txtActualizarClienteActivo;
-    private javax.swing.JRadioButton txtActualizarClienteInactivo;
     private javax.swing.JTextField txtCorreoActualizarCliente;
     private javax.swing.JTextField txtDireccionDomicilioActualizarCliente;
     private javax.swing.JTextField txtTelefonoCeluActualizarCliente;

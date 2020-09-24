@@ -24,11 +24,12 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
      */
     InterruptorJpaController Cin = new InterruptorJpaController();
     Interruptor in = new Interruptor();
-     Validar validar = new Validar();
-    public String codigo, modelo, marca, tipo, pInicial, pPublico,NumeroBotones;
+    Validar validar = new Validar();
+    public String codigo, modelo, marca, tipo, pInicial, pPublico, NumeroBotones;
+
     public Interruptor_R() {
         initComponents();
-        this.setTitle("SiGIn-GIZPIRIT-INTERRUPTORES"); 
+        this.setTitle("SiGIn-GIZPIRIT-INTERRUPTORES");
     }
 
     /**
@@ -256,14 +257,21 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
-     dispose();
+        txtPrecioPublicoInterruptor.setText("");
+        txtcodigoInterruptor.setText("");
+        txtmodeloInterruptor.setText("");
+        txtprecioInicialInterruptor.setText("");
+        boxBotonesInterruptor.setSelectedIndex(0);
+        boxMarcaInterruptor.setSelectedIndex(0);
+        boxTipoInterruptor.setSelectedIndex(0);
+
+        dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed
 
-               
-        int i=0;
-            if (this.txtcodigoInterruptor.getText().equals("")) {
+        int i = 0;
+        if (this.txtcodigoInterruptor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CODIGO VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtmodeloInterruptor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO MODELO VACIO", JOptionPane.WARNING_MESSAGE);
@@ -271,10 +279,9 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO INICIAL VACIO", JOptionPane.WARNING_MESSAGE);
         } else if (this.txtPrecioPublicoInterruptor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO PRECIO AL PUBLICO VACIO", JOptionPane.WARNING_MESSAGE);
-        } else
-        {
-               //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
-            if (validar.validarCodigoTodos(this.txtcodigoInterruptor.getText().toString(),"IN")) {
+        } else {
+            //RJ-Reloj, AU-Audifonos, CM-Cámara, CA-Cargador, CB-Cable, IN-Interruptor, TO-Tomacorriente, SE-Sensor, CZ-ControladorVoz, La-Llaves Automáticas
+            if (validar.validarCodigoTodos(this.txtcodigoInterruptor.getText().toString(), "IN")) {
                 //{}
                 i++;
                 this.codigo = this.txtcodigoInterruptor.getText().toString();
@@ -294,59 +301,57 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
                 i++;
                 this.pPublico = this.txtPrecioPublicoInterruptor.getText().toString();
                 // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
-            } 
-            if(this.boxBotonesInterruptor.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
-            this.NumeroBotones = this.boxBotonesInterruptor.getSelectedItem().toString();
+            }
+            if (this.boxBotonesInterruptor.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+                this.NumeroBotones = this.boxBotonesInterruptor.getSelectedItem().toString();
                 // System.out.println(this.TelefonoClienteRegistro.getText());
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en botones");
-       
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en botones");
+
             }
-            if(this.boxMarcaInterruptor.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
-            this.marca = this.boxMarcaInterruptor.getSelectedItem().toString();
-           
-            
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en marca");
+            if (this.boxMarcaInterruptor.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+                this.marca = this.boxMarcaInterruptor.getSelectedItem().toString();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en marca");
             }
-            if(this.boxTipoInterruptor.getSelectedItem().toString()!="Selección")
-            {i++;
-            System.out.println( "buen ingreso");     
-            this.tipo = this.boxTipoInterruptor.getSelectedItem().toString();
-                 
-            }else{
-            JOptionPane.showMessageDialog(null,  "Debe Seleccionar una opcion en tipo");
+            if (this.boxTipoInterruptor.getSelectedItem().toString() != "Selección") {
+                i++;
+                System.out.println("buen ingreso");
+                this.tipo = this.boxTipoInterruptor.getSelectedItem().toString();
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en tipo");
             }
-           
-            JOptionPane.showMessageDialog(null,  "contador"+i); 
-            
-             if (i==7)
-            {   
-                System.out.println( "REGISTRO");  
+
+            JOptionPane.showMessageDialog(null, "contador" + i);
+
+            if (i == 7) {
+                System.out.println("REGISTRO");
                 try {
-                in.setCodigo(codigo);
-                in.setModelo(modelo);
-                in.setMarca(marca);
-                in.setNumerobotones(NumeroBotones);
-                in.setTipo(tipo);
-                in.setPrecioimportacion(pInicial);
-                in.setPreciopublico(pPublico);
-                in.setCantidad("0");
-                in.setEstado("Activo");
-                in.setFechaimportacion("");
-                Cin.create(in);
-                JOptionPane.showMessageDialog(null,  "Interruptor Registrados");
+                    in.setCodigo(codigo);
+                    in.setModelo(modelo);
+                    in.setMarca(marca);
+                    in.setNumerobotones(NumeroBotones);
+                    in.setTipo(tipo);
+                    in.setPrecioimportacion(pInicial);
+                    in.setPreciopublico(pPublico);
+                    in.setCantidad("0");
+                    in.setEstado("Activo");
+                    in.setFechaimportacion("");
+                    Cin.create(in);
+                    JOptionPane.showMessageDialog(null, "Interruptor Registrados");
                 } catch (Exception ex) {
                     Logger.getLogger(Interruptor_R.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        
+
         }
-        
+
     }//GEN-LAST:event_jBotonRegistrarInv1ActionPerformed
 
     private void btnAyudaSueldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaSueldoActionPerformed
@@ -358,7 +363,7 @@ public class Interruptor_R extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAyudaSueldo1ActionPerformed
 
     private void btnAyudaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaNombreActionPerformed
-         JOptionPane.showMessageDialog(this, "Debe Ingresar IN seguido de 3 números ");
+        JOptionPane.showMessageDialog(this, "Debe Ingresar IN seguido de 3 números ");
     }//GEN-LAST:event_btnAyudaNombreActionPerformed
 
 

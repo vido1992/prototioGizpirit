@@ -251,7 +251,13 @@ public class Audifonos_R extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresar3ActionPerformed
-dispose();
+txtCodigoRegistro.setText("");
+txtModeloRegistro.setText("");
+txtMarcaRegistro.setText("");
+boxTipoRegistro.setSelectedIndex(0);
+txtPrecioInicialRegistro.setText("");
+txtPrecioPublicoRegistro.setText("");
+        dispose();
     }//GEN-LAST:event_jButtonRegresar3ActionPerformed
 
     private void jBotonRegistrarInv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistrarInv1ActionPerformed

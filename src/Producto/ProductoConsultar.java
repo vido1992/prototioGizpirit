@@ -213,9 +213,9 @@ public class ProductoConsultar extends javax.swing.JInternalFrame {
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
 
-        /*this.setVisible(false);
-        Menu m=new Menu();
-        m.setEnabled(true);*/
+        cbxCodigoConsulta.setSelectedIndex(0);
+        DefaultTableModel modelo = (DefaultTableModel) jTableConsultaProducto.getModel();
+        modelo.setRowCount(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 

@@ -256,6 +256,9 @@ public class ProductoEliminar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
+        cbxProductoEliminar.setSelectedIndex(0);
+        DefaultTableModel modelo = (DefaultTableModel) jTableProductoEliminar.getModel();
+            modelo.setRowCount(0);
         dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
