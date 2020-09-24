@@ -21,11 +21,11 @@ public class ConsultaClienteVenta extends javax.swing.JInternalFrame {
     /**
      * Creates new form Consulta_Cliente
      */
-    
     ClienteJpaController Ccliente = new ClienteJpaController();
+
     public ConsultaClienteVenta() {
         initComponents();
-        this.setTitle("Consulto Cliente"); 
+        this.setTitle("Consulto Cliente");
     }
 
     /**
@@ -269,10 +269,9 @@ public class ConsultaClienteVenta extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegresarActionPerformed
-        
-        
+
         List<Cliente> listC = Ccliente.findClienteEntities();
-        boolean esta=true;
+        boolean esta = true;
         if (this.txtCIConsultaCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
         } else {
@@ -290,43 +289,44 @@ public class ConsultaClienteVenta extends javax.swing.JInternalFrame {
                     Columna[3] = listC.get(i).getTelefonocelular();
                     Columna[4] = listC.get(i).getDireciondomicilio();
                     modelo.addRow(Columna);
-                    esta=false;
+                    esta = false;
                 }
             }
             VentaRegistro.jTable5.setModel(modelo);
         }
-        if(esta){
-        JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+        if (esta) {
+            JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
         }
-        
+
         dispose();
     }//GEN-LAST:event_jButtonRegresarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        
-           if(this.txtCIConsultaCliente.getText().equals(""))
-        {
-            JOptionPane.showMessageDialog(null,  "Campo obligatorio","CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
-        }else{
-           
-           List<Cliente> listC = Ccliente.findClienteEntities();
-        for (int i = 0; i < listC.size(); i++) {
-            if (txtCIConsultaCliente.getText().equals(listC.get(i).getCedula())) {
-   
-                txtNombreConsultaCliente.setText(listC.get(i).getNombres());
-                txtApellidoConsultaCliente.setText(listC.get(i).getApellidos());
-                txtCorreoEleConsultaCliente.setText(listC.get(i).getEmail());
-                txtDirecDomiConsultaCliente.setText(listC.get(i).getDireciondomicilio());
-                txtTeleCeluConsultaCliente.setText(listC.get(i).getTelefonocelular());
-                txtTeleConveConsultaCliente.setText(listC.get(i).getTelefonoconvencional());
-            
-       
+        boolean esta = true;
+        if (this.txtCIConsultaCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Campo obligatorio", "CAMPO CI VACÍO", JOptionPane.WARNING_MESSAGE);
+        } else {
+
+            List<Cliente> listC = Ccliente.findClienteEntities();
+            for (int i = 0; i < listC.size(); i++) {
+                if (txtCIConsultaCliente.getText().equals(listC.get(i).getCedula())) {
+                    txtNombreConsultaCliente.setText(listC.get(i).getNombres());
+                    txtApellidoConsultaCliente.setText(listC.get(i).getApellidos());
+                    txtCorreoEleConsultaCliente.setText(listC.get(i).getEmail());
+                    txtDirecDomiConsultaCliente.setText(listC.get(i).getDireciondomicilio());
+                    txtTeleCeluConsultaCliente.setText(listC.get(i).getTelefonocelular());
+                    txtTeleConveConsultaCliente.setText(listC.get(i).getTelefonoconvencional());
+                    esta = false;
+                }
+
             }
-            
+            if (esta) {
+                JOptionPane.showMessageDialog(null, "No existe Cliente", "No se encuentra", JOptionPane.WARNING_MESSAGE);
+            }
+
         }
-           
-           }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtTeleCeluConsultaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTeleCeluConsultaClienteActionPerformed
