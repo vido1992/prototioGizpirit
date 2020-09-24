@@ -87,7 +87,7 @@ public class Audifonos_R extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Tipo");
 
-        boxTipoRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Inalambrico", "Alambrico" }));
+        boxTipoRegistro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selección", "Inalámbrico", "Alambrico" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("PRODUCTO AUDIFONOS");
@@ -273,27 +273,75 @@ dispose();
                 i++;
                 this.codigo = this.txtCodigoRegistro.getText().toString();
 
-            }
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el codigo?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtCodigoRegistro.setText(""); 
+                    }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena producto", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
+                        dispose(); 
+                            
+                    }}
+                    
             if (validar.validarModelosTodos(this.txtModeloRegistro.getText().toString())) {
                 i++;
                 this.modelo = this.txtModeloRegistro.getText().toString();
-            }
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el modelo?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtModeloRegistro.setText(""); 
+                    }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena producto", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
+                        dispose(); 
+                            
+                    }}
+                    
             if (validar.validarMarcaTodos(this.txtMarcaRegistro.getText().toString())) {
                 i++;
                 this.marca = this.txtMarcaRegistro.getText().toString();
                 //System.out.println(this.ApellidosClienteRegistro.getText().toString());
-            }
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar la marca?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtMarcaRegistro.setText(""); 
+                    }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena producto", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
+                        dispose(); 
+                            
+                    }}
+                    
 
             if (validar.validarSueldo(this.txtPrecioInicialRegistro.getText().toString())) {
                 i++;
                 this.pInicial = this.txtPrecioInicialRegistro.getText().toString();
                 // System.out.println("aqui "+this.DireccionClienteRegistro.getText().toString());
-            }
+            }else {
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el precio inicial?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtPrecioInicialRegistro.setText(""); 
+                    }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena producto", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
+                        dispose(); 
+                            
+                    }}
+                    
             if (validar.validarSueldo(this.txtPrecioPublicoRegistro.getText().toString())) {
                 i++;
                 this.pPublico = this.txtPrecioPublicoRegistro.getText().toString();
                 //System.out.println(this.CorreoElectronico.getText().toString());
+            }else {
+                
+                    JOptionPane.showMessageDialog(null, "Precio al público invalido debe de ser un número real con dos dígitos", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);
+                    int dialogButton = JOptionPane.showConfirmDialog (null, "Desea volver a ingresar el precio al publico?","WARNING",JOptionPane.YES_NO_OPTION);
+                    if(dialogButton == JOptionPane.YES_OPTION) {
+                    this.txtPrecioPublicoRegistro.setText(""); 
+                    }else {
+                        JOptionPane.showMessageDialog(null, "No se almacena producto", "ATENCIÓN", JOptionPane.WARNING_MESSAGE);    
+                        dispose(); 
+                            
+                    }
             }
+                    
             if(this.boxTipoRegistro.getSelectedItem().toString()!="Selección")
             {i++;
             System.out.println( "buen ingreso");  

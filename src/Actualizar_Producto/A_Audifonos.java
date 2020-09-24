@@ -72,6 +72,8 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
 
         jLabel29.setText("Precio de Inicial (USD):");
 
+        txtCodigoActualizar.setEnabled(false);
+
         jButtonRegresar3.setText("Regresar");
         jButtonRegresar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,7 +91,7 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
 
         jLabel35.setText("Tipo");
 
-        cbxTipoActualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccioón", "Inalambrico", "Alambrico" }));
+        cbxTipoActualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccioón", "Inalámbrico", "Alambrico" }));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("ACTUALIZACIÓN  AUDIFONOS");
@@ -246,17 +248,14 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(138, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -305,7 +304,7 @@ public class A_Audifonos extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion");
             }
 
-            JOptionPane.showMessageDialog(null, "contador" + i);
+           // JOptionPane.showMessageDialog(null, "contador" + i);
 
             if (i == 6) {
 

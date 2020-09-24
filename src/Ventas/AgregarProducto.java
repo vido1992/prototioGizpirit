@@ -84,7 +84,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         jButtonRegresar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jTextField15 = new javax.swing.JTextField();
-        cbxCodigoConsulta = new javax.swing.JComboBox<>();
+        cbxCodigoConsulta = new javax.swing.JComboBox<String>();
         jLabelBusqInv = new javax.swing.JLabel();
         jLabelBusqInv1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -110,9 +110,9 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
             }
         });
 
-        cbxCodigoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione un producto", "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
+        cbxCodigoConsulta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione un producto", "RJ-Reloj", "AU-Audifonos", "CM-Cámara", "CA-Cargador", "CB-Cable", "IN-Interruptor", "TO-Tomacorriente", "SE-Sensor", "CZ-ControladorVoz", "La-Llaves Automáticas" }));
 
-        jLabelBusqInv.setText("Seleccione el elemento de búsqueda");
+        jLabelBusqInv.setText("Elemento de búsqueda");
 
         jLabelBusqInv1.setText("Cantidad Pedido");
 
@@ -126,7 +126,7 @@ public class AgregarProducto extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(12, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
