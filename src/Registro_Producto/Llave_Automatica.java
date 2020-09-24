@@ -274,7 +274,7 @@ public class Llave_Automatica extends javax.swing.JInternalFrame {
             }
              
            
-            //JOptionPane.showMessageDialog(null,  "contador"+i); 
+            JOptionPane.showMessageDialog(null,  "contador"+i); 
             
              if (i==5)
             {

@@ -432,7 +432,7 @@ public class RegistroEmpleado extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "Debe Seleccionar una opcion en Rol Empleado");
             }
 
-           // JOptionPane.showMessageDialog(null, "contador" + i);
+            JOptionPane.showMessageDialog(null, "contador" + i);
 
             if (i == 9) {
 
